@@ -22,5 +22,5 @@ Route::get('college/register','College\CollegeAuthController@register');
 Route::get('college/create-profile','College\CollegeAuthController@creatProfile');
 Route::get('college/reg','College\CollegeAuthController@register');
 Route::get('college/demo', function () {
-    return view('college.create_profile');
+    return view('college.update_profile1');
 });
