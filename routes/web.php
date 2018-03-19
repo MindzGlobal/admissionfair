@@ -23,3 +23,5 @@ Route::get('college/register','College\CollegeAuthController@register');
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
+
+// Ashish
