@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ $data }}{{ $data }}{{ $data }} {{ $data }} {{ $data }} {{ $data }}
+                    {{ $data }}
                 </div>
             </div>
         </div>
