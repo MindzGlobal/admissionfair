@@ -17,5 +17,10 @@ class CollegeAuthController extends Controller
       return view('college.register');
     }
 
+    public function creatProfile()
+    {
+      return view('college.create_profile');
+    }
+
     
 }
