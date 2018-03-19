@@ -19,7 +19,7 @@ Route::get('/', 'HomeController@about')->name('home');
 //College Section  ##############################################################################
 Route::get('college/login','College\CollegeAuthController@login');
 Route::get('college/register','College\CollegeAuthController@register');
-Route::get('college/reg','College\CollegeAuthController@register');
+//Route::get('college/reg','College\CollegeAuthController@register');
 
 
 

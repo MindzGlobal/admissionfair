@@ -15,6 +15,7 @@
                     @endif
 
                     {{ $data }}{{ $data }}{{ $data }} {{ $data }} {{ $data }} {{ $data }}
+hfhdfjhdj
                 </div>
             </div>
         </div>
