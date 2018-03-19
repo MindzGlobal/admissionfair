@@ -22,7 +22,7 @@ Route::get('college/register','College\CollegeAuthController@register');
 Route::get('college/reg','College\CollegeAuthController@register');
 
 
-
+kfhjkflhjklfh
 
 
 
