@@ -14,8 +14,12 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     {{ $data }}{{ $data }}{{ $data }} {{ $data }} {{ $data }} {{ $data }}
 hfhdfjhdj
+=======
+                    {{ $data }}
+>>>>>>> 856a2e7adc007404351acd0ef8ce661515006585
                 </div>
             </div>
         </div>
