@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\College;
 use App\Http\Controllers\Controller;
+use App\Modle\College\College_details;
 
 use Illuminate\Http\Request;
 
@@ -17,9 +18,10 @@ class CollegeAuthController extends Controller
       return view('college.register');
     }
 
-    public function creatProfile()
+    public function insertProfile(Request $Request)
     {
-      return view('college.create_profile');
+      dd($request);
+      //return view('college.create_profile');
     }
 
     
