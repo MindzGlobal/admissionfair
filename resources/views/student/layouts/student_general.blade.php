@@ -53,8 +53,8 @@
                     <div class="header-topbar-col center767">
                         <form>
                             <div class="input-group">
-                                <input placeholder="Search College List" class="form-control" name="search-field" type="text">
-                                    <span class="input-group-btn">
+                               <input placeholder="Search College List" class="form-control" name="search-field" type="text">
+                                    <span class~="input-group-btn">
                                         <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                     </span>
                             </div>
@@ -216,6 +216,7 @@
       <script type="text/javascript" src="{{ asset('student/js/particles.min.js')}}"></script>
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
       
       @yield('js')
 

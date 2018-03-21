@@ -21,6 +21,20 @@ Route::get('college/login','College\CollegeAuthController@login');
 Route::get('college/register','College\CollegeAuthController@register');
 Route::get('college/create-profile','College\CollegeAuthController@creatProfile');
 Route::get('college/reg','College\CollegeAuthController@register');
+
+Route::get('student/demo', function () {
+    return view('student.pages.register_login');
+});
+
+//Student Section ###############################################################################
 Route::get('college/demo', function () {
-    return view('college.update_profile1');
+    return view('college.create_profile');
+});
+
+Route::get('student/demo', function () {
+    return view('student.pages.edit_student_details');
+});
+
+Route::get('student/demo', function () {
+    return view('student.pages.student_dashboard');
 });

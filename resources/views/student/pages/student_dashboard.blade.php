@@ -9,7 +9,11 @@
         {
         padding: 12px;
         }
-    </style>
+        .ptl
+        {
+            padding-left:2%;
+        }
+</style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
@@ -54,12 +58,25 @@
                         <p>After graduating from West Virginia University Medical School, Dr. Jonathon Alex completed a two-year fellowship in sports medicine at Akron Children’s Hospital. During his training at Akron, Dr. Jonathon Alex was team physician for the University of Akron and Walsh University.</p>
                      </div>
                      <ul class="nav nav-tabs mt-30">
-                        <li class="active"><a data-toggle="tab" href="#tab1" aria-expanded="true">Personal Information</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Educational Information</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Companies Applied</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
                      </ul>
                      <div class="tab-content">
-                        <div id="tab1" class="tab-pane fade active in">
+                        <div id="tab1" class="tab-pane fade ">
                            <dl class="dl-horizontal doctor-info">
+                              <dt>Last Name</dt>
+                              <dd>
+                                 Roopa
+                              </dd>
+                              <hr>
+                              
+                           </dl>
+                        </div>
+                        <div id="tab2" class="tab-pane fade">
+                        <dl class="dl-horizontal doctor-info">
+                        <div class="row"> <h4 class="ptl">About Me</h4><input type="button" style="float:right" value="Edit Info"></div>
+                        <hr>
                               <dt>Last Name</dt>
                               <dd>
                                  Roopa
@@ -91,8 +108,10 @@
                               </dd>
                            </dl>
                         </div>
-                        <div id="tab2" class="tab-pane fade">
-                           <h4>SSLC Information</h4>
+                        <div id="tab3" class="tab-pane fade active in">
+                      
+                          <div class="row"> <h4 class="ptl">SSLC Information</h4><input type="button" style="float:right" value="Edit Info"></div>
+						  
                            <hr>
                            <dl class="dl-horizontal doctor-info">
                               <dt>SSC School Name</dt>
@@ -150,8 +169,7 @@
                               </dd>
                               <hr>
                            </dl>
-                           <button class="btn-success" onclick="myFunction()">View More</button>
-                           <hr>
+                           <button type="submit" id="status" class="button" value="True"><span>View More</span></button>                           <hr>
                            <dl class="dl-horizontal doctor-info" id="View-Degree" Style="display:None">
                               <h4>Graduation Information</h4>
                               <hr>
@@ -251,8 +269,23 @@
              } else {
                  x.style.display = "none";
              }
+             if (this.value=="view more") this.value = "view less";
+    else this.value = "view more";
          	
          }
     </script>
+    <script>
+            $(".button").click(function() {
+                $(".button span").html($(".button span").html() == 'View More' ? 'View Less' : 'View More');
+
+                var x = document.getElementById("View-Degree");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+            });
+    </script>
+    
 @endsection
       
