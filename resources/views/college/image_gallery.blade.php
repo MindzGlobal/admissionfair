@@ -1,10 +1,21 @@
 @extends('college.layouts.app')
 @section('css')
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 @endsection
 @section('content')
+=======
+    <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
+
+    <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
+  @endsection
+
+@section('content')
+
+>>>>>>> 3b6bd6b0ea3c4fb3c4df9d0920012c66b9f38b28
           <div class="container-fluid">
               <div class="row bg-title">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -64,7 +75,7 @@
                                       <a href="{{ asset('college/plugins/images/assets/landscape18.jpg') }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here"><img src="{{ asset('college/plugins/images/assets/landscape18.jpg') }}" class="all landscape" alt="gallery" /></a>
 
                                   </div>
-
+college/
                                 </div>
                               </div>
                           </div>
@@ -74,6 +85,7 @@
               </div>
           </div>
 @endsection
+<<<<<<< HEAD
 @section('js')
     <script type="text/javascript" src="{{ asset('college/plugins/bower_components/gallery/js/animated-masonry-gallery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('college/plugins/bower_components/gallery/js/jquery.isotope.min.js') }}"></script>
@@ -81,3 +93,17 @@
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
 @endsection
+=======
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    @section('js')
+   
+    <script type="text/javascript" src="{{ asset('college/plugins/bower_components/gallery/js/animated-masonry-gallery.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('college/plugins/bower_components/gallery/js/jquery.isotope.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.js')}}"></script>
+   
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js')}}"></script>
+    @endsection
+
+>>>>>>> 3b6bd6b0ea3c4fb3c4df9d0920012c66b9f38b28
