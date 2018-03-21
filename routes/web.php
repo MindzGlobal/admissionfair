@@ -23,3 +23,21 @@ Route::get('college/reg','College\CollegeAuthController@register');
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
+
+Route::prefix('student')->namespace('students')->group(function(){
+    Route::get('logout','Auth\StudentLoginController@logout')->name('student.logout');
+
+    Route::get('profile','StudentController@index');
+
+    Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student-login-form');
+    Route::post('login','Auth\StudentLoginController@login')->name('student-login');
+    Route::get('signup','Auth\StudentRegisterController@signupform');
+    Route::post('signup','Auth\StudentRegisterController@createStudent')->name('create-register');
+    
+    
+    Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
+    Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
+    Route::post('password/reset','Auth\ResetPasswordController@reset');
+    Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
+     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+});
