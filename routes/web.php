@@ -23,3 +23,13 @@ Route::get('college/reg','College\CollegeAuthController@register');
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
+Route::get('college/std_profile1', function () {
+    return view('college.std_profile1');
+});
+Route::get('college/video_gallery', function () {
+    return view('college.video_gallery');
+});
+Route::get('college/image_gallery', function () {
+    return view('college.image_gallery');
+});
+

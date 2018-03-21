@@ -1,6 +1,7 @@
 @extends('college.layouts.app')
 @section('css')
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+<link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('content')

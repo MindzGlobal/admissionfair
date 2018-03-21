@@ -9,22 +9,22 @@
       <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
       <title>Virtual Admission Fair|Dashboard</title>
       <!-- Bootstrap Core CSS -->
-      <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
-      <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+      <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
+      <link href="{{ asset('plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
       <!-- Menu CSS -->
-      <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+      <link href="{{ asset('college/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
       <!-- Morris CSS -->
-      <link href="plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
-      <link href="plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-      <link href="plugins/bower_components/jquery-wizard-master/css/wizard.css" rel="stylesheet">
-      <link rel="stylesheet" href="plugins/bower_components/dropify/dist/css/dropify.min.css">
+      <link href="{{ asset('college/plugins/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
+      <link href="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+      <link href="{{ asset('college/plugins/bower_components/jquery-wizard-master/css/wizard.css') }}" rel="stylesheet">
+      <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
       <!-- animation CSS -->
-      <link href="css/animate.css" rel="stylesheet">
+      <link href="{{ asset ('college/css/animate.css') }}" rel="stylesheet">
       <!-- Custom CSS -->
-      <link href="css/style.css" rel="stylesheet">
+      <link href="{{ asset('college/css/style.css') }}" rel="stylesheet">
       <!-- color CSS -->
-      <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+      <link href="{{ asset('college/css/colors/blue.css') }}" id="theme" rel="stylesheet"
    </head>
    <body>
       <div id="wrapper">
@@ -312,34 +312,34 @@
       </div>
       <!-- /#wrapper -->
       <!-- jQuery -->
-      <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="{{ asset('plugins/bower_components/jquery/dist/jquery.min.js"></script>
       <!-- Bootstrap Core JavaScript -->
-      <script src="bootstrap/dist/js/tether.min.js"></script>
-      <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-      <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+      <script src="{{ asset('college/bootstrap/dist/js/tether.min.js') }}"></script>
+      <script src="{{ asset('college/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
       <!-- Menu Plugin JavaScript -->
-      <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+      <script src="{{ asset('college/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
       <!--slimscroll JavaScript -->
-      <script src="js/jquery.slimscroll.js"></script>
+      <script src="{{ asset('college/js/jquery.slimscroll.js') }}"></script>
       <!--Wave Effects -->
-      <script src="js/waves.js"></script>
+      <script src="{{ asset('college/js/waves.js') }}"></script>
       <!--Morris JavaScript -->
-      <script src="plugins/bower_components/raphael/raphael-min.js"></script>
-      <script src="plugins/bower_components/morrisjs/morris.js"></script>
+      <script src="{{ asset('college/plugins/bower_components/raphael/raphael-min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/morrisjs/morris.js') }}"></script>
       <!-- Sparkline chart JavaScript -->
-      <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-      <script src="plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
+      <script src="{{ asset('college/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js') }}"></script>
       <!-- Custom Theme JavaScript -->
-      <script src="js/custom.min.js"></script>
-      <script src="js/dashboard1.js"></script>
-      <script src="plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js"></script>
+      <script src="{{ asset('college/js/custom.min.js') }}"></script>
+      <script src="{{ asset('college/js/dashboard1.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js') }}"></script>
       <!-- FormValidation -->
-      <link rel="stylesheet" href="plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css">
-      <script src="plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.js"></script>
-      <script src="plugins/bower_components/jquery-wizard-master/libs/formvalidation/bootstrap.min.js"></script>
-      <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
-      <script src="plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-      <script src="plugins/bower_components/dropify/dist/js/dropify.min.js"></script>
+      <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+      <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
 
       <script type="text/javascript">
          (function() {
@@ -530,6 +530,6 @@
     </script>
 
       <!--Style Switcher -->
-      <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+      <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
    </body>
 </html>
