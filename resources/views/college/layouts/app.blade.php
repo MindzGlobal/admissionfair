@@ -7,17 +7,18 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
             <meta name="author" content="">
-            <link rel="icon" type="image/png" sizes="16x16" href="">
-            <title>Virtual Admission Fair|Dashboard</title>
+            <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
+            <title>Dashboard|Virtual Admission Fair</title>
             <!-- Bootstrap Core CSS -->
             <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
-            <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-
+            <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
             <!-- Menu CSS -->
             <link href="{{ asset('college/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
             <!-- Morris CSS -->
             <link href="{{ asset('college/plugins/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
+            <link href="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+            <link href="{{ asset('college/plugins/bower_components/jquery-wizard-master/css/wizard.css') }}" rel="stylesheet">
             <!-- animation CSS -->
             <link href="{{ asset('college/css/animate.css') }}" rel="stylesheet">
             <!-- Custom CSS -->
@@ -34,7 +35,7 @@
                 <nav class="navbar navbar-default navbar-static-top m-b-0">
                     <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
 
-                        <div class="top-left-part"><a class="logo" href="index.html">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}" alt=""/ style="width: 150px;
+                        <div class="top-left-part"><a class="logo" href="index.html">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}" alt=""/ style="width: 150px;>
                         margin-left: 30px;"></span></a></div>
                         <ul class="nav navbar-top-links navbar-left hidden-xs">
                             <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
@@ -79,6 +80,8 @@
                             </li>
                             <li> <a href="update_profile" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> Update Profile</span></a>
                             </li>
+                            <li> <a href="std_profile" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a>
+                            </li>
                             <li><a href="select_booth" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Select Booth </span></a></li>
                             <!-- <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-bars p-r-10"></i> <span class="hide-menu"> Courses <span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level">
@@ -105,7 +108,7 @@
                 <div id="page-wrapper">
                     @yield('content')
                     <!-- /.container-fluid -->
-                    <footer class="footer text-center"> 2018 &copy; By ZRMindzGlobal </footer>    
+                    <footer class="footer text-center"> 2018 &copy; By ZRMindzGlobal </footer>
                 </div>
         </div>
         <!-- jQuery -->
@@ -128,9 +131,13 @@
         <script src="{{ asset('college/plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js') }}"></script>
         <!-- Custom Theme JavaScript -->
         <script src="{{ asset('college/js/custom.min.js') }}"></script>
-        <script src="{{ asset('college/js/dashboard1.js') }}"></script>
-        <!--Style Switcher -->
-        <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js') }}"></script>
+        <!-- FormValidation -->
+        <link rel="{{ asset('college/stylesheet" href="plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
 
         @yield('js')
     </body>

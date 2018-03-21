@@ -19,7 +19,8 @@ Route::get('/', 'HomeController@about')->name('home');
 //College Section  ##############################################################################
 Route::get('college/login','College\CollegeAuthController@login');
 Route::get('college/register','College\CollegeAuthController@register');
-Route::get('college/reg','College\CollegeAuthController@register');
+Route::post('college/insertprofile','College\CollegeAuthController@insertProfile');
+
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
@@ -40,4 +41,13 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('password/reset','Auth\ResetPasswordController@reset');
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
      Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+});
+Route::get('college/std_profile1', function () {
+    return view('college.std_profile1');
+});
+Route::get('college/video_gallery', function () {
+    return view('college.video_gallery');
+});
+Route::get('college/image_gallery', function () {
+    return view('college.image_gallery');
 });
