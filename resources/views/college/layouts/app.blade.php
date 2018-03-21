@@ -8,16 +8,17 @@
             <meta name="description" content="">
             <meta name="author" content="">
             <link rel="icon" type="image/png" sizes="16x16" href="">
-            <title>Virtual Admission Fair|Dashboard</title>
+            <title></title>
             <!-- Bootstrap Core CSS -->
             <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
-            <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-
+            <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
             <!-- Menu CSS -->
             <link href="{{ asset('college/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
             <!-- Morris CSS -->
             <link href="{{ asset('college/plugins/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
+            <link href="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+            <link href="{{ asset('college/plugins/bower_components/jquery-wizard-master/css/wizard.css') }}" rel="stylesheet">
             <!-- animation CSS -->
             <link href="{{ asset('college/css/animate.css') }}" rel="stylesheet">
             <!-- Custom CSS -->
@@ -128,9 +129,13 @@
         <script src="{{ asset('college/plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js') }}"></script>
         <!-- Custom Theme JavaScript -->
         <script src="{{ asset('college/js/custom.min.js') }}"></script>
-        <script src="{{ asset('college/js/dashboard1.js') }}"></script>
-        <!--Style Switcher -->
-        <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js') }}"></script>
+        <!-- FormValidation -->
+        <link rel="{{ asset('college/stylesheet" href="plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+        <script src="{{ asset('college/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
 
         @yield('js')
     </body>

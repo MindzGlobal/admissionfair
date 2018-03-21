@@ -19,12 +19,6 @@
 
 
 @section('content')
-   <!-- Responsive stylesheet  -->
-  
-   
-   {{--  <title>Student Profile|VAF-2018</title>  --}}
-   <body>
-      {{--  ?php include("common/header-hall.php")?>  --}}
       <!-- Strat Banner Section -->
       <div class="edu-banner padding-bt-150 banner-height">
          <div class="container">
