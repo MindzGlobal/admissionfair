@@ -34,7 +34,3 @@ Route::get('college/demo', function () {
 Route::get('student/demo', function () {
     return view('student.pages.edit_student_details');
 });
-
-Route::get('student/demo', function () {
-    return view('student.pages.student_dashboard');
-});

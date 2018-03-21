@@ -1,6 +1,11 @@
 @extends('college.layouts.app')
 @section('css')
-
+<<<<<<< HEAD
+<link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+<link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+=======
+    <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+>>>>>>> d907f5a7392a5ada4d82122eb6b01a2c8a1d8b06
 @endsection
 
 @section('content')
@@ -30,11 +35,10 @@
                             <h4><span><i class="ti-check"></i></span>Add Media</h4>
                         </li>
                     </ul>
-                    <form id="validation" class="form-horizontal">
+                    <form id="validation" class="form-horizontal" method="POST" action="{{ url('college/insertprofile') }}" >
+                        @csrf
                         <div class="wizard-content">
-
                             <div class="wizard-pane active" role="tabpanel">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Name</label>
@@ -51,21 +55,32 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">Mobile Number</label>
+                                    <label class="col-xs-3 control-label">Official Number</label>
                                     <div class="col-xs-5">
-                                        <input type="number" class="form-control" name="clg_mob" placeholder="Mobile Number" />
+                                        <input type="number" class="form-control" name="clg_official_number1" placeholder="Mobile Number" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">College Location</label>
+                                    <label class="col-xs-3 control-label">Official Number</label>
                                     <div class="col-xs-5">
-                                        <select class="form-control" name="clg_location" id="sel1">
+                                        <input type="number" class="form-control" name="clg_official_number2" placeholder="Mobile Number" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">State</label>
+                                    <div class="col-xs-5">
+                                        <select class="form-control" name="clg_state" id="sel1">
                                         <option></option>
                                         <option>1</option>
                                         <option>2</option>
@@ -78,9 +93,25 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">Landline Number</label>
+                                    <label class="col-xs-3 control-label">City</label>
                                     <div class="col-xs-5">
-                                        <input type="number" class="form-control" name="clg_landline" placeholder="Landline Number (optional)" />
+                                        <select class="form-control" name="clg_city" id="sel1">
+                                        <option></option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">Pin Code</label>
+                                    <div class="col-xs-5">
+                                        <input type="number" class="form-control" name="clg_pincode" placeholder="Pin Code (optional)" />
                                     </div>
                                 </div>
                             </div>
@@ -93,15 +124,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
 
-
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Address</label>
                                     <div class="col-xs-5">
-                                        <textarea type="text" class="form-control" name="clg_add">
-                                        </textarea>
+                                        <textarea type="text" class="form-control" name="clg_address"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="clearfix"></div>
 
                             </div>
 
@@ -234,7 +267,7 @@
                             <br>
 
                             <div class="col-md-12">
-                                <button type="" name="" class="btn btn-primary add_field_button1" id="add-more" style="float:left; padding: 5px;">Add More Courses</button>
+                                <button type="" name="submit" class="btn btn-primary add_field_button1" id="add-more" style="float:left; padding: 5px;">Add More Courses</button>
                             </div>
                             <br><br>
                             </div>
@@ -267,6 +300,7 @@
                                     </div>
                                 </div>
                                 </div>
+                                <input type="submit" name="submit" value="Submit" />
                             </div>
                         </div>
                     </form>
@@ -281,194 +315,8 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript">
-       (function() {
-           $('#exampleBasic').wizard({
-               onFinish: function() {
-                   swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-               }
-           });
-           $('#exampleBasic2').wizard({
-               onFinish: function() {
-                   swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-               }
-           });
-           $('#exampleValidator').wizard({
-               onInit: function() {
-                   $('#validation').formValidation({
-                       framework: 'bootstrap',
-                       fields: {
-                           clg_name: {
-                               validators: {
-                                   notEmpty: {
-                                       message: 'The College name is required'
-                                   },
-                                   stringLength: {
-                                       min: 3,
-                                       max: 100,
-                                       message: 'The username must be more than 3 and less than 100 characters long'
-                                   },
-                                   regexp: {
-                                       regexp: /^[a-zA-Z]+$/,
-                                       message: 'The College name can only consist of alphabetical A-Z a-z'
-                                   }
-                               }
-                           },
-                           clg_offemail: {
-                               validators: {
-                                   notEmpty: {
-                                       message: 'The email address is required'
-                                   },
-                                   emailAddress: {
-                                       message: 'The input is not a valid email address'
-                                   }
-                               }
-                           },
-                           clg_mob: {
-                               validators: {
-                                   notEmpty: {
-                                       message: 'College Mobile Number is required'
-                                   },
-
-                                   regexp: {
-                                       regexp: /^[6789]{1}\d{5}\d{4}$/,
-                                       message: 'The Mobile Number should be start from 6789'
-                                   }
-                               }
-                           },
-                            clg_location: {
-                               validators: {
-                                   notEmpty: {
-                                       message: 'Please Select Location'
-                                   }
-
-                               }
-                           }
-                       }
-                   });
-               },
-               validator: function() {
-                   var fv = $('#validation').data('formValidation');
-
-                   var $this = $(this);
-
-                   // Validate the container
-                   fv.validateContainer($this);
-
-                   var isValidStep = fv.isValidContainer($this);
-                   if (isValidStep === false || isValidStep === null) {
-                       return false;
-                   }
-
-                   return true;
-               },
-               onFinish: function() {
-                   $('#validation').submit();
-                   swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-               }
-           });
-
-           $('#accordion').wizard({
-               step: '[data-toggle="collapse"]',
-
-               buttonsAppendTo: '.panel-collapse',
-
-               templates: {
-                   buttons: function() {
-                       var options = this.options;
-                       return '<div class="panel-footer"><ul class="pager">' +
-                           '<li class="previous">' +
-                           '<a href="#' + this.id + '" data-wizard="back" role="button">' + options.buttonLabels.back + '</a>' +
-                           '</li>' +
-                           '<li class="next">' +
-                           '<a href="#' + this.id + '" data-wizard="next" role="button">' + options.buttonLabels.next + '</a>' +
-                           '<a href="#' + this.id + '" data-wizard="finish" role="button">' + options.buttonLabels.finish + '</a>' +
-                           '</li>' +
-                           '</ul></div>';
-                   }
-               },
-
-               onBeforeShow: function(step) {
-                   step.$pane.collapse('show');
-               },
-
-               onBeforeHide: function(step) {
-                   step.$pane.collapse('hide');
-               },
-
-               onFinish: function() {
-                   swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-               }
-           });
-       })();
-    </script>
-    <script type="text/javascript">
-       $(document).ready(function() {
-           var max_fields      = 10; //maximum input boxes allowed
-           var wrapper         = $(".input_fields_wrap1"); //Fields wrapper
-           var add_button      = $(".add_field_button1"); //Add button ID
-
-       var x = 1; //initlal text box count
-       $(add_button).click(function(e){ //on add input button click
-       e.preventDefault();
-       if(x < max_fields){ //max input box allowed
-           x++; //text box increment
-           $(wrapper).append('<div>  <div class="form-group"><div class="col-md-12"><label class="col-xs-3 control-label"></label> <br><div class="col-xs-5"><div class ="col-md-3"></div><div class ="col-md-3"></div><div class ="col-md-3"></div><div class ="col-md-3"></div></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" placeholder="Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" placeholder="Duration Of Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" placeholder="Overall Fee Of Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="file" class="form-control textbox" id="" placeholder="" ></div></div><div class ="col-md-12"><label class="col-xs-3 control-label">Add Departments</label><br><div class="form-group"><input type="text" class="form-control textbox" id="" placeholder="Add Departments" ></div></div></div><button type="button" id="add-more" class="btn btn-danger remove_field1" style="float:left; padding: 5px;"> Remove</button><br></table></div>'); //add input box
-       }
-       });
-
-       $(wrapper).on("click",".remove_field1", function(e){ //user click on remove text
-       e.preventDefault(); $(this).parent('div').remove(); x--;
-       })
-       });
-    </script>
-    <script type="text/javascript">
-       function ShowHideDiv() {
-       var chkYes = document.getElementById("chkYes");
-       var dvtext = document.getElementById("dvtext");
-       var chkYes1 = document.getElementById("chkYes1");
-       var dvtext1 = document.getElementById("dvtext1");
-       dvtext.style.display = chkYes.checked ? "block" : "none";
-       dvtext1.style.display = chkYes1.checked ? "block" : "none";
-       }
-    </script>
-    <script>
-  $(document).ready(function() {
-      // Basic
-      $('.dropify').dropify();
-      // Translated
-      $('.dropify-fr').dropify({
-          messages: {
-              default: 'Glissez-déposez un fichier ici ou cliquez',
-              replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-              remove: 'Supprimer',
-              error: 'Désolé, le fichier trop volumineux'
-          }
-      });
-      // Used events
-      var drEvent = $('#input-file-events').dropify();
-      drEvent.on('dropify.beforeClear', function(event, element) {
-          return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-      });
-      drEvent.on('dropify.afterClear', function(event, element) {
-          alert('File deleted');
-      });
-      drEvent.on('dropify.errors', function(event, element) {
-          console.log('Has Errors');
-      });
-      var drDestroy = $('#input-file-to-destroy').dropify();
-      drDestroy = drDestroy.data('dropify')
-      $('#toggleDropify').on('click', function(e) {
-          e.preventDefault();
-          if (drDestroy.isDropified()) {
-              drDestroy.destroy();
-          } else {
-              drDestroy.init();
-          }
-      })
-  });
-  </script>
-
+    <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('college/js/formValidation.js') }}"></script>  
 @endsection
 
         

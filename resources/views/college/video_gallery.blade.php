@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Virtual Admission Fair|Dashboard</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
-    <!-- Menu CSS -->
-    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-    <!-- Morris CSS -->
-    <link href="plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+@extends('college.layouts.app')
+@section('css')
+    <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 
-    <link href="plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
-    <!-- animation CSS -->
-    <link href="css/animate.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- color CSS -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
     <style type="text/css">
       .v{
         border:2px solid #8e8e8e;
@@ -31,15 +10,9 @@
         height:240px;
         }
     </style>
+@endsection
 
-</head>
-
-<body>
-    <div id="wrapper">
-      <?php include('common/nav.php');?>
-      <?php include('common/leftmenu.php');?>
-        <!-- Page Content -->
-        <div id="page-wrapper">
+@section('content')
           <div class="container-fluid">
              <div class="row bg-title">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -60,19 +33,19 @@
                               <div id="gallery-content ">
                                   <div id="gallery-content-center">
 
-                                    <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                    <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls>
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape popup-youtube btn btn-danger"></video>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape popup-youtube btn btn-danger"></video>
                                       </a>
                                     </a>
 
-                                      <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                      <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls>
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape"></video></a>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape"></video></a>
 
-                                      <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                      <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls>
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape"></video></a>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape"></video></a>
 
                                       <a class="popup-youtube" href="https://www.youtube.com/embed/tgbNymZ7vqY">
                                       <iframe class="m-t-30" width="300" height="240" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe></a>
@@ -83,58 +56,36 @@
                                       <a class="popup-youtube" href="https://www.youtube.com/embed/tgbNymZ7vqY">
                                       <iframe class="m-t-30" width="300" height="240" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe></a>
 
-                                      <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                      <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls >
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape"></video></a>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape"></video></a>
 
-                                      <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                      <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls>
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape"></video></a>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape"></video></a>
 
-                                      <a class="popup-youtube" href="plugins/images/assets/video3.mp4">
+                                      <a class="popup-youtube" href="{{ asset('college/plugins/images/assets/video3.mp4') }}">
                                       <video class="v" controls>
-                                      <source src="plugins/images/assets/video3.mp4" type="video/mp4" class="all landscape"></video></a>
+                                      <source src="{{ asset('college/plugins/images/assets/video3.mp4') }}" type="video/mp4" class="all landscape"></video></a>
 
                                     </div>
                               </div>
                           </div>
-                          <div class="clearfix"></div>
+                        <div class="clearfix"></div>
                       </div>
                   </div>
 
               </div>
           </div>
-          <?php include('common/footer.php');?>
-        </div>
-        <!-- /#page-wrapper -->
-    </div>
+    @endsection   
     <!-- /#wrapper -->
+    @section('js')
     <!-- jQuery -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap/dist/js/tether.min.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-    <!--slimscroll JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Morris JavaScript -->
-    <script src="plugins/bower_components/raphael/raphael-min.js"></script>
-    <script src="plugins/bower_components/morrisjs/morris.js"></script>
-    <!-- Sparkline chart JavaScript -->
-    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
 
-    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
-    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.min.js"></script>
-    <script src="js/dashboard1.js"></script>
-    <!--Style Switcher -->
-    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    @endsection
+  
 </body>
 
 </html>

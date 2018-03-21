@@ -17,8 +17,23 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        switch ($guard) {
+            case 'college':
+                $link = '/college/demo';
+                break;           
+
+            case 'student':
+                $link = '/student/profile';
+                break;
+            
+            default:
+                $link = '/';
+                break;
+        }
+
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect($link);
         }
 
         return $next($request);
