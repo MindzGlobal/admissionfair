@@ -1,6 +1,11 @@
 @extends('college.layouts.app')
 @section('css')
+<<<<<<< HEAD
+<link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
+<link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+=======
     <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+>>>>>>> d907f5a7392a5ada4d82122eb6b01a2c8a1d8b06
 @endsection
 
 @section('content')

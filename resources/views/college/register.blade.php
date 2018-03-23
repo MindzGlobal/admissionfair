@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Virtual Admission Fair|Register</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
+    <title>Register|Virtual Admission Fair</title>
+     <!-- Bootstrap Core CSS -->
+     <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
     <!-- animation CSS -->
     <link href="{{ asset('college/css/animate.css') }}" rel="stylesheet">

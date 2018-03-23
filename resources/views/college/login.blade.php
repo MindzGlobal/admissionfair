@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Virtual Admission Fair|Login</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
+    <title>Login|Virtual Admission Fair</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
@@ -81,7 +81,7 @@
                     </div>
                 </form>
 
-                
+
 
                 <form class="form-horizontal" id="recoverform" action="index">
                   <a href="javascript:void(0)" class="text-center db"><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 250px;"/>
