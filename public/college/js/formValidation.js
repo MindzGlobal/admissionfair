@@ -100,8 +100,23 @@
             return true;
         },
         onFinish: function() {
-            $('#validation').submit();
-            //swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+                   var fd=  $('#validation').serializeArray();
+                   url = $('#validation' ).attr( 'action' );
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },    
+                    type: 'POST',
+                    url: url,
+                    data: fd,
+                    success: function(op) {
+                        console.log(op);
+                        var res = $.parseJSON(op);
+                        if (res.res == 1) {
+                            swal("Message Finish!",res.msg );
+                        }
+                    }
+                })
         }
     });
 

@@ -13,7 +13,7 @@ class CreateCollegeMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('college_media', function (Blueprint $table) {
+        Schema::create('college_medias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('reg_id')->nullable()->unique();
             $table->string('file_name')->nullable();
