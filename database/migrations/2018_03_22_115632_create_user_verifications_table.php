@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegeMediaTable extends Migration
+class CreateUserVerificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCollegeMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('college_medias', function (Blueprint $table) {
+        Schema::create('user_verifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('reg_id')->nullable()->unique();
-            $table->string('file_name')->nullable();
-            $table->string('file_url')->nullable();
-            $table->string('file_type')->nullable();
+            $table->string('unique_id')->nullable();
+            $table->string('email_token')->nullable();
+            $table->string('mobile_token')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateCollegeMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('college_media');
+        Schema::dropIfExists('user_verifications');
     }
 }
