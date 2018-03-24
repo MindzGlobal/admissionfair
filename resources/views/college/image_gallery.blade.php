@@ -3,7 +3,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
+<<<<<<< HEAD
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+=======
+>>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -96,6 +99,7 @@
     <script type="text/javascript" src="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
+<<<<<<< HEAD
      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
      <script>
     $(document).ready(function() {
@@ -140,4 +144,6 @@
     });
     </script>
 
+=======
+>>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
 @endsection
