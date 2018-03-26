@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\students;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
 
-class HomeController extends Controller
+class StudentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,9 +15,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:student');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -23,11 +24,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        session(['name' => 'Ashish']);
-        $value = $request->session()->get('name');
-        //dd(session()->all());
-        $ses = session()->all();
-        return view('home')->with(['data'=>$value]);
+       // $value = $request->session()->get('key');
+      //  return view('home')->with(['data'=>$value]);
+    //  return view('student.auth.login');
+    return view('student.pages.student_dashboard');
     }
 
     public function about()

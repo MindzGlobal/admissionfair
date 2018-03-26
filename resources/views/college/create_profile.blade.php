@@ -300,7 +300,6 @@
                                     </div>
                                 </div>
                                 </div>
-                                <input type="submit" name="submit" value="Submit" />
                             </div>
                         </div>
                     </form>
@@ -316,7 +315,8 @@
 
 @section('js')
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
-    <script src="{{ asset('college/js/formValidation.js') }}"></script>  
+    <script src="{{ asset('college/js/formValidation.js') }}"></script>
+    <script src="{{ asset('js/countries.js') }}"></script>  
 @endsection
 
         

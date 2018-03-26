@@ -5,6 +5,8 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+              <!-- CSRF Token -->
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <meta name="description" content="">
             <meta name="author" content="">
             <title>Register-Login|VAF-2018</title>
@@ -18,6 +20,39 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
             <!-- Responsive stylesheet  -->
             <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
+           {{--  // <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
+
+           <style>
+                 .invalid-feedback,.is-invalid {
+                    display: none;
+                    width: 100%;
+                    margin-top: .25rem;
+                    font-size: 80%;
+                    color: #dc3545;
+                    }
+
+                control:invalid {
+                    border-color: #dc3545;
+                }
+
+                .form-control {
+                display: block;
+                width: 100%;
+                padding: .375rem .75rem;
+                font-size: .9rem;
+                line-height: 1.6;
+                color: #495057;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid #ced4da;
+                border-radius: .25rem;
+                -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+                transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+            }
+           </style>
+
     @yield('css')
     @show
 </head>
@@ -88,6 +123,27 @@
                                <li><a href="#">Home</a>
 								<li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
                                 </li>
+                                @guest
+                              
+                            @else
+                                <li>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->first_name.''.Auth::user()->last_name}} <span class="caret"></span>
+                                    </a>
+    
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('student.logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
                             </ul>
                         </div>
                     </nav>
@@ -97,7 +153,25 @@
     </div>
 </header>
 <!-- End Header Section -->
+@if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+            {{$error}}
+        </div>
+    @endforeach
+@endif
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{session('success')}}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{session('error')}}
+    </div>
+@endif
       <!-- Strat Banner Section -->
      @yield('content')
       <!--  End Form Section -->
@@ -187,6 +261,8 @@
 <a href="#" class="scrollup">
     <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
 </a>
+
+      {{--  <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>  --}}
 
       <!-- Import Jquery Min Js -->
       <script type="text/javascript" src="{{ asset('student/js/modernizr-custom.js')}}"></script>

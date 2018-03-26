@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Model\UserVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/college/';
 
     /**
      * Create a new controller instance.
@@ -51,8 +52,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'mobile' => 'required|string|min:10|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'mobile' => 'required|string|min:10',
         ]);
     }
 
@@ -64,16 +65,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //dd($data);
+        $number = $data['mobile'];
+        $name = $data['name'];
+        $OTP = '123456';
+        $message = "Dear $OTP 
+
+        MoneyMindz wishes you Happy B'Day
+        
+        Click here to become Smart Investor/Earner 08049202111";
+
+        $this->sendSMS($number, $message);
+        $UserVerification = new UserVerification;
+        $UserVerification->unique_id = $number;
+        $UserVerification->mobile_token = $OTP;
+        $UserVerification->save();
+
         $reg_id = 'CLG'. substr(md5(rand()),0,4);
         $reg_id = strtoupper($reg_id);
-
         return User::create([
             'reg_id' => $reg_id,
             'name' => $data['name'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'role' => 'College',
+            'mobile_verification' => 'Yes',
             'password' => Hash::make($data['password']),
         ]);
     }
