@@ -30,6 +30,6 @@ Route::get('college/std_profile1', function () {
 Route::get('college/video_gallery', function () {
     return view('college.video_gallery');
 });
-Route::get('college/image_gallery', function () {
-    return view('college.image_gallery');
-});
+Route::get('college/image_gallery','College\MediaController@insertimages');
+Route::post('college/image_gallery','College\MediaController@uploadimage');
+Route::get('college/image_gallery','College\MediaController@showimages');
