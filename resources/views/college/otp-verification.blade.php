@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
     <title>Register|Virtual Admission Fair</title>
      <!-- Bootstrap Core CSS -->
      <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
     <!-- animation CSS -->
     <link href="{{ asset('college/css/animate.css') }}" rel="stylesheet">
@@ -18,6 +20,7 @@
     <link href="{{ asset('college/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
     <link href="{{ asset('college/css/colors/blue.css') }}" id="theme" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -37,6 +40,9 @@
                                         <strong>{{ session('msg') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                            <div class="col-xs-12">
+                                <a href="#" class="pull-right m-t-10 loading" onClick="reSendOtp('{{ route('clgresendotp')}}')"><b><i class="fa fa-undo"></i> Resend</b></a>
                             </div>
                         </div>
 
@@ -71,37 +77,10 @@
     <script src="{{ asset('college/js/waves.js') }}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('college/js/custom.min.js') }}"></script>
+    <script src="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
     <!--Style Switcher -->
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-    {{--  <script>
-        $('#register').submit(function(e) {
-            e.preventDefault();
-            fd = new FormData($(this)[0]);
-            url = $('#register' ).attr( 'action' );
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: fd,
-                dataType: 'json',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(op) {
-                    // var res = $.parseJSON(op);
-                    // if (res.res == 'Success') {
-                    
-                    // }
-                    var errors = op.responseJSON;
-                    console.log(errors);
-                },
-                error: function(data){
-                    var errors = data.responseJSON;
-                    console.log(errors);
-                    // Render the errors with js ...
-                }
-            })
-        });
-    </script>  --}}
+    <script src="{{ asset('college/js/all.ajax.js') }}"></script>
 </body>
 
 </html>

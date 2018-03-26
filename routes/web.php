@@ -15,12 +15,15 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
-Route::post('/sendotp', 'OtpController@sendOTP')->name('sendotp');
+Route::get('college/otpverification', 'college\OtpController@OtpVerifivationView')->name('otpverification');
+Route::post('college/otpverify', 'college\OtpController@OtpVerify')->name('otpverify');
+Route::post('college/resendotp', 'college\OtpController@resendotp')->name('clgresendotp');
 
 //College Section  ##############################################################################
-Route::get('college/login','College\CollegeAuthController@login');
+Route::get('college/login','College\CollegeAuthController@login')->name('collegelogin');
 Route::get('college/register','College\CollegeAuthController@register');
 Route::post('college/insertprofile','College\CollegeAuthController@insertProfile');
+Route::get('college/dashboard','College\CollegeController@dashboard')->name('index');
 
 Route::get('college/demo', function () {
     return view('college.create_profile');
