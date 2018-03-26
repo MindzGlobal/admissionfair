@@ -30,21 +30,22 @@ Route::get('college/demo', function () {
 });
 
 Route::prefix('student')->namespace('students')->group(function(){
-    Route::get('logout','Auth\StudentLoginController@logout')->name('student.logout');
+    Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
     Route::get('profile','StudentController@index');
 
-    Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student-login-form');
-    Route::post('login','Auth\StudentLoginController@login')->name('student-login');
-    Route::get('signup','Auth\StudentRegisterController@signupform');
+    Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student.loginform');
+    Route::post('login','Auth\StudentLoginController@login')->name('student.login');
+    Route::get('signup','Auth\StudentRegisterController@signupform')->name('student.registerform');
     Route::post('signup','Auth\StudentRegisterController@createStudent')->name('create-register');
-    
+    Route::get('verify/{studentId}/{email_token}','Auth\StudentRegisterController@authenticateStudentEmail')->name('authenticateStudentEmail');
+
     
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
     Route::post('password/reset','Auth\ResetPasswordController@reset');
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
-     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+    Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
 });
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
@@ -52,6 +53,15 @@ Route::get('college/std_profile1', function () {
 Route::get('college/video_gallery', function () {
     return view('college.video_gallery');
 });
+Route::get('college/image_gallery','College\MediaController@insertimages');
+Route::post('college/image_gallery','College\MediaController@uploadimage');
+Route::get('college/image_gallery','College\MediaController@showimages');
+
+Route::get('college/video_gallery','College\videoController@insertvideo');
+Route::post('college/video_gallery','College\videoController@uploadvideo');
+Route::get('college/video_gallery','College\videoController@showvideo');
+
 Route::get('college/image_gallery', function () {
     return view('college.image_gallery');
 });
+
