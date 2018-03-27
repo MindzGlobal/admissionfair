@@ -30,6 +30,9 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
     Route::get('profile','StudentController@index');
+    Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
+    Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');
+  //  Route::post('resendotp','StudentController@resendStudentOtp')->name('student.otpVerify');
 
     Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student.loginform');
     Route::post('login','Auth\StudentLoginController@login')->name('student.login');

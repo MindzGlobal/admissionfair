@@ -94,17 +94,26 @@ class StudentRegisterController extends Controller
 
             $thisStudent = Student::findOrfail($student->id);
             $email_token = Str::random(40);
+            $OTP= mt_rand(100000,(int)999999);//dd($OTP);
 
-            $studentVerfify = new UserVerification;$studentVerfify = new UserVerification;
+
+            $studentVerfify = new UserVerification;
             $studentVerfify->unique_id = $thisStudent->student_id;
             $studentVerfify->email_token= $email_token;
+            $studentVerfify->mobile_token =$OTP;
+            //dd($OTP);
             if($studentVerfify->save()){
-                $this->sendStudentVerificationEmail($thisStudent,$email_token);
+              //if($this->sendStudentVerificationEmail_And_Otp($thisStudent,$email_token,$OTP)>0) {
+               $this->sendStudentVerificationEmail_And_Otp($thisStudent,$email_token,$OTP);
+               return redirect('student/login')->with('success','Enter OTP to verify your Account.');
+              //}
+               //unable to save the data
+               return "Send verifaction mail OR OTP failed";//->action(); 
             }
-            // dd($thisStudent,$email_token);
             // return redirect()->action('student/login')->with('success','Check your email to verify your accouunt.');
-         return redirect('student/login');//->action();
-        }
+         //Token Not Generated
+          return "Token Not Generated";
+        }//unable to save the data
         return redirect()->back()->with('errors','$exception');
     }
 
@@ -122,10 +131,23 @@ class StudentRegisterController extends Controller
     }
 
 
-    public function sendStudentVerificationEmail($thisStudent,$email_token)
+    public function sendStudentVerificationEmail_And_Otp($thisStudent,$email_token,$OTP)
     {
-        //dd($thisStudent,$email_token);
-            Mail::to($thisStudent['email'])->send(new StudentVerifyEmail($thisStudent,$email_token));
+
+        $number = $thisStudent->mobile;
+        $name = $thisStudent->first_name;
+        // $message = "Dear ".ucwords($name)." 
+        // Please verify your Account with OTP NO-".$OTP."
+        // To become a part the Great Admission Fair ";
+        $message = "Dear $OTP 
+
+        MoneyMindz wishes you Happy B'Day
+        
+        Click here to become Smart Investor/Earner 08049202111";
+
+        $this->sendSMS($number, $message);
+        
+        Mail::to($thisStudent['email'])->send(new StudentVerifyEmail($thisStudent,$email_token));
     }
 
     public function authenticateStudentEmail( $hashed_studentId,$email_token)
@@ -138,7 +160,7 @@ class StudentRegisterController extends Controller
           $unVerifiedStudent=Student::where(['student_id'=>$student_id , 'email_verified'=>0]);
                 //Mail::to($thisStudent['student_id'])->send(new jwelcomeEmail($thisJobseeker));
             if(!empty($unVerifiedStudent)){
-                if(Student::where(['student_id'=>$student_id, 'email_verified'=>0])->update(['email_verified'=>1]) >0){
+                if(Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1])>0){
 
                     Session::flash('status','Verified your account successfully. Please login.');
                     return redirect('student/login')->with('success','Your e-mail is verified. You can login now.');
