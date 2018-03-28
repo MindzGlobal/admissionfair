@@ -170,13 +170,13 @@ public function update_student(Request $request)
         return redirect("student/student_dashboard");
       }
 
-      
+
       public function deleteprofile_image(Request $request)
       {
         $student = student::find(10);
         //File::delete();
-        File::delete(public_path().'\student\images\profile_images'. $student->profile_image);
-         $student->profile_image = 'student/images/profile_images/Penguins.jpg';   
+        File::delete(public_path().'/student/images/profile_images'. $student->profile_image);
+         $student->profile_image = 'student/images/profile_images/default.png';   
          $student->save();
         return redirect('student/student_dashboard');
       }
