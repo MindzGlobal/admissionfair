@@ -26,6 +26,8 @@ class CreateStudentsTable extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('pincode',11)->nullable();
+            $table->string('address')->nullable();
+            $table->string('about_you')->nullable();
             $table->string('role')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
