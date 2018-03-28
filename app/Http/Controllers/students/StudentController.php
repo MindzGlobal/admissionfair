@@ -162,14 +162,15 @@ public function update_student(Request $request)
         if(Input::hasFile('image'))
        {
            $file=Input::file('image');
-           $file->move(public_path().'/student/images/profile_images', $file->getClientOriginalName());
-           $student->profile_image = 'student/images/profile_images/'.$file->getClientOriginalName();
+           $name = str_random(6) . '_' . $file->getClientOriginalName();
+           $file->move(public_path().'/student/images/profile_images',  $name);
+           $student->profile_image = 'student/images/profile_images/'. $name;
        }
         $student->update();
         return redirect("student/student_dashboard");
       }
 
-
+      
       public function deleteprofile_image(Request $request)
       {
         $student = student::find(10);
