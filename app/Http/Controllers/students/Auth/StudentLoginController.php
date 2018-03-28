@@ -57,17 +57,6 @@ class StudentLoginController extends Controller
          $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password ]); 
      
          return $validStudent;
-    //    if($validStudent)
-    //     {
-    //        // dd(Auth::user()->password);
-    //        // return redirect('/student/profile')->with('status', 'Welcome Back');
-    //        return $validStudent;
-    //     }
-    //     else{
-    //         return $validStudent;
-    //     }
-        // return $this->guard('jobseeker')->attempt(
-        //     $this->credentials($request), $request->filled('remember'));
     }
      
     /**
@@ -79,19 +68,10 @@ class StudentLoginController extends Controller
      */
     protected function authenticated(Request $request, $student)
     {
-        //
-      //  dd($user);
         if($student->otp_verified>0){
-           $eduaction_details=StudentEducationDetails::where('student_id',$student->student_id);
-           // return "login";
-           if(!is_null($eduaction_details)){
-
-            return redirect('/student/profile')->with('status', 'Welcome Back');
-           }
-           return "retun to the edit details page ";
-        }
-        return redirect()->route('student.otpform');//->with('mobile', $user->mobile)
-      //  return view('student.pages.otp_form')->with('mobile', $user->mobile);
+          return redirect()->intended('/student/profile');
+         }
+        return redirect()->intended(route('student.otpform'));
     }
 
 

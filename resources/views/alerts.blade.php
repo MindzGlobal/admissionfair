@@ -17,16 +17,9 @@
         opacity:0.01 !important;
       }
  </style>  
- {{--  </div class="class flash">
-   @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-   @if(Session::has($msg))
 
-   <p class="alert alert-{{ $msg }}">{{ Session::get($msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-   @endif
- @endforeach
-</div>     --}}
  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-    @if(Session::has($msg))
+    @if(Session::has($msg)==$msg)
     <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
         <div class="modal-dialog modal-lg" role="document">
              <div class="modal-body alert alert-{{{$msg}}}">	
@@ -37,14 +30,14 @@
     @endif
  @endforeach
 
-@if(isset($title))
+@if(isset($status))
 
 <!-- ---------------- START OF DISPALY RESULT MODAL		-------------------- -->
 <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
 <div class="modal-dialog modal-lg" role="document">
       <!-- modal-content -->
-    <div class="modal-body alert alert-{{{$status}}}">				
-        <span id="displayResultModalText"><i class="icon {{$status === "success" ? "fa fa-check " : ($status ==="warning" ? "fa fa-warning" : "fa fa-ban")}}"><Strong> {{$title}}</Strong></i> {{{$message}}}. </span>
+    <div class="modal-body alert alert-{{$status}}">				
+        <span id="displayResultModalText"><i class="icon {{$status === "success" ? "fa fa-check " : ($status ==="warning" ? "fa fa-warning" : "fa fa-ban")}}"></i><Strong> {{$message}}. </Strong></span>
     </div>
     <!--	/.modal-content -->
 </div>
@@ -53,21 +46,23 @@
 @else
 
 @if(count($errors) > 0)
-        <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
-            <div class="modal-dialog modal-lg" role="document">
-                {{--  <!-- modal-content -->{{ ( ! empty($data['name'] ? 'nameset' : 'namenotset') }}  --}}
-                <div class="modal-body alert alert-danger">	
-                  @if($errors->has('title')) 			
-                     <span id="errorResultModalMyText"><i class="icon fa fa-warning"><Strong> {{$errors->first('title')}} </Strong></i> {{$errors->first('error')}}</span>
-                  @else
-                     @foreach($errors->all() as $error)
-                      <span id="errorResultModalMyText"><i class="icon fa fa-warning"><Strong> {{$errors}} </Strong></i></span>
-                     @endforeach 
-                  @endif
+    <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
+        <div class="modal-dialog modal-lg" role="document">
+                <!-- modal-content -->
+            @if($errors->has('status')) 			
+                <div class="modal-body alert alert-{{$errors->first('status')}}">	
+                    <span id="errorResultModalMyText"><i class="icon {{$errors->first('status') === "success" ? "fa fa-check " : ($errors->first('status') ==="warning" ? "fa fa-warning" : "fa fa-ban")}}"></i><Strong> {{$errors->first('message')}}</Strong></span>
                 </div>
-                <!--	/.modal-content -->
-            </div>
+            @else
+                 @foreach($errors->all() as $error)
+                  <div class="modal-body alert alert-danger">	
+                    <span id="errorResultModalMyText"><i class="icon fa fa-warning"></i> <Strong> {{$error}} </Strong></span>
+                  </div>
+                @endforeach 
+             @endif
+            <!--/.modal-content -->
         </div>
+    </div>
 @endif
 
 @endif

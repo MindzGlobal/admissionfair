@@ -77,11 +77,11 @@ class Handler extends ExceptionHandler
             //     break;           
 
             case 'student':
-                $link = 'student/loginform';
+                $link = 'student.loginform';
                 break;
             
             default:
-                $link = 'login';
+                $link = 'collegelogin';
                 break;
         }
 

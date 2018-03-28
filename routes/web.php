@@ -32,10 +32,10 @@ Route::get('college/demo', function () {
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
-    Route::get('profile','StudentController@index');
+    Route::get('profile','StudentController@Showprofile');
     Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
     Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');
-  //  Route::post('resendotp','StudentController@resendStudentOtp')->name('student.otpVerify');
+    Route::get('resendotp','StudentController@resendStudentOtp')->name('student.resendotp');
 
     Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student.loginform');
     Route::post('login','Auth\StudentLoginController@login')->name('student.login');

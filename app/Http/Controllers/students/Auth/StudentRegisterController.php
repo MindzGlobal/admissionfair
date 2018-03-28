@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Model\students\Student;
+use App\Model\students\StudentEducationDetails;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 use Exception;
 
-
+use Auth;
 use Mail;
 use App\Model\UserVerification;
 use App\Mail\StudentVerifyEmail;
@@ -39,7 +40,7 @@ class StudentRegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'student/login';
+    protected $redirectTo = 'student/profile';
 
     /**
      * Create a new controller instance.
@@ -56,6 +57,11 @@ class StudentRegisterController extends Controller
     	return view('student.auth.register');
     }
 
+    protected function guard()
+    {
+        return Auth::guard('student');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -70,8 +76,7 @@ class StudentRegisterController extends Controller
      */
     public function createStudent(Request $request)
     {
-    	Session::flash('status','Check your email to verify your accouunt.');
-    	// return view('jobseeker.auth.register');
+       Session::reflash('success','Success ,verify your account through Email Or OTP.');
 
         $this->validate($request,[
             'first_name' => 'required|string|max:255|regex:/^[a-zA-Z]+$/u',
@@ -89,34 +94,36 @@ class StudentRegisterController extends Controller
     	$student->email = $request->get('email');
     	$student->password = bcrypt($request->get('password'));
     	$student->remember_token = $request->get('_token');
-       // $student->email_token =  $email_token;
         if($student->save()){
 
-            $thisStudent = Student::findOrfail($student->id);
+            $this->guard('student')->login($student);
+               // dd($student);
+         //   $thisStudent = Student::findOrfail($student->id);
+          //  $thisStudent = $student;
             $email_token = Str::random(40);
-            $OTP= mt_rand(100000,(int)999999);//dd($OTP);
+            $OTP= mt_rand(100000,(int)999999);
 
 
             $studentVerfify = new UserVerification;
-            $studentVerfify->unique_id = $thisStudent->student_id;
+            $studentVerfify->unique_id = $student->student_id;
             $studentVerfify->email_token= $email_token;
             $studentVerfify->mobile_token =$OTP;
-            //dd($OTP);
+           
             if($studentVerfify->save()){
-              //if($this->sendStudentVerificationEmail_And_Otp($thisStudent,$email_token,$OTP)>0) {
-               $this->sendStudentVerificationEmail_And_Otp($thisStudent,$email_token,$OTP);
-               return redirect('student/login')->with('success','Enter OTP to verify your Account.');
-              //}
-               //unable to save the data
-               return "Send verifaction mail OR OTP failed";//->action(); 
+               //$this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
+               //  return redirect()->route('student.otpform');
+               return view('student.pages.otp_form')->with('mobile',$student->mobile)
+                ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
             }
-            // return redirect()->action('student/login')->with('success','Check your email to verify your accouunt.');
-         //Token Not Generated
-          return "Token Not Generated";
+          //Token Not Generated
+          return redirect()->back()
+                 ->withErrors(['status'=>'danger','message'=>'Sorry ,Something went wrong please try again later.']);
         }//unable to save the data
-        return redirect()->back()->with('errors','$exception');
+        return redirect()->back()->withErrors('errors',$exception);
     }
 
+    // return $this->registered($request, $user)
+    // ?: redirect($this->redirectPath());
 
     public function random()
     {
@@ -150,28 +157,29 @@ class StudentRegisterController extends Controller
         Mail::to($thisStudent['email'])->send(new StudentVerifyEmail($thisStudent,$email_token));
     }
 
-    public function authenticateStudentEmail( $hashed_studentId,$email_token)
+    public function authenticateStudentEmail($hashed_studentId,$email_token)
     {
-       // 
         $thisStudent=UserVerification::where(['email_token'=>$email_token])->first();
         $student_id=$thisStudent->unique_id;
-        if(Hash::check($student_id,$hashed_studentId)){
+        $education_details=StudentEducationDetails::where('student_id',$student_id)->first();
 
-          $unVerifiedStudent=Student::where(['student_id'=>$student_id , 'email_verified'=>0]);
+        //if(Hash::check($student_id,$hashed_studentId)){
+         if(password_verify($student_id,$hashed_studentId)){
+
+          $unVerifiedStudent=Student::where(['student_id'=>$student_id , 'email_verified'=>0])->first();
                 //Mail::to($thisStudent['student_id'])->send(new jwelcomeEmail($thisJobseeker));
             if(!empty($unVerifiedStudent)){
-                if(Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1])>0){
+                if((Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1]))>0){
 
-                    Session::flash('status','Verified your account successfully. Please login.');
-                    return redirect('student/login')->with('success','Your e-mail is verified. You can login now.');
+                    return view('student.auth.login')->with(['status'=>'success','message'=>'Your e-mail is verified successfully ,You can login now.']);
                    // return 'true';
                 }
-                return redirect('student/login')->with('errors','Something Went Wrong Please try Again Later.');
-            }
-         return redirect('student/login')->with('Warning','your email has verified Already,You can login Now.');
+                return view('student.auth.login')->with(['status'=>'danger','message'=>'Sorry ,Something Went Wrong Please try Again Later.']);
+            }//here we can resend if route need
+         return view('student.auth.login')->with(['status'=>'warning','message'=>'Already verified ,your email has been verified Already,You can login Now.']);
         }
         else{
-            return redirect('student/login')->with('errors','Sorry your email cannot be identified.');
+            return view('student.auth.login')->with(['status'=>'danger','message'=>'Sorry , your email cannot be identified.']);
         }
     }
 }
