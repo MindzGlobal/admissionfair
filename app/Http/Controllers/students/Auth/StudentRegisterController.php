@@ -96,7 +96,7 @@ class StudentRegisterController extends Controller
     	$student->remember_token = $request->get('_token');
         if($student->save()){
 
-            $this->guard('student')->login($student);
+           
                // dd($student);
          //   $thisStudent = Student::findOrfail($student->id);
           //  $thisStudent = $student;
@@ -112,6 +112,7 @@ class StudentRegisterController extends Controller
             if($studentVerfify->save()){
                //$this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
                //  return redirect()->route('student.otpform');
+               $this->guard('student')->login($student);
                return view('student.pages.otp_form')->with('mobile',$student->mobile)
                 ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
             }
@@ -170,7 +171,7 @@ class StudentRegisterController extends Controller
                 //Mail::to($thisStudent['student_id'])->send(new jwelcomeEmail($thisJobseeker));
             if(!empty($unVerifiedStudent)){
                 if((Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1]))>0){
-
+                    UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['email_token'=>Null]);
                     return view('student.auth.login')->with(['status'=>'success','message'=>'Your e-mail is verified successfully ,You can login now.']);
                    // return 'true';
                 }

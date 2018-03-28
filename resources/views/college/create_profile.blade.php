@@ -2,7 +2,11 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
 <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+=======
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+>>>>>>> f92921d9fbd9cfdbd5a290cc1b7dddf003fb0524
 @endsection
 
 @section('content')
