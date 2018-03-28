@@ -93,6 +93,6 @@ class StudentLoginController extends Controller
 
         $request->session()->invalidate();
 
-        return redirect('/');
+        return redirect('/student/login');
     }
 }

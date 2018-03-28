@@ -11,7 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function routes()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -23,7 +23,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $value = $request->session()->get('key');
+        session(['name' => 'Ashish']);
+        $value = $request->session()->get('name');
+        //dd(session()->all());
+        $ses = session()->all();
         return view('home')->with(['data'=>$value]);
     }
 

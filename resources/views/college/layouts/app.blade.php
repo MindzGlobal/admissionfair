@@ -7,8 +7,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="">
             <meta name="author" content="">
-            <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
-            <title>Dashboard|Virtual Admission Fair</title>
+            <meta name="csrf-token" content="{{ csrf_token() }}">
+            <link rel="icon" type="image/png" sizes="16x16" href="">
+            <title></title>
             <!-- Bootstrap Core CSS -->
             <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
@@ -47,11 +48,14 @@
                         <ul class="nav navbar-top-links navbar-right pull-right">
                             <!-- /.dropdown -->
                             <li class="dropdown">
-                                <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset('college/plugins/images/users/1.jpg') }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Prof. Steave</b> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->Profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
                                     <li><a href="./"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>
-                                    <li><a href="login"><i class="fa fa-power-off"></i>  Logout</a></li>
+                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"  ></i>  Logout</a></li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </ul>
                                 <!-- /.dropdown-user -->
                             </li>
@@ -73,7 +77,7 @@
                                 <!-- /input-group -->
                             </li>
                             <li class="user-pro">
-                                <a href="#" class="waves-effect"><img src="{{ asset('college/plugins/images/users/1.jpg') }}" alt="user-img" class="img-circle"> <span class="hide-menu">Prof. Steve Gection</span>
+                                <a href="#" class="waves-effect"><img src="{{ asset(Auth::user()->Profile_image) }}" alt="user-img" class="img-circle"> <span class="hide-menu">{{ Auth::user()->name}}</span>
                                 </a>
                             </li>
                             <li> <a href="./" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> My Profile</span></a>
@@ -99,7 +103,7 @@
                                 </ul>
                             </li>
 
-                            <li><a href="login" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
                         </ul>
                     </div>
                 </div>

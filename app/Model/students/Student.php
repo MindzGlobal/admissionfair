@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model\students;
 
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +15,7 @@ class Student extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'mobile', 'student_id', 'role',
+        'first_name','last_name', 'email', 'password', 'mobile','email_verified','otp_verified', 'student_id', 'role',
     ];
 
     /**
