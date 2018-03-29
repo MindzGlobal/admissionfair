@@ -10,6 +10,36 @@
         width:300px;
         height:240px;
         }
+
+        .img-wrap {
+            position: relative;
+            display: inline-block;
+            border: 1px black solid;
+            font-size: 0;
+        }
+        .img-wrap .close {
+            position: absolute;
+            right: 0px;
+            z-index: 100;
+            background-color: #FFF;
+            /* padding: 5px 2px 2px; */
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: .2;
+            text-align: center;
+            font-size: 22px;
+            line-height: 10px;
+            border-radius: 50%;
+        }
+        .img-wrap:hover .close {
+            opacity: 1;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 @endsection
 
@@ -76,15 +106,18 @@
                                 <div id="gallery-content ">
                                   <div id="gallery-content-center">
                                     <div class="popup-gallery m-t-30">
-
                                       @foreach($user as $user)
-
-                                      <a href="{{ asset($user->file_url) }}" class="popup-youtube" >
-                                      <video class="v" controls>
-                                      <source src="{{ asset($user->file_url) }}" type="video/mp4" class="all landscape" /> </a>
-                                      </video>
+                                        <div class="col-md-4 m-b-10 nopadding">
+                                            <div class="img-wrap">
+                                                <span onClick=delFiles("{{ url('college/deletevideogallery/'.$user->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>
+                                                <a href="{{ asset($user->file_url) }}" class="popup-youtube" >
+                                                    <video  controls>
+                                                        <source src="{{ asset($user->file_url) }}" type="video/mp4" class="all landscape" /> </a>
+                                                    </video>
+                                                </a>
+                                            </div>
+                                        </div>
                                       @endforeach
-
                                     </div>
                                   </div>
                                 </div>
@@ -104,6 +137,14 @@
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
       <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
      <script>
+    function delFiles(url){
+        var r = confirm("Are sure want to delete!");
+        if (r == true) {
+            window.location=url;
+        } else {
+            txt = "You pressed Cancel!";
+        }
+    }     
     $(document).ready(function() {
         // Basic
         $('.dropify').dropify();

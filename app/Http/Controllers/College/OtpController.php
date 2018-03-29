@@ -20,6 +20,7 @@ class OtpController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
+    protected $authNumberVerification;
 
     /**
      * Create a new controller instance.
@@ -29,6 +30,13 @@ class OtpController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $mobileVerificationStatus = Auth::user()->mobile_verification;
+            if($mobileVerificationStatus == 'Yes'){
+                return redirect()->route('dashboard');
+            }
+            return $next($request);
+        });
     }
 
     /**
@@ -45,7 +53,6 @@ class OtpController extends Controller
     protected function OtpVerify(Request $request)
     {
         $authNumber = Auth::user()->mobile;
-
         $otpData = UserVerification::select('mobile_token')->where('unique_id',$authNumber)
                     ->orderBy('created_at', 'desc')
                     ->first();
@@ -53,8 +60,8 @@ class OtpController extends Controller
         $enterdeOtp = $request->otp;
         if($currectOtp == $enterdeOtp)
         {
-            User::where('mobile',$authNumber)->update(['email_verification' => 'Yes']);
-            return redirect()->route('index')->with(['msg' => 'Enter Correct OTP!']);
+            User::where('mobile',$authNumber)->update(['mobile_verification' => 'Yes']);
+            return redirect()->route('dashboard')->with(['msg' => 'Enter Correct OTP!']);
         }
         else
         {
@@ -67,9 +74,12 @@ class OtpController extends Controller
 
     protected function resendotp(Request $request)
     {
-        $res = 'success';
-        $msg = "OTP Generated Successfully.";
         $authNumber = Auth::user()->mobile;
+        $firstTwo = substr($authNumber, 0,2);
+        $lastTwo = substr($authNumber, -2);
+        $res = 'success';
+        $msg = "A OTP has been sent to ".$firstTwo."******".$lastTwo;
+        $deleteOld = UserVerification::where('unique_id',$authNumber)->delete();
       
             $OTP = mt_rand(100000,(int)999999);
             $message = "Dear $OTP 

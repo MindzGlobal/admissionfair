@@ -16,7 +16,7 @@ class CreateStudentEducationDetailsTable extends Migration
         Schema::create('student_education_details', function (Blueprint $table) {
             
             $table->increments('id');
-            $table->string('student_id')->nullable(false)->unique();
+            $table->string('student_id')->nullable(false);
             $table->string('ssc_board')->nullable();
             $table->string('ssc_medium')->nullable();
             $table->string('ssc_yop')->nullable();

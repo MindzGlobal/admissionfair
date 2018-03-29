@@ -15,7 +15,7 @@ class CreateStudentGraduationDetailsTable extends Migration
     {
         Schema::create('student_graduation_details', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('student_id')->nullable(false)->unique();
+                $table->string('student_id')->nullable(false);
                 $table->string('university_name')->nullable();
                 $table->string('college_name')->nullable();
                 $table->string('course')->nullable();

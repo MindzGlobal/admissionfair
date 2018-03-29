@@ -100,23 +100,24 @@
             return true;
         },
         onFinish: function() {
-                   var fd=  $('#validation').serializeArray();
-                   url = $('#validation' ).attr( 'action' );
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                      },    
-                    type: 'POST',
-                    url: url,
-                    data: fd,
-                    success: function(op) {
-                        console.log(op);
-                        var res = $.parseJSON(op);
-                        if (res.res == 1) {
-                            swal("Message Finish!",res.msg );
-                        }
+                var fd = new FormData($('#validation')[0]);
+                url = $('#validation' ).attr( 'action' );
+                $.ajax({
+                type: 'POST',
+                url: url,
+                data: fd,
+                cache: false,
+                contentType: false,
+                processData: false,
+                enctype: 'multipart/form-data',
+                success: function(op) {
+                    console.log(op);
+                    var res = $.parseJSON(op);
+                    if (res.res == 1) {
+                        swal("Message Finish!",res.msg );
                     }
-                })
+                }
+            })
         }
     });
 

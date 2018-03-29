@@ -32,7 +32,7 @@
                             <h4><span><i class="ti-check"></i></span>Add Media</h4>
                         </li>
                     </ul>
-                    <form id="validation" class="form-horizontal" method="POST" action="{{ url('college/insertprofile') }}" >
+                    <form id="validation" class="form-horizontal" method="POST" action="{{ url('college/insertprofile') }}" enctype="multipart/form-data" >
                         @csrf
                         <div class="wizard-content">
                             <div class="wizard-pane active" role="tabpanel">
@@ -275,14 +275,14 @@
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Images</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"/>
+                                    <input type="file" id="file" name="colleg_image" class="dropify colleg_image" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Videos</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"/>
+                                    <input type="file" id="file" name="colleg_video" class="dropify colleg_video" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
@@ -291,7 +291,7 @@
                                     <div class="col-sm-12 ol-md-12 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Brochures</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"/>
+                                    <input type="file" id="file" name="colleg_document" class="dropify colleg_document" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>

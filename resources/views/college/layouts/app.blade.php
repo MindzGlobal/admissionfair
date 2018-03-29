@@ -48,7 +48,7 @@
                         <ul class="nav navbar-top-links navbar-right pull-right">
                             <!-- /.dropdown -->
                             <li class="dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->Profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
                                     <li><a href="./"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>
@@ -77,7 +77,7 @@
                                 <!-- /input-group -->
                             </li>
                             <li class="user-pro">
-                                <a href="#" class="waves-effect"><img src="{{ asset(Auth::user()->Profile_image) }}" alt="user-img" class="img-circle"> <span class="hide-menu">{{ Auth::user()->name}}</span>
+                                <a href="#" class="waves-effect"><img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" class="img-circle"> <span class="hide-menu">{{ Auth::user()->name}}</span>
                                 </a>
                             </li>
                             <li> <a href="./" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> My Profile</span></a>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\College;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modle\College\College_media;
+use App\Model\College\College_media;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Auth;
+use File;
 
 class videoController extends Controller
 {
@@ -15,9 +17,7 @@ class videoController extends Controller
 
 
   public function uploadvideo(Request $request){
-
-
-    $input=$request->all();
+    $reg_id = Auth::user()->reg_id;
     $insertData = array();
     if($files=$request->file('video')){
         foreach($files as $file)
@@ -29,6 +29,7 @@ class videoController extends Controller
               $file_url = 'college/images/gallery_videos/'.$name;
 
               $insertData[] = [
+              'reg_id'     => $reg_id,  
               'file_name'  => $name,
               'file_url'   => $file_url,
               'file_type'  => "video",
@@ -37,28 +38,30 @@ class videoController extends Controller
         $user = new College_media;
         $user->insert($insertData);
     }       
-
-    /* $user = new College_media;
-     $user->file_name = Input::get('video');
-     $user->file_type = 'video';
-     
-     if(Input::hasFile('video'))
-     {
-         $file=Input::file('video');
-         $file->move(public_path().'/college/images/gallery_videos', $file->getClientOriginalName());
-
-         $user->file_name = $file->getClientOriginalName();
-         $user->file_url = 'public/college/images/gallery_videos/'.$file->getClientOriginalName();
-     }*/
-
-     $user->save();
      return redirect("college/video_gallery");
    }
 
    public function showvideo(){
-     $user=College_media::where(function($query) {
-        $query->where('file_type', 'video');
-        })->get(['file_type','file_name','file_url']); 
+      $reg_id = Auth::user()->reg_id;
+      $user = College_media::where(['file_type'=>'Video','reg_id'=>$reg_id])
+                              ->orderBy('created_at', 'DESC')
+                              ->get();
       return view('college.video_gallery', compact('user'));
    }
+
+   public function deleteVideo(Request $request){
+    $reg_id = Auth::user()->reg_id;
+    $id = $request->id;
+    $College_media = College_media::where(['reg_id'=>$reg_id,'id'=>$id,'file_type'=>'video']);
+    $fileUrl = $College_media->first()->file_url;
+    if(File::exists(public_path().'/'.$fileUrl)){
+      File::delete(public_path().'/'.$fileUrl);
+    }
+    $delFile = $College_media->delete();
+    if($delFile)
+    {
+      return redirect('college/video_gallery')->with(['status'=>'Success','msg'=>'Video Deleted Successfuly.']);
+    }
+   
+ }
 }

@@ -95,7 +95,7 @@ class StudentRegisterController extends Controller
             $thisStudent = Student::findOrfail($student->id);
             $email_token = Str::random(40);
 
-            $studentVerfify = new UserVerification;$studentVerfify = new UserVerification;
+            $studentVerfify = new UserVerification;
             $studentVerfify->unique_id = $thisStudent->student_id;
             $studentVerfify->email_token= $email_token;
             if($studentVerfify->save()){

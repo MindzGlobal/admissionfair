@@ -3,16 +3,35 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
-<<<<<<< HEAD
-
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+<style>
+    .img-wrap {
+            position: relative;
+            display: inline-block;
+            border: 1px #00000017 solid;
+            font-size: 0;
+            margin: 5px;
+        }
+        .img-wrap .close {
+            position: absolute;
+            right: 0px;
+            z-index: 100;
+            background-color: #FFF;
+            /* padding: 5px 2px 2px; */
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: .2;
+            text-align: center;
+            font-size: 22px;
+            line-height: 10px;
+            border-radius: 50%;
+        }
+        .img-wrap:hover .close {
+            opacity: 1;
+        }
 
-=======
-<<<<<<< HEAD
-<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-=======
->>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
+</style>
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -35,11 +54,6 @@
                              <h4>Upload Images Here</h4>
                             <div id="gallery-header">
                                         <div id="gallery-header-center-left">
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
                             <div class="button-box">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
                             </div>
@@ -58,23 +72,11 @@
                                               <div class="col-sm-12 ol-md-12 col-xs-12">
                                                   <div class="white-box">
                                                       <h3 class="box-title">File Upload</h3>
-<<<<<<< HEAD
-
                                                       <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
                                                   </div>
                                               </div>
 
                                               </div>
-
-=======
-
-                                                      <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
-                                                  </div>
-                                              </div>
-
-                                              </div>
-
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
                                               <div class="modal-footer">
                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                   <button type="submit" class="btn btn-primary">Upload</button>
@@ -85,30 +87,20 @@
                                 </div>
                               </div>
                             </div>
-<<<<<<< HEAD
-
                         </div>
                               </div>
-=======
-
-                        </div>
-                              </div>
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
-
-                                <div id="gallery-content ">
-                                  <div id="gallery-content-center">
+                                
                                     <div class="popup-gallery m-t-30">
-
-                                      @foreach($user as $user)
-
-                                      <a href="{{ asset($user->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
-                                      <img src="{{ asset($user->file_url) }}" class="all landscape" alt="gallery" /> </a>
-
+                                      @foreach($user as $users)
+                                      <div class="img-wrap">
+                                        <span onClick=delFiles("{{ url('college/deleteimagegallery/'.$users->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>  
+                                        <a href="{{ asset($users->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
+                                            <img src="{{ asset($users->file_url) }}" class="all landscape" alt="gallery" />
+                                        </a>
+                                      </div>  
                                       @endforeach
-
                                     </div>
-                                  </div>
-                                </div>
+                                  
                              </div>
 
                           <div class="clearfix"></div>
@@ -128,47 +120,54 @@
 
      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
      <script>
-    $(document).ready(function() {
-        // Basic
-        $('.dropify').dropify();
-
-        // Translated
-        $('.dropify-fr').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé, le fichier trop volumineux'
-            }
-        });
-
-        // Used events
-        var drEvent = $('#input-file-events').dropify();
-
-        drEvent.on('dropify.beforeClear', function(event, element) {
-            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-        });
-
-        drEvent.on('dropify.afterClear', function(event, element) {
-            alert('File deleted');
-        });
-
-        drEvent.on('dropify.errors', function(event, element) {
-            console.log('Has Errors');
-        });
-
-        var drDestroy = $('#input-file-to-destroy').dropify();
-        drDestroy = drDestroy.data('dropify')
-        $('#toggleDropify').on('click', function(e) {
-            e.preventDefault();
-            if (drDestroy.isDropified()) {
-                drDestroy.destroy();
+         function delFiles(url){
+            var r = confirm("Are sure want to delete!");
+            if (r == true) {
+                window.location=url;
             } else {
-                drDestroy.init();
+                txt = "You pressed Cancel!";
             }
-        })
-    });
-    </script>
+        }     
 
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
 @endsection
