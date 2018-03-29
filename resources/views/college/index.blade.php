@@ -1,28 +1,21 @@
 @extends('college.layouts.app')
 @section('css')
-    <style type="text/css">
-        .tabs-style-underline nav li a::after {
-        background: #03a9f3;
-        }
-        .sttabs nav li.tab-current a {
-        color: #03a9f3;
-        }
-    </style>
+<link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
+<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+<style type="text/css">
+    .tabs-style-underline nav li a::after {
+    background: #03a9f3;
+    }
+    .sttabs nav li.tab-current a {
+    color: #03a9f3;
+    }
+    .add-btn{
+      position: relative;
+      left: 8%;
+    }
+</style>
 @endsection
 
-@section('js')
-    <!--Style Switcher -->
-    <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-    <script type="text/javascript">
-        (function() {
-        
-            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
-                new CBPFWTabs(el);
-            });
-        
-        })();
-    </script>
-@endsection
 @section('content')
 <!-- Page Content -->
 <div class="container-fluid">
@@ -42,34 +35,64 @@
         <div class="row">
            <div class="col-md-4 col-xs-12">
               <div class="white-box">
+
                  <div class="user-bg">
-                    <img width="100%" alt="user" src="{{ asset('college/plugins/images/big/img1.jpg') }}">
+                    <img width="100%" alt="user" src="{{ asset($user->profile_image) }}">
                  </div>
-                 <div class="fileupload btn btn-info btn-rounded waves-effect waves-light pull-right"><span><i class="ion-upload m-r-5 fa fa-pencil-square-o "></i>Upload</span>
-                    <input type="file" class="upload">
+
+                 <div class="pull-right add-btn">
+                   <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image +</button>
+                 </div>
+                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                     <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
+                             </div>
+                             <div class="modal-body">
+                               <form action='{{url("college/index")}}' method="post" enctype="multipart/form-data">
+                                 @csrf
+                                  <div class="row">
+                                   <div class="col-sm-12 ol-md-12 col-xs-12">
+                                       <div class="white-box">
+                                           <h3 class="box-title">File Upload</h3>
+                                           <input type="file" id="input-file-now" class="dropify" name="image"/>
+                                       </div>
+                                   </div>
+
+                                   </div>
+                                   <div class="modal-footer">
+                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
+                                   </div>
+
+                               </form>
+                         </div>
+                     </div>
+                   </div>
                  </div>
                  <div class="user-btm-box">
                     <!-- .row -->
                     <div class="row text-center m-t-10">
                        <div class="col-md-12">
                           <strong>College Name</strong>
-                          <p>E104, Dharti-2, Chandlodia Ahmedabad</p>
+                          <p>{{$user->college_name}}</p>
                        </div>
                     </div>
                     <hr>
                     <div class="row text-center m-t-10">
                        <div class="col-md-12">
                           <strong>College Location</strong>
-                          <p>Chandlodia Ahmedabad Gujarat, India.</p>
+                          <p>{{$user->college_state. ", " . $user->college_city}}</p>
                        </div>
                     </div>
                     <hr>
                     <div class="row text-center m-t-10">
                        <div class="col-md-12">
                           <strong>College Address</strong>
-                          <p>E104, Dharti-2, Chandlodia Ahmedabad
-                             <br> Gujarat, India.
-                          </p>
+                          <p>{{$user->college_address}}
+                          <br>{{$user->college_pincode}}</p>
                        </div>
                     </div>
                     <hr>
@@ -99,28 +122,28 @@
                              <fieldset disabled="">
                                 <label for="" class="col-md-12">College Official Email ID</label>
                                 <div class="col-md-12">
-                                   asdf@gmail.com
+                                   {{$user->college_email}}
                                 </div>
                              </fieldset>
                              <hr>
                              <fieldset disabled="">
                                 <label for="" class="col-md-12">College Mobile Number</label>
                                 <div class="col-md-12">
-                                   9988665588
+                                   {{$user->college_number_1}}
                                 </div>
                              </fieldset>
                              <hr>
                              <fieldset disabled="">
                                 <label for="" class="col-md-12">College Landline Number</label>
                                 <div class="col-md-12">
-                                   022678998
+                                   {{$user->college_number_2}}
                                 </div>
                              </fieldset>
                              <hr>
                              <fieldset disabled="">
                                 <label for="" class="col-md-12">College Website URL</label>
                                 <div class="col-md-12">
-                                   asdf@gmail.com
+                                   {{$user->website}}
                                 </div>
                              </fieldset>
                              <hr>
@@ -138,42 +161,14 @@
                                          </tr>
                                       </thead>
                                       <tbody>
+                                        @foreach($course as $courses)
                                          <tr>
-                                            <td>Bacholar of Enginering</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
+                                            <td>{{$courses->course_offer}}</td>
+                                            <td>{{$courses->course_duration}}</td>
+                                            <td>{{$courses->course_total_fee}}</td>
+                                            <td>{{$courses->fee_structure_file_name}} <a href="{{$courses->fee_structure_file_url}}"><i class="fa fa-download"></i></a> </td>
                                          </tr>
-                                         <tr>
-                                            <td>Master of Computer Science</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Bacholar of Fine Arts</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Master of Commerce</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Bacholar of Science </td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Master of Science</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
+                                         @endforeach
                                       </tbody>
                                    </table>
                                 </div>
@@ -191,4 +186,65 @@
         <!-- /.row -->
      </div>
 <!-- /#page-wrapper -->
+@endsection
+@section('js')
+    <!--Style Switcher -->
+    <script src="{{ asset('college/js/dashboard1.js') }}"></script>
+    <script src="{{ asset('college/js/cbpFWTabs.js') }}"></script>
+    <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
+
+    <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+    </script>
+    <script type="text/javascript">
+        (function() {
+
+            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+
+        })();
+    </script>
 @endsection
