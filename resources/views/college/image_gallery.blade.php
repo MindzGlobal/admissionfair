@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="modal-body">
 
-                                          <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data">
+                                         <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data">
                                             @csrf
                                              <div class="row">
                                               <div class="col-sm-12 ol-md-12 col-xs-12">
@@ -117,7 +117,10 @@
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
 
+     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script> 
+    
      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+
      <script>
     $(document).ready(function() {
         // Basic

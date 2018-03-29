@@ -27,6 +27,7 @@
             <!-- color CSS -->
             <link href="{{ asset('college/css/colors/blue.css') }}" id="theme" rel="stylesheet">
 
+
             @yield('css')
         @show
     </head>

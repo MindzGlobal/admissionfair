@@ -82,3 +82,4 @@ Route::post('college/video_gallery','College\videoController@uploadvideo');
 Route::get('college/video_gallery','College\videoController@showvideo');
 
 
+
