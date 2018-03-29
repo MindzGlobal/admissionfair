@@ -1,5 +1,17 @@
 @extends('student.layouts.student_general')
 
+@section('css')
+    <style type="text/css">
+        .banner {
+        padding: 274px 0px!important;
+        }    
+        .wrapper1
+        {
+        padding: 12px;
+        }
+    </style>
+@endsection
+
 @section('content')
 
   <!-- Strat Banner Section -->

@@ -34,6 +34,6 @@ class StudentVerifyEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.verifymailtemplate')->with(['user'=>$this->student,'studentId'=>bcrypt($this->student->student_id),'token'=>$this->email_token,'type'=>'STUDENT']);
+        return $this->view('email.verifymailtemplate')->with(['user'=>$this->student,'studentId'=>password_hash($this->student->student_id,PASSWORD_DEFAULT,array(2)),'token'=>$this->email_token,'type'=>'STUDENT']);
     }
 }
