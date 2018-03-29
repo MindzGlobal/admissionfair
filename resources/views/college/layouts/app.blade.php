@@ -8,7 +8,7 @@
             <meta name="description" content="">
             <meta name="author" content="">
             <meta name="csrf-token" content="{{ csrf_token() }}">
-            <link rel="icon" type="image/png" sizes="16x16" href="">
+            <link rel="icon" type="image/png" sizes="16x16" href="{{asset('college/images/favicon.png')}}">
             <title></title>
             <!-- Bootstrap Core CSS -->
             <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">

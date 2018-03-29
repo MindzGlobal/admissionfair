@@ -3,16 +3,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
-<<<<<<< HEAD
-
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-
-=======
-<<<<<<< HEAD
-<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-=======
->>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
+<!-- <link href="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.css') }}" rel="stylesheet" type="text/css" /> -->
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -34,12 +26,7 @@
                           <div id="gallery">
                              <h4>Upload Images Here</h4>
                             <div id="gallery-header">
-                                        <div id="gallery-header-center-left">
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
+                            <div id="gallery-header-center-left">
                             <div class="button-box">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
                             </div>
@@ -49,6 +36,11 @@
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
+                                            @if ($errors->has('image'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('image') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                         <div class="modal-body">
 
@@ -58,43 +50,42 @@
                                               <div class="col-sm-12 ol-md-12 col-xs-12">
                                                   <div class="white-box">
                                                       <h3 class="box-title">File Upload</h3>
-<<<<<<< HEAD
-
                                                       <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
                                                   </div>
                                               </div>
 
                                               </div>
-
-=======
-
-                                                      <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
-                                                  </div>
-                                              </div>
-
-                                              </div>
-
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
                                               <div class="modal-footer">
                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                   <button type="submit" class="btn btn-primary">Upload</button>
                                               </div>
-
                                           </form>
+                                          <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
+                            <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
+                                <div class="fallback">
+                                    <input name="image[]" type="file" multiple />
+                                </div>
+                              </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Upload</button>
+                            </div>
+                            </div>
+                            </form>
+
+                </div> -->
+
+
                                     </div>
                                 </div>
                               </div>
                             </div>
-<<<<<<< HEAD
-
                         </div>
                               </div>
-=======
-
-                        </div>
-                              </div>
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
-
                                 <div id="gallery-content ">
                                   <div id="gallery-content-center">
                                     <div class="popup-gallery m-t-30">
@@ -169,6 +160,6 @@
         })
     });
     </script>
+    <!-- <script src="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.js') }}"></script> -->
 
->>>>>>> 7d128781a8f01f2374c4a827a16abe7f43e77789
 @endsection
