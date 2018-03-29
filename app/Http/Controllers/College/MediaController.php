@@ -9,7 +9,6 @@ use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use Auth;
 use File;
 
 
