@@ -19,7 +19,9 @@ class CreateStudentsTable extends Migration
             $table->string('first_name')->nullable(false);
             $table->string('last_name')->nullable(false);
             $table->string('email')->nullable()->unique();
+            $table->boolean('email_verified')->default(0);
             $table->string('mobile',11)->nullable()->unique();
+            $table->boolean('otp_verified')->default(0);
             $table->string('date_of_birth')->nullable();
             $table->string('gender')->nullable();
             $table->string('country')->nullable();
