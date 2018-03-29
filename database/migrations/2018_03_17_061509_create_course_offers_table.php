@@ -13,7 +13,8 @@ class CreateCourseOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_offers', function (Blueprint $table) {
+        Schema::create('course_offers', function (Blueprint $table) 
+        {
             $table->increments('id');
             $table->string('reg_id')->nullable()->unique();
             $table->string('course_offer')->nullable();

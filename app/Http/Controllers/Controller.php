@@ -13,7 +13,7 @@ class Controller extends BaseController
 
     public function result($res,$msg)
     {
-        $res = ['res' => 1,'msg' => $msg];
+        $res = ['res' => $res,'msg' => $msg];
         return json_encode($res);
     }
 
@@ -39,8 +39,7 @@ class Controller extends BaseController
         }
         $request = substr($request, 0, strlen($request)-1);
         //remove final (&) sign from the request
-        $url =
-        "https://enterprise.smsgupshup.com/GatewayAPI/rest?".$request;
+        $url = "https://enterprise.smsgupshup.com/GatewayAPI/rest?".$request;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $curl_scraped_page = curl_exec($ch);

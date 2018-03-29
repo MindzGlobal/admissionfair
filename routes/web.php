@@ -1,7 +1,7 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
+|---   -----------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -15,17 +15,38 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
-Route::post('/sendotp', 'OtpController@sendOTP')->name('sendotp');
+Route::get('college/otpverification', 'college\OtpController@OtpVerifivationView')->name('otpverification');
+Route::post('college/otpverify', 'college\OtpController@OtpVerify')->name('otpverify');
+Route::post('college/resendotp', 'college\OtpController@resendotp')->name('clgresendotp');
 
 //College Section  ##############################################################################
-Route::get('college/login','College\CollegeAuthController@login');
+Route::get('college/login','College\CollegeAuthController@login')->name('collegelogin');
 Route::get('college/register','College\CollegeAuthController@register');
-Route::post('college/insertprofile','College\CollegeAuthController@insertProfile');
+Route::get('college/create-profile','College\CollegeAuthController@creatProfile');
+Route::get('college/reg','College\CollegeAuthController@register');
 
+Route::get('student/demo', function () {
+    return view('student.pages.register_login');
+});
+Route::post('college/insertprofile','College\CollegeAuthController@insertProfile');
+Route::get('college/dashboard','College\CollegeController@dashboard')->name('index');
+
+//Student Section ###############################################################################
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
 
+//  Route::get('student/demo', function () {
+//      return view('student.pages.edit_student_details');
+// });
+
+Route::get('student/demo',"students\StudentController@index");
+Route::post("student/insertprofile","students\StudentController@insert_student");
+Route::get('student/student_dashboard','students\StudentController@fetch_student');
+Route::get("student/edit_student","students\StudentController@edit_student");
+Route::post("student/update_student","students\StudentController@update_student");
+Route::post('student/upload_image','students\StudentController@uploadprofile_image');
+Route::get('student/delete','students\StudentController@deleteprofile_image');
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
@@ -47,9 +68,6 @@ Route::prefix('student')->namespace('students')->group(function(){
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-Route::get('college/video_gallery', function () {
-    return view('college.video_gallery');
-});
 
 Route::get('college/image_gallery','College\MediaController@insertimages');
 Route::post('college/image_gallery','College\MediaController@uploadimage');
@@ -62,6 +80,5 @@ Route::get('college/myprofile','College\MediaController@showprofile_image');
 Route::get('college/video_gallery','College\videoController@insertvideo');
 Route::post('college/video_gallery','College\videoController@uploadvideo');
 Route::get('college/video_gallery','College\videoController@showvideo');
-Route::get('college/index', function () {
-    return view('college.index');
-});
+
+

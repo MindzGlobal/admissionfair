@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('pincode',11)->nullable();
             $table->string('role')->nullable();
             $table->string('password')->nullable();
+            $table->string('profile_image')->nullable();
             $table->string('university_name')->nullable();
             $table->string('college_name')->nullable();
             $table->string('college_email')->nullable();
