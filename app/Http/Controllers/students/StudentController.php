@@ -10,8 +10,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Model\students\Student;
 use Illuminate\Validation\Validator; 
-use App\Model\students\Student_Education_Details;
-use App\Model\students\Student_Graduation__Details;
+use App\Model\students\StudentEducationDetails;
+use App\Model\students\StudentGraduationDetails;
 
 class StudentController extends Controller
 {
@@ -68,7 +68,7 @@ class StudentController extends Controller
     $student->about_you = Input::get("about_you");    
     $student->save();
 
-    $education=new Student_Education_Details;
+    $education=new StudentEducationDetails;
     $education->ssc_board = Input::get("ssc_board");
     $education->ssc_medium = Input::get("ssc_medium");
     $education->ssc_yop= Input::get("ssc_yop");
@@ -81,7 +81,7 @@ class StudentController extends Controller
     $education->hsc_perc = Input::get("hsc_perc");  
     $education->save();  
 
-    $graduation=new Student_Graduation__Details;
+    $graduation=new StudentGraduationDetails;
     $graduation->university_name = Input::get("university_name");
     $graduation->college_name = Input::get("college_name");
     $graduation->course= Input::get("course");
@@ -96,18 +96,19 @@ return redirect('student/student_dashboard');
 
 public function fetch_student()
 {
-  $student=DB::table('students')->where('id','=',10)->first();
-  $education=DB::table('student__education__details')->where('id','=',10)->get();
-  $graduation=DB::table('student__graduation___details')->where('id','=',10)->get();
+  $student=DB::table('students')->where('id','=',16)->first();
+  $education=DB::table('student_education_details')->where('id','=',16)->get();
+  $graduation=DB::table('student_graduation_details')->where('id','=',16)->get();
   //dd($student);
   return view('student.pages.student_dashboard',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
 }
 
 public function edit_student()
 {
-    $student =student::where('id', '=',10)->first();
-    $education =Student_Education_Details::where('id', '=',10)->first();
-    $graduation =Student_Graduation__Details::where('id', '=',10)->first();
+    $student =student::where('id', '=',16)->first();
+    //dd($student);
+    $education =StudentEducationDetails::where('id', '=',16)->first();
+    $graduation =StudentGraduationDetails::where('id', '=',16)->first();
     // $education=DB::table('student__education__details')->where('id','=',6)->get();
     // $graduation=DB::table('student__graduation___details')->where('id','=',4)->get();
     //$student=student::find(4)->where('id', '=', 4);
@@ -116,7 +117,7 @@ public function edit_student()
 public function update_student(Request $request)
     {
 
-    	$student = student::find(10);
+    	$student = student::find(16);
         $student->first_name =  $request-> Input("first_name");
         $student->last_name =  $request-> Input("last_name");
         $student->email =  $request-> Input("email");
@@ -131,7 +132,7 @@ public function update_student(Request $request)
         $student->about_you =  $request-> Input("about_you");       
         $student->save();
     
-        $education=Student_Education_Details::find(10);
+        $education=StudentEducationDetails::find(16);
         $education->ssc_board =  $request-> Input("ssc_board");
         $education->ssc_medium =  $request-> Input("ssc_medium");
         $education->ssc_yop=  $request-> Input("ssc_yop");
@@ -144,7 +145,7 @@ public function update_student(Request $request)
         $education->hsc_perc =  $request-> Input("hsc_perc");  
         $education->save();  
     
-        $graduation=Student_Graduation__Details::find(10);
+        $graduation=StudentGraduationDetails::find(16);
         $graduation->university_name =  $request-> Input("university_name");
         $graduation->college_name =  $request-> Input("college_name");
         $graduation->course=  $request-> Input("course");
@@ -158,7 +159,7 @@ public function update_student(Request $request)
     public function uploadprofile_image(Request $request){
        // $regid = Auth::user()->id;
        // $user = User::find($regid);
-        $student = student::find(10);
+        $student = student::find(16);
         if(Input::hasFile('image'))
        {
            $file=Input::file('image');
@@ -173,7 +174,7 @@ public function update_student(Request $request)
 
       public function deleteprofile_image(Request $request)
       {
-        $student = student::find(10);
+        $student = student::find(16);
         //File::delete();
         File::delete(public_path().'/student/images/profile_images'. $student->profile_image);
          $student->profile_image = 'student/images/profile_images/default.png';   
