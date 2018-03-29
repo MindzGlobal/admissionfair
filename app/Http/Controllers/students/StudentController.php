@@ -176,7 +176,7 @@ public function update_student(Request $request)
       {
         $student = student::find(16);
         //File::delete();
-        File::delete(public_path().'/student/images/profile_images'. $student->profile_image);
+        File::Delete(public_path().'/'.$fileUrl);
          $student->profile_image = 'student/images/profile_images/default.png';   
          $student->save();
         return redirect('student/student_dashboard');
