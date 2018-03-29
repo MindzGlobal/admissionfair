@@ -174,11 +174,20 @@ public function update_student(Request $request)
 
       public function deleteprofile_image(Request $request)
       {
-        $student = student::find(16);
-        //File::delete();
-        File::Delete(public_path().'/'.$fileUrl);
-         $student->profile_image = 'student/images/profile_images/default.png';   
-         $student->save();
+        // $student = student::find(16);
+        // //File::delete();
+        //  File::delete(public_path().'/student/images/profile_images'. $student);
+        //  $student->profile_image = 'student/images/profile_images/default.png';   
+        //  $student->update();
+        // return redirect('student/student_dashboard');
+
+        $student =DB::table('students')->where('id', 16)->first();
+        $file= $student->profile_image;
+        $filename = public_path().'/student/images/profile_images/'.$file;
+        \File::delete($filename);
+        $student->profile_image = 'student/images/profile_images/default.png';   
+        $student->save();
         return redirect('student/student_dashboard');
+
       }
 }
