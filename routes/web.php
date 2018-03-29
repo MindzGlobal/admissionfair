@@ -15,20 +15,34 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
-Route::get('college/otpverification', 'college\OtpController@OtpVerifivationView')->name('otpverification');
-Route::post('college/otpverify', 'college\OtpController@OtpVerify')->name('otpverify');
-Route::post('college/resendotp', 'college\OtpController@resendotp')->name('clgresendotp');
-
-//College Section  ##############################################################################
-Route::get('college/login','College\CollegeAuthController@login')->name('collegelogin');
-Route::get('college/register','College\CollegeAuthController@register');
-Route::post('college/insertprofile','College\CollegeAuthController@insertProfile');
-Route::get('college/dashboard','College\CollegeController@dashboard')->name('index');
 
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
 
+//College Section  ##############################################################################
+Route::prefix('college')->namespace('college')->group(function(){
+    Route::get('register','CollegeAuthController@register');
+    Route::get('login','CollegeAuthController@login')->name('collegelogin');
+    Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
+    Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
+    Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
+    Route::post('insertprofile','CollegeAuthController@insertProfile');
+    Route::get('dashboard','CollegeController@dashboard')->name('dashboard');
+
+    Route::post('image_gallery','MediaController@uploadimage');
+    Route::get('image_gallery','MediaController@showimages');
+    Route::get('deleteimagegallery/{id}','MediaController@deleteImage');
+
+    Route::post('video_gallery','videoController@uploadvideo');
+    Route::get('video_gallery','videoController@showvideo');
+    Route::get('deletevideogallery/{id}','videoController@deleteVideo');
+
+    Route::get('createprofile','CollegeController@createprofile');
+    Route::post('insertprofile','CollegeController@insertprofile');
+});
+
+//Student Section  ##############################################################################
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
@@ -47,21 +61,3 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
 });
-Route::get('college/std_profile1', function () {
-    return view('college.std_profile1');
-});
-Route::get('college/video_gallery', function () {
-    return view('college.video_gallery');
-});
-Route::get('college/image_gallery','College\MediaController@insertimages');
-Route::post('college/image_gallery','College\MediaController@uploadimage');
-Route::get('college/image_gallery','College\MediaController@showimages');
-
-Route::get('college/video_gallery','College\videoController@insertvideo');
-Route::post('college/video_gallery','College\videoController@uploadvideo');
-Route::get('college/video_gallery','College\videoController@showvideo');
-
-Route::get('college/image_gallery', function () {
-    return view('college.image_gallery');
-});
-
