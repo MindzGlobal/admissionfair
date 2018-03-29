@@ -62,7 +62,7 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('signup','Auth\StudentRegisterController@createStudent')->name('create-register');
     Route::get('verify/{studentId}/{email_token}','Auth\StudentRegisterController@authenticateStudentEmail')->name('authenticateStudentEmail');
 
-    
+
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
     Route::post('password/reset','Auth\ResetPasswordController@reset');
@@ -72,19 +72,18 @@ Route::prefix('student')->namespace('students')->group(function(){
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-Route::get('college/video_gallery', function () {
-    return view('college.video_gallery');
-});
-
-Route::get('college/image_gallery', function () {
-    return view('college.image_gallery');
-});
 
 Route::get('college/image_gallery','College\MediaController@insertimages');
 Route::post('college/image_gallery','College\MediaController@uploadimage');
 Route::get('college/image_gallery','College\MediaController@showimages');
 
+Route::post('college/index','College\MediaController@uploadprofile_image');
+Route::get('college/myprofile','College\MediaController@showprofile_image');
+
+
 Route::get('college/video_gallery','College\videoController@insertvideo');
 Route::post('college/video_gallery','College\videoController@uploadvideo');
 Route::get('college/video_gallery','College\videoController@showvideo');
+
+
 

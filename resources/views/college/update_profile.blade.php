@@ -515,7 +515,7 @@
                 error: 'Désolé, le fichier trop volumineux'
 
 @endsection
-      
+
 @section('js')
 <script type="text/javascript">
     (function() {
@@ -713,4 +713,3 @@ $(document).ready(function() {
 </script>
 
 @endsection
-    
