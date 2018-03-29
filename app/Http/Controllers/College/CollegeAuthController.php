@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
+use App\Model\College\courseOffers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -22,24 +23,123 @@ class CollegeAuthController extends Controller
 
     public function insertProfile(Request $request)
     {
+     
       $res = 'Success';
       $msg = "Done";
       $clgDetais = new CollegeDetail;
-      $clgDetais->college_name = $request->clg_name;
-      $clgDetais->college_email = $request->clg_offemail;
-      $clgDetais->college_number_1 = $request->clg_official_number1;
-      $clgDetais->college_number_2 = $request->clg_official_number2;
-      $clgDetais->college_state = $request->clg_state;
-      $clgDetais->college_city = $request->clg_city;
-      $clgDetais->college_pincode = $request->clg_pincode;
-      $clgDetais->college_address = $request->get('clg_address');
-      $clgDetais->website = $request->clg_url;
+      $clgDetais->name = Input::get('name');
+      $clgDetais->email = Input::get('email');
+      $clgDetais->mobile = Input::get('mobile');
+      $clgDetais->college_number_1 = Input::get('college_number_1');
+      $clgDetais->state = Input::get('state');
+      $clgDetais->pincode = Input::get('pincode');
+      $clgDetais->city = Input::get('city');
+      $clgDetais->college_type = Input::get('college_type');
+      $clgDetais->college_address = Input::get('college_address');
+      $img = Input::file('college_img');
+      $video = Input::file('college_video');
+      $brochure = Input::file('college_brochure');
 
+      if($img=$request->file('college_img')){
+
+        $name = str_random(6) . '_' . $img->getClientOriginalName();
+        $destination_path = '/college/images/clg_images';
+        $img->move(public_path().$destination_path, $name);
+        $file_url = 'college/images/clg_images/'.$name;
+        $clgDetais->college_img = $file_url;
+
+        // $file = Input::file('college_img');
+        // $file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
+        // $clgDetais->college_img = $file->getClientOriginalName();
+
+      }
+
+      if($video=$request->file('college_video')){
+
+        $name = str_random(6) . '_' . $video->getClientOriginalName();
+        $destination_path = '/college/images/clg_videos';
+        $video->move(public_path().$destination_path, $name);
+        $file_url = 'college/images/clg_videos/'.$name;
+        $clgDetais->college_video = $file_url;
+        
+        // $file = Input::file('college_video');
+        // $file->move(public_path().'/college/images/clg_videos', $file->getClientOriginalName());
+        // $clgDetais->college_video = $file->getClientOriginalName();
+
+      }
+
+        if($brochure=$request->file('college_brochure')){
+
+          $name = str_random(6) . '_' . $brochure->getClientOriginalName();
+          $destination_path = '/college/images/clg_brochure';
+          $brochure->move(public_path().$destination_path, $name);
+          $file_url = 'college/images/clg_brochure/'.$name;
+          $clgDetais->college_brochure = $file_url;
+
+        // $file = Input::file('college_brochure');
+        // $file->move(public_path().'/college/images/clg_brochure', $file->getClientOriginalName());
+        // $clgDetais->college_brochure = $file->getClientOriginalName();
+
+        }
+      
       if(!$clgDetais->save())
+      {
+        $res = 'Error';
+        $msg = "Some Error Occurred!";
+      }
+      
+      
+      $course_offer = Input::get('course_offer');
+      $course_duration = Input::get('course_duration');
+      $course_total_fee = Input::get('course_total_fee');
+      $fee_structure_file_name = Input::get('fee_structure_file_name');
+      $course_department = Input::get('course_department');
+      $files = Input::file('fee_structure_file_name');
+      //dd($files);
+
+
+      $insertData = array();
+      for($i=0; $i<count($course_offer);$i++)
+      {
+
+        $file_url='';
+        $name = '';
+        if($files[$i]!='')
+        {
+          $name = str_random(6) . '_' . $files[$i]->getClientOriginalName();
+          $destination_path = '/college/images/docs';
+          $files[$i]->move(public_path().$destination_path, $name);
+          $file_url = 'college/images/docs/'.$name;
+        }
+
+        $insertData[] = [
+          'course_offer'  => $course_offer[$i],
+          'course_duration'   => $course_duration[$i],
+          'course_total_fee'  => $course_total_fee[$i],
+          'fee_structure_file_name'  => $name,
+          'fee_structure_file_url' => $file_url,
+          'course_department'  => $course_department[$i],
+          ];
+      }
+      $news = new courseOffers();
+      $news->insert($insertData);
+
+      // for($i=0; $i<=count($course_offer);$i++)
+      // {
+      //     $news = new courseOffers();
+      //     $news->course_offer = $course_offer[$i];
+      //     $news->course_duration = $course_duration[$i]; 
+      //     $news->course_total_fee = $course_total_fee[$i];  
+      //     $news->fee_structure_file_name = $fee_structure_file_name[$i];
+      //     $news->course_department = $course_department[$i];   // here add [$i]
+      // }
+
+      if(!$news)
       {
         $res = 'Error';
         $msg = "Some Error Occurred!";
       }
       return $this->Result($res,$msg);
     }
+
 }
