@@ -23,7 +23,7 @@ class MediaController extends Controller
               $name = str_random(6) . '_' . $file->getClientOriginalName();
               $destination_path = '/college/images/gallery_images';
               $file->move(public_path().$destination_path, $name);
-              $file_url = 'public/college/images/gallery_images/'.$name;
+              $file_url = 'college/images/gallery_images/'.$name;
 
               $insertData[] = [
               'file_name'  => $name,
@@ -49,15 +49,14 @@ class MediaController extends Controller
          $user->file_url = 'public/college/images/gallery_images/'.$file->getClientOriginalName();
      }*/
 
-     $user->save();
      return redirect("college/image_gallery");
    }
 
    public function showimages(){
 
      $user=College_media::where(function($query) {
-        $query->where('file_type', 'image', 'file_name');
-        })->get(['file_type','file_name']); 
+        $query->where('file_type', 'Image');
+        })->get(['file_type','file_name','file_url']); 
 
      return view('college.image_gallery', compact('user'));
    }

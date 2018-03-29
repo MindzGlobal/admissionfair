@@ -3,10 +3,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
-<<<<<<< HEAD
-<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-=======
->>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
+
+<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet"> 
+
+
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="modal-body">
 
-                                          <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data">
+                                         <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data">
                                             @csrf
                                              <div class="row">
                                               <div class="col-sm-12 ol-md-12 col-xs-12">
@@ -60,7 +60,7 @@
                                                   <button type="submit" class="btn btn-primary">Upload</button>
                                               </div>
 
-                                          </form>
+                                          </form> 
                                     </div>
                                 </div>
                               </div>
@@ -75,8 +75,8 @@
 
                                       @foreach($user as $user)
 
-                                      <a href="{{ asset('/college/images/gallery_images/'.$user->file_name) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
-                                      <img src="{{ asset('/college/images/gallery_images/'.$user->file_name) }}" class="all landscape" alt="gallery" /> </a>
+                                      <a href="{{ asset($user->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
+                                      <img src="{{ asset($user->file_url) }}" class="all landscape" alt="gallery" /> </a>
 
                                       @endforeach
 
@@ -99,8 +99,9 @@
     <script type="text/javascript" src="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
-<<<<<<< HEAD
-     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+
+     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script> 
+    
      <script>
     $(document).ready(function() {
         // Basic
@@ -142,8 +143,6 @@
             }
         })
     });
-    </script>
+    </script> 
 
-=======
->>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
 @endsection

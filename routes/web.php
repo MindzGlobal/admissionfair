@@ -50,7 +50,10 @@ Route::get('college/std_profile1', function () {
 Route::get('college/video_gallery', function () {
     return view('college.video_gallery');
 });
-<<<<<<< HEAD
+
+Route::get('college/image_gallery', function () {
+    return view('college.image_gallery');
+});
 
 Route::get('college/image_gallery','College\MediaController@insertimages');
 Route::post('college/image_gallery','College\MediaController@uploadimage');
@@ -60,8 +63,3 @@ Route::get('college/video_gallery','College\videoController@insertvideo');
 Route::post('college/video_gallery','College\videoController@uploadvideo');
 Route::get('college/video_gallery','College\videoController@showvideo');
 
-=======
-Route::get('college/image_gallery', function () {
-    return view('college.image_gallery');
-});
->>>>>>> e010e7e4d8130cb6b06908fbd9bc64dc1439c854
