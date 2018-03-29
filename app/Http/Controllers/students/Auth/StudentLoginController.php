@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use App\Model\students\StudentEducationDetails;
 class StudentLoginController extends Controller
 {
     /*
@@ -52,21 +53,26 @@ class StudentLoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        // dd($this->guard('student')->attempt($this->credentials($request), $request->filled('remember'))); , 'email_verification'=>'verified'
-
-        $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password ]); 
-        if($validStudent)
-        {
-            return redirect('/student/profile')->with('status', 'Welcome Back');
-        }
-        else{
-            return $validStudent;
-        }
-        // return $this->guard('jobseeker')->attempt(
-        //     $this->credentials($request), $request->filled('remember')
-        // );
+        // dd($this->guard('student')->attempt($this->credentials($request), $request->filled('remember')));//'email_verification'=>'verified'
+         $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password ]); 
+     
+         return $validStudent;
     }
-
+     
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $student)
+    {
+        if($student->otp_verified>0){
+          return redirect()->intended('/student/profile');
+         }
+        return redirect()->intended(route('student.otpform'));
+    }
 
 
       /**

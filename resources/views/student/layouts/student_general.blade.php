@@ -13,16 +13,29 @@
             <!-- Favicon -->
             <link rel="icon" type="image/png" href="{{ asset('student/images/favi.png')}}">
             <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png')}}">
-            
-            <!-- Bootstrap Core CSS -->
-            <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">
-            <!-- Custom CSS -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
-            <!-- Responsive stylesheet  -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
+                <!-- Bootstrap Core CSS -->
+                <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">
+                <!-- Custom CSS -->
+                <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
+                <!-- Responsive stylesheet  -->
+                <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
+            {{--  <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous">
+            </script>
+
+            <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.css">--}}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
            {{--  // <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
 
            <style>
+
+                .modal-backdrop  {
+                       opacity:0.1 !important;
+                   }
                  .invalid-feedback,.is-invalid {
                     display: none;
                     width: 100%;
@@ -58,12 +71,12 @@
 </head>
 
  <body>
-      {{-- < php include("common/header.php" ?> --}}
+     
       <!-- Strat Header Section -->
 <header class="edu-herader">
 
     <!-- Header top start -->
-    <!--div class="top_header">
+    <div class="top_header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 full-wd-600">
@@ -98,80 +111,13 @@
                 </div>
             </div>
         </div>
-    </div-->
-    <!-- Header top end -->
-    <!-- Header navbar start -->
-    <div class="header-navbar" id="navbar-main" style="position:relative;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" alt="">
-                            </a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
-                             data-animations="fadeInUp">
-                            <ul class="nav navbar-nav navbar-right">
-                               <li><a href="#">Home</a>
-								<li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
-                                </li>
-                                @guest
-                              
-                            @else
-                                <li>
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->first_name.''.Auth::user()->last_name}} <span class="caret"></span>
-                                    </a>
-    
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('student.logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
     </div>
+    <!-- Header top end -->
+    @include('student.common.nav_bar_initial')
 </header>
 <!-- End Header Section -->
-@if(count($errors) > 0)
-    @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
-            {{$error}}
-        </div>
-    @endforeach
-@endif
+@include('alerts')
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{session('success')}}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{session('error')}}
-    </div>
-@endif
       <!-- Strat Banner Section -->
      @yield('content')
       <!--  End Form Section -->
@@ -294,6 +240,17 @@
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
       <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
       <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
+
+      <script type="text/javascript">
+        @if(isset($title) || count($errors) > 0 )
+            $('#displayResultModal').modal('show');
+            window.setTimeout(function () {
+                $("#displayResultModal").modal("hide");
+            },2500);
+        @endif
+      </script>
+
+     
       
       
       @yield('js')

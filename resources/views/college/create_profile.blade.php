@@ -3,9 +3,7 @@
 
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
 <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
-
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
-
 
 @endsection
 
@@ -317,5 +315,5 @@
 @section('js')
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('college/js/formValidation.js') }}"></script>
-    <script src="{{ asset('js/countries.js') }}"></script>  
+    <script src="{{ asset('js/countries.js') }}"></script>
 @endsection
