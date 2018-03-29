@@ -39,7 +39,20 @@ class MediaController extends Controller
     return redirect("college/image_gallery");
   }
 
-  public function showimages(){
+     /*$user = new College_media;
+     $user->file_name = Input::get('image');
+     $user->file_type = 'Image';
+     
+     if(Input::hasFile('image'))
+     {
+         $file=Input::file('image');
+         $file->move(public_path().'/college/images/gallery_images', $file->getClientOriginalName());
+
+         $user->file_name = $file->getClientOriginalName();
+         $user->file_url = 'public/college/images/gallery_images/'.$file->getClientOriginalName();
+     }*/
+
+   public function showimages(){
 
     $user=College_media::where(function($query) {
        $query->where('file_type', 'Image');

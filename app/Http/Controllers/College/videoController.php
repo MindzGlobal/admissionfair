@@ -51,7 +51,6 @@ class videoController extends Controller
          $user->file_url = 'public/college/images/gallery_videos/'.$file->getClientOriginalName();
      }*/
 
-     $user->save();
      return redirect("college/video_gallery");
    }
 
