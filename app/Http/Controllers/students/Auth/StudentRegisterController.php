@@ -76,7 +76,7 @@ class StudentRegisterController extends Controller
      */
     public function createStudent(Request $request)
     {
-       Session::reflash('success','Success ,verify your account through Email Or OTP.');
+      
 
         $this->validate($request,[
             'first_name' => 'required|string|max:255|regex:/^[a-zA-Z]+$/u',
@@ -111,10 +111,12 @@ class StudentRegisterController extends Controller
            
             if($studentVerfify->save()){
                //$this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
-               //  return redirect()->route('student.otpform');
+                 
                $this->guard('student')->login($student);
-               return view('student.pages.otp_form')->with('mobile',$student->mobile)
-                ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+               Session::reflash('success','Success ,verify your account through Email Or OTP.');
+               return redirect()->route('student.otpform');
+              // return view('student.pages.otp_form')->with('mobile',$student->mobile)
+               // ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
             }
           //Token Not Generated
           return redirect()->back()

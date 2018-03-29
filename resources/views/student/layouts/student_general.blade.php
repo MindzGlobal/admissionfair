@@ -13,19 +13,22 @@
             <!-- Favicon -->
             <link rel="icon" type="image/png" href="{{ asset('student/images/favi.png')}}">
             <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png')}}">
-            <script
+                <!-- Bootstrap Core CSS -->
+                <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">
+                <!-- Custom CSS -->
+                <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
+                <!-- Responsive stylesheet  -->
+                <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
+            {{--  <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous">
             </script>
 
-            <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.css">
-            
-            <!-- Bootstrap Core CSS -->
-            <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">
-            <!-- Custom CSS -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
-            <!-- Responsive stylesheet  -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
+            <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.css">--}}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
            {{--  // <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
 
            <style>
@@ -68,12 +71,12 @@
 </head>
 
  <body>
-      {{-- < php include("common/header.php" ?> --}}
+     
       <!-- Strat Header Section -->
 <header class="edu-herader">
 
     <!-- Header top start -->
-    <!--div class="top_header">
+    <div class="top_header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 full-wd-600">
@@ -108,63 +111,9 @@
                 </div>
             </div>
         </div>
-    </div-->
-    <!-- Header top end -->
-<<<<<<< HEAD
-    @include('student.common.nav_bar_initial')
-=======
-    <!-- Header navbar start -->
-    <div class="header-navbar" id="navbar-main" style="position:relative;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" alt="">
-                            </a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
-                             data-animations="fadeInUp">
-                            <ul class="nav navbar-nav navbar-right">
-                               <li><a href="#">Home</a>
-								<li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
-                                </li>
-                                @guest
-                              
-                            @else
-                                <li>
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->first_name.''.Auth::user()->last_name}} <span class="caret"></span>
-                                    </a>
-    
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('student.logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
     </div>
->>>>>>> 4275a5d8f5fa73776252bbea0fc2ba10bb4d8077
+    <!-- Header top end -->
+    @include('student.common.nav_bar_initial')
 </header>
 <!-- End Header Section -->
 @include('alerts')
@@ -289,7 +238,8 @@
       <script type="text/javascript" src="{{ asset('student/js/particles.min.js')}}"></script>
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
-<<<<<<< HEAD
+      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
 
       <script type="text/javascript">
         @if(isset($title) || count($errors) > 0 )
@@ -300,12 +250,9 @@
         @endif
       </script>
 
-=======
-      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
-      <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
+     
       
       
->>>>>>> 4275a5d8f5fa73776252bbea0fc2ba10bb4d8077
       @yield('js')
 
    </body>

@@ -44,25 +44,25 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">First Name:</label>
-                     <input  maxlength="100" name="first_name" type="text" required="required" class="form-control" placeholder="Enter First Name"  pattern="[A-Z a-z]{1,32}"/>
+                     <input  maxlength="100" name="first_name" type="text" value="{{ Auth::user()->first_name}}" required="required" class="form-control" placeholder="Enter First Name"  pattern="[A-Z a-z]{1,32}"/>
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Last Name:</label>
-                     <input  maxlength="100" type="text" name="last_name" required="required" class="form-control" placeholder="Enter Last Name"  />
+                     <input  maxlength="100" type="text" name="last_name" value="{{ Auth::user()->last_name }}" required="required" class="form-control" placeholder="Enter Last Name"  />
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Email:</label>
-                     <input  maxlength="100" type="email" name="email" required="required" class="form-control" placeholder="Enter Email"  />
+                     <input  maxlength="100" type="email" name="email" value="{{ Auth::user()->email }}" required="required" class="form-control" placeholder="Enter Email"  />
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Contact Number:</label>
-                     <input  maxlength="100" type="number" name="mobile" required="required" class="form-control" placeholder="Enter Contact Number"  />
+                     <input  maxlength="100" type="number" name="mobile" required="required" value="{{ Auth::user()->mobile }}" class="form-control" placeholder="Enter Contact Number"  />
                   </div>
                </div>
                <div class="col-md-6">

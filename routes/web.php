@@ -47,6 +47,7 @@ Route::get("student/edit_student","students\StudentController@edit_student");
 Route::post("student/update_student","students\StudentController@update_student");
 Route::post('student/upload_image','students\StudentController@uploadprofile_image');
 Route::get('student/delete','students\StudentController@deleteprofile_image');
+
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 

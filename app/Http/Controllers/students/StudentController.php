@@ -23,7 +23,7 @@ class StudentController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth:student');
+        $this->middleware('auth:student');
     }
     /**
      * Show the application dashboard.
@@ -33,17 +33,21 @@ class StudentController extends Controller
     public function Showprofile(Request $request)
     {
       //  dd(Auth::user());
+      $education_details=null;
+      $graduation_details=null;
         if(Auth::user()->otp_verified>0){
             
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
         
          if(!is_null($education_details)){
             $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
-    
-         return view('student.pages.student_dashboard')->with('student',$education_details,'graduation',$graduation_details);
+         
+            return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
+         //return view('student.pages.student_dashboard')->with('student',$education_details,'graduation',$graduation_details);
          }
-         return view("retun to the edit details page ")->with(['status'=>'success','message'=>'Already Verified ,you can Access your Account Now']);
-       
+         return view('student.pages.add_student_details')
+                ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
+    
         }
         //return redirect()->route('student.otpform');
         return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
@@ -52,7 +56,8 @@ class StudentController extends Controller
 
     public function ShowOtpForm(Request $request)
     {
-    
+        $education_details=null;
+        $graduation_details=null;
        if(Auth::user()->otp_verified==0){
 
         return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
@@ -62,33 +67,46 @@ class StudentController extends Controller
         
          if(!is_null($education_details)){
             $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
-    
-         return view('student.pages.student_dashboard')->with('student',$education_details);
+           
+            return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
+        // return view('student.pages.student_dashboard')->with('student',$education_details);
          }
-         return view("retun to the edit details page ")->with(['status'=>'success','message'=>'Already Verified ,you can Access your Account Now']);
-       }
+         return view('student.pages.add_student_details')
+                ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
+    
+        }
     
     }
    
     public function verifyStudentOtp(Request $request)
     {
         //dd($request->userMobile);
+        $education_details=null;
+        $graduation_details=null;
+
         if(Auth::user()->mobile==$request->userMobile){
             if(Auth::user()->otp_verified==0){
                 $student_verify=UserVerification::where(['mobile_token'=>$request->otp_value])->first();
-                $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
-                      
+                
                 if(!is_null($student_verify)){
                     if((Student::where('student_id',$student_verify->unique_id)->update(['otp_verified' =>1]))>0){
+
                          UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['mobile_token'=>Null]);
-                        
+                         $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
+                       
                          if(!is_null($education_details)){
-                             
-                            Session::reflash('success','successfully Verified ,You can Access your Account Now.');
+                            $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
+
+                            return view('student.pages.student_dashboard',
+                                   ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details])
+                                   ->with(['status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
+
+                           // Session::reflash('success','successfully Verified ,You can Access your Account Now.');
                            // return view('student.pages.student_dashboard')->with(['student'=>$education_details,'status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
-                           return redirect()->route('student/profile');
+                          // return redirect()->route('student/profile');
                         }
-                        return view("retun to the edit details page ")->with(['status'=>'success','message'=>'Already Verified ,you can Access your Account Now']);
+                        return view('student.pages.add_student_details')
+                              ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
                     }
                     return redirect()->back()->withErrors(['status'=>'danger','message'=>' Sorry ,Something Went Wrong ,Please try again later']);
                  }
@@ -98,10 +116,15 @@ class StudentController extends Controller
               if(Auth::user()->otp_verified==1){
                   
                 if(!is_null($education_details)){
-                    return redirect()->route('student/profile');
+                    return view('student.pages.student_dashboard',
+                    ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
+          
+                    //return redirect()->route('student/profile');
                   //return view('student.pages.student_dashboard')->with('student',$education_details);
                 }
-                return view("retun to the edit details page ")->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
+                return view('student.pages.add_student_details')
+                            ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
+               // return view("retun to the edit details page ")->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
               }
               return redirect()->back()->withErrors(['status'=>'warning','message'=>'Sorry ,please Verify with new OTP']);
            }
@@ -183,25 +206,25 @@ class StudentController extends Controller
 return redirect('student/student_dashboard');
 }
 
-public function fetch_student()
-{
-  $student=DB::table('students')->where('id','=',10)->first();
-  $education=DB::table('student__education__details')->where('id','=',10)->get();
-  $graduation=DB::table('student__graduation___details')->where('id','=',10)->get();
-  //dd($student);
-  return view('student.pages.student_dashboard',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
-}
+// public function fetch_student()
+// {
+//   $student=DB::table('students')->where('id','=',10)->first();
+//   $education=DB::table('student__education__details')->where('id','=',10)->get();
+//   $graduation=DB::table('student__graduation___details')->where('id','=',10)->get();
+//   //dd($student);
+//   return view('student.pages.student_dashboard',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
+// }
 
-public function edit_student()
-{
-    $student =student::where('id', '=',10)->first();
-    $education =Student_Education_Details::where('id', '=',10)->first();
-    $graduation =Student_Graduation__Details::where('id', '=',10)->first();
-    // $education=DB::table('student__education__details')->where('id','=',6)->get();
-    // $graduation=DB::table('student__graduation___details')->where('id','=',4)->get();
-    //$student=student::find(4)->where('id', '=', 4);
-    return view('student.pages.edit_student',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
-}
+// public function add_student_details()
+// {
+//     $student =student::where('id', '=',10)->first();
+//     $education =Student_Education_Details::where('id', '=',10)->first();
+//     $graduation =Student_Graduation__Details::where('id', '=',10)->first();
+//     // $education=DB::table('student__education__details')->where('id','=',6)->get();
+//     // $graduation=DB::table('student__graduation___details')->where('id','=',4)->get();
+//     //$student=student::find(4)->where('id', '=', 4);
+//     return view('student.pages.add_student_details',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
+// }
 public function update_student(Request $request)
     {
 
