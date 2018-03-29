@@ -4,18 +4,14 @@ namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
 use App\Model\College\courseOffers;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-
 use Illuminate\Http\Request;
 
 
 class CollegeAuthController extends Controller
 {
-    public function routes()
-    {
-        $this->middleware('auth');
-    }
-    
+
     public function login(Request $Request){
       return view('college.login');
     }

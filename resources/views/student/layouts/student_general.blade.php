@@ -63,7 +63,7 @@
 <header class="edu-herader">
 
     <!-- Header top start -->
-    <div class="top_header">
+    <!--div class="top_header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 full-wd-600">
@@ -88,7 +88,7 @@
                     <div class="header-topbar-col center767">
                         <form>
                             <div class="input-group">
-                                <input placeholder="Search College List" class="form-control" name="search-field" type="text">
+                               <input placeholder="Search College List" class="form-control" name="search-field" type="text">
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                     </span>
@@ -98,10 +98,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
     <!-- Header top end -->
     <!-- Header navbar start -->
-    <div class="header-navbar" id="navbar-main">
+    <div class="header-navbar" id="navbar-main" style="position:relative;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -292,6 +292,9 @@
       <script type="text/javascript" src="{{ asset('student/js/particles.min.js')}}"></script>
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
+      <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
+      
       
       @yield('js')
 

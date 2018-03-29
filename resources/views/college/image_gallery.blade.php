@@ -6,7 +6,6 @@
 
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet"> 
 
-
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -29,7 +28,7 @@
                              <h4>Upload Images Here</h4>
                             <div id="gallery-header">
                                         <div id="gallery-header-center-left">
-                           
+
                             <div class="button-box">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
                             </div>
@@ -48,13 +47,14 @@
                                               <div class="col-sm-12 ol-md-12 col-xs-12">
                                                   <div class="white-box">
                                                       <h3 class="box-title">File Upload</h3>
-                                                      
+
                                                       <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
                                                   </div>
                                               </div>
-                    
+
                                               </div>
-                                              
+
+
                                               <div class="modal-footer">
                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                   <button type="submit" class="btn btn-primary">Upload</button>
@@ -65,9 +65,14 @@
                                 </div>
                               </div>
                             </div>
-                     
+
+
                         </div>
-                              </div> 
+                              </div>
+
+                        </div>
+                              </div>
+
 
                                 <div id="gallery-content ">
                                   <div id="gallery-content-center">
@@ -84,9 +89,9 @@
                                   </div>
                                 </div>
                              </div>
-                       
+
                           <div class="clearfix"></div>
-                      
+
                   </div>
               </div>
           </div>
@@ -102,6 +107,8 @@
 
      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script> 
     
+     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+
      <script>
     $(document).ready(function() {
         // Basic
@@ -144,5 +151,6 @@
         })
     });
     </script> 
+
 
 @endsection
