@@ -28,12 +28,9 @@ class CreateStudentsTable extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('pincode',11)->nullable();
-<<<<<<< HEAD:database/migrations/2018_03_27_095353_create_students_table.php
             $table->string('address')->nullable();
             $table->string('about_you')->nullable();
             $table->string('role')->nullable();
-=======
->>>>>>> f92921d9fbd9cfdbd5a290cc1b7dddf003fb0524:database/migrations/2018_03_20_111738_create_students_table.php
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
             $table->timestamps();
