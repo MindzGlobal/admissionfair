@@ -11,8 +11,13 @@ use File;
 
 class videoController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   public function insertvideo(){
-  return view('college.video_gallery');
+    return view('college.video_gallery');
   }
 
 
