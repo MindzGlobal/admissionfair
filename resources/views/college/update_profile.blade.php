@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -33,7 +33,7 @@
          <?php include('common/leftmenu.php');?>
          <!-- Page Content -->
          <div id="page-wrapper">
-=======
+
 @extends('college.layouts.app')
 @section('css')
 
@@ -41,7 +41,7 @@
 
 
 @section('content')
->>>>>>> d907f5a7392a5ada4d82122eb6b01a2c8a1d8b06
+
             <div class="container-fluid">
                <div class="row bg-title">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -315,7 +315,6 @@
                <!-- .right-sidebar -->
                <!-- /.right-sidebar -->
             </div>
-<<<<<<< HEAD
 
             <?php include('common/footer.php');?>
          </div>
@@ -514,16 +513,16 @@
                 replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
                 remove: 'Supprimer',
                 error: 'Désolé, le fichier trop volumineux'
-=======
+
 @endsection
-      
+
 @section('js')
 <script type="text/javascript">
     (function() {
         $('#exampleBasic').wizard({
             onFinish: function() {
                 swal("Message Finish!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
->>>>>>> d907f5a7392a5ada4d82122eb6b01a2c8a1d8b06
+
             }
         });
         $('#exampleBasic2').wizard({
@@ -655,12 +654,12 @@
     }
     });
 
-<<<<<<< HEAD
-      <!--Style Switcher -->
+      //Style Switcher
+
       <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
    </body>
 </html>
-=======
+
     $(wrapper).on("click",".remove_field1", function(e){ //user click on remove text
     e.preventDefault(); $(this).parent('div').remove(); x--;
     })
@@ -714,5 +713,3 @@ $(document).ready(function() {
 </script>
 
 @endsection
-    
->>>>>>> d907f5a7392a5ada4d82122eb6b01a2c8a1d8b06

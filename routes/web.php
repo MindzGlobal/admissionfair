@@ -1,7 +1,7 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
+|---   -----------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -15,7 +15,7 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
-
+//Student Section ###############################################################################
 Route::get('college/demo', function () {
     return view('college.create_profile');
 });
@@ -46,7 +46,10 @@ Route::prefix('college')->namespace('college')->group(function(){
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
-    Route::get('profile','StudentController@index');
+    Route::get('profile','StudentController@Showprofile');
+    Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
+    Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');
+    Route::get('resendotp','StudentController@resendStudentOtp')->name('student.resendotp');
 
     Route::get('login','Auth\StudentLoginController@showLoginForm')->name('student.loginform');
     Route::post('login','Auth\StudentLoginController@login')->name('student.login');
@@ -54,7 +57,7 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('signup','Auth\StudentRegisterController@createStudent')->name('create-register');
     Route::get('verify/{studentId}/{email_token}','Auth\StudentRegisterController@authenticateStudentEmail')->name('authenticateStudentEmail');
 
-    
+
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
     Route::post('password/reset','Auth\ResetPasswordController@reset');

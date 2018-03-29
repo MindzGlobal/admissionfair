@@ -62,6 +62,5 @@ class videoController extends Controller
     {
       return redirect('college/video_gallery')->with(['status'=>'Success','msg'=>'Video Deleted Successfuly.']);
     }
-   
  }
 }

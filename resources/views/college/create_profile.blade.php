@@ -1,8 +1,10 @@
 @extends('college.layouts.app')
 @section('css')
+
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
 <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+
 @endsection
 
 @section('content')
@@ -32,7 +34,7 @@
                             <h4><span><i class="ti-check"></i></span>Add Media</h4>
                         </li>
                     </ul>
-                    <form id="validation" class="form-horizontal" method="POST" action="{{ url('college/insertprofile') }}" enctype="multipart/form-data" >
+                    <form id="validation" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ url('college/insertprofile') }}" >
                         @csrf
                         <div class="wizard-content">
                             <div class="wizard-pane active" role="tabpanel">
@@ -40,7 +42,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Name</label>
                                     <div class="col-xs-5">
-                                        <input type="text" class="form-control" name="clg_name" placeholder="College Name" />
+                                        <input type="text" class="form-control" name="name" placeholder="College Name" />
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +50,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Official Email ID</label>
                                     <div class="col-xs-5">
-                                        <input type="email" class="form-control" name="clg_offemail" placeholder="College Email ID" />
+                                        <input type="email" class="form-control" name="email" placeholder="College Email ID" />
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +60,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">Official Number</label>
                                     <div class="col-xs-5">
-                                        <input type="number" class="form-control" name="clg_official_number1" placeholder="Mobile Number" />
+                                        <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" />
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +69,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">Official Number</label>
                                     <div class="col-xs-5">
-                                        <input type="number" class="form-control" name="clg_official_number2" placeholder="Mobile Number" />
+                                        <input type="number" class="form-control" name="college_number_1" placeholder="Mobile Number" />
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +79,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">State</label>
                                     <div class="col-xs-5">
-                                        <select class="form-control" name="clg_state" id="sel1">
+                                        <select class="form-control" name="state" id="sel1">
                                         <option></option>
                                         <option>1</option>
                                         <option>2</option>
@@ -92,7 +94,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">City</label>
                                     <div class="col-xs-5">
-                                        <select class="form-control" name="clg_city" id="sel1">
+                                        <select class="form-control" name="city" id="sel1">
                                         <option></option>
                                         <option>1</option>
                                         <option>2</option>
@@ -108,7 +110,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">Pin Code</label>
                                     <div class="col-xs-5">
-                                        <input type="number" class="form-control" name="clg_pincode" placeholder="Pin Code (optional)" />
+                                        <input type="number" class="form-control" name="pincode" placeholder="Pin Code (optional)" />
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +129,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Address</label>
                                     <div class="col-xs-5">
-                                        <textarea type="text" class="form-control" name="clg_address"></textarea>
+                                        <textarea type="text" class="form-control" name="college_address"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -142,27 +144,27 @@
                                     <label class="col-xs-3 control-label">Type Of College</label><br>
                                     <div class="col-xs-5">
                                         <label for="chkYes">
-                                        <input type="radio" id="chkYes" name="chk" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkYes" name="college_type" value="" onclick="ShowHideDiv()" />
                                         Affilated To
                                         </label>&nbsp
                                         <label for="chkNo">
-                                        <input type="radio" id="chkNo" name="chk" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkNo" name="college_type" value="" onclick="ShowHideDiv()" />
                                         Autonomous
                                         </label>&nbsp
                                         <label for="chkYes1">
-                                        <input type="radio" id="chkYes1" name="chk" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkYes1" name="college_type" value="" onclick="ShowHideDiv()" />
                                         Both
                                         </label>
 
                                         <div id="dvtext" style="display: none">
                                         Type University Name:
-                                        <input class="form-control textbox" type="text" id="txtBox" />
+                                        <input class="form-control textbox" type="text" name="university_name" id="txtBox" />
                                         </div>
 
 
                                         <div id="dvtext1" style="display: none">
                                         Type University Name:
-                                        <input class="form-control textbox" type="text" id="txtBox" />
+                                        <input class="form-control textbox" name="university_name" type="text" id="txtBox" />
                                         </div>
 
                                     </div>
@@ -173,10 +175,10 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">Type Of College:</label><br>
                                     <div class="col-xs-5">
-                                        <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Technology</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Medical</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Management</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Arts</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_type">Technology</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_type">Medical</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_type">Management</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_type">Arts</label>
                                     </div>
                                 </div>
                             </div>
@@ -198,63 +200,63 @@
                                         </div>
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Duration Of Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Overall Fee Of Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="file" class="form-control textbox" id="" placeholder="" >
+                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-12">
                                                     <label class="col-xs-3 control-label">Add Departments</label><br>
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Add Departments" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_department[]" placeholder="Add Departments" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Duration Of Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Overall Fee Of Course" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="file" class="form-control textbox" id="" placeholder="" >
+                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-12">
                                                     <label class="col-xs-3 control-label">Add Departments</label><br>
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" placeholder="Add Departments" >
+                                                    <input type="text" class="form-control textbox" id="" name="course_department[]"  placeholder="Add Departments" >
                                                     </div>
                                                 </div>
 
@@ -275,14 +277,14 @@
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Images</h3>
-                                    <input type="file" id="file" name="colleg_image" class="dropify colleg_image" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Videos</h3>
-                                    <input type="file" id="file" name="colleg_video" class="dropify colleg_video" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_video" accept="" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
@@ -291,7 +293,7 @@
                                     <div class="col-sm-12 ol-md-12 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Brochures</h3>
-                                    <input type="file" id="file" name="colleg_document" class="dropify colleg_document" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_brochure" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
@@ -313,5 +315,5 @@
 @section('js')
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('college/js/formValidation.js') }}"></script>
-    <script src="{{ asset('js/countries.js') }}"></script>  
+    <script src="{{ asset('js/countries.js') }}"></script>
 @endsection
