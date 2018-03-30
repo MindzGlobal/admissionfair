@@ -88,34 +88,29 @@
                                                   <button type="submit" class="btn btn-primary">Upload</button>
                                               </div>
                                           </form>
-                                          <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="white-box">
-                            <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
-                            <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
-                                <div class="fallback">
-                                    <input name="image[]" type="file" multiple />
-                                </div>
-                              </div>
+                                          {{--  <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="white-box">
+                                                    <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
+                                                    <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
+                                                        <div class="fallback">
+                                                            <input name="image[]" type="file" multiple />
+                                                        </div>
+                                                    </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Upload</button>
-                            </div>
-                            </div>
-                            </form>
-
-                </div> -->
-
-
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                    </div>
+                                                    </div>
+                                                    </form>
+                                        </div>  --}}
                                     </div>
                                 </div>
                               </div>
                             </div>
                         </div>
                               </div>
-                                <div id="gallery-content ">
-                                  <div id="gallery-content-center">
                                     <div class="popup-gallery m-t-30">
                                       @foreach($user as $users)
                                       <div class="img-wrap">
@@ -126,7 +121,6 @@
                                       </div>  
                                       @endforeach
                                     </div>
-                                  
                              </div>
 
                           <div class="clearfix"></div>

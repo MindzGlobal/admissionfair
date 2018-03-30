@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\College;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modle\College\College_media;
+use App\Model\College\College_media;
 use App\Modle\College\Course_offer;
 use App\User;
 use Auth;

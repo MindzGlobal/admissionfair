@@ -51,8 +51,7 @@
                             <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
-                                    <li><a href="./"><i class="ti-user"></i>  My Profile</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>
+                                    <li><a href="{{ route('dashboard') }}"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"  ></i>  Logout</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -81,13 +80,13 @@
                                 <a href="#" class="waves-effect"><img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" class="img-circle"> <span class="hide-menu">{{ Auth::user()->name}}</span>
                                 </a>
                             </li>
-                            <li> <a href="./" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> My Profile</span></a>
+                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> My Profile</span></a>
                             </li>
-                            <li> <a href="update_profile" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> Update Profile</span></a>
+                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> Update Profile</span></a>
                             </li>
-                            <li> <a href="std_profile" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a>
+                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a>
                             </li>
-                            <li><a href="select_booth" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Select Booth </span></a></li>
+                            <li><a href="{{ route('dashboard') }}" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Select Booth </span></a></li>
                             <!-- <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-bars p-r-10"></i> <span class="hide-menu"> Courses <span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="">All Courses</a> </li>
@@ -96,11 +95,11 @@
                                     <li> <a href="">Course Information</a> </li>
                                 </ul>
                             </li> -->
-                            <li> <a href="subscribe_price" class="waves-effect"><i class="icon-basket p-r-10"></i> <span class="hide-menu"> Subscription Price</span></a></li>
+                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="icon-basket p-r-10"></i> <span class="hide-menu"> Subscription Price</span></a></li>
                             <li> <a href="#" class="waves-effect"><i class="icon-picture p-r-10"></i><span class="hide-menu">Gallery<span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="image_gallery">Image Gallery</a></li>
-                                    <li><a href="video_gallery">Video Gallery</a></li>
+                                    <li><a href="{{ url('college/image_gallery') }}">Image Gallery</a></li>
+                                    <li><a href="{{ url('college/video_gallery') }}">Video Gallery</a></li>
                                 </ul>
                             </li>
 
