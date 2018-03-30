@@ -64,6 +64,7 @@
                     </div>
                 </nav>
                 <!--End Navigation-->
+                @if(Auth::user()->compilation_status == 'Done')
                 <!-- Left navbar-header -->
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
@@ -108,8 +109,9 @@
                     </div>
                 </div>
                 <!-- Left navbar-header end -->
+                @endif
 
-                <div id="page-wrapper">
+                <div id="{{ Auth::user()->compilation_status == 'Done' ? 'page-wrapper' : '' }}">
                     @yield('content')
                     <!-- /.container-fluid -->
                     <footer class="footer text-center"> 2018 &copy; By ZRMindzGlobal </footer>

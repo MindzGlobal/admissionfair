@@ -40,6 +40,7 @@ class CreateUsersTable extends Migration
             $table->string('college_type')->nullable();
             $table->string('college_category')->nullable();
             $table->string('college_booth')->nullable();
+            $table->string('compilation_status')->nullable();
             $table->rememberToken()->nullable();
             $table->timestamps();
         });
