@@ -4,6 +4,34 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+<style>
+        .img-wrap {
+            position: relative;
+            display: inline-block;
+            /* border: 1px #00000017 solid; */
+            font-size: 0;
+            /* margin: 5px; */
+        }
+        .img-wrap .close {
+            position: absolute;
+            right: 0px;
+            z-index: 100;
+            /* background-color: #FFF; */
+            padding: 0px 8px 0px;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: .2;
+            text-align: center;
+            /* font-size: 22px; */
+            line-height: 10px;
+            border-radius: 50%;
+        }
+        .img-wrap:hover .close {
+            opacity: 1;
+        }
+
+</style>
 <!-- <link href="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.css') }}" rel="stylesheet" type="text/css" /> -->
 @endsection
 @section('content')
@@ -24,12 +52,14 @@
                   <div class="col-md-12">
                       <div class="white-box">
                           <div id="gallery">
-                             <h4>Upload Images Here</h4>
-                            <div id="gallery-header">
-                            <div id="gallery-header-center-left">
-                            <div class="button-box">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
+                            <div class="col-md-6"> 
+                                <h4>Upload Images Here</h4>
                             </div>
+                             <div class="col-md-6 button-box">
+                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
+                            </div>
+                            <div id="">
+                            <div id="gallery-header-center-left">
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -60,46 +90,39 @@
                                                   <button type="submit" class="btn btn-primary">Upload</button>
                                               </div>
                                           </form>
-                                          <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="white-box">
-                            <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
-                            <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
-                                <div class="fallback">
-                                    <input name="image[]" type="file" multiple />
-                                </div>
-                              </div>
+                                          {{--  <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="white-box">
+                                                    <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
+                                                    <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
+                                                        <div class="fallback">
+                                                            <input name="image[]" type="file" multiple />
+                                                        </div>
+                                                    </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Upload</button>
-                            </div>
-                            </div>
-                            </form>
-
-                </div> -->
-
-
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                    </div>
+                                                    </div>
+                                                    </form>
+                                        </div>  --}}
                                     </div>
                                 </div>
                               </div>
                             </div>
                         </div>
                               </div>
-                                <div id="gallery-content ">
-                                  <div id="gallery-content-center">
                                     <div class="popup-gallery m-t-30">
-
-                                      @foreach($user as $user)
-
-                                      <a href="{{ asset($user->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
-                                      <img src="{{ asset($user->file_url) }}" class="all landscape" alt="gallery" /> </a>
-
+                                      @foreach($user as $users)
+                                      <div class="img-wrap col-md-2">
+                                        <span onClick=delFiles("{{ url('college/deleteimagegallery/'.$users->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>  
+                                        <a href="{{ asset($users->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
+                                            <img src="{{ asset($users->file_url) }}" class="all landscape img-responsive img-thumbnail" alt="gallery" />
+                                        </a>
+                                      </div>  
                                       @endforeach
-
                                     </div>
-                                  </div>
-                                </div>
                              </div>
 
                           <div class="clearfix"></div>
@@ -122,46 +145,55 @@
      <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
 
      <script>
-    $(document).ready(function() {
-        // Basic
-        $('.dropify').dropify();
-
-        // Translated
-        $('.dropify-fr').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé, le fichier trop volumineux'
-            }
-        });
-
-        // Used events
-        var drEvent = $('#input-file-events').dropify();
-
-        drEvent.on('dropify.beforeClear', function(event, element) {
-            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-        });
-
-        drEvent.on('dropify.afterClear', function(event, element) {
-            alert('File deleted');
-        });
-
-        drEvent.on('dropify.errors', function(event, element) {
-            console.log('Has Errors');
-        });
-
-        var drDestroy = $('#input-file-to-destroy').dropify();
-        drDestroy = drDestroy.data('dropify')
-        $('#toggleDropify').on('click', function(e) {
-            e.preventDefault();
-            if (drDestroy.isDropified()) {
-                drDestroy.destroy();
+         function delFiles(url){
+            var r = confirm("Are sure want to delete!");
+            if (r == true) {
+                window.location=url;
             } else {
-                drDestroy.init();
+                txt = "You pressed Cancel!";
             }
-        })
-    });
+        }     
+
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
     </script>
     <!-- <script src="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.js') }}"></script> -->
 

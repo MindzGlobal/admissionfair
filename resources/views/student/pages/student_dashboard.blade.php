@@ -60,11 +60,11 @@
                   <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-60 pl-sm-15 student-info">
                      <div>
                     
-                        <h3>{{ $students->first_name }}</h3>
-                            <p> {{ $students->about_you }}</p>                     
+                        <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
+                            {{--  <p> {{ $students->about_you }}</p>--}}
                      </div>
                      <ul class="nav nav-tabs mt-30">
-                        <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Companies Applied</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
                         <li class="active"><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
                      </ul>
@@ -81,28 +81,12 @@
                         <div id="tab2" class="tab-pane fade">
                       
                         <dl class="dl-horizontal doctor-info">
-                        <div class="row"> <h4 class="ptl">About Me</h4><a href='{{ url("student/edit_student/") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a></div>                        <hr>
-                              <dt>Last Name</dt>
-                              <dd>
-                              {{ $students->last_name }}
-                              </dd>
-                              <hr>
-                              <dt>Country</dt>
-                              <dd>
-                              {{ $students->country }}
-                              </dd>
-                              <hr>
-                              <dt>Pin Code</dt>
-                              <dd>
-                              {{ $students->pincode }}
-                              </dd>
-                              <hr>
-                              <dt>City</dt>
-                              <dd>
-                              {{ $students->city }}
-                              </dd>
-                              <hr>
-                              <dt>Birth Date</dt>
+                           <div class="row"> 
+                                <h4 class="ptl">About Me</h4>
+                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a>
+                            </div>
+                            <hr>
+                               <dt>Birth Date</dt>
                               <dd>
                               {{ $students->date_of_birth }}
                               </dd>
@@ -111,101 +95,130 @@
                               <dd>
                               {{ $students->gender }}
                               </dd>
+                              <hr>
+                              <dt>City</dt>
+                              <dd>
+                              {{ $students->city }}
+                              </dd>
+                              <hr>
+                              <dt>Pin Code</dt>
+                              <dd>
+                              {{ $students->pincode }}
+                              </dd>
+                              <hr>
+                              <dt>State</dt>
+                              <dd>
+                              {{ $students->state }}
+                              </dd>
+                              <hr>
+                              <dt>Country</dt>
+                              <dd>
+                              {{ $students->country }}
+                              </dd>
                            </dl>
-                        
                         </div>
                         <div id="tab3" class="tab-pane fade active in">
-                          <div class="row"> <h4 class="ptl">SSLC Information</h4><a href='{{ url("student/edit_student/") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a></div>
 						  
                            <hr>
-                           @foreach($education as $educations)
+                           {{--  @foreach($education as $educations)  --}}
                            <dl class="dl-horizontal doctor-info">
                               <dt>SSLC Board</dt>
                               <dd>
-                              {{ $educations->ssc_board }}
+                              {{ $education->ssc_board }}
                               </dd>
                               <hr>
                               <dt>Medium</dt>
                               <dd>
-                              {{ $educations->ssc_medium }}
+                              {{ $education->ssc_medium }}
                               </dd>
                               <hr>
                               <dt>Year Of Pass</dt>
                               <dd>
-                              {{ $educations->ssc_yop }}
+                              {{ $education->ssc_yop }}
                               </dd>
                               <hr>
                               <dt>Marks</dt>
                               <dd>
-                              {{ $educations->ssc_marks }}
+                              {{ $education->ssc_marks }}
                               </dd>
                               <hr>
                               <dt>Marks</dt>
                               <dd>
-                              {{ $educations->ssc_perc }}
+                              {{ $education->ssc_perc }}
                               </dd>
                               <hr>
                            </dl>
                       
-                           <h4>PUC Information</h4>
+                           <h4 style="color:#02325d"><b>PUC Information</b></h4>
                            <hr>
-                          
                            <dl class="dl-horizontal doctor-info">
                         
                               <dt>PUC College Name</dt>
                               <dd>
-                              {{ $educations->hsc_board }}
+                              {{ $education->hsc_board }}
                               </dd>
                               <hr>
                               <dt>PUC Board</dt>
                               <dd>
-                              {{ $educations->hsc_yop }}
+                              {{ $education->hsc_yop }}
                               </dd>
                               <hr>
                               <dt>Medium</dt>
                               <dd>
-                              {{ $educations->hsc_medium }}
+                              {{ $education->hsc_medium }}
                               </dd>
                               <hr>
                               <dt>Year Of Pass</dt>
                               <dd>
-                              {{ $educations->hsc_marks }}
+                              {{ $education->hsc_marks }}
                               </dd>
                               <hr>
                               <dt>Marks</dt>
                               <dd>
-                              {{ $educations->hsc_perc }}
+                              {{ $education->hsc_perc }}
                               </dd>
                               <hr>
-                              @endforeach
+                              {{--  @endforeach  --}}
                            </dl>
                 
-                           <button type="submit" id="status" class="button btn btn-primary" value="True"><span>View More</span></button>                           <hr>
+                            <button type="submit" id="status" class="button btn btn-primary" value="True">
+                               <span>View More</span>
+                            </button>
+                           <hr>
                            <dl class="dl-horizontal doctor-info" id="View-Degree" Style="display:None">
-                           @foreach($graduation as $graduations)
-                              <h4>Graduation Information</h4>
+                           {{--  @foreach($graduation as $graduations)  --}}
+                              <h4 style="color:#02325d"><b>Graduation Information</b></h4>
                               <hr>
                               <dt>Degree College Name</dt>
                               <dd>
-                              {{ $graduations->university_name }}
+                               @if($graduation!=null)
+                                {{ $graduation->university_name }}
+                               @endif
                               </dd>
                               <hr>
                               <dt>University</dt>
                               <dd>
-                              {{ $graduations->college_name }}
+                               @if($graduation!=null)
+                                 {{ $graduation->college_name }}
+                               @endif
                               </dd>
                               <hr>
                               <dt>Year Of Pass</dt>
                               <dd>
-                              {{ $graduations->college_yop }}
+                               @if($graduation!=null)
+                                 {{ $graduation->college_yop }}
+                               @endif
                               </dd>
                               <hr>
                               <dt>Marks</dt>
                               <dd>
-                              {{ $graduations->marks }}
+                               @if($graduation!=null)
+                                {{ $graduation->marks }}
+                               @endif
                               </dd>
                               <hr>
-                              @endforeach
+                              {{--  @endforeach  --}}
                            </dl>
                         </div>
                      </div>
@@ -216,8 +229,8 @@
                     @if(isset($students->profile_image))
                         <img src="{{ asset($students->profile_image) }}" alt="" style="height:200px;">
                       @else
-                      <img src="{{ asset('student/images/profile_images/profile-default-male.png') }}" alt="" style="height:200px;">
-  @endif
+                      <img src="{{ asset('student/images/profile_images/default.png') }}" alt="" style="height:200px;">
+                   @endif
                      </div>
                      <br>
                      <div class="pull-right add-btn">
@@ -257,21 +270,10 @@
                      </div>
                    </div>
                  </div>
-                     <h4 class="line-bottom">About Me:</h4>
+                     {{--  <h4 class="line-bottom">About Me:</h4>  --}}
+                     <p class="text-center"> {{ $students->about_you }}</p>    
                      <div class="volunteer-address">
                         <ul>
-                     
-                           <li>
-                              <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
-                                 <div class="media-left">
-                                    <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
-                                 </div>
-                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-0">Address:</h5>
-                                    <p> {{ $students->city }}</p>
-                                 </div>
-                              </div>
-                           </li>
                            <li>
                               <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
                                  <div class="media-left">
@@ -294,7 +296,17 @@
                                  </div>
                               </div>
                            </li>
-                        
+                           <li>
+                            <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                               <div class="media-left">
+                                  <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
+                               </div>
+                               <div class="media-body">
+                                  <h5 class="mt-0 mb-0">Address:</h5>
+                                  <p> {{ $students->city }}</p>
+                               </div>
+                            </div>
+                         </li>
                         </ul>
                      </div>
                   </div>
@@ -306,34 +318,9 @@
 
 @section('js')
         <!-- Import Particles Js -->
-       <script type="text/javascript">
-         
-         function myFunction() {
-             var x = document.getElementById("View-Degree");
-             if (x.style.display === "none") {
-                 x.style.display = "block";
-             } else {
-                 x.style.display = "none";
-             }
-             if (this.value=="view more") this.value = "view less";
-    else this.value = "view more";
-         	
-         }
-    </script>
-    <script>
-            $(".button").click(function() {
-                $(".button span").html($(".button span").html() == 'View More' ? 'View Less' : 'View More');
+<script type="text/javascript">
 
-                var x = document.getElementById("View-Degree");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-            });
-    </script>
-      <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         // Basic
         $('.dropify').dropify();
 
@@ -372,11 +359,35 @@
                 drDestroy.init();
             }
         })
+    });// end of document ready function
+         
+    function myFunction() {
+        var x = document.getElementById("View-Degree");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        if (this.value=="view more") this.value = "view less";
+        else this.value = "view more";
+    }
+ 
+    $(".button").click(function() {
+    $(".button span").html($(".button span").html() == 'View More' ? 'View Less' : 'View More');
+
+        var x = document.getElementById("View-Degree");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
     });
+    
+   
     </script>
-    <script type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
+    {{--  <script type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>  --}}
   
 @endsection
       

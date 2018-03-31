@@ -19,11 +19,14 @@
  </style>  
 
  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-    @if(Session::has($msg)==$msg)
+ 
+ @if(Session::has($msg))
     <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
         <div class="modal-dialog modal-lg" role="document">
              <div class="modal-body alert alert-{{{$msg}}}">	
-                 <p> {{ Session::get($msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                 {{--  <p> {{ Session::get($msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>  --}}
+                 <span id="displayResultModalText"><i class="icon {{$msg === "success" ? "fa fa-check " : ($msg ==="warning" ? "fa fa-warning" : "fa fa-ban")}}"></i><Strong> {{ Session::get($msg) }}. </Strong><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></span>
+
              </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ class CreateStudentGraduationDetailsTable extends Migration
                 $table->string('student_id')->nullable(false);
                 $table->string('university_name')->nullable();
                 $table->string('college_name')->nullable();
+                $table->string('college_type')->nullable();
                 $table->string('course')->nullable();
                 $table->string('department')->nullable();
                 $table->string('college_yop')->nullable();

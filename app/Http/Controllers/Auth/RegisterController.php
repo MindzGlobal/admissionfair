@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Mail;
+use App\Mail\CollegeVerifyEmail;
 use App\Model\UserVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -63,25 +66,42 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    public function sendVerificationEmail($data,$email_token)
+    {
+            Mail::to($data['email'])->send(new CollegeVerifyEmail($data,$email_token));
+    }
+
     protected function create(array $data)
     {
+        $reg_id = 'CLG'. substr(md5(rand()),0,4);
+        $reg_id = strtoupper($reg_id);
+
         $number = $data['mobile'];
         $name = $data['name'];
-        $OTP = '123456';
+        $email = $data['email'];
+        // OTP sms ################################################
+        $OTP = mt_rand(100000,(int)999999);
         $message = "Dear $OTP 
 
         MoneyMindz wishes you Happy B'Day
         
         Click here to become Smart Investor/Earner 08049202111";
 
-        $this->sendSMS($number, $message);
         $UserVerification = new UserVerification;
         $UserVerification->unique_id = $number;
         $UserVerification->mobile_token = $OTP;
-        $UserVerification->save();
 
-        $reg_id = 'CLG'. substr(md5(rand()),0,4);
-        $reg_id = strtoupper($reg_id);
+        //Vrification Mail ##########################################
+        $email_token = Str::random(40);
+
+        $UserVerification->email_token= $email_token;
+        if($UserVerification->save()){
+            $this->sendSMS($number, $message);
+            $this->sendVerificationEmail($data,$email_token);
+        }
+
+        //Registration Record #######################################
+       
         return User::create([
             'reg_id' => $reg_id,
             'name' => $data['name'],
