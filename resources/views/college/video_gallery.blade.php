@@ -61,13 +61,13 @@
                   <div class="col-md-12">
                       <div class="white-box">
                           <div id="gallery">
-                            <h4>Upload videos</h4>
+                            <div class="col-md-6"> 
+                                    <h4>Upload videos Here</h4>
+                                </div>
+                                 <div class="col-md-6 button-box">
+                                        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add videos +</button>
+                                </div>
                              <div id="gallery-header">
-                                
-                                <div class="button-box">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add videos + 
-                                </button>
-                            </div>
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

@@ -5,25 +5,25 @@
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
 <style>
-    .img-wrap {
+        .img-wrap {
             position: relative;
             display: inline-block;
-            border: 1px #00000017 solid;
+            /* border: 1px #00000017 solid; */
             font-size: 0;
-            margin: 5px;
+            /* margin: 5px; */
         }
         .img-wrap .close {
             position: absolute;
             right: 0px;
             z-index: 100;
-            background-color: #FFF;
-            /* padding: 5px 2px 2px; */
+            /* background-color: #FFF; */
+            padding: 0px 8px 0px;
             color: red;
             font-weight: bold;
             cursor: pointer;
             opacity: .2;
             text-align: center;
-            font-size: 22px;
+            /* font-size: 22px; */
             line-height: 10px;
             border-radius: 50%;
         }
@@ -52,12 +52,14 @@
                   <div class="col-md-12">
                       <div class="white-box">
                           <div id="gallery">
-                             <h4>Upload Images Here</h4>
-                            <div id="gallery-header">
-                            <div id="gallery-header-center-left">
-                            <div class="button-box">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
+                            <div class="col-md-6"> 
+                                <h4>Upload Images Here</h4>
                             </div>
+                             <div class="col-md-6 button-box">
+                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Images +</button>
+                            </div>
+                            <div id="">
+                            <div id="gallery-header-center-left">
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -113,10 +115,10 @@
                               </div>
                                     <div class="popup-gallery m-t-30">
                                       @foreach($user as $users)
-                                      <div class="img-wrap">
+                                      <div class="img-wrap col-md-2">
                                         <span onClick=delFiles("{{ url('college/deleteimagegallery/'.$users->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>  
                                         <a href="{{ asset($users->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
-                                            <img src="{{ asset($users->file_url) }}" class="all landscape" alt="gallery" />
+                                            <img src="{{ asset($users->file_url) }}" class="all landscape img-responsive img-thumbnail" alt="gallery" />
                                         </a>
                                       </div>  
                                       @endforeach
