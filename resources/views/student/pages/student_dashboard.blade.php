@@ -43,7 +43,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <div class="page-title-box">
-                     <h2>My Profile</h2>
+                     <h2>Your Profile</h2>
                   </div>
                </div>
             </div>
@@ -59,9 +59,7 @@
                <div class="row">
                   <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-60 pl-sm-15 student-info">
                      <div>
-                    
                         <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
-                            {{--  <p> {{ $students->about_you }}</p>--}}
                      </div>
                      <ul class="nav nav-tabs mt-30">
                         <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
@@ -228,9 +226,9 @@
                      <div class="doctor-thumb">
                     @if(isset($students->profile_image))
                         <img src="{{ asset($students->profile_image) }}" alt="" style="height:200px;">
-                      @else
+                    @else
                       <img src="{{ asset('student/images/profile_images/default.png') }}" alt="" style="height:200px;">
-                   @endif
+                    @endif
                      </div>
                      <br>
                      <div class="pull-right add-btn">

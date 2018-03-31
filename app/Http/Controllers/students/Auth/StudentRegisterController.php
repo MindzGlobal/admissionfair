@@ -96,13 +96,8 @@ class StudentRegisterController extends Controller
     	$student->remember_token = $request->get('_token');
         if($student->save()){
 
-           
-               // dd($student);
-         //   $thisStudent = Student::findOrfail($student->id);
-          //  $thisStudent = $student;
             $email_token = Str::random(40);
             $OTP= mt_rand(100000,(int)999999);
-
 
             $studentVerfify = new UserVerification;
             $studentVerfify->unique_id = $student->student_id;
@@ -170,12 +165,12 @@ class StudentRegisterController extends Controller
          if(password_verify($student_id,$hashed_studentId)){
 
           $unVerifiedStudent=Student::where(['student_id'=>$student_id , 'email_verified'=>0])->first();
-                //Mail::to($thisStudent['student_id'])->send(new jwelcomeEmail($thisJobseeker));
+                
             if(!empty($unVerifiedStudent)){
                 if((Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1]))>0){
-                    UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['email_token'=>Null]);
+                      UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['email_token'=>Null]);
+                   
                     return view('student.auth.login')->with(['status'=>'success','message'=>'Your e-mail is verified successfully ,You can login now.']);
-                   // return 'true';
                 }
                 return view('student.auth.login')->with(['status'=>'danger','message'=>'Sorry ,Something Went Wrong Please try Again Later.']);
             }//here we can resend if route need

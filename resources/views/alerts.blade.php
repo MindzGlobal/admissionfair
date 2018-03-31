@@ -16,6 +16,10 @@
     .modal-backdrop  {
         opacity:0.01 !important;
       }
+      .modal {
+        z-index: 500000;
+      }
+      
  </style>  
 
  @foreach (['danger', 'warning', 'success', 'info'] as $msg)

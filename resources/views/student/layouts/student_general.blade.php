@@ -254,9 +254,9 @@
       <script type="text/javascript">
         @if(isset($status) || count($errors) > 0 ||Session::has('success') ||Session::has('warning') ||Session::has('danger') )
             $('#displayResultModal').modal('show');
-            window.setTimeout(function () {
-                $("#displayResultModal").modal("hide");
-            },2500);
+            // window.setTimeout(function () {
+            //     $("#displayResultModal").modal("hide");
+            // },2500);
         @endif
       </script>
 

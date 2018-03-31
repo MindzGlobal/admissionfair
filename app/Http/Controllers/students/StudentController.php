@@ -35,40 +35,28 @@ class StudentController extends Controller
      */
     public function Showprofile(Request $request)
     {
-    //dd(Auth::user()->student_id);
-    //    if ($request->session()->flash()){
-    //      dd(session()->all());
-    //    }
-   // dd($request->all());
+       
       $education_details=null;
       $graduation_details=null;
         if(Auth::user()->otp_verified>0){
-            //dd('1.1----'.Auth::user()->otp_verified);
             
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
-         //dd('2----'.$education_details);
+        
          if(!is_null($education_details)){
-            $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
-           // dd('3----'.$education_details);
-            //dd($graduation_details);
+            $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
+           
             return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
-         //return view('student.pages.student_dashboard')->with('student',$education_details,'graduation',$graduation_details);
          }
          return view('student.pages.add_student_details')
                 ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
     
         }
-        //return redirect()->route('student.otpform');
         return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
 
     }
 
     public function ShowOtpForm(Request $request)
     {
-
-        // if ($request->session(any())){
-        //     dd(session()->all());
-        //   }
         $education_details=null;
         $graduation_details=null;
        if(Auth::user()->otp_verified==0){
@@ -79,10 +67,9 @@ class StudentController extends Controller
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
         
          if(!is_null($education_details)){
-            $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
+            $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
            
             return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
-        // return view('student.pages.student_dashboard')->with('student',$education_details);
          }
          return view('student.pages.add_student_details')
                 ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
@@ -93,7 +80,6 @@ class StudentController extends Controller
    
     public function verifyStudentOtp(Request $request)
     {
-        //dd($request->userMobile);
         $education_details=null;
         $graduation_details=null;
 
@@ -108,14 +94,11 @@ class StudentController extends Controller
                          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
                        
                          if(!is_null($education_details)){
-                            $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
+                            $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 
                             return view('student.pages.student_dashboard',
                                    ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details])
                                    ->with(['status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
-
-                           // Session::reflash('success','successfully Verified ,You can Access your Account Now.');
-                           // return view('student.pages.student_dashboard')->with(['student'=>$education_details,'status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
                           // return redirect()->route('student/profile');
                         }
                         return view('student.pages.add_student_details')
@@ -131,9 +114,7 @@ class StudentController extends Controller
                 if(!is_null($education_details)){
                     return view('student.pages.student_dashboard',
                     ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
-          
                     //return redirect()->route('student/profile');
-                  //return view('student.pages.student_dashboard')->with('student',$education_details);
                 }
                 return view('student.pages.add_student_details')
                             ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
@@ -171,7 +152,6 @@ class StudentController extends Controller
 
     
         $student = Student::find(Auth::user()->id);
-        //dd('1----'.$student);
         if(!is_null($student)){
             $student->first_name = Input::get("first_name");
             $student->last_name = Input::get("last_name");
@@ -190,7 +170,6 @@ class StudentController extends Controller
             
                 $education=StudentEducationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 
-            //  dd('1$education----'.$education);
                 $education->student_id = Auth::user()->student_id;
                 $education->ssc_board = Input::get("ssc_board");
                 $education->ssc_medium = Input::get("ssc_medium");
@@ -207,7 +186,7 @@ class StudentController extends Controller
                 if(Input::get("university_name")!=null && Input::get("university_name")!=""){
                 
                     $graduation=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
-                // dd('1$graduation----'.$graduation);
+
                     $graduation->student_id = Auth::user()->student_id;
                     $graduation->university_name = Input::get("university_name");
                     $graduation->college_name = Input::get("college_name");
@@ -217,8 +196,6 @@ class StudentController extends Controller
                     $graduation->marks = Input::get("marks");
                     $graduation->percentage = Input::get("percentage");  
                     $graduation->update();
-                // dd('1$graduation save----'.$graduation);
-
                 }
             return redirect('student/profile')->withErrors(['status'=>'success','message'=>'Profile Updated Successfully ']);
             }
@@ -229,11 +206,12 @@ class StudentController extends Controller
     }
 
     public function showEditForm(Request $request){
+     
         if(Auth::user()->otp_verified){
-        
+         
             $student = Student::find(Auth::user()->id);
             $education=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
-            $graduation=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
+            $graduation=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
                 
             return view('student.pages.edit_student',
             ['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
@@ -242,10 +220,9 @@ class StudentController extends Controller
     }
 
     public function uploadprofileImage(Request $request){
-        // $regid = Auth::user()->id;
-        // $user = User::find($regid);
-            $student = student::find(16);
-            if(Input::hasFile('image')){
+       
+        $student = student::find(16);
+        if(Input::hasFile('image')){
             $file=Input::file('image');
             $name = str_random(6) . '_' . $file->getClientOriginalName();
             $file->move(public_path().'/student/images/profile_images',  Auth::user()->student_id);
@@ -253,7 +230,7 @@ class StudentController extends Controller
         }
             $student->update();
             return redirect("student/student_dashboard");
-        }
+    }
 
 
     public function deleteprofileImage(Request $request){
@@ -265,4 +242,5 @@ class StudentController extends Controller
             $student->update();
             return redirect('student/student_dashboard');
         }
+
     }

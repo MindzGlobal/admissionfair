@@ -116,7 +116,7 @@
                <div class="col-md-12">
                   <div class="form-group">
                      <label class="control-label">About You:</label>
-                     <textarea class="form-control" rows="5" name="address" required="required"  placeholder="Enter Brief Description About Your Education" >{{ $students->about_you }}</textarea>
+                     <textarea class="form-control" rows="5" name="about_you" required="required"  placeholder="Enter Brief Description About Your Education" >{{ $students->about_you }}</textarea>
                   </div>
                </div>
                <button class="btn btn-primary nextBtn pull-right" type="button" >Next</button>
@@ -177,7 +177,7 @@
                   </div>
                   <div class="col-md-6">
                      <div class="form-group">
-                        <label for="Year">Year:{{ $education->hsc_yop }} </label>
+                        <label for="Year">Year:</label>
                         <select name="hsc_yop" class="form-control textbox" id="sel1"  />
                         @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                         <option value="{{ $i }}"{{ $education->hsc_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
