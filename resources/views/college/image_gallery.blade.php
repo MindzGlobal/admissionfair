@@ -3,7 +3,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/gallery/css/animated-masonry-gallery.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
-<link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+{{--  <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">  --}}
+<link href="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />
 <style>
         .img-wrap {
             position: relative;
@@ -32,7 +33,6 @@
         }
 
 </style>
-<!-- <link href="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.css') }}" rel="stylesheet" type="text/css" /> -->
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -73,40 +73,25 @@
                                             @endif
                                         </div>
                                         <div class="modal-body">
-
-                                         <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data">
-                                            @csrf
-                                             <div class="row">
-                                              <div class="col-sm-12 ol-md-12 col-xs-12">
-                                                  <div class="white-box">
-                                                      <h3 class="box-title">File Upload</h3>
-                                                      <input type="file" id="input-file-now" class="dropify" name="image[]" multiple/>
-                                                  </div>
-                                              </div>
-
-                                              </div>
-                                              <div class="modal-footer">
-                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                  <button type="submit" class="btn btn-primary">Upload</button>
-                                              </div>
-                                          </form>
-                                          {{--  <div class="row">
+                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="white-box">
                                                     <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
                                                     <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
+                                                        @csrf
                                                         <div class="fallback">
-                                                            <input name="image[]" type="file" multiple />
+                                                            <input name="image" type="file" multiple />
                                                         </div>
-                                                    </div>
+                                                    </form>    
+                                                </div>
 
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Upload</button>
-                                                    </div>
-                                                    </div>
-                                                    </form>
-                                        </div>  --}}
+                                                {{--  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                                </div>  --}}
+                                            </div>
+                                          </div>          
+                                        </div>
                                     </div>
                                 </div>
                               </div>
@@ -139,10 +124,9 @@
     <script type="text/javascript" src="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
-
-     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script> 
+     {{--  <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>  --}}
+     <script src="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.js') }}"></script>
     
-     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
 
      <script>
          function delFiles(url){
@@ -154,47 +138,49 @@
             }
         }     
 
-        $(document).ready(function() {
-            // Basic
-            $('.dropify').dropify();
+        // $(document).ready(function() {
+        //     // Basic
+        //     $('.dropify').dropify();
 
-            // Translated
-            $('.dropify-fr').dropify({
-                messages: {
-                    default: 'Glissez-déposez un fichier ici ou cliquez',
-                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                    remove: 'Supprimer',
-                    error: 'Désolé, le fichier trop volumineux'
-                }
-            });
+        //     // Translated
+        //     $('.dropify-fr').dropify({
+        //         messages: {
+        //             default: 'Glissez-déposez un fichier ici ou cliquez',
+        //             replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+        //             remove: 'Supprimer',
+        //             error: 'Désolé, le fichier trop volumineux'
+        //         }
+        //     });
 
-            // Used events
-            var drEvent = $('#input-file-events').dropify();
+        //     // Used events
+        //     var drEvent = $('#input-file-events').dropify();
 
-            drEvent.on('dropify.beforeClear', function(event, element) {
-                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-            });
+        //     drEvent.on('dropify.beforeClear', function(event, element) {
+        //         return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        //     });
 
-            drEvent.on('dropify.afterClear', function(event, element) {
-                alert('File deleted');
-            });
+        //     drEvent.on('dropify.afterClear', function(event, element) {
+        //         alert('File deleted');
+        //     });
 
-            drEvent.on('dropify.errors', function(event, element) {
-                console.log('Has Errors');
-            });
+        //     drEvent.on('dropify.errors', function(event, element) {
+        //         console.log('Has Errors');
+        //     });
 
-            var drDestroy = $('#input-file-to-destroy').dropify();
-            drDestroy = drDestroy.data('dropify')
-            $('#toggleDropify').on('click', function(e) {
-                e.preventDefault();
-                if (drDestroy.isDropified()) {
-                    drDestroy.destroy();
-                } else {
-                    drDestroy.init();
-                }
-            })
+        //     var drDestroy = $('#input-file-to-destroy').dropify();
+        //     drDestroy = drDestroy.data('dropify')
+        //     $('#toggleDropify').on('click', function(e) {
+        //         e.preventDefault();
+        //         if (drDestroy.isDropified()) {
+        //             drDestroy.destroy();
+        //         } else {
+        //             drDestroy.init();
+        //         }
+        //     })
+        // });
+        $("#exampleModal").on("hidden.bs.modal", function () {
+            location.reload();
         });
     </script>
-    <!-- <script src="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.js') }}"></script> -->
-
+    
 @endsection
