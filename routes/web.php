@@ -36,9 +36,9 @@ Route::get('college/demo', function () {
     return view('college.create_profile');
 });
 
-//  Route::get('student/demo', function () {
-//      return view('student.pages.edit_student_details');
-// });
+ Route::get('student/demo', function () {
+     return view('student.pages.edit_student_details');
+});
 
 Route::get('student/demo',"students\StudentController@index");
 Route::post("student/insertprofile","students\StudentController@insert_student");
@@ -68,6 +68,10 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('password/reset','Auth\ResetPasswordController@reset');
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+
+    Route::post("updateprofile","StudentController@addOrupdateStudentDetails");
+    Route::get("editprofile","StudentController@showEditForm");
+
 });
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
