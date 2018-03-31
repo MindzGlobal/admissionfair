@@ -34,6 +34,9 @@ class CreateStudentsTable extends Migration
             $table->string('role')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
+            $table->string('parentName')->nullable(false);
+            $table->string('parentEmail')->nullable()->unique();
+            $table->string('parentMobile',11)->nullable();
             $table->timestamps();
         });
     }

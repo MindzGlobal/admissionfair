@@ -35,16 +35,22 @@ class StudentController extends Controller
      */
     public function Showprofile(Request $request)
     {
-      //  dd(Auth::user());
+    //dd(Auth::user()->student_id);
+    //    if ($request->session()->flash()){
+    //      dd(session()->all());
+    //    }
+   // dd($request->all());
       $education_details=null;
       $graduation_details=null;
         if(Auth::user()->otp_verified>0){
+            //dd('1.1----'.Auth::user()->otp_verified);
             
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
-        
+         //dd('2----'.$education_details);
          if(!is_null($education_details)){
             $graduation_details=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
-         
+           // dd('3----'.$education_details);
+            //dd($graduation_details);
             return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
          //return view('student.pages.student_dashboard')->with('student',$education_details,'graduation',$graduation_details);
          }
@@ -59,6 +65,10 @@ class StudentController extends Controller
 
     public function ShowOtpForm(Request $request)
     {
+
+        // if ($request->session(any())){
+        //     dd(session()->all());
+        //   }
         $education_details=null;
         $graduation_details=null;
        if(Auth::user()->otp_verified==0){
@@ -156,143 +166,103 @@ class StudentController extends Controller
             return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);
     }
 
+
+    public function addOrupdateStudentDetails(Request $request){
+
     
+        $student = Student::find(Auth::user()->id);
+        //dd('1----'.$student);
+        if(!is_null($student)){
+            $student->first_name = Input::get("first_name");
+            $student->last_name = Input::get("last_name");
+            //$student->email = Input::get("email");
+            //$student->mobile = Input::get("mobile");
+            $student->date_of_birth = Input::get("date_of_birth");
+            $student->gender = Input::get("gender");
+            $student->country = Input::get("country");
+            $student->state = Input::get("state");
+            $student->city = Input::get("city");
+            $student->pincode = Input::get("pincode");  
+            $student->address = Input::get("address");    
+            $student->about_you = Input::get("about_you");    
 
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [  
-    //         'email' => [ 'required', 'string', 'email', 'max:255', 'unique:user,usrEmail'],   
-    //     ]);
-    // }
+            if($student->update()) {
+            
+                $education=StudentEducationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 
+            //  dd('1$education----'.$education);
+                $education->student_id = Auth::user()->student_id;
+                $education->ssc_board = Input::get("ssc_board");
+                $education->ssc_medium = Input::get("ssc_medium");
+                $education->ssc_yop= Input::get("ssc_yop");
+                $education->ssc_marks = Input::get("ssc_marks");
+                $education->ssc_perc= Input::get("ssc_perc");
+                $education->hsc_board = Input::get("hsc_board");
+                $education->hsc_medium = Input::get("hsc_medium");
+                $education->hsc_yop = Input::get("hsc_yop");
+                $education->hsc_marks= Input::get("hsc_marks");
+                $education->hsc_perc = Input::get("hsc_perc");  
+                $education->update();  
+                
+                if(Input::get("university_name")!=null && Input::get("university_name")!=""){
+                
+                    $graduation=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
+                // dd('1$graduation----'.$graduation);
+                    $graduation->student_id = Auth::user()->student_id;
+                    $graduation->university_name = Input::get("university_name");
+                    $graduation->college_name = Input::get("college_name");
+                    $graduation->course= Input::get("course");
+                    $graduation->department = Input::get("department");
+                    $graduation->college_yop= Input::get("college_yop");
+                    $graduation->marks = Input::get("marks");
+                    $graduation->percentage = Input::get("percentage");  
+                    $graduation->update();
+                // dd('1$graduation save----'.$graduation);
 
-    public function insert_student(Request $request)
-    {
-    $student = new Student;
-    $student->first_name = Input::get("first_name");
-    $student->last_name = Input::get("last_name");
-    $student->email = Input::get("email");
-    $student->mobile = Input::get("mobile");
-    $student->date_of_birth = Input::get("date_of_birth");
-    $student->gender = Input::get("gender");
-    $student->country = Input::get("country");
-    $student->state = Input::get("state");
-    $student->city = Input::get("city");
-    $student->pincode = Input::get("pincode");  
-    $student->address = Input::get("address");    
-    $student->about_you = Input::get("about_you");    
-    $student->save();
+                }
+            return redirect('student/profile')->withErrors(['status'=>'success','message'=>'Profile Updated Successfully ']);
+            }
+        return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);
+        }
+        return redirect()->back()->withErrors(['status'=>'danger','message'=>'Something Went Wrong ,Please try again later']);
 
-    $education=new StudentEducationDetails;
-    $education->ssc_board = Input::get("ssc_board");
-    $education->ssc_medium = Input::get("ssc_medium");
-    $education->ssc_yop= Input::get("ssc_yop");
-    $education->ssc_marks = Input::get("ssc_marks");
-    $education->ssc_perc= Input::get("ssc_perc");
-    $education->hsc_board = Input::get("hsc_board");
-    $education->hsc_medium = Input::get("hsc_medium");
-    $education->hsc_yop = Input::get("hsc_yop");
-    $education->hsc_marks= Input::get("hsc_marks");
-    $education->hsc_perc = Input::get("hsc_perc");  
-    $education->save();  
-
-    $graduation=new StudentGraduationDetails;
-    $graduation->university_name = Input::get("university_name");
-    $graduation->college_name = Input::get("college_name");
-    $graduation->course= Input::get("course");
-    $graduation->department = Input::get("department");
-    $graduation->college_yop= Input::get("college_yop");
-    $graduation->marks = Input::get("marks");
-    $graduation->percentage = Input::get("percentage");  
-    $graduation->save();
-//dd($student);
-return redirect('student/student_dashboard');
-}
-
-// public function fetch_student()
-// {
-//   $student=DB::table('students')->where('id','=',10)->first();
-//   $education=DB::table('student__education__details')->where('id','=',10)->get();
-//   $graduation=DB::table('student__graduation___details')->where('id','=',10)->get();
-//   //dd($student);
-//   return view('student.pages.student_dashboard',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
-// }
-
-// public function add_student_details()
-// {
-//     $student =student::where('id', '=',10)->first();
-//     $education =Student_Education_Details::where('id', '=',10)->first();
-//     $graduation =Student_Graduation__Details::where('id', '=',10)->first();
-//     // $education=DB::table('student__education__details')->where('id','=',6)->get();
-//     // $graduation=DB::table('student__graduation___details')->where('id','=',4)->get();
-//     //$student=student::find(4)->where('id', '=', 4);
-//     return view('student.pages.add_student_details',['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
-// }
-public function update_student(Request $request)
-    {
-
-    	$student = student::find(16);
-        $student->first_name =  $request-> Input("first_name");
-        $student->last_name =  $request-> Input("last_name");
-        $student->email =  $request-> Input("email");
-        $student->mobile =  $request-> Input("mobile");
-        $student->date_of_birth =  $request-> Input("date_of_birth");
-        $student->gender =  $request-> Input("gender");
-        $student->country =  $request-> Input("country");
-        $student->state =  $request-> Input("state");
-        $student->city = $request-> Input("city");
-        $student->pincode =  $request-> Input("pincode"); 
-        $student->address =  $request-> Input("address"); 
-        $student->about_you =  $request-> Input("about_you");       
-        $student->save();
-    
-        $education=StudentEducationDetails::find(16);
-        $education->ssc_board =  $request-> Input("ssc_board");
-        $education->ssc_medium =  $request-> Input("ssc_medium");
-        $education->ssc_yop=  $request-> Input("ssc_yop");
-        $education->ssc_marks =  $request-> Input("ssc_marks");
-        $education->ssc_perc=  $request-> Input("ssc_perc");
-        $education->hsc_board =  $request-> Input("hsc_board");
-        $education->hsc_medium =  $request-> Input("hsc_medium");
-        $education->hsc_yop = $request-> Input("hsc_yop");
-        $education->hsc_marks= $request-> Input("hsc_marks");
-        $education->hsc_perc =  $request-> Input("hsc_perc");  
-        $education->save();  
-    
-        $graduation=StudentGraduationDetails::find(16);
-        $graduation->university_name =  $request-> Input("university_name");
-        $graduation->college_name =  $request-> Input("college_name");
-        $graduation->course=  $request-> Input("course");
-        $graduation->department =  $request-> Input("department");
-        $graduation->college_yop=  $request-> Input("college_yop");
-        $graduation->marks =  $request-> Input("marks");
-        $graduation->percentage =  $request-> Input("percentage");  
-        $graduation->save();
-    	return redirect('student/student_dashboard');
     }
-    public function uploadprofile_image(Request $request){
-       // $regid = Auth::user()->id;
-       // $user = User::find($regid);
-        $student = student::find(16);
-        if(Input::hasFile('image'))
-       {
-           $file=Input::file('image');
-           $name = str_random(6) . '_' . $file->getClientOriginalName();
-           $file->move(public_path().'/student/images/profile_images',  $name);
-           $student->profile_image = 'student/images/profile_images/'. $name;
-       }
-        $student->update();
-        return redirect("student/student_dashboard");
-      }
+
+    public function showEditForm(Request $request){
+        if(Auth::user()->otp_verified){
+        
+            $student = Student::find(Auth::user()->id);
+            $education=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
+            $graduation=StudentGraduationDetails::where('student_id',Auth::user()->student_id)->first();
+                
+            return view('student.pages.edit_student',
+            ['students'=>$student,'education'=>$education,'graduation'=>$graduation]);
+        }
+        return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
+    }
+
+    public function uploadprofileImage(Request $request){
+        // $regid = Auth::user()->id;
+        // $user = User::find($regid);
+            $student = student::find(16);
+            if(Input::hasFile('image')){
+            $file=Input::file('image');
+            $name = str_random(6) . '_' . $file->getClientOriginalName();
+            $file->move(public_path().'/student/images/profile_images',  Auth::user()->student_id);
+            $student->profile_image = 'student/images/profile_images/'. Auth::user()->student_id;
+        }
+            $student->update();
+            return redirect("student/student_dashboard");
+        }
 
 
-      public function deleteprofile_image(Request $request)
-      {
-        $student = student::find(16);
-        //File::delete();
-         File::delete(public_path().'/student/images/profile_images'. $student);
-         $student->profile_image = 'student/images/profile_images/default.png';   
-         $student->update();
-        return redirect('student/student_dashboard');
-      }
-}
+    public function deleteprofileImage(Request $request){
+
+            $student = student::find(Auth::user()->student_id);
+            //File::delete();
+            File::delete(public_path().'/'.$student->profile_image);
+            $student->profile_image = 'student/images/profile_images/default.png';   
+            $student->update();
+            return redirect('student/student_dashboard');
+        }
+    }

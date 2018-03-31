@@ -19,16 +19,19 @@
                 <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
                 <!-- Responsive stylesheet  -->
                 <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
-            {{--  <script
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+               
+                {{--  <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous">
             </script>
 
             <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.css">--}}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
+
+            
            {{--  // <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
 
            <style>
@@ -76,7 +79,7 @@
 <header class="edu-herader">
 
     <!-- Header top start -->
-    <div class="top_header">
+    {{--  <div class="top_header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4 full-wd-600">
@@ -111,7 +114,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  --}}
     <!-- Header top end -->
     @include('student.common.nav_bar_initial')
 </header>
@@ -209,13 +212,20 @@
 </a>
 
       {{--  <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>  --}}
+        <!-- Import Jquery Min Js -->
+        <script type="text/javascript" src="{{ asset('student/js/jquery.min.js')}}"></script>
+            <!-- Import Bootstrap Min Js -->
+    {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  --}}
+      <script type="text/javascript" src="{{ asset('student/js/bootstrap.min.js')}}"></script>
 
+      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    
       <!-- Import Jquery Min Js -->
       <script type="text/javascript" src="{{ asset('student/js/modernizr-custom.js')}}"></script>
-      <!-- Import Jquery Min Js -->
-      <script type="text/javascript" src="{{ asset('student/js/jquery.min.js')}}"></script>
-      <!-- Import Bootstrap Min Js -->
-      <script type="text/javascript" src="{{ asset('student/js/bootstrap.min.js')}}"></script>
+    
       <!-- Import Css3 Animation It -->
       <script type="text/javascript" src="{{ asset('student/js/css3-animate-it.js')}}"></script>
       <!-- Import Bootstrap Dropdownhover Min Js -->
@@ -238,11 +248,11 @@
       <script type="text/javascript" src="{{ asset('student/js/particles.min.js')}}"></script>
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
-      <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
+      
       <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
 
       <script type="text/javascript">
-        @if(isset($title) || count($errors) > 0 )
+        @if(isset($status) || count($errors) > 0 ||Session::has('success') ||Session::has('warning') ||Session::has('danger') )
             $('#displayResultModal').modal('show');
             window.setTimeout(function () {
                 $("#displayResultModal").modal("hide");

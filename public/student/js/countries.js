@@ -275,6 +275,8 @@ function populateStates( countryElementId, stateElementId ){
 	for (var i=0; i<state_arr.length; i++) {
 		stateElement.options[stateElement.length] = new Option(state_arr[i],state_arr[i]);
 	}
+
+	$('#'+stateElementId).selectpicker('refresh');
 }
 
 function populateCountries(countryElementId, stateElementId){

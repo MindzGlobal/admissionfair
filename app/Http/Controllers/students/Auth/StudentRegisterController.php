@@ -110,13 +110,13 @@ class StudentRegisterController extends Controller
             $studentVerfify->mobile_token =$OTP;
            
             if($studentVerfify->save()){
-               //$this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
+               $this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
                  
-               $this->guard('student')->login($student);
-               Session::reflash('success','Success ,verify your account through Email Or OTP.');
-               return redirect()->route('student.otpform');
-              // return view('student.pages.otp_form')->with('mobile',$student->mobile)
-               // ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+               $this->guard('student')->login($student);//update
+               Session::flash('success','Success ,verify your account through Email Or OTP.');
+              // return view('student.pages.otp_form'); //redirect()->route('student.otpform');//->with(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+                return view('student.pages.otp_form')->with('mobile',$student->mobile);
+            //      ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
             }
           //Token Not Generated
           return redirect()->back()
@@ -157,7 +157,7 @@ class StudentRegisterController extends Controller
 
         $this->sendSMS($number, $message);
         
-        Mail::to($thisStudent['email'])->send(new StudentVerifyEmail($thisStudent,$email_token));
+      //  Mail::to($thisStudent['email'])->send(new StudentVerifyEmail($thisStudent,$email_token));
     }
 
     public function authenticateStudentEmail($hashed_studentId,$email_token)

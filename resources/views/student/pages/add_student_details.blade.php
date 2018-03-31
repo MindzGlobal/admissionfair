@@ -1,6 +1,11 @@
 @extends('student.layouts.student_general')
+
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+@endsection
+
 @section('content')
-{{--  ?php include("common/header-hall.php")?>  --}}
+
 <!-- Strat Banner Section -->
 <div class="edu-banner padding-bt-150 banner-height">
    <div class="container">
@@ -10,7 +15,7 @@
       <div class="row">
          <div class="col-sm-12">
             <div class="page-title-box">
-               <h2>Edit Student Profile</h2>
+               <h2>Add Your Details</h2>
             </div>
          </div>
       </div>
@@ -35,7 +40,7 @@
    </div>
    <br>
    <br>
-   <form role="form" action="{{ url('student/insertprofile') }}" method="post">
+   <form role="form" action="{{ url('student/updateprofile') }}" method="post">
       @csrf
       <div class="row setup-content" id="step-1">
          <div class="col-xs-12">
@@ -56,13 +61,13 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Email:</label>
-                     <input  maxlength="100" type="email" name="email" value="{{ Auth::user()->email }}" required="required" class="form-control" placeholder="Enter Email"  />
+                     <input  maxlength="100" type="email" name="email" value="{{ Auth::user()->email }}" required="required" disabled class="form-control" placeholder="Enter Email"  />
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
                      <label class="control-label">Contact Number:</label>
-                     <input  maxlength="100" type="number" name="mobile" required="required" value="{{ Auth::user()->mobile }}" class="form-control" placeholder="Enter Contact Number"  />
+                     <input  maxlength="100" type="number" name="mobile" required="required" value="{{ Auth::user()->mobile }}" disabled class="form-control" placeholder="Enter Contact Number"  />
                   </div>
                </div>
                <div class="col-md-6">
@@ -84,23 +89,22 @@
                </div>
                <div class="col-md-6">
                   <div class="form-group">
-                     <label for="Sslc">Country:</label>
+                     <label for="country">Country:</label>
                      <select id="country" name ="country" class="form-control textbox"  class="required">
                      </select>
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
-                     <label for="Sslc">State:</label>
+                     <label for="state">State:</label>
                      <select name ="state" id ="state" class="form-control textbox"  class="required">
                      </select>
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
-                     <label for="Sslc">City:</label>
-                     <select name ="city" id ="country2" class="form-control textbox"  class="required">
-                     </select>
+                     <label for="city">City:</label>
+                     <input type="text" name="city" maxlength="100" placeholder="Enter city " class="form-control"  required />
                   </div>
                </div>
                <div class="col-md-6">
@@ -111,7 +115,7 @@
                </div>
                <div class="col-md-12">
                   <div class="form-group">
-                     <label class="control-label">Adress:</label>
+                     <label class="control-label">Address:</label>
                     <textarea  maxlength="100" type="text" name="address" required="required" class="form-control" placeholder="Enter Address"  /></textarea>
                   </div>
                </div>
@@ -294,9 +298,18 @@
    </form>
 </div>
 @endsection
+
 @section('js')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
 <script>
    $(document).ready(function() {
+
+       $('#datepicker').datepicker({
+              autoclose: true,
+              todayHighlight: true
+          });
+
        //Initialize tooltips
        $('.nav-tabs > li a[title]').tooltip();
    
@@ -323,39 +336,10 @@
            prevTab($active);
    
        });
-   });
-   
-   function nextTab(elem) {
-       $(elem).next().find('a[data-toggle="tab"]').click();
-   }
-   
-   function prevTab(elem) {
-       $(elem).prev().find('a[data-toggle="tab"]').click();
-   }
-</script>
-<script>
-   function myFunction() {
-       var x = document.getElementById("degree");
-       if (x.style.display === "none" ){
-           x.style.display = "block";
-       } else {
-           x.style.display = "none";
-       }
-   
-   }
-</script>
-<script>
-   $( function() {
-     $( "#datepicker" ).datepicker();
-   } );
-</script>
-<script type="text/javascript">
-   $(document).ready(function () {
-   
+
        var navListItems = $('div.setup-panel div a'),
                allWells = $('.setup-content'),
                allNextBtn = $('.nextBtn');
-   
        allWells.hide();
    
        navListItems.click(function (e) {
@@ -376,7 +360,7 @@
            var curStep = $(this).closest(".setup-content"),
                curStepBtn = curStep.attr("id"),
                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-               curInputs = curStep.find("input[type='text'],input[type='url'],input[type='email'],input[type='number'],input[type='date']textarea[type='text'],select"),
+               curInputs = curStep.find("input[type='text'],input[type='url'],input[type='email'],input[type='number'],input[type='date'],textarea,select"),
                isValid = true;
    
            $(".form-group").removeClass("has-error");
@@ -392,13 +376,33 @@
        });
    
        $('div.setup-panel div a.btn-primary').trigger('click');
-   });
+
+        populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+        //populateCountries("country");
+       // populateCountries("country");
+
+
+   });//end of document Ready function
+   
+   function nextTab(elem) {
+       $(elem).next().find('a[data-toggle="tab"]').click();
+   }
+   
+   function prevTab(elem) {
+       $(elem).prev().find('a[data-toggle="tab"]').click();
+   }
+
+   function myFunction() {
+       var x = document.getElementById("degree");
+       if (x.style.display === "none" ){
+           x.style.display = "block";
+       } else {
+           x.style.display = "none";
+       }
+   
+   }
+
+
 </script>
-<script language="javascript">
-   populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
-   populateCountries("country2");
-   populateCountries("country2");
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 @endsection
