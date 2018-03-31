@@ -16,13 +16,19 @@
         .add-btn
         {
             position: absolute;
-                left: 59%;
-                top: 32%;
+            left: 18%;
+            top: 32%;
         }
         .remove-btn
         {
-            position:absolute;
-            top:32%;
+            position: absolute;
+            top: 32%;
+            left: 66%;
+        }
+        .btn {
+
+            font-size: 13px;
+            padding: 4px 10px!important;
         }
 </style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
@@ -233,12 +239,13 @@
                    @endif
                      </div>
                      <br>
-                     <div class="pull-right add-btn">
-                   <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image +</button>
+                     <div class="pull-right remove-btn">
+                 <a href='{{ url("student/delete/") }}'>     <button type="button" class="btn btn-danger waves-effect waves-light"  data-whatever="@mdo"><i class="fa fa-trash"></i></button></a>
                  </div>
-                 <div class="pull-left remove-btn">
-                 <a href='{{ url("student/delete/") }}'>     <button type="button" class="btn btn-info waves-effect waves-light"  data-whatever="@mdo">Remove Image +</button></a>
+                     <div class="pull-left add-btn">
+                   <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-upload"></i></button>
                  </div>
+                
                  
                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="margin-top:8%;">
                      <div class="modal-dialog" role="document">
