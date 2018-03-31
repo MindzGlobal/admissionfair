@@ -290,9 +290,9 @@ public function update_student(Request $request)
       {
         $student = student::find(16);
         //File::delete();
-        File::Delete(public_path().'/'.$fileUrl);
+         File::delete(public_path().'/student/images/profile_images'. $student);
          $student->profile_image = 'student/images/profile_images/default.png';   
-         $student->save();
+         $student->update();
         return redirect('student/student_dashboard');
       }
 }

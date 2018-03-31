@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                         <div class="col-xs-12">
-                                <input id="mobile" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" type="number" placeholder="Mobile Number">
+                                <input id="mobile" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" type="number" value="{{ old('mobile') }}" placeholder="Mobile Number">
                                 @if ($errors->has('mobile'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('mobile') }}</strong>
