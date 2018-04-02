@@ -13,19 +13,22 @@
  @endif style="background-color:#ffffff;" --}}
 
  <style>
-    .modal-backdrop  {
+      /* .modal-backdrop  {
         opacity:0.01 !important;
-      }
-      .modal {
+      } */
+      #displayResultModal>.modal-backdrop{
+          opacity:0.1 !important;
+        }
+      /* .modal {
         z-index: 500000;
-      }
+      } */
       
  </style>  
 
  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
  
  @if(Session::has($msg))
-    <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
+    <div class="modal fade msg" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal" style="z-index: 500000;" >
         <div class="modal-dialog modal-lg" role="document">
              <div class="modal-body alert alert-{{{$msg}}}">	
                  {{--  <p> {{ Session::get($msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>  --}}
@@ -40,7 +43,7 @@
 @if(isset($status))
 
 <!-- ---------------- START OF DISPALY RESULT MODAL		-------------------- -->
-<div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
+<div class="modal fade msg" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal" style="z-index: 500000;"   >
 <div class="modal-dialog modal-lg" role="document">
       <!-- modal-content -->
     <div class="modal-body alert alert-{{$status}}">				
@@ -53,7 +56,7 @@
 @else
 
 @if(count($errors) > 0)
-    <div class="modal fade" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  >
+    <div class="modal fade msg" id="displayResultModal" tabindex="-1" role="dialog" aria-labelledby="displayResultModal"  style="z-index: 500000;"  >
         <div class="modal-dialog modal-lg" role="document">
                 <!-- modal-content -->
             @if($errors->has('status')) 			
