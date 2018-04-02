@@ -196,7 +196,7 @@
                   </div>
                   <div class="col-md-6">
                      <div class="form-group">
-                        <label for="Year">Year:{{ $education->hsc_yop }} </label>
+                        <label for="Year">Year:</label>
                         <select name="hsc_yop" class="form-control textbox" id="sel1"  />
                         @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                         <option value="{{ $i }}"{{ $education->hsc_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
