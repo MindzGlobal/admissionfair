@@ -34,10 +34,10 @@
     padding-top: 25px!important;
         }
 </style>
-     <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/custom-bootstrap-margin-padding.css') }}">
+     <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
 @endsection
 
 
@@ -240,46 +240,17 @@
                     @endif
                      </div>
                      <br>
+                    @if(isset($students->profile_image))
                      <div class="pull-right remove-btn">
-                 <a href='{{ url("student/delete/") }}'>     <button type="button" class="btn btn-danger waves-effect waves-light"  data-whatever="@mdo"><i class="fa fa-trash"></i></button></a>
-                 </div>
-                     <div class="pull-left add-btn">
-                   <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-upload"></i></button>
-                 </div>
-                
-                 
-                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="margin-top:8%;">
-                     <div class="modal-dialog" role="document">
-                         <div class="modal-content">
-                             <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                 <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
-                             </div>
-                             <div class="modal-body">
-
-                               <form action='{{url("student/upload_image")}}' method="post" enctype="multipart/form-data">
-                                 @csrf
-                                  <div class="row">
-                                   <div class="col-sm-12 ol-md-12 col-xs-12">
-                                       <div class="white-box">
-                                           <h3 class="box-title">File Upload</h3>
-                                           <input type="file" id="input-file-now" class="dropify" name="image"/>
-                                       </div>
-                                   </div>
-
-                                   </div>
-                                   <div class="modal-footer">
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
-                                   </div>
-
-                               </form>
-                         </div>
+                       <a href='{{ url("student/delete_image") }}' title="Delete image">   
+                         <button type="button" class="btn btn-danger waves-effect waves-light"  data-whatever="@mdo"><i class="fa fa-trash"></i></button>
+                       </a>
                      </div>
-                   </div>
-                 </div>
-                     {{--  <h4 class="line-bottom">About Me:</h4>  --}}
-                    
+                    @endif
+                    <div class="pull-left add-btn">
+                     <button type="button" title="Upload image" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-upload"></i></button>
+                    </div>
+                
                      <div class="volunteer-address">
                         <ul>
                        
@@ -334,9 +305,42 @@
             </div>
          </div>
       </section>
+{{----------------------------------------------start of modal section of image upload------------------------------------------------------}}
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="margin-top:8%;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <form action='{{url("student/upload_image")}}' method="POST" enctype="multipart/form-data">
+                        @csrf
+                         <div class="row">
+                          <div class="col-sm-12 ol-md-12 col-xs-12">
+                              <div class="white-box">
+                                  <h3 class="box-title">File Upload</h3>
+                                  <input type="file" id="input-file-now" class="dropify" name="profileimage"/>
+                              </div>
+                          </div>
+
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
+                          </div>
+
+                      </form>
+                </div>
+            </div>
+          </div>
+        </div>
+    {{----------------------------------------------End of modal section of image upload------------------------------------------------------}}
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
         <!-- Import Particles Js -->
 <script type="text/javascript">
 
@@ -405,9 +409,5 @@
     
    
     </script>
-    {{--  <script type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>  --}}
-  
 @endsection
       

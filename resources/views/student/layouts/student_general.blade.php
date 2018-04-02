@@ -36,9 +36,9 @@
 
            <style>
 
-                .modal-backdrop  {
-                       opacity:0.1 !important;
-                   }
+                  /* .msg>.modal-backdrop{
+                        opacity:0.1 !important;
+                   } */
                  .invalid-feedback,.is-invalid {
                     display: none;
                     width: 100%;
@@ -249,14 +249,14 @@
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
       
-      <script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
 
       <script type="text/javascript">
         @if(isset($status) || count($errors) > 0 ||Session::has('success') ||Session::has('warning') ||Session::has('danger') )
-            $('#displayResultModal').modal('show');
-            // window.setTimeout(function () {
-            //     $("#displayResultModal").modal("hide");
-            // },2500);
+        //$("#displayResultModal").css({"modal-backdrop": "opacity:0.01 !important"});
+        $('#displayResultModal').modal('show');
+            window.setTimeout(function () {
+                $("#displayResultModal").modal("hide");
+            },2500);
         @endif
       </script>
 

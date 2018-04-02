@@ -57,8 +57,8 @@ class StudentController extends Controller
 
     public function ShowOtpForm(Request $request)
     {
-        $education_details=null;
-        $graduation_details=null;
+       // $education_details=null;
+      //$graduation_details=null;
        if(Auth::user()->otp_verified==0){
 
         return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
@@ -67,9 +67,10 @@ class StudentController extends Controller
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
         
          if(!is_null($education_details)){
-            $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
+            //$graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
            
-            return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
+            return redirect('student/profile');
+            //return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
          }
          return view('student.pages.add_student_details')
                 ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
@@ -80,8 +81,6 @@ class StudentController extends Controller
    
     public function verifyStudentOtp(Request $request)
     {
-        $education_details=null;
-        $graduation_details=null;
 
         if(Auth::user()->mobile==$request->userMobile){
             if(Auth::user()->otp_verified==0){
@@ -94,12 +93,11 @@ class StudentController extends Controller
                          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
                        
                          if(!is_null($education_details)){
-                            $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 
-                            return view('student.pages.student_dashboard',
-                                   ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details])
-                                   ->with(['status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
-                          // return redirect()->route('student/profile');
+                            // return view('student.pages.student_dashboard',
+                            //        ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details])
+                            //        ->with(['status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
+                            return redirect('student/profile')->with(['status'=>'success','message'=>'successfully Verified ,You can Access your Account Now']);
                         }
                         return view('student.pages.add_student_details')
                               ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
@@ -112,9 +110,9 @@ class StudentController extends Controller
               if(Auth::user()->otp_verified==1){
                   
                 if(!is_null($education_details)){
-                    return view('student.pages.student_dashboard',
-                    ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
-                    //return redirect()->route('student/profile');
+                    return redirect('student/profile');//->with('success', 'Profile picture uploaded Successfully!');
+                  //  return view('student.pages.student_dashboard',
+                   // ['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
                 }
                 return view('student.pages.add_student_details')
                             ->with(['status'=>'success','message'=>'Already Verified,you can Access your Account Now']);
@@ -181,7 +179,7 @@ class StudentController extends Controller
                 $education->hsc_yop = Input::get("hsc_yop");
                 $education->hsc_marks= Input::get("hsc_marks");
                 $education->hsc_perc = Input::get("hsc_perc");  
-                $education->update();  
+                $education->save();  
                 
                 if(Input::get("university_name")!=null && Input::get("university_name")!=""){
                 
@@ -195,9 +193,9 @@ class StudentController extends Controller
                     $graduation->college_yop= Input::get("college_yop");
                     $graduation->marks = Input::get("marks");
                     $graduation->percentage = Input::get("percentage");  
-                    $graduation->update();
+                    $graduation->save();
                 }
-            return redirect('student/profile')->withErrors(['status'=>'success','message'=>'Profile Updated Successfully ']);
+            return redirect('student/profile')->with(['status'=>'success','message'=>'Profile Updated Successfully ']);
             }
         return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);
         }
@@ -221,26 +219,52 @@ class StudentController extends Controller
 
     public function uploadprofileImage(Request $request){
        
-        $student = student::find(16);
-        if(Input::hasFile('image')){
-            $file=Input::file('image');
-            $name = str_random(6) . '_' . $file->getClientOriginalName();
-            $file->move(public_path().'/student/images/profile_images',  Auth::user()->student_id);
-            $student->profile_image = 'student/images/profile_images/'. Auth::user()->student_id;
+
+        if($request->hasFile('profileimage')){
+            $profile_imagePath = Student::where('student_id',Auth::user()->student_id)->value('profile_image');
+
+            if(File::exists(public_path().'/'.$profile_imagePath)) {
+                
+                File::delete(public_path().'/'.$profile_imagePath);
+            }
+            
+            $file=$request->file('profileimage');
+            $fileName = Auth::user()->student_id. '_' . $file->getClientOriginalName();
+            $filePath = 'student/images/profile_images/'.$fileName;
+        
+           $file->move(public_path('/student/images/profile_images'),$fileName);
+
+            if( $student=Student::where('student_id',
+               Auth::user()->student_id)->update(['profile_image'=>$filePath])>0){
+
+               return redirect('student/profile')->with('success', 'Profile picture uploaded Successfully!');
+            }
+          return redirect()->back()
+          ->withErrors(['status'=>'danger','message'=>'Unable to upload Picture,Please try again later']);
         }
-            $student->update();
-            return redirect("student/student_dashboard");
+        return redirect()->back()
+          ->withErrors(['status'=>'danger','message'=>'Something Went Wrong ,Please try again later']);
+
     }
 
 
     public function deleteprofileImage(Request $request){
 
-            $student = student::find(Auth::user()->student_id);
-            //File::delete();
-            File::delete(public_path().'/'.$student->profile_image);
-            $student->profile_image = 'student/images/profile_images/default.png';   
-            $student->update();
-            return redirect('student/student_dashboard');
-        }
+        $profile_imagePath = Student::where('student_id',Auth::user()->student_id)->value('profile_image');
+           
+        if(File::exists(public_path().'/'.$profile_imagePath)) {
+                
+            File::delete(public_path().'/'.$profile_imagePath);
+            if( $student=Student::where('student_id',
+               Auth::user()->student_id)->update(['profile_image'=>null])>0){
 
+                return redirect('student/profile')->with('success', 'Profile picture Deleted Successfully!');
+            }
+          return redirect()->back()
+            ->withErrors(['status'=>'danger','message'=>'Unable to Delete Picture,Please try again later']);
+        }
+        return redirect()->back()
+        ->withErrors(['status'=>'danger','message'=>'Something Went Wrong ,Please try again later']);
     }
+
+}
