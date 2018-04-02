@@ -24,25 +24,42 @@
                             @guest
                           
                         @else
-                            {{-- <li>
-                                <a class="nav-link dropdown-toggle" href="#" role="button" v-pre>
-                                    {{ Auth::user()->first_name.''.Auth::user()->last_name}}
-                                </a>
-                            </li> --}}
-                            <li>
-                                <a href="{{ url('student/profile') }}">
-                                    {{ __('profile') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('student.logout') }}"
-                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
+                        
+                        <li class="dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img src="{{ asset('college/plugins/images/users/1.jpg') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
+                                         </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="index-one.html"><i class="fa fa-user"></i> My Profile</a>
+                                            </li>
+                                            <li>    
+                                            <a class="dropdown-item" href="{{ route('student.logout') }}"
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                   <i class="fa fa-power-off"></i>  {{ __('Logout') }}
+                                 </a>
+                                {{--  <div class="dropdown-menu" aria-labelledby="navbarDropdown">  --}}
+                                    
+
+                                    <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                {{--  </div>  --}}
+                                            </li>
+                                        </ul>
+                                    </li>
+                            <!-- <li>
+                                 <a class="dropdown-item" href="{{ route('student.logout') }}"
+                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                     {{ __('Logout') }}
+                                 </a>
+                                {{--  <div class="dropdown-menu" aria-labelledby="navbarDropdown">  --}}
+                                    
+
+                                    <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                {{--  </div>  --}}
+                            </li> -->
                         @endguest
                         </ul>
                     </div>
