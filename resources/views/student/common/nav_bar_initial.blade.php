@@ -1,6 +1,6 @@
 <!-- Header navbar start -->
 <div class="header-navbar" id="navbar-main">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-default">
@@ -25,7 +25,7 @@
                           
                         @else
                         
-                        <li class="dropdown">
+                        <li>
                         <a id="navbarDropdown" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src="{{ asset('college/plugins/images/users/1.jpg') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
                                          </a>
@@ -47,19 +47,6 @@
                                             </li>
                                         </ul>
                                     </li>
-                            <!-- <li>
-                                 <a class="dropdown-item" href="{{ route('student.logout') }}"
-                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                     {{ __('Logout') }}
-                                 </a>
-                                {{--  <div class="dropdown-menu" aria-labelledby="navbarDropdown">  --}}
-                                    
-
-                                    <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                {{--  </div>  --}}
-                            </li> -->
                         @endguest
                         </ul>
                     </div>

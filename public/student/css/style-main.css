@@ -3990,6 +3990,7 @@ fieldset[disabled] .btn-gray.focus {
 .btn {
   font-size: 13px;
   padding: 8px 22px;
+  font-family:poppins!important;
 }
 /* -------- Btn-xs ---------- */
 .btn-xs {
@@ -5403,7 +5404,7 @@ blockquote p {
 }
 .nav-tabs > li > a {
   border-radius: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family:poppins!important;
   font-size: 14px;
   color: #555555;
   padding: 12px 20px;
@@ -5597,6 +5598,23 @@ blockquote p {
   color: #333333;
   font-size: 14px;
   width: auto;
+  font-family: poppins;
+}
+dd
+{
+  font-family:poppins!important;
+}
+h5,h4
+{
+  font-family:poppins!important;
+}
+p
+{
+  font-family:poppins!important;
+}
+label
+{
+  font-family:poppins!important;
 }
 @media only screen and (max-width: 767px) {
   .dl-horizontal.doctor-info dt {

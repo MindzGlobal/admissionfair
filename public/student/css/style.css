@@ -5303,6 +5303,7 @@ section, .section {
     color: rgba(0, 0, 0, 0);
     text-shadow: 0 0 0 #fff;
     transition: all .5s ease;
+    font-family:poppins!important;
 }
 
 .btn:hover {
@@ -5742,6 +5743,7 @@ height:480px;
       display: table-cell;
       /* text-align: center; */
       position: relative;
+      font-family:poppins!important;
       }
       .btn-circle {
       width: 35%;

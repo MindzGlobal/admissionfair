@@ -12,6 +12,7 @@
             <title>Register-Login|VAF-2018</title>
             <!-- Favicon -->
             <link rel="icon" type="image/png" href="{{ asset('student/images/favi.png')}}">
+             
             <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png')}}">
                 <!-- Bootstrap Core CSS -->
                 <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">

@@ -1,6 +1,14 @@
 @extends('student.layouts.student_general')
 
 @section('css')
+<style>
+       .thank-u
+   {
+	width: 50%;
+    position: relative;
+    left: 25%
+   }
+    </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 @endsection
 
@@ -125,7 +133,7 @@
                     <textarea  maxlength="100" type="text" name="about_you" required="required" class="form-control" placeholder="Enter Brief Description About Your Education"  /></textarea>
                   </div>
                </div>
-               <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+               <button class="btn btn-primary nextBtn  pull-right" type="button" >Next</button>
             </div>
          </div>
       </div>
@@ -283,15 +291,25 @@
                   </fieldset>
                </div>
                <br>
-               <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+               <button class="btn btn-primary nextBtn  pull-right" type="button" >Next</button>
             </div>
          </div>
       </div>
       <div class="row setup-content" id="step-3">
          <div class="col-xs-12">
-            <div class="col-md-12">
-               <h3 class="text-center txt_blu">Form Completed</h3>
-               <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+         <div class="col-md-12">
+               <h3 class="text-center txt_blu">Form Completed Successfully</h3>
+              
+						<img class="thank-u" src="http://chefjob.vn/images/tin-tuc/thu-cam-on-the-hien-su-ton-trong-cua-ban-doi-voi-nha-tuyen-dung.jpg" style="width:50%;">
+                        <br>
+						</br>
+						<center>
+							<ul class="list-inline">
+							   <li>
+                               <button class="btn btn-success  " type="submit">Finish!</button>							   </li>
+							</ul>
+						</center>
+             
             </div>
          </div>
       </div>

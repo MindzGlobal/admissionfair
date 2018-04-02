@@ -1,11 +1,20 @@
 @extends('student.layouts.student_general')
 @section('css')
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
        .thank-u
    {
 	width: 50%;
     position: relative;
     left: 25%
+   }
+   label
+   {
+    font-family:poppins!important;
+   }
+   .form-control
+   {
+    font-family:poppins!important;
    }
     </style>
 @endsection

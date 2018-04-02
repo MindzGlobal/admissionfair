@@ -2,6 +2,7 @@
 
 @section('css')
     <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
        .banner {
         padding: 274px 0px!important;
         }    
@@ -34,6 +35,7 @@
     padding-top: 25px!important;
         }
 </style>
+ <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
@@ -91,7 +93,7 @@
                       
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
-                                <h4 class="ptl" style="color:#02325d;"><b>About Me</b></h4>
+                                <h4 class="ptl" style="color:#02325d;">About Me</h4>
                                 <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a>
                             </div>
                             <hr>
@@ -127,7 +129,7 @@
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade active in">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d">SSLC Information</h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}
@@ -197,7 +199,7 @@
                            <hr>
                            <dl class="dl-horizontal doctor-info" id="View-Degree" Style="display:None">
                            {{--  @foreach($graduation as $graduations)  --}}
-                              <h4 style="color:#02325d"><b>Graduation Information</b></h4>
+                              <h4 style="color:#02325d">Graduation Information</h4>
                               <hr>
                               <dt>University</dt>
                               <dd>
