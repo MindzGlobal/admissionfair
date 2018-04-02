@@ -5398,13 +5398,13 @@ blockquote p {
 .nav-tabs > li.active a,
 .nav-tabs > li.active a:hover,
 .nav-tabs > li.active a:focus {
-  color: #111111;
-  background-color: #f8f8f8;
+  color: #fff;
+  background-color: #2980b9;;
 }
 .nav-tabs > li > a {
   border-radius: 0;
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   color: #555555;
   padding: 12px 20px;
   margin-right: 0;
