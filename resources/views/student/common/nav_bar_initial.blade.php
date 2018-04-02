@@ -1,6 +1,6 @@
 <!-- Header navbar start -->
 <div class="header-navbar" id="navbar-main">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-default">
@@ -21,26 +21,27 @@
                            <li><a href="#">Home</a>
                             <li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
                             </li>
-                            @guest
+                        @guest
                           
                         @else
                             <li>
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name.''.Auth::user()->last_name}} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="{{ asset('college/plugins/images/users/1.jpg') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
                                 </a>
-                            </li>
-                            <li>
-                                 <a class="dropdown-item" href="{{ route('student.logout') }}"
-                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                     {{ __('Logout') }}
-                                 </a>
-                                {{--  <div class="dropdown-menu" aria-labelledby="navbarDropdown">  --}}
-                                    
-
-                                    <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                {{--  </div>  --}}
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="index-one.html"><i class="fa fa-user"></i> My Profile</a>
+                                    </li>
+                                    <li>    
+                                        <a class="dropdown-item" href="{{ route('student.logout') }}"
+                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off"></i>  {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         @endguest
                         </ul>

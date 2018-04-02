@@ -1,4 +1,23 @@
 @extends('student.layouts.student_general')
+@section('css')
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
+       .thank-u
+   {
+	width: 50%;
+    position: relative;
+    left: 25%
+   }
+   label
+   {
+    font-family:poppins!important;
+   }
+   .form-control
+   {
+    font-family:poppins!important;
+   }
+    </style>
+@endsection
 @section('content')
 {{--  ?php include("common/header-hall.php")?>  --}}
 <!-- Strat Banner Section -->
@@ -116,7 +135,7 @@
                <div class="col-md-12">
                   <div class="form-group">
                      <label class="control-label">About You:</label>
-                     <textarea class="form-control" rows="5" name="address" required="required"  placeholder="Enter Brief Description About Your Education" >{{ $students->about_you }}</textarea>
+                     <textarea class="form-control" rows="5" name="about_you" required="required"  placeholder="Enter Brief Description About Your Education" >{{ $students->about_you }}</textarea>
                   </div>
                </div>
                <button class="btn btn-primary nextBtn pull-right" type="button" >Next</button>
@@ -177,7 +196,7 @@
                   </div>
                   <div class="col-md-6">
                      <div class="form-group">
-                        <label for="Year">Year:{{ $education->hsc_yop }} </label>
+                        <label for="Year">Year:</label>
                         <select name="hsc_yop" class="form-control textbox" id="sel1"  />
                         @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                         <option value="{{ $i }}"{{ $education->hsc_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
@@ -284,8 +303,18 @@
       <div class="row setup-content" id="step-3">
          <div class="col-xs-12">
             <div class="col-md-12">
-               <h3 class="text-center txt_blu">Form Completed</h3>
-               <button class="btn btn-success  pull-right" type="submit">Finish!</button>
+               <h3 class="text-center txt_blu">Form Completed Successfully</h3>
+              
+						<img class="thank-u" src="http://chefjob.vn/images/tin-tuc/thu-cam-on-the-hien-su-ton-trong-cua-ban-doi-voi-nha-tuyen-dung.jpg" style="width:50%;">
+                        <br>
+						</br>
+						<center>
+							<ul class="list-inline">
+							   <li>
+                               <button class="btn btn-success  " type="submit">Finish!</button>							   </li>
+							</ul>
+						</center>
+             
             </div>
          </div>
       </div>

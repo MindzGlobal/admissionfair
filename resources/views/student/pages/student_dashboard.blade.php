@@ -2,6 +2,7 @@
 
 @section('css')
     <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
        .banner {
         padding: 274px 0px!important;
         }    
@@ -17,12 +18,12 @@
         {
             position: absolute;
             left: 18%;
-            top: 32%;
+            top: 28.5%;
         }
         .remove-btn
         {
             position: absolute;
-            top: 32%;
+            top: 28.5%;
             left: 66%;
         }
         .btn {
@@ -30,11 +31,14 @@
             font-size: 13px;
             padding: 4px 10px!important;
         }
+        section > .container, section > .container-fluid {
+    padding-top: 25px!important;
+        }
 </style>
-     <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/custom-bootstrap-margin-padding.css') }}">
+     <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
 @endsection
 
 
@@ -49,7 +53,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <div class="page-title-box">
-                     <h2>My Profile</h2>
+                     <h2>Your Profile</h2>
                   </div>
                </div>
             </div>
@@ -63,13 +67,11 @@
          <div class="container">
             <div class="section-content">
                <div class="row">
-                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-60 pl-sm-15 student-info">
+                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-sm-15 student-info">
                      <div>
-                    
                         <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
-                            {{--  <p> {{ $students->about_you }}</p>--}}
                      </div>
-                     <ul class="nav nav-tabs mt-30">
+                     <ul class="nav nav-tabs">
                         <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
                         <li class="active"><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
@@ -88,8 +90,8 @@
                       
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
-                                <h4 class="ptl">About Me</h4>
-                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a>
+                                <h4 class="ptl" style="color:#02325d;">About Me</h4>
+                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a>
                             </div>
                             <hr>
                                <dt>Birth Date</dt>
@@ -124,7 +126,7 @@
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade active in">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d">SSLC Information</h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}
@@ -149,7 +151,7 @@
                               {{ $education->ssc_marks }}
                               </dd>
                               <hr>
-                              <dt>Marks</dt>
+                              <dt>Percentage</dt>
                               <dd>
                               {{ $education->ssc_perc }}
                               </dd>
@@ -160,12 +162,12 @@
                            <hr>
                            <dl class="dl-horizontal doctor-info">
                         
-                              <dt>PUC College Name</dt>
+                              <dt>PUC Board</dt>
                               <dd>
                               {{ $education->hsc_board }}
                               </dd>
                               <hr>
-                              <dt>PUC Board</dt>
+                              <dt>Year Of Pass</dt>
                               <dd>
                               {{ $education->hsc_yop }}
                               </dd>
@@ -175,12 +177,12 @@
                               {{ $education->hsc_medium }}
                               </dd>
                               <hr>
-                              <dt>Year Of Pass</dt>
+                              <dt>Marks</dt>
                               <dd>
                               {{ $education->hsc_marks }}
                               </dd>
                               <hr>
-                              <dt>Marks</dt>
+                              <dt>Percentage</dt>
                               <dd>
                               {{ $education->hsc_perc }}
                               </dd>
@@ -194,16 +196,16 @@
                            <hr>
                            <dl class="dl-horizontal doctor-info" id="View-Degree" Style="display:None">
                            {{--  @foreach($graduation as $graduations)  --}}
-                              <h4 style="color:#02325d"><b>Graduation Information</b></h4>
+                              <h4 style="color:#02325d">Graduation Information</h4>
                               <hr>
-                              <dt>Degree College Name</dt>
+                              <dt>University</dt>
                               <dd>
                                @if($graduation!=null)
                                 {{ $graduation->university_name }}
                                @endif
                               </dd>
                               <hr>
-                              <dt>University</dt>
+                              <dt>Degree College Name</dt>
                               <dd>
                                @if($graduation!=null)
                                  {{ $graduation->college_name }}
@@ -234,53 +236,36 @@
                      <div class="doctor-thumb">
                     @if(isset($students->profile_image))
                         <img src="{{ asset($students->profile_image) }}" alt="" style="height:200px;">
-                      @else
+                    @else
                       <img src="{{ asset('student/images/profile_images/default.png') }}" alt="" style="height:200px;">
-                   @endif
+                    @endif
                      </div>
                      <br>
+                    @if(isset($students->profile_image))
                      <div class="pull-right remove-btn">
-                 <a href='{{ url("student/delete/") }}'>     <button type="button" class="btn btn-danger waves-effect waves-light"  data-whatever="@mdo"><i class="fa fa-trash"></i></button></a>
-                 </div>
-                     <div class="pull-left add-btn">
-                   <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-upload"></i></button>
-                 </div>
-                
-                 
-                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="margin-top:8%;">
-                     <div class="modal-dialog" role="document">
-                         <div class="modal-content">
-                             <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                 <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
-                             </div>
-                             <div class="modal-body">
-
-                               <form action='{{url("student/upload_image")}}' method="post" enctype="multipart/form-data">
-                                 @csrf
-                                  <div class="row">
-                                   <div class="col-sm-12 ol-md-12 col-xs-12">
-                                       <div class="white-box">
-                                           <h3 class="box-title">File Upload</h3>
-                                           <input type="file" id="input-file-now" class="dropify" name="image"/>
-                                       </div>
-                                   </div>
-
-                                   </div>
-                                   <div class="modal-footer">
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
-                                   </div>
-
-                               </form>
-                         </div>
+                       <a href='{{ url("student/delete_image") }}' title="Delete image">   
+                         <button type="button" class="btn btn-danger waves-effect waves-light"  data-whatever="@mdo"><i class="fa fa-trash"></i></button>
+                       </a>
                      </div>
-                   </div>
-                 </div>
-                     {{--  <h4 class="line-bottom">About Me:</h4>  --}}
-                     <p class="text-center"> {{ $students->about_you }}</p>    
+                    @endif
+                    <div class="pull-left add-btn">
+                     <button type="button" title="Upload image" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-upload"></i></button>
+                    </div>
+                
                      <div class="volunteer-address">
                         <ul>
+                       
+                        <li>
+                              <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                                 <div class="media-left">
+                                    <i class="fa fa-book text-theme-colored font-24 mt-5"></i>
+                                 </div>
+                                 <div class="media-body">
+                                    <h5 class="mt-0 mb-0">Education:</h5>
+                                    <p> {{ $students->about_you }}</p>  
+                                 </div>
+                              </div>
+                           </li> 
                            <li>
                               <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
                                  <div class="media-left">
@@ -310,7 +295,7 @@
                                </div>
                                <div class="media-body">
                                   <h5 class="mt-0 mb-0">Address:</h5>
-                                  <p> {{ $students->city }}</p>
+                                  <p> {{ $students->address }}</p>
                                </div>
                             </div>
                          </li>
@@ -321,9 +306,42 @@
             </div>
          </div>
       </section>
+{{----------------------------------------------start of modal section of image upload------------------------------------------------------}}
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="margin-top:8%;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <form action='{{url("student/upload_image")}}' method="POST" enctype="multipart/form-data">
+                        @csrf
+                         <div class="row">
+                          <div class="col-sm-12 ol-md-12 col-xs-12">
+                              <div class="white-box">
+                                  <h3 class="box-title">File Upload</h3>
+                                  <input type="file" id="input-file-now" class="dropify" name="profileimage"/>
+                              </div>
+                          </div>
+
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
+                          </div>
+
+                      </form>
+                </div>
+            </div>
+          </div>
+        </div>
+    {{----------------------------------------------End of modal section of image upload------------------------------------------------------}}
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
         <!-- Import Particles Js -->
 <script type="text/javascript">
 
@@ -392,9 +410,5 @@
     
    
     </script>
-    {{--  <script type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>  --}}
-  
 @endsection
       

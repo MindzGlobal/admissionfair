@@ -4030,7 +4030,7 @@ input:-moz-placeholder {
 /*  19. Banner CSS Strat
 /*--------------------------------*/
 .edu-banner {
-    /*padding: 10px 0;*/
+    padding: 85px 0;
     text-align: center;
     background: url(../images/banner.jpg);
     background-position: center;
@@ -5303,6 +5303,7 @@ section, .section {
     color: rgba(0, 0, 0, 0);
     text-shadow: 0 0 0 #fff;
     transition: all .5s ease;
+    font-family:poppins!important;
 }
 
 .btn:hover {
@@ -5650,7 +5651,7 @@ height:480px;
         
         .stud-det {
             background-color: #ffffff;
-            margin: 50px auto;
+            margin: 30px auto;
             font-family: Raleway;
             padding: 0px 40px 40px 40px;
             width: 95%;
@@ -5660,7 +5661,7 @@ height:480px;
         }
         
         .banner-height {
-            height: 186px!important;
+            height: 260px!important;
         }
         
         .page-title-box {
@@ -5742,6 +5743,7 @@ height:480px;
       display: table-cell;
       /* text-align: center; */
       position: relative;
+      font-family:poppins!important;
       }
       .btn-circle {
       width: 35%;
@@ -5751,4 +5753,7 @@ height:480px;
       font-size: 14px;
       line-height: 1.428571429;
       border-radius: 15px;
+      }
+      .img-cls{
+        padding-top: 6px!important;
       }

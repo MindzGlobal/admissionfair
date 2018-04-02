@@ -252,7 +252,9 @@
     .header-navbar-two .navbar-default .navbar-nav > li > a {
         color: #333333;
     }
-
+    .header-navbar .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
     .header-navbar .navbar-nav .dropdown-menu > li > a {
         padding: 5px 10px;
     }
@@ -660,7 +662,7 @@
     .edu-banner .page-title-box {
         margin: 0 auto;
         width: 100%;
-        padding: 50px 20px;
+        padding:0px 20px;
     }
 
     .particles-js-canvas-el {

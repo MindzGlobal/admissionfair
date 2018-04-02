@@ -1,7 +1,7 @@
 <?php
 
 /*
-|---   -----------------------------------------------------------------------
+|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -67,8 +67,8 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::get('profile','StudentController@Showprofile');
     Route::post("updateprofile","StudentController@addOrupdateStudentDetails");
     Route::get("editprofile","StudentController@showEditForm");
-    Route::post('student/upload_image','StudentController@uploadprofileImage');
-    Route::get('student/delete_image','StudentController@deleteprofileImage');
+    Route::post('upload_image','StudentController@uploadprofileImage');
+    Route::get('delete_image','StudentController@deleteprofileImage');
 
 });
 Route::get('college/std_profile1', function () {
