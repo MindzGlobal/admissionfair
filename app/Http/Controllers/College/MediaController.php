@@ -29,9 +29,7 @@ class MediaController extends Controller
     //dd($request->file('file'));
     if($file=$request->file('file'))
     {
-        
-
-        echo $name = str_random(6) . '_' . $file->getClientOriginalName();
+        $name = str_random(6) . '_' . $file->getClientOriginalName();
         $destination_path = '/college/images/gallery_images';
         $file->move(public_path().$destination_path, $name);
         $file_url = 'college/images/gallery_images/'.$name;
