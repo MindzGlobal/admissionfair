@@ -5752,3 +5752,6 @@ height:480px;
       line-height: 1.428571429;
       border-radius: 15px;
       }
+      .img-cls{
+        padding-top: 6px!important;
+      }
