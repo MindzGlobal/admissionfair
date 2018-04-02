@@ -1,4 +1,14 @@
 @extends('student.layouts.student_general')
+@section('css')
+<style>
+       .thank-u
+   {
+	width: 50%;
+    position: relative;
+    left: 25%
+   }
+    </style>
+@endsection
 @section('content')
 {{--  ?php include("common/header-hall.php")?>  --}}
 <!-- Strat Banner Section -->
@@ -284,8 +294,18 @@
       <div class="row setup-content" id="step-3">
          <div class="col-xs-12">
             <div class="col-md-12">
-               <h3 class="text-center txt_blu">Form Completed</h3>
-               <button class="btn btn-success  pull-right" type="submit">Finish!</button>
+               <h3 class="text-center txt_blu">Form Completed Successfully</h3>
+              
+						<img class="thank-u" src="http://chefjob.vn/images/tin-tuc/thu-cam-on-the-hien-su-ton-trong-cua-ban-doi-voi-nha-tuyen-dung.jpg" style="width:50%;">
+                        <br>
+						</br>
+						<center>
+							<ul class="list-inline">
+							   <li>
+                               <button class="btn btn-success  " type="submit">Finish!</button>							   </li>
+							</ul>
+						</center>
+             
             </div>
          </div>
       </div>

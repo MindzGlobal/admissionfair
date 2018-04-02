@@ -25,31 +25,26 @@ class MediaController extends Controller
 
   public function uploadimage(Request $request) {
     $reg_id = Auth::user()->reg_id;
-    $input=$request->all();
     $insertData = array();
-    if($files=$request->file('image')){
- //      $this->validate($request,['image' => 'required',
- // 'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+    //dd($request->file('file'));
+    if($file=$request->file('file'))
+    {
+        
 
-        foreach($files as $file)
-        {
-              $name = str_random(6) . '_' . $file->getClientOriginalName();
-              $destination_path = '/college/images/gallery_images';
-              $file->move(public_path().$destination_path, $name);
-              $file_url = 'college/images/gallery_images/'.$name;
+        echo $name = str_random(6) . '_' . $file->getClientOriginalName();
+        $destination_path = '/college/images/gallery_images';
+        $file->move(public_path().$destination_path, $name);
+        $file_url = 'college/images/gallery_images/'.$name;
 
-              $insertData[] = [
-              'reg_id'     => $reg_id,  
-              'file_name'  => $name,
-              'file_url'   => $file_url,
-              'file_type'  => "Image",
-              ];
-        }
         $user = new College_media;
-        $user->insert($insertData);
+        $user->reg_id = $reg_id;
+        $user->file_name = $name;
+        $user->file_url = $file_url;
+        $user->file_type = "Image";
+        $user->save();
     }
 
-    return redirect("college/image_gallery");
+    //return redirect("college/image_gallery");
   }
 
   public function showimages(){

@@ -17,18 +17,21 @@
         {
             position: absolute;
             left: 18%;
-            top: 32%;
+            top: 28.5%;
         }
         .remove-btn
         {
             position: absolute;
-            top: 32%;
+            top: 28.5%;
             left: 66%;
         }
         .btn {
 
             font-size: 13px;
             padding: 4px 10px!important;
+        }
+        section > .container, section > .container-fluid {
+    padding-top: 25px!important;
         }
 </style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css') }}">
@@ -63,11 +66,11 @@
          <div class="container">
             <div class="section-content">
                <div class="row">
-                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-60 pl-sm-15 student-info">
+                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-sm-15 student-info">
                      <div>
                         <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
                      </div>
-                     <ul class="nav nav-tabs mt-30">
+                     <ul class="nav nav-tabs">
                         <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
                         <li class="active"><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
@@ -86,8 +89,8 @@
                       
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
-                                <h4 class="ptl">About Me</h4>
-                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a>
+                                <h4 class="ptl" style="color:#02325d;"><b>About Me</b></h4>
+                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a>
                             </div>
                             <hr>
                                <dt>Birth Date</dt>
@@ -122,7 +125,7 @@
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade active in">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}
@@ -147,7 +150,7 @@
                               {{ $education->ssc_marks }}
                               </dd>
                               <hr>
-                              <dt>Marks</dt>
+                              <dt>Percentage</dt>
                               <dd>
                               {{ $education->ssc_perc }}
                               </dd>
@@ -158,12 +161,12 @@
                            <hr>
                            <dl class="dl-horizontal doctor-info">
                         
-                              <dt>PUC College Name</dt>
+                              <dt>PUC Board</dt>
                               <dd>
                               {{ $education->hsc_board }}
                               </dd>
                               <hr>
-                              <dt>PUC Board</dt>
+                              <dt>Year Of Pass</dt>
                               <dd>
                               {{ $education->hsc_yop }}
                               </dd>
@@ -173,12 +176,12 @@
                               {{ $education->hsc_medium }}
                               </dd>
                               <hr>
-                              <dt>Year Of Pass</dt>
+                              <dt>Marks</dt>
                               <dd>
                               {{ $education->hsc_marks }}
                               </dd>
                               <hr>
-                              <dt>Marks</dt>
+                              <dt>Percentage</dt>
                               <dd>
                               {{ $education->hsc_perc }}
                               </dd>
@@ -194,14 +197,14 @@
                            {{--  @foreach($graduation as $graduations)  --}}
                               <h4 style="color:#02325d"><b>Graduation Information</b></h4>
                               <hr>
-                              <dt>Degree College Name</dt>
+                              <dt>University</dt>
                               <dd>
                                @if($graduation!=null)
                                 {{ $graduation->university_name }}
                                @endif
                               </dd>
                               <hr>
-                              <dt>University</dt>
+                              <dt>Degree College Name</dt>
                               <dd>
                                @if($graduation!=null)
                                  {{ $graduation->college_name }}
@@ -276,9 +279,21 @@
                    </div>
                  </div>
                      {{--  <h4 class="line-bottom">About Me:</h4>  --}}
-                     <p class="text-center"> {{ $students->about_you }}</p>    
+                    
                      <div class="volunteer-address">
                         <ul>
+                       
+                        <li>
+                              <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                                 <div class="media-left">
+                                    <i class="fa fa-book text-theme-colored font-24 mt-5"></i>
+                                 </div>
+                                 <div class="media-body">
+                                    <h5 class="mt-0 mb-0">Education:</h5>
+                                    <p> {{ $students->about_you }}</p>  
+                                 </div>
+                              </div>
+                           </li> 
                            <li>
                               <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
                                  <div class="media-left">
@@ -308,7 +323,7 @@
                                </div>
                                <div class="media-body">
                                   <h5 class="mt-0 mb-0">Address:</h5>
-                                  <p> {{ $students->city }}</p>
+                                  <p> {{ $students->address }}</p>
                                </div>
                             </div>
                          </li>
