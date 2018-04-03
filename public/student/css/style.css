@@ -63,7 +63,7 @@ Primary use:	Personal and Corporate Portfolio
 @import url('pe-icon-7-stroke.css');
 @import url('flaticon.css');
 @import url('player.css');
-
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 /* =====================================
     02. General CSS
 ===================================== */
@@ -475,7 +475,7 @@ img {
 }
 
 .header-navbar .navbar-nav {
-    margin-top: 8px;
+    margin-top: 3px;
 }
 
 .header-navbar .navbar-default {
@@ -5755,5 +5755,13 @@ height:480px;
       border-radius: 15px;
       }
       .img-cls{
-        padding-top: 6px!important;
+        padding-top:12px!important;
+      }
+      label
+      {
+       font-family:poppins!important;
+      }
+      .form-control
+      {
+       font-family:poppins!important;
       }
