@@ -19,13 +19,19 @@
         {
             position: absolute;
             left: 18%;
-            top: 28.5%;
+            top: 33.5%;
         }
         .remove-btn
         {
             position: absolute;
-            top: 28.5%;
+            top: 33.5%;
             left: 66%;
+        }
+        .bg-light1
+        {
+            background-color: #f5f5f5 !important;
+            border-radius: 5px;
+            border: 2px solid #eee;
         }
         .btn {
 
@@ -72,6 +78,15 @@
                      <div>
                         <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
                      </div>
+                     <div class="bg-light1 media  pt-15 mb-20">
+                                 <div class="media-left">
+                                    <i class="fa fa-user text-theme-colored  font-24 mt-5 ml-5"></i>
+                                 </div>
+                                 <div class="media-body">
+                                    <h5 class="mt-0 mb-0">About You:</h5>
+                                    <p> {{ $students->about_you }}</p>  
+                                 </div>
+                              </div>
                      <ul class="nav nav-tabs">
                         <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
@@ -257,7 +272,7 @@
                         <ul>
                        
                         <li>
-                              <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                              <!-- <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
                                  <div class="media-left">
                                     <i class="fa fa-book text-theme-colored font-24 mt-5"></i>
                                  </div>
@@ -265,7 +280,7 @@
                                     <h5 class="mt-0 mb-0">About You:</h5>
                                     <p> {{ $students->about_you }}</p>  
                                  </div>
-                              </div>
+                              </div> -->
                            </li> 
                            <li>
                               <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
