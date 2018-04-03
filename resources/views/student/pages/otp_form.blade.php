@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <input id="name" type="text" class="form-control" name="otp" value="" placeholder="Enter OTP"  autofocus>
+                                <input id="otp_value" type="text" class="form-control" name="otp_value"  placeholder="Enter OTP"  autofocus>
                                 @if (session('msg'))
                                     <span class="invalid-feedback">
                                         <strong>{{ session('msg') }}</strong>
