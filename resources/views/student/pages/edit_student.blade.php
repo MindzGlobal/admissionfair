@@ -1,5 +1,5 @@
 @extends('student.layouts.student_general')
-@section('title', "Edit Student")
+@section('title', "Edit Profile")
 @section('css')
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
