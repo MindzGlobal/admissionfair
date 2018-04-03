@@ -455,14 +455,18 @@ img {
 /* Navbar CSS start */
 .header-navbar {
     color: #ffffff;
+    background: #2980b9;
 }
-
+.affix {
+    position: fixed;
+    background: #2980b9!important;
+}
 .header-navbar .navbar-brand {
     padding: 0;
 }
 
 .header-navbar .navbar-brand img {
-    width: 180px;
+    width: 150px;
     height: auto;
 }
 
@@ -477,17 +481,17 @@ img {
 .header-navbar .navbar-default {
     background: transparent;
     border: none;
-    padding: 10px 0 15px;
+    padding: 0px 0 0px;
 }
 
 .header-navbar .navbar-default .navbar-nav > .active > a,
 .header-navbar .navbar-default .navbar-nav > li > a:hover {
-    color: #2980b9;
+    color: #333;
     background-color: transparent;
 }
 
 .header-navbar .navbar-default .navbar-nav > li > a {
-    color: #333333;
+    color: #fff;
     font-weight: bold;
     text-transform: uppercase;
     padding-left: 0;
@@ -3273,7 +3277,7 @@ input:-moz-placeholder {
     -moz-box-shadow: none;
     -ms-box-shadow: none;
     -o-box-shadow: none;
-    height: 50px;
+    height: 42px;
     border: 1px solid #d0d0d0;
     font-size: 15px;
     color: #535353;
@@ -4026,7 +4030,7 @@ input:-moz-placeholder {
 /*  19. Banner CSS Strat
 /*--------------------------------*/
 .edu-banner {
-    /*padding: 10px 0;*/
+    padding: 85px 0;
     text-align: center;
     background: url(../images/banner.jpg);
     background-position: center;
@@ -5299,6 +5303,7 @@ section, .section {
     color: rgba(0, 0, 0, 0);
     text-shadow: 0 0 0 #fff;
     transition: all .5s ease;
+    font-family:poppins!important;
 }
 
 .btn:hover {
@@ -5646,7 +5651,7 @@ height:480px;
         
         .stud-det {
             background-color: #ffffff;
-            margin: 50px auto;
+            margin: 30px auto;
             font-family: Raleway;
             padding: 0px 40px 40px 40px;
             width: 95%;
@@ -5656,7 +5661,7 @@ height:480px;
         }
         
         .banner-height {
-            height: 186px!important;
+            height: 260px!important;
         }
         
         .page-title-box {
@@ -5729,15 +5734,16 @@ height:480px;
       bottom: 0;
       position: absolute;
       content: " ";
-      width: 64%;
+      width: 64.5%;
       height: 1px;
       background-color: #ccc;
       z-order: 0;
       }
       .stepwizard-step {
       display: table-cell;
-      text-align: center;
+      /* text-align: center; */
       position: relative;
+      font-family:poppins!important;
       }
       .btn-circle {
       width: 35%;
@@ -5747,4 +5753,7 @@ height:480px;
       font-size: 14px;
       line-height: 1.428571429;
       border-radius: 15px;
+      }
+      .img-cls{
+        padding-top: 6px!important;
       }

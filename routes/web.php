@@ -1,7 +1,7 @@
 <?php
 
 /*
-|---   -----------------------------------------------------------------------
+|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -58,11 +58,35 @@ Route::prefix('college')->namespace('college')->group(function(){
 
 });
 
+
+//College Section  ##############################################################################
+Route::prefix('college')->namespace('college')->group(function(){
+    Route::get('register','CollegeAuthController@register');
+    Route::get('login','CollegeAuthController@login')->name('collegelogin');
+    Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
+    Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
+    Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
+    Route::post('insertprofile','CollegeAuthController@insertProfile');
+    Route::get('dashboard','CollegeController@dashboard')->name('dashboard');
+
+    Route::post('image_gallery','MediaController@uploadimage');
+    Route::get('image_gallery','MediaController@showimages');
+    Route::get('deleteimagegallery/{id}','MediaController@deleteImage');
+
+    Route::post('video_gallery','videoController@uploadvideo');
+    Route::get('video_gallery','videoController@showvideo');
+    Route::get('deletevideogallery/{id}','videoController@deleteVideo');
+
+    Route::get('createprofile','CollegeController@createprofile');
+    Route::post('insertprofile','CollegeController@insertprofile');
+});
+
 //Student Section  ##############################################################################
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
     Route::get('profile','StudentController@Showprofile');
+    
     Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
     Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');
     Route::get('resendotp','StudentController@resendStudentOtp')->name('student.resendotp');
@@ -79,4 +103,16 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('password/reset','Auth\ResetPasswordController@reset');
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+
+    Route::get('profile','StudentController@Showprofile');
+    Route::post("updateprofile","StudentController@addOrupdateStudentDetails");
+    Route::get("editprofile","StudentController@showEditForm");
+    Route::post('upload_image','StudentController@uploadprofileImage');
+    Route::get('delete_image','StudentController@deleteprofileImage');
+
 });
+Route::get('college/std_profile1', function () {
+    return view('college.std_profile1');
+});
+
+

@@ -120,7 +120,7 @@
                             window.location = "../select_booth";
                         }
                     }
-                })
+            })
         }
     });
 

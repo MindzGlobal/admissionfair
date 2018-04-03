@@ -13,6 +13,11 @@ use Auth;
 class CollegeAuthController extends Controller
 {
 
+  public function __construct()
+  {
+      $this->middleware('guest')->except('logout');
+  }
+
   public function login(Request $Request){
     return view('college.login');
   }

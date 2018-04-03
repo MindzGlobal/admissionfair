@@ -10,13 +10,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 
-
-
 class CollegeController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $mobileVerificationStatus = Auth::user()->mobile_verification;
+            if($mobileVerificationStatus == 'No'){
+                return redirect()->route('otpverification');
+            }
+            return $next($request);
+        });
     }
 
       public function insertProfile(Request $request)
@@ -174,4 +179,12 @@ class CollegeController extends Controller
     {
         return view('college/dashboard');
     }
+
+    protected function createprofile()
+    {
+        return view('college.create_profile');
+    }
+
+   
+
 }
