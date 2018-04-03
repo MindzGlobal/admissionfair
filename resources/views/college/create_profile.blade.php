@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Name</label>
                                     <div class="col-xs-5">
-                                        <input type="text" class="form-control" name="name" placeholder="College Name" />
+                                        <input type="text" value="{{ Auth::user()->name }}" class="form-control" name="name" placeholder="College Name" />
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Website URL</label>
                                     <div class="col-xs-5">
-                                        <input type="url" class="form-control" name="clg_url" placeholder="College Website URL (optional)" />
+                                        <input type="url" class="form-control" name="website" placeholder="College Website URL (optional)" />
                                     </div>
                                 </div>
                             </div>
@@ -144,28 +144,31 @@
                                     <label class="col-xs-3 control-label">Type Of College</label><br>
                                     <div class="col-xs-5">
                                         <label for="chkYes">
-                                        <input type="radio" id="chkYes" name="college_type" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkYes" name="college_type" value="Affilated To" value="Aluminum" onclick="ShowHideDiv('show')" 
+                                        {{ Auth::user()->college_type == 'Affilated To' ? 'checked' : '' }}  />
                                         Affilated To
                                         </label>&nbsp
                                         <label for="chkNo">
-                                        <input type="radio" id="chkNo" name="college_type" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkNo" name="college_type" value="Autonomous" onclick="ShowHideDiv('hide')" 
+                                        {{ Auth::user()->college_type == 'Autonomous' ? 'checked' : '' }} />
                                         Autonomous
                                         </label>&nbsp
                                         <label for="chkYes1">
-                                        <input type="radio" id="chkYes1" name="college_type" value="" onclick="ShowHideDiv()" />
+                                        <input type="radio" id="chkYes1" name="college_type" value="Both" onclick="ShowHideDiv('show')" 
+                                        {{ Auth::user()->college_type == 'Both' ? 'checked' : '' }}/>
                                         Both
                                         </label>
-
-                                        <div id="dvtext" style="display: none">
+                                    
+                                        <div id="dvtext" style="display:none;">
                                         Type University Name:
-                                        <input class="form-control textbox" type="text" name="university_name" id="txtBox" />
+                                        <input class="form-control"  type="text" name="university_name" id="txtBoxUn" />
                                         </div>
 
 
-                                        <div id="dvtext1" style="display: none">
+                                        <!-- <div id="dvtext1" style="display: none">
                                         Type University Name:
-                                        <input class="form-control textbox" name="university_name" type="text" id="txtBox" />
-                                        </div>
+                                        <input class="form-control" name="university_name1" type="text" id="txtBox" />
+                                        </div> -->
 
                                     </div>
                                 </div>
@@ -173,12 +176,12 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">Type Of College:</label><br>
+                                    <label class="col-xs-3 control-label">catagory Of College:</label><br>
                                     <div class="col-xs-5">
-                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_type">Technology</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_type">Medical</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_type">Management</label>
-                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_type">Arts</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]">Technology</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]">Medical</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]">Management</label>
+                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]">Arts</label>
                                     </div>
                                 </div>
                             </div>
