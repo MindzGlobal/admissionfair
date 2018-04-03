@@ -119,7 +119,7 @@
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Website URL</label>
                                     <div class="col-xs-5">
-                                        <input type="url" class="form-control" name="clg_url" placeholder="College Website URL (optional)" />
+                                        <input type="url" class="form-control" name="website" placeholder="College Website URL (optional)" />
                                     </div>
                                 </div>
                             </div>

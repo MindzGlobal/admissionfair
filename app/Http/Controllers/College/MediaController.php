@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\College;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modle\College\College_media;
-use App\Modle\College\Course_offer;
+use App\Model\College\College_media;
+use App\Model\College\courseOffers;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -75,7 +75,7 @@ class MediaController extends Controller
   public function uploadprofile_image(Request $request){
      $regid = Auth::user()->id;
      $user = User::find($regid);
-     $course = Course_offer::find($regid);
+     $course = courseOffers::find($regid);
      if(Input::hasFile('image'))
     {
         $file=Input::file('image');
@@ -90,8 +90,8 @@ class MediaController extends Controller
    public function showprofile_image(){
      $regid = Auth::user()->reg_id;
      $user=User::where('reg_id',$regid)->first();
-     // $course = Course_offer::where('reg_id',$regid)->get();
-     $course=Course_offer::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url']);
+     // $course = courseOffers::where('reg_id',$regid)->get();
+     $course=courseOffers::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url']);
      // dd($course->all());
      return view("college.index")->with(['user' => $user, 'course' => $course]);
    }

@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-<!-- <link href="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.css') }}" rel="stylesheet" type="text/css" /> -->
 @endsection
 @section('content')
           <div class="container-fluid">
@@ -60,26 +59,6 @@
                                                   <button type="submit" class="btn btn-primary">Upload</button>
                                               </div>
                                           </form>
-                                          <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="white-box">
-                            <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
-                            <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone">
-                                <div class="fallback">
-                                    <input name="image[]" type="file" multiple />
-                                </div>
-                              </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Upload</button>
-                            </div>
-                            </div>
-                            </form>
-
-                </div> -->
-
-
                                     </div>
                                 </div>
                               </div>
@@ -163,6 +142,4 @@
         })
     });
     </script>
-    <!-- <script src="{{ asset('college/plugins/bower_components/dropzone-master/dist/dropzone.js') }}"></script> -->
-
 @endsection

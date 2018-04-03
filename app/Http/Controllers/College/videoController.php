@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\College;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modle\College\College_media;
+use App\Model\College\College_media;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
