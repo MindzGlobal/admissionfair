@@ -280,7 +280,7 @@
 
         });
     }
-
+   
     //LightBox / Fancybox
     $('.lightbox-image').fancybox();
 

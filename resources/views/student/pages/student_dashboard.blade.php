@@ -19,13 +19,19 @@
         {
             position: absolute;
             left: 18%;
-            top: 28.5%;
+            top: 33.5%;
         }
         .remove-btn
         {
             position: absolute;
-            top: 28.5%;
+            top: 33.5%;
             left: 66%;
+        }
+        .bg-light1
+        {
+            background-color: #f5f5f5 !important;
+            border-radius: 5px;
+            border: 2px solid #eee;
         }
         .btn {
 
@@ -72,6 +78,15 @@
                      <div>
                         <span style="font-size:25px;">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
                      </div>
+                     <div class="bg-light1 media  pt-15 mb-20">
+                                 <div class="media-left">
+                                    <i class="fa fa-user text-theme-colored  font-24 mt-5 ml-5"></i>
+                                 </div>
+                                 <div class="media-body">
+                                    <h5 class="mt-0 mb-0">About You:</h5>
+                                    <p> {{ $students->about_you }}</p>  
+                                 </div>
+                              </div>
                      <ul class="nav nav-tabs">
                         <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
@@ -91,7 +106,7 @@
                       
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
-                                <h4 class="ptl" style="color:#02325d;">About Me</h4>
+                                <h4 class="ptl" style="color:#02325d;"><b>About You</b></h4>
                                 <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a>
                             </div>
                             <hr>
@@ -127,7 +142,7 @@
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade active in">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d">SSLC Information</h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}
@@ -197,7 +212,7 @@
                            <hr>
                            <dl class="dl-horizontal doctor-info" id="View-Degree" Style="display:None">
                            {{--  @foreach($graduation as $graduations)  --}}
-                              <h4 style="color:#02325d">Graduation Information</h4>
+                              <h4 style="color:#02325d"><b>Graduation Information</b></h4>
                               <hr>
                               <dt>University</dt>
                               <dd>
@@ -257,7 +272,7 @@
                         <ul>
                        
                         <li>
-                              <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                              <!-- <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
                                  <div class="media-left">
                                     <i class="fa fa-book text-theme-colored font-24 mt-5"></i>
                                  </div>
@@ -265,7 +280,7 @@
                                     <h5 class="mt-0 mb-0">About You:</h5>
                                     <p> {{ $students->about_you }}</p>  
                                  </div>
-                              </div>
+                              </div> -->
                            </li> 
                            <li>
                               <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">

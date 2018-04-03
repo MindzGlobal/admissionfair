@@ -573,6 +573,9 @@
     .carousel .item {
         height: 80vh;
     }
+    .edu-banner .page-title-box h2 {
+        font-size: 22px!important;
+    }
 
     .full-wd-480 {
         width: 100%;

@@ -26,7 +26,11 @@
                         @else
                             <li>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{ asset('student/images/profile_images/dummy_image.png') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
+                                    @if(isset($students->profile_image))
+                                        <img src="{{ asset($students->profile_image) }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
+                                    @else
+                                        <img src="{{ asset('student/images/profile_images/dummy_image.png') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
+                                    @endif
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>

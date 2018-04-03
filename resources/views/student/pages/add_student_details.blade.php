@@ -1,5 +1,5 @@
 @extends('student.layouts.student_general')
-
+@section('title', "Add Profile")
 @section('css')
 <style>
        .thank-u
@@ -149,7 +149,7 @@
                <div class="col-md-12">
                   <div class="form-group">
                      <label class="control-label">About you:</label>
-                    <textarea name="about_you" rows="4"  maxlength="100" placeholder="Enter Brief Description About You" class="form-control required" /></textarea>
+                    <textarea name="about_you" rows="4"  placeholder="Enter Brief Description About You" class="form-control required" /></textarea>
                   </div>
                </div>
                <button class="btn btn-primary nextBtn  pull-right" type="button" >Next</button>
@@ -405,12 +405,11 @@
        });
    
        $('div.setup-panel div a.btn-primary').trigger('click');
-      
-       populateCountries('studentCountry', 'studentState');// first parameter is id of country drop-down and second parameter is id of state drop-down
-       
-
 
    });//end of document Ready function
+
+   populateCountries('studentCountry', 'studentState');// first parameter is id of country drop-down and second parameter is id of state drop-down
+
    
    function nextTab(elem) {
        $(elem).next().find('a[data-toggle="tab"]').click();
@@ -431,7 +430,6 @@
        }
    
    }
-
 
 </script>
 @endsection
