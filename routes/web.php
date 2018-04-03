@@ -27,8 +27,10 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
     Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
     Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
-    Route::post('insertprofile','CollegeAuthController@insertProfile');
     Route::get('dashboard','CollegeController@dashboard')->name('dashboard');
+  
+    Route::post('index','MediaController@uploadprofile_image');
+    Route::get('myprofile','MediaController@showprofile_image');
 
     Route::post('image_gallery','MediaController@uploadimage');
     Route::get('image_gallery','MediaController@showimages');
@@ -40,12 +42,18 @@ Route::prefix('college')->namespace('college')->group(function(){
 
     Route::get('createprofile','CollegeController@createprofile');
     Route::post('insertprofile','CollegeController@insertprofile');
+
+    Route::get('update_profile','CollegeController@updateformprofile');
+    Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
+    Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
+    Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 });
 
 //Student Section  ##############################################################################
 Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
+    Route::get('profile','StudentController@Showprofile');
     
     Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
     Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');

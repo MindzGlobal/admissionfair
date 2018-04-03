@@ -100,23 +100,26 @@
             return true;
         },
         onFinish: function() {
-                var fd = new FormData($('#validation')[0]);
-                url = $('#validation' ).attr( 'action' );
-                $.ajax({
-                type: 'POST',
-                url: url,
-                data: fd,
-                cache: false,
-                contentType: false,
-                processData: false,
-                enctype: 'multipart/form-data',
-                success: function(op) {
-                    console.log(op);
-                    var res = $.parseJSON(op);
-                    if (res.res == 1) {
-                        swal("Message Finish!",res.msg );
+            var fd = new FormData($('#validation')[0]);
+                   url = $('#validation').attr( 'action' );
+                    $.ajax({
+                        
+                    type: 'POST',
+                    url: url,
+                    data: fd,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    enctype: 'multipart/form-data',
+                    success: function(op) {
+                        console.log(op);
+                        var res = $.parseJSON(op);
+                        if (res.res == 'success') {
+                            swal("Message Finish!",res.msg, res.res );
+
+                            window.location = "../select_booth";
+                        }
                     }
-                }
             })
         }
     });
@@ -176,13 +179,17 @@ e.preventDefault(); $(this).parent('div').remove(); x--;
 });
 
 
-function ShowHideDiv() {
-    var chkYes = document.getElementById("chkYes");
-    var dvtext = document.getElementById("dvtext");
-    var chkYes1 = document.getElementById("chkYes1");
-    var dvtext1 = document.getElementById("dvtext1");
-    dvtext.style.display = chkYes.checked ? "block" : "none";
-    dvtext1.style.display = chkYes1.checked ? "block" : "none";
+function ShowHideDiv(action) {
+  
+    if(action=='show')
+    {
+        $('#dvtext').show();
+    }
+    else{
+        $('#dvtext').hide();
+        $('#txtBoxUn').val('');
+    }
+
     }
 
 

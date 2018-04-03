@@ -23,27 +23,41 @@ class videoController extends Controller
 
   public function uploadvideo(Request $request){
     $reg_id = Auth::user()->reg_id;
-    $insertData = array();
-    if($files=$request->file('video')){
-        foreach($files as $file)
-        {
-              $name = str_random(6) . '_' . $file->getClientOriginalName();
-              $destination_path = '/college/images/gallery_videos';
-              $file->move(public_path().$destination_path, $name);
+    if($file=$request->file('file'))
+    {
+        $name = str_random(6) . '_' . $file->getClientOriginalName();
+        $destination_path = '/college/images/gallery_videos';
+        $file->move(public_path().$destination_path, $name);
+        $file_url = 'college/images/gallery_videos/'.$name;
 
-              $file_url = 'college/images/gallery_videos/'.$name;
-
-              $insertData[] = [
-              'reg_id'     => $reg_id,  
-              'file_name'  => $name,
-              'file_url'   => $file_url,
-              'file_type'  => "video",
-              ];
-        }
         $user = new College_media;
-        $user->insert($insertData);
-    }       
-     return redirect("college/video_gallery");
+        $user->reg_id = $reg_id;
+        $user->file_name = $name;
+        $user->file_url = $file_url;
+        $user->file_type = "Video";
+        $user->save();
+    }
+    // $insertData = array();
+    // if($files=$request->file('video')){
+    //     foreach($files as $file)
+    //     {
+    //           $name = str_random(6) . '_' . $file->getClientOriginalName();
+    //           $destination_path = '/college/images/gallery_videos';
+    //           $file->move(public_path().$destination_path, $name);
+
+    //           $file_url = 'college/images/gallery_videos/'.$name;
+
+    //           $insertData[] = [
+    //           'reg_id'     => $reg_id,  
+    //           'file_name'  => $name,
+    //           'file_url'   => $file_url,
+    //           'file_type'  => "video",
+    //           ];
+    //     }
+    //     $user = new College_media;
+    //     $user->insert($insertData);
+    // }       
+    //  return redirect("college/video_gallery");
    }
 
    public function showvideo(){
