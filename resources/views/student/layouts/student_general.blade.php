@@ -9,7 +9,7 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <meta name="description" content="">
             <meta name="author" content="">
-            <title>Register-Login|VAF-2018</title>
+            <title>@yield('title') |Virtual Admission Fair</title>
             <!-- Favicon -->
             <link rel="icon" type="image/png" href="{{ asset('student/images/favi.png')}}">
              
@@ -24,51 +24,6 @@
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
             
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-               
-                {{--  <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous">
-            </script>
-
-            <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal-bs3patch.css">--}}
-
-            
-           {{--  // <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
-
-           <style>
-
-                  /* .msg>.modal-backdrop{
-                        opacity:0.1 !important;
-                   } */
-                 .invalid-feedback,.is-invalid {
-                    display: none;
-                    width: 100%;
-                    margin-top: .25rem;
-                    font-size: 80%;
-                    color: #dc3545;
-                    }
-
-                control:invalid {
-                    border-color: #dc3545;
-                }
-
-                .form-control {
-                display: block;
-                width: 100%;
-                padding: .375rem .75rem;
-                font-size: .9rem;
-                line-height: 1.6;
-                color: #495057;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: .25rem;
-                -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-                transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-            }
-           </style>
 
     @yield('css')
     @show
@@ -120,7 +75,7 @@
     @include('student.common.nav_bar_initial')
 </header>
 <!-- End Header Section -->
-@include('alerts')
+
 
       <!-- Strat Banner Section -->
      @yield('content')
@@ -212,12 +167,9 @@
     <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
 </a>
 
-      {{--  <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>  --}}
         <!-- Import Jquery Min Js -->
         <script type="text/javascript" src="{{ asset('student/js/jquery.min.js')}}"></script>
             <!-- Import Bootstrap Min Js -->
-    {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  --}}
       <script type="text/javascript" src="{{ asset('student/js/bootstrap.min.js')}}"></script>
 
       <script type="text/javascript" src="{{ asset('student/js/countries.js')}}"></script>
@@ -249,21 +201,8 @@
       <script type="text/javascript" src="{{ asset('student/js/particles.min.js')}}"></script>
       <!-- Import Comming Soon Js -->
       <script type="text/javascript" src="{{ asset('student/js/comming_soon.js')}}"></script>
-      
 
-      <script type="text/javascript">
-        @if(isset($status) || count($errors) > 0 ||Session::has('success') ||Session::has('warning') ||Session::has('danger') )
-        //$("#displayResultModal").css({"modal-backdrop": "opacity:0.01 !important"});
-        $('#displayResultModal').modal('show');
-            window.setTimeout(function () {
-                $("#displayResultModal").modal("hide");
-            },2500);
-        @endif
-      </script>
-
-     
-      
-      
+      @include('alerts')
       @yield('js')
 
    </body>

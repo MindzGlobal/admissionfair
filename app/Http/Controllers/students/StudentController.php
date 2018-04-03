@@ -157,6 +157,9 @@ class StudentController extends Controller
             //$student->mobile = Input::get("mobile");
             $student->date_of_birth = Input::get("date_of_birth");
             $student->gender = Input::get("gender");
+            $student->fatherName = Input::get("father_name");
+            $student->fatherEmail = Input::get("father_email");
+            $student->fatherMobile = Input::get("father_mobile");
             $student->country = Input::get("country");
             $student->state = Input::get("state");
             $student->city = Input::get("city");
@@ -188,6 +191,7 @@ class StudentController extends Controller
                     $graduation->student_id = Auth::user()->student_id;
                     $graduation->university_name = Input::get("university_name");
                     $graduation->college_name = Input::get("college_name");
+                    $graduation->graduation_type = Input::get("graduation_type");
                     $graduation->course= Input::get("course");
                     $graduation->department = Input::get("department");
                     $graduation->college_yop= Input::get("college_yop");

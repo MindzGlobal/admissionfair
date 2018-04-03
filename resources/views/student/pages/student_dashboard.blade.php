@@ -1,4 +1,5 @@
 @extends('student.layouts.student_general')
+@section('title', "Profile")
 
 @section('css')
     <style type="text/css">
@@ -237,7 +238,7 @@
                     @if(isset($students->profile_image))
                         <img src="{{ asset($students->profile_image) }}" alt="" style="height:200px;">
                     @else
-                      <img src="{{ asset('student/images/profile_images/default.png') }}" alt="" style="height:200px;">
+                      <img src="{{ asset('student/images/profile_images/dummy_image.png') }}" alt="" style="height:200px;">
                     @endif
                      </div>
                      <br>
@@ -261,7 +262,7 @@
                                     <i class="fa fa-book text-theme-colored font-24 mt-5"></i>
                                  </div>
                                  <div class="media-body">
-                                    <h5 class="mt-0 mb-0">Education:</h5>
+                                    <h5 class="mt-0 mb-0">About You:</h5>
                                     <p> {{ $students->about_you }}</p>  
                                  </div>
                               </div>

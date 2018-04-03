@@ -1,4 +1,5 @@
 @extends('student.layouts.student_general')
+@section('title', "Edit Student")
 @section('css')
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -17,6 +18,7 @@
     font-family:poppins!important;
    }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 @endsection
 @section('content')
 {{--  ?php include("common/header-hall.php")?>  --}}
@@ -100,6 +102,30 @@
                   </div>
                </div>
                <div class="col-md-6">
+                    <div class="form-group">
+                       <label class="control-label">Father's Name:</label>
+                       <input name="father_name" type="text" value="{{ $students->fatherName }}"  placeholder="Enter Your Father's Name" class="form-control required" maxlength="100"  pattern="[A-Z a-z]{1,32}" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Father's Email:</label>
+                        <input name="father_email" type="email" value="{{ $students->fatherEmail }}"  placeholder="Enter Your Father's Email" class="form-control required" maxlength="100" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Father's Contact Number:</label>
+                        <input type="number" name="father_mobile" value="{{ $students->fatherMobile }}" placeholder="Enter Contact Number" class="form-control required" maxlength="100"   />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                       <label for="city">City:</label>
+                       <input type="text" name="city" value="{{$students->city }}" required="required" maxlength="100" class="form-control" placeholder="Enter city " />
+                    </div>
+                 </div>
+               <div class="col-md-6">
                   <div class="form-group">
                      <label for="country">Country:</label>
                      <select  class="form-control selectpicker show-tick  required"  data-size="10" name ="country" id ="studentCountry"  data-live-search="true" autocomplete="off" />
@@ -112,13 +138,6 @@
                      <select class="form-control selectpicker show-tick  required" data-size="10" name ="state" id ="studentState" value="" data-live-search="true" autocomplete="off"/>
                      </select>
                   </div>
-                
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <label for="city">City:</label>
-                     <input type="text" name="city" value="{{$students->city }}" required="required" maxlength="100" class="form-control" placeholder="Enter city " />
-                  </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group">
@@ -126,18 +145,19 @@
                      <input  maxlength="100" type="number" name="pincode" required="required" class="form-control" placeholder="Enter Pincode " value="{{ $students->pincode }}"/>
                   </div>
                </div>
+               <div class="col-md-6">
+                    <div class="form-group">
+                       <label class="control-label">Address:</label>
+                       <textarea class="form-control" rows="1" name="address" required="required"  placeholder="Enter address" >{{ $students->address }}</textarea>
+                    </div>
+                </div>
                <div class="col-md-12">
-                  <div class="form-group">
-                     <label class="control-label">Address:</label>
-                     <textarea class="form-control" rows="5" name="address" required="required"  placeholder="Enter address" >{{ $students->address }}</textarea>
-                  </div>
-               </div>
-               <div class="col-md-12">
-                  <div class="form-group">
-                     <label class="control-label">About You:</label>
-                     <textarea class="form-control" rows="5" name="about_you" required="required"  placeholder="Enter Brief Description About Your Education" >{{ $students->about_you }}</textarea>
-                  </div>
-               </div>
+                    <div class="form-group">
+                       <label class="control-label">About You:</label>
+                       <textarea class="form-control" rows="4" name="about_you" required="required"  placeholder="Enter Brief Description About You" >{{ $students->about_you }}</textarea>
+                    </div>
+                </div>
+               
                <button class="btn btn-primary nextBtn pull-right" type="button" >Next</button>
             </div>
          </div>
@@ -159,7 +179,7 @@
                   <div class="col-md-6">
                      <div class="form-group">
                         <label for="ssc_yop">Year:</label>
-                        <select  name="ssc_yop" class="form-control textbox" id="sel1"  />
+                        <select class="form-control selectpicker show-tick  required"  name="ssc_yop" id="sel1" data-size="10"  data-live-search="true" />
                         @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                         <option value="{{ $i }}"{{ $education->ssc_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
                         @endfor
@@ -197,7 +217,7 @@
                   <div class="col-md-6">
                      <div class="form-group">
                         <label for="Year">Year:</label>
-                        <select name="hsc_yop" class="form-control textbox" id="sel1"  />
+                        <select class="form-control selectpicker show-tick  required" name="hsc_yop"  id="sel13" data-size="10"  data-live-search="true" />
                         @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                         <option value="{{ $i }}"{{ $education->hsc_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
                         @endfor
@@ -232,19 +252,19 @@
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="University"> University Name:</label>
-                           <input type="text" name="university_name" class="form-control textbox" id="mob" placeholder="Enter University Name" required  value="{{ $graduation-> university_name }}"/>
+                           <input type="text" name="university_name" class="form-control textbox" id="university-name" placeholder="Enter University Name" required  value="{{ $graduation->university_name }}"/>
                         </div>
                      </div>
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="University">College Name:</label>
-                           <input type="text" name="college_name" class="form-control textbox" id="mob" placeholder="Enter University Name" required value="{{ $graduation-> college_name }}"/>
+                           <input type="text" name="college_name" class="form-control textbox" id="College-name" placeholder="Enter University Name" required value="{{ $graduation->college_name }}"/>
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="form-group">
                            <label for="Year">Year:</label>
-                           <select name="college_yop" class="form-control textbox" id="sel1"  />
+                           <select class="form-control selectpicker show-tick  required" name="college_yop" id="sel1"  data-size="10"  data-live-search="true" />
                            @for ($i = date('Y'); $i >= date('Y')-20; $i--)
                            <option value="{{ $i }}"{{ $graduation->college_yop == $i ? 'selected' : ''}} >{{ $i }}</option>
                            @endfor
@@ -254,25 +274,17 @@
                      <div class="col-md-12">
                         <div class="form-group">
                            <label for="chkYes">
-                           <input name="Fulltime" type="radio" id="chkYes" name="chk" value="" />
-                           Full Time
-                           </label>&nbsp
-                           <label for="chkNo">
-                           <input name="Fulltime" type="radio" id="chkNo" name="chk" value="" />
-                           Part Time
-                           </label>&nbsp
-                           <label for="chkYes1">
-                           <input name="Fulltime"  type="radio" id="chkYes1" name="chk" value="" />
-                           Coresspondance
+                            <input name="graduation_type" type="radio" id="full-time" name="chk" value="" />
+                            Full Time
+                            </label>&nbsp
+                            <label for="chkNo">
+                            <input name="graduation_type" type="radio" id="part-time" name="chk" value="" />
+                            Part Time
+                            </label>&nbsp
+                            <label for="chkYes1">
+                            <input name="graduation_type"  type="radio" id="coresspondance" name="chk" value="" />
+                            Coresspondance
                            </label>
-                           <div id="dvtext" style="display: none">
-                              Type University Name:
-                              <input name="name" class="form-control textbox" type="text" id="txtBox" />
-                           </div>
-                           <div id="dvtext1" style="display: none">
-                              Type University Name:
-                              <input  name="name" class="form-control textbox" type="text" id="txtBox" />
-                           </div>
                         </div>
                      </div>
                      <div class="col-md-6">
@@ -304,17 +316,15 @@
          <div class="col-xs-12">
             <div class="col-md-12">
                <h3 class="text-center txt_blu">Form Completed Successfully</h3>
-              
-						<img class="thank-u" src="http://chefjob.vn/images/tin-tuc/thu-cam-on-the-hien-su-ton-trong-cua-ban-doi-voi-nha-tuyen-dung.jpg" style="width:50%;">
-                        <br>
-						</br>
-						<center>
-							<ul class="list-inline">
-							   <li>
-                               <button class="btn btn-success  " type="submit">Finish!</button>							   </li>
-							</ul>
-						</center>
-             
+                <img class="thank-u" src="http://chefjob.vn/images/tin-tuc/thu-cam-on-the-hien-su-ton-trong-cua-ban-doi-voi-nha-tuyen-dung.jpg" style="width:50%;">
+                <br>
+                </br>
+                <center>
+                    <ul class="list-inline">
+                        <li>
+                        <button class="btn btn-success  " type="submit">Finish!</button>							   </li>
+                    </ul>
+                </center>
             </div>
          </div>
       </div>
@@ -322,6 +332,8 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
 <script>
    $(document).ready(function() {
 
@@ -331,16 +343,7 @@
               autoclose: true,
               todayHighlight: true
           });
-          
-         
-          
-   // $('.selectpicker').selectpicker('refresh');
-          
-//    populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
-//   populateCountries("country");
-//   populateCountries("country");
-   
-   //alert({{$students->country }});
+      
        //Initialize tooltips
        $('.nav-tabs > li a[title]').tooltip();
    
@@ -425,11 +428,19 @@
        var x = document.getElementById("degree");
        if (x.style.display === "none" ){
            x.style.display = "block";
+           $('#view-more').text("Remove Graduation");
        } else {
            x.style.display = "none";
+           $('#view-more').text("Add Graduation");
        }
    
    }
+        if("{!!$graduation->university_name!!}"!=""
+             && "{!!$graduation->university_name!!}"!=null ){
+
+            myFunction();
+        }
+
         populateCountries('studentCountry', 'studentState');
         if("{!!$students->country!!}"!="" && "{!!$students->country!!}"!=null 
             && "{!!$students->state!!}"!="" && "{!!$students->state!!}"!=null ){
@@ -443,15 +454,6 @@
 
         }
 
-
-
-  // alert("text="+text);
-  // $('#country option[value='+text+']').attr('selected','selected');
-  // $("#country select").val(text);
-
-    // populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
-  
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 @endsection

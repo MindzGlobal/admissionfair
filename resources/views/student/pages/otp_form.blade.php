@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
-    <title>Register|Virtual Admission Fair</title>
+    <title>OTP Verify|Virtual Admission Fair</title>
      <!-- Bootstrap Core CSS -->
      <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
      <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">

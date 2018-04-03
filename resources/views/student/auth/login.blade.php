@@ -29,7 +29,7 @@
                     <a href="javascript:void(0)" class="text-center db"><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 250px;"/>
                     <br/></a>
                     <div class="form-group m-t-40">
-                        <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <label for="email" class="col-sm-12 col-form-label text-md-left">{{ __('E-Mail Address') }}</label>
                         <div class="col-xs-12">
                           <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
                             @if ($errors->has('email'))
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <label for="password" class="col-md-12 col-form-label text-md-left">{{ __('Password') }}</label>
                         <div class="col-xs-12">
                           <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required title="Must contain atleast 1 number & 1 uppercase & lowercase letter, & atleast 8 or more characters"> 
                             @if ($errors->has('password'))
@@ -56,7 +56,7 @@
                                 <input type="checkbox" id="checkbox-signup" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label for="checkbox-signup"> Remember me </label>
                             </div>
-                            <a href="{{ route('password.request') }}" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot password?</a> </div>
+                            <a href="{{ route('student.password.request') }}" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot password?</a> </div>
                     </div>
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
