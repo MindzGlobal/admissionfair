@@ -40,7 +40,7 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('video_gallery','videoController@showvideo');
     Route::get('deletevideogallery/{id}','videoController@deleteVideo');
 
-    Route::get('createprofile','CollegeController@createprofile');
+    Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
     Route::post('insertprofile','CollegeController@insertprofile');
 
     Route::get('update_profile','CollegeController@updateformprofile');
