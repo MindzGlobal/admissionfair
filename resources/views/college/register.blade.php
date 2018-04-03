@@ -18,6 +18,11 @@
     <link href="{{ asset('college/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
     <link href="{{ asset('college/css/colors/blue.css') }}" id="theme" rel="stylesheet">
+    <style>
+        .white-box {
+            padding: 0px 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,8 +31,8 @@
             <div class="white-box">
                 <form class="form-horizontal form-material" id="register" method="POST" action="{{ route('register') }}">
                     @csrf
-                    <a href="javascript:void(0)" class="text-center db"><br/><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 250px;"/></a>
-                    <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account and enjoy</small>
+                    <a href="javascript:void(0)" class="text-center db"><br/><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 200px;"/></a>
+                    <h3 class="box-title m-t-20 m-b-0">Register Now</h3><small>Create your account and enjoy</small>
                     <div id="regForm">
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
@@ -51,7 +56,7 @@
                         </div>
                         <div class="form-group">
                         <div class="col-xs-12">
-                                <input id="mobile" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" type="number" placeholder="Mobile Number">
+                                <input id="mobile" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" type="number" value="{{ old('mobile') }}" placeholder="Mobile Number">
                                 @if ($errors->has('mobile'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('mobile') }}</strong>
@@ -85,7 +90,7 @@
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button id="register" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
+                                <button id="register-btn" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
                             </div>
                         </div>
                     </div>

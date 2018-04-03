@@ -17,6 +17,18 @@ class Controller extends BaseController
         return json_encode($res);
     }
 
+    public function random()
+    {
+        $chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@&%!";
+        $clen   = strlen( $chars )-1;
+        $id  = '';
+        $length = 10;
+        for ($i = 0; $i < $length; $i++) {
+            $id .= $chars[mt_rand(0,$clen)];
+        }
+        return ($id);
+    }
+
     public function sendSMS($number, $message)
     {
         $param = array();

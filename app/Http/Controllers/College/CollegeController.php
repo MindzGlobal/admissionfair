@@ -16,6 +16,13 @@ class CollegeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $mobileVerificationStatus = Auth::user()->mobile_verification;
+            if($mobileVerificationStatus == 'No'){
+                return redirect()->route('otpverification');
+            }
+            return $next($request);
+        });
     }
 
       public function insertProfile(Request $request)
@@ -23,7 +30,9 @@ class CollegeController extends Controller
         $res = 'success';
         $msg = "Done";
         $id = Auth::user()->id;
+
         $str_clgDetais = implode (",", $request->get('college_category'));
+
         $clgDetais = CollegeDetail::find($id);
         $clgDetais->college_name = Input::get('name');
         $clgDetais->college_email = Input::get('email');
@@ -252,9 +261,40 @@ class CollegeController extends Controller
        
         return redirect("college/update_profile");
     }
+     
+      public function insertBooth(Request $request)
+      {
+        
+        $res = 'success';
+        $msg = "Done";
+        $id = Auth::user()->id;
+        $clgname= Auth::user()->college_name;
+        $clgDetais = CollegeDetail::find($id);
+        $old = Input::get('college_booth'); 
+        $new ='/college/images/selected_booth/'.$clgname.'.jpg';
+        $new1 = File::copy($old, public_path().$new);
+        $clgDetais->college_booth = $new;
+        if(!$clgDetais->update())
+        {
+          $res = 'Error';
+          $msg = "Some Error Occurred!";
+        }
+
+       // $news = new courseOffers();
+
+        return $this->Result($res,$msg);
+      }
 
     protected function dashboard()
     {
         return view('college/dashboard');
     }
+
+    protected function createprofile()
+    {
+        return view('college.create_profile');
+    }
+
+   
+
 }

@@ -42,13 +42,13 @@
                                 @endif
                             </div>
                             <div class="col-xs-12">
-                                <a href="#" class="pull-right m-t-10 loading" onClick="reSendOtp('{{ route('clgresendotp')}}')"><b><i class="fa fa-undo"></i> Resend</b></a>
+                                <a href="#" class="pull-right m-t-10 loading" onClick="reSendOtp('{{ route('clgresendotp')}}')"><b><i class="fa fa-undo"></i> Resend OTP</b></a>
                             </div>
                         </div>
 
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button id="otpVerification" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Verify</button>
+                                <button id="otpVerification" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Validate OTP</button>
                             </div>
                         </div>
                     </div>

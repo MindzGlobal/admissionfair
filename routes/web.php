@@ -1,7 +1,7 @@
 <?php
 
 /*
-|---   -----------------------------------------------------------------------
+|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -54,6 +54,7 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::Post('logout','Auth\StudentLoginController@logout')->name('student.logout');
 
     Route::get('profile','StudentController@Showprofile');
+    
     Route::get('otp','StudentController@ShowOtpForm')->name('student.otpform');
     Route::post('otp','StudentController@verifyStudentOtp')->name('student.otpVerify');
     Route::get('resendotp','StudentController@resendStudentOtp')->name('student.resendotp');
@@ -70,4 +71,16 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('password/reset','Auth\ResetPasswordController@reset');
     Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
+
+    Route::get('profile','StudentController@Showprofile');
+    Route::post("updateprofile","StudentController@addOrupdateStudentDetails");
+    Route::get("editprofile","StudentController@showEditForm");
+    Route::post('upload_image','StudentController@uploadprofileImage');
+    Route::get('delete_image','StudentController@deleteprofileImage');
+
 });
+Route::get('college/std_profile1', function () {
+    return view('college.std_profile1');
+});
+
+

@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
                 break;
             
             default:
-                $link = '/';
+                $link = 'college/dashboard';
                 break;
         }
 

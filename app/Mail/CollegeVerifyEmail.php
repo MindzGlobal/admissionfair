@@ -20,7 +20,7 @@ class CollegeVerifyEmail extends Mailable
     public $college_user;
     public $email_token;
 
-    public function __construct(User $college,$emailToken)
+    public function __construct($college,$emailToken)
     {
         $this->college_user=$college;
         $this->email_token=$emailToken;
@@ -33,6 +33,6 @@ class CollegeVerifyEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.verifymailtemplate')->with(['user'=>$this->college_user,'unique_id'=>bcrypt($this->college_user->reg_id),'token'=>$this->email_token]);
+        return $this->view('email.verifymailtemplate')->with(['user'=>$this->college_user,'unique_id'=>bcrypt($this->college_user['name']),'token'=>$this->email_token, 'type'=>'College']);
     }
 }
