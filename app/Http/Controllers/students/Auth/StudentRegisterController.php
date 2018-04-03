@@ -107,11 +107,14 @@ class StudentRegisterController extends Controller
             if($studentVerfify->save()){
                $this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
                  
-               $this->guard('student')->login($student);//update
-               Session::flash('success','Success ,verify your account through Email Or OTP.');
+              // $this->guard('student')->login($student);//update
+              // Session::flash('success','Success ,verify your account through Email Or OTP.');
               // return view('student.pages.otp_form'); //redirect()->route('student.otpform');//->with(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
-                return view('student.pages.otp_form')->with('mobile',$student->mobile);
-            //      ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+              //  return view('student.pages.otp_form')->with('mobile',$student->mobile);
+              //    ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+               return redirect('student/otp')->with('mobile',$student->mobile)
+                      ->with(['status'=>'success','message'=>'Registration Successfull ,verify your account through Email Or OTP.']);
+
             }
           //Token Not Generated
           return redirect()->back()
@@ -125,7 +128,7 @@ class StudentRegisterController extends Controller
 
     public function random()
     {
-        $chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@&%!";
+        $chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@&!";
         $clen   = strlen( $chars )-1;
         $id  = '';
         $length = 10;
