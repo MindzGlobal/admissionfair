@@ -67,7 +67,8 @@ Route::prefix('student')->namespace('students')->group(function(){
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
     Route::post('password/reset','Auth\ResetPasswordController@reset');
-    Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
+    Route::get('resetpassword','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
+ //   Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
 
 });
@@ -84,5 +85,10 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-
+Route::get('student/booth', function () {
+    return view('student.pages.booth');
+});
+Route::get('student/singlebooth', function () {
+    return view('student.pages.singlebooth');
+});
 

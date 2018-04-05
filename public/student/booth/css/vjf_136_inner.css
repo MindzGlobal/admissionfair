@@ -1,0 +1,180 @@
+/*body > .wrapper > .body-wrapper {background: transparent url(http://vepimg.b8cdn.com/uploads/vjf/125/bgtrans.jpg) no-repeat 0 0 / 100% 100%; height: auto !important}*/
+/*body > .wrapper {background: transparent url(http://vepimg.b8cdn.com/uploads/vjf/125/bgtrans.jpg) no-repeat 0 0 / 100% 100%; height: auto !important}
+body > .wrapper  > .body-wrapper {background: none}
+.footer-wrapper {background-color: transparent; background-image: url(http://vepimg.b8cdn.com/uploads/vjf/common/footer-bg-white.png)}
+.home-wrapper {background: none; position: relative; padding-top: 13px}*/
+
+/* body > .wrapper {background: rgba(0,0,0,0.85); height: auto !important} */
+
+.body-wrapper {background: none; height: auto}
+
+.body-wrapper, .main-wrapper, .home-wrapper, .body-container, 
+.bighrader-bg, .banner_wrapper, .banner_container, 
+.banner_container .thumbScroller, .banner_container .thumbScroller .container,
+.view-booth-bg, .banner_container .thumbScroller .content .bg {
+  width: 100% !important
+}
+
+.cinema {height: auto; background: none; margin: -10px 1px 2px}
+.cinema .view-webinars {padding: 0}
+.cinema .view-webinars a {width: auto; height: auto; display: block}
+.cinema .view-webinars img, #vjf-info-desk img {max-width: 100%}
+#vjf-info-desk {margin-top: -10px}
+
+/* .scroll-content, .body-container, .home-container, .vjf-header .wrap-header, #SecondPageLoader {width: 98% !important} */
+.scroll-content, .body-container, .home-container, .vjf-header .wrap-header, #SecondPageLoader {width: 100% !important}
+.progace-bar {width: 98.6% !important}
+#SecondPageLoader {margin: 105px 0 0 2% !important; padding-left: 0; padding-right: 0}
+
+.body-container {position: relative}
+#hallview .body-container {position: relative/*; max-height: 375px; overflow-y: hidden*/}
+
+.Main-Large-View-Booth-Class-Ash .body-container {height: auto}
+
+.footer-wrapper {background-color: #151515; background-image: none; height: 38px}
+.footer-wrapper .footer-container {display: none}
+.home-wrapper {background: none; position: relative; padding-top:0px}
+.vjf-header {background: #fff}
+
+.main-nav {font-family: 'Lato', sans-serif; font-weight: 700; text-align: center}
+.main-nav ul {display: inline-block}
+.lobby-main-nav, .main-nav{font-size: 14px; margin: 0; width: 100%; height: 50px; background: #002194}
+.lobby-main-nav ul, .main-nav ul {margin: 0 auto; text-align: left}
+.icon-nav {background-size: 20px 20px; width: 20px; margin-right: 3px}
+.lobby-main-nav ul li a, .main-nav ul li a {padding: 9px 14px 5px; cursor: pointer}
+.main-nav ul li {border-right: 1px solid #324a9e}
+#WidgetMiddleBox, #WidgetRightBox {width: 30%;box-sizing: border-box;height: 232px;text-align: center}
+
+#SecondPageLoader {margin-top: 14px !important}
+.thumbs-logo-container {width: 101%}
+.thumbs-logo-container .thumbs {float: none; display: inline-block}
+/*.banner_container .thumbScroller .thumbs .logo-container a img {margin-top: 29px}*/
+
+.home-container .left {min-width: 37.4%}
+#WidgetMiddleBox, #WidgetRightBox {text-align: center; width: 30%; padding-left: 20px; margin: 0 0 0 1.2% !important}
+#WidgetMiddleBox img, #WidgetRightBox  img {max-width: 100%}
+#SecondPageLoader {margin: 61px 0 0 1% !important}
+
+.BacktoTheFloor {color: #f01616 !important; background: #fff url(//vepimg.b8cdn.com/uploads/vjf/139-vipurina/go-back-left-arrow.png) no-repeat left 11px center / 12px; padding-left: 12px; padding-right: 0}
+.booth-banners {width: 886px; margin: 0 auto}
+
+.bighrader-bot-bg {position: relative; box-sizing: border-box; padding: 0 62px}
+.pre-but, .next-but {position: absolute}
+.pre-but {left:0; top:0}
+.next-but {right:0; top:0}
+.bighrader-bot-bg, .all-buts-container {width: 100%}
+
+#tabs1 .ui-widget-header{margin-bottom: 0}
+.user-online-top {margin-bottom: 0}
+.Main-Large-View-Booth-Class-Ash .home-container .left {width: 67.5%}
+.home-container .user-online-container {width: 31% !important}
+.TabsContainerForAllBooths {width: 100% !important}
+.user-online-bot {height: 208px}
+/* fullwend */
+
+
+#vd-list > div.docrows > div:nth-child(2) > div.col-sm-4{
+  visibility: hidden;
+}
+
+.view-profile-txt-online-usrs{float: right; font-size: 12px}
+.user-online-bot li.gery{font-size: 12px !important}
+.icon-nav {background-size: 20px 20px; width: 20px; margin-right: 3px}
+
+marquee, .win-a-prize {display: none}
+.vjf-header .logo {height: 60px;margin-left: -15px;margin-top: 1px;margin-bottom: 0px;}
+.vjf-header .col-md-4 {display: none}
+.vjf-modal .close {opacity: .7}
+.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #fcc911}
+#tabs1 .ui-state-active, #tabs1 .ui-widget-content .ui-state-active, #tabs1 .ui-widget-header .ui-state-active {background: #002194; border-color: #daad0d}
+#tabs1 > ul  > li{border-color: #daad0d}
+.user-online-top, .company-index-top h1 {color: #555}
+.company-index-top, .company-index-bot {width: 100%}
+#FancyLoaderBox {margin: 87px 46px !important}
+#SecondPageLoader {margin-top: 14px !important}
+
+.Main-Large-View-Booth-Class-Ash .home-container {padding-top: 30px}
+
+.top-right-menu {display: none}
+#TopMenusWithLanguageSelect {display: block}
+#TopMenusWithLanguageSelect ul {float: right}
+
+.banner_container .thumbScroller .content .bg {background: transparent}
+
+.invite{
+    background: none;
+    border: none;
+    height: 15px;
+    line-height: 15px;
+}
+.Documents-for-tracking-clicks .btn{
+    float: right;
+}
+.Documents-for-tracking-clicks .btn-default{
+    height: 15px;
+    margin-left: 5px;
+    line-height: 15px;
+}
+
+
+/* NEW HALL */
+#hallview .body-container, .banner_wrapper, .banner_wrapper .banner_container, .banner_container .thumbScroller, 
+.banner_container .thumbScroller > .container, .banner_container .thumbScroller .content, .banner_container .thumbScroller .content .bg {
+  height: 519px !important;
+}
+.find-job-bayt-logo {width: 153px !important; margin: 0 auto !important}
+.find-job-bayt-logo .video {background: transparent; padding: 0; margin: 38px 3px 0 0 !important}
+.banner_container .thumbScroller .content div.video a.Top-Videos-List-Tv {/* display: block; *//* background:#fff url(//vepimg.b8cdn.com//uploads/vjf/136-euromba/logo-event-2017.png) no-repeat center center / 120px 45px; *//* width: 147px; *//* height: 56px; */}
+
+.banner_container .thumbScroller .content div.video a.Top-Videos-List-Tv img {display: none}
+/*.leicester-booth {width: 331px; height: auto; margin-top: 0; margin-bottom: 45px}*/
+.leicester-booth {width: 269px; height: auto; margin-top: 0; margin-bottom: 45px}
+/*.banner_container .thumbScroller .content .bg table td.leicester-booth:nth-child(odd) {margin-top: 90px}
+.banner_container .thumbScroller .content {min-width: 665px; width: 665px}
+.thumbs .logo-container {width: 182px}*/
+.banner_container .thumbScroller .content .bg table td.leicester-booth:nth-child(odd) {margin-top:20%;}
+.banner_container .thumbScroller .content {min-width: 540px; width: 540px}
+.thumbs .logo-container {width: 265px}
+.view-booth-bg {text-align: center; padding: 20px 0; background-size: auto; background-image: url(//vepimg.b8cdn.com//uploads/vjf/162-intac-expo/backdrop-hall.jpg?v=2) !important; background-position: left bottom}
+.mTS_horizontal .mTSContainer {background:linear-gradient(0deg,rgba(140, 137, 137, 0.41),rgba(0, 0, 0, 0.52)),url(../images/booth.jpg);}
+.banner_container .thumbScroller .content .bg {background: none; position: inherit !important}
+/* END NEW HALL */
+
+.tab-video li {height: 30px}
+.job-vacancy {padding-bottom: 15px}
+.job-vacancy h2 {margin: 0; color: rgb(0, 87, 166); font-size: 16px;font-weight:bold;}
+.job-vacancy ul li {border-bottom: 1px solid #e1e1e1; font-size: 14px; padding: 0px; width: 50%; float: left; box-sizing: border-box}
+.job-vacancy ul li:nth-child(3), .job-vacancy ul li:nth-child(5), .table-job-detail tr:nth-child(4),
+.table-job-detail tr:nth-child(5), .table-job-detail tr:nth-child(7) {
+  display: none
+}
+.job-vacancy ul li a {background: rgb(0, 87, 166); color: #fff; padding: 5px 10px; text-decoration: none; border-radius: 2px}
+
+@media (max-width: 992px) {
+  .vjf-header .logo {margin-left: 0}
+  .vjf-header .col-md-3 {text-align: left !important}  
+  .main-nav ul li a {padding: 14px 5px 10px}  
+  .all-buts-container {margin-left: 0; margin-right: 0}
+  .booth-lg-logo img {margin-top: 45px !important; margin-bottom: -32px}
+}
+@media (max-width: 767px) {
+  #MainBoothTable-1 {margin-left: -10px}
+  .find-job-bayt-logo .video {float: left}
+  .footer-wrapper {display: none}
+  .mob-booth-menu .navbar-nav .open .dropdown-menu {margin-left: -45px}
+  /*.Videos-for-tracking-clicks li {max-height: none !important; height: auto !important; text-align: center}
+  .Videos-for-tracking-clicks li span {float: none !important; text-align: center}*/
+  .job-vacancy ul li {width: auto; display: block; float: none}
+  .glassdoor-banner h2 {max-width: 100%; background-size: 100% auto; height: auto; padding: 0}
+  #WidgetMiddleBox, #WidgetRightBox {width: 100%; margin: 15px 0 0 !important; box-sizing: border-box}
+  .booth-banners {display: none}
+  .all-but {line-height: 34px}
+  #tabs1 > ul > li > a {padding: 13px 10px; background-image: none}
+  .navbar-nav .open .dropdown-menu>li>a {padding-left: 14px}
+  
+  .main-nav {height: auto}
+  .main-nav ul {width: 100%}
+  .main-nav ul li {border-bottom: 1px solid #324a9e}
+  .Main-Large-View-Booth-Class-Ash .home-container .left {width: 100%}
+  .home-container .user-online-container {width: 100% !important}
+}

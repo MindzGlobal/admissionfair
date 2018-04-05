@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
-    <title>Login|Virtual Admission Fair</title>
+    <title>Forgot Password|Virtual Admission Fair</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('college/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}" rel="stylesheet">
@@ -26,29 +24,37 @@
     <section id="wrapper" class="login-register">
         <div class="login-box login-sidebar">
             <div class="white-box">
-               <form class="form-horizontal" id="recoverform" method="POST" action="{{ route('student.password.email') }}">
-                  @csrf
+                <form method="POST" action="{{ route('student.password.email') }}" class="form-horizontal form-material" id="loginform">
+                @csrf
                     <a href="javascript:void(0)" class="text-center db"><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 250px;"/>
                     <br/></a>
                     <div class="form-group m-t-40">
+                        <label for="email" class="col-sm-12 col-form-label text-md-left">{{ __('E-Mail / Mobile ') }}</label>
                         <div class="col-xs-12">
-                            <h3>Recover Password</h3>
-                            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Email">
+                            <input id="emailOrMobile" type="text" class="form-control" name="emailOrMobile"  required>
+                            {{-- @if ($errors->has('email'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif --}}
                         </div>
                     </div>
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Send Password Reset Link</button>
+                            <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light">
+                                    {{ __('Send Password Reset Link') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            <p>Don't have an account? <a href="{{ route('student.registerform') }}" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+   
     </section>
     <!-- jQuery -->
     <script src="{{ asset('college/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
@@ -66,19 +72,21 @@
     <script src="{{ asset('college/js/custom.min.js') }}"></script>
     <!--Style Switcher -->
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+    @include('alerts')
 </body>
 
 </html>
 
+{{-- 
 
-{{-- @extends('layouts.app')
+ @extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">Admin {{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -117,9 +125,9 @@
         </div>
     </div>
 </div>
-@endsection --}}
+@endsection 
 
-
+ --}}
 
 
 

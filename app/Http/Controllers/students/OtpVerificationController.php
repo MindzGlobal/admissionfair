@@ -36,9 +36,12 @@ class OtpVerificationController extends Controller
 
                 UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['mobile_token'=>Null]);
                  
-                return redirect('student/login')->with(['status'=>'success','message'=>'successfully Verified ,You can Login and Access your Account Now']);
+                return redirect('student/login')->with('success','successfully Verified ,You can Login and Access your Account Now');
             }
             return redirect()->back()->withErrors(['status'=>'danger','message'=>' Sorry ,Something Went Wrong ,Please try again later']);
+        }
+        if(!is_null($request->userMobile)){
+            Session::keep(['mobile', $request->userMobile]);
         }
         return redirect()->back()->withErrors(['status'=>'danger','message'=>' Sorry ,Please Enter the Correct OTP']);
     }

@@ -1,0 +1,784 @@
+@font-face { font-family: 'Proxima Nova Semibold'; src: url(//vepcss.b8cdn.com/fonts/ProximaNova-Semibold.otf)}
+@font-face { font-family: 'Proxima Nova'; src: url(//vepcss.b8cdn.com/fonts/ProximaNova-Regular.otf)}
+@font-face { font-family: 'Proxima Nova Light'; src: url(//vepcss.b8cdn.com/fonts/ProximaNova-Light.otf)}
+@font-face { font-family: 'Proxima Nova Bold'; src: url(//vepcss.b8cdn.com/fonts/ProximaNova-Bold.otf)}
+
+/* OLD CSS */
+
+
+.btn-menu-first, .btn-menu-last {opacity: 0.7; cursor: default}
+
+marquee {background: #fff; color: #171717; padding: 10px; margin: 0 45px}
+.pos-abs {position: absolute !important}
+
+/* Profile dialog box */
+#change_old_passs-frm .form-control {
+    width: 95% !important;
+}
+
+/* railing */
+.thumbs .logo-container {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/railing-bg-white.png); width: 184px; text-align: center}
+/*.thumbs .logo-container a img {height: auto; width: auto; margin-top: 28px}*/
+
+.lobby-lcd{
+    position: absolute;
+    margin-top: 55px;
+    margin-left: 561px;
+    width: 302px;
+    height: 172px;
+}
+
+.Back-floor-btn-new{
+    margin: 10px 10px 10px 10px;
+    position: absolute;
+}
+.ViewUserProfile{
+    text-decoration:none;
+    color:black;
+    font-family: calibri;
+    font-size: 15px;
+    font-weight:bold;
+}
+.Job-Apply-Response-Box
+{
+    font-family: 'Helvetica Condensed';
+    font-size: 18px;
+}
+#dialog-link 
+{
+    padding:0px;
+    text-decoration: none;
+    position: relative;
+}
+.ui-state-hover {
+    padding:0px;
+    text-decoration: none;
+    background:transparent;
+    border:0px;
+    margin:0px;
+}
+
+.upload-photo-container{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    border: 1px solid #d8dee6;
+    background-color: #f2f4f8;
+    width: 121px;
+    height: 120px;
+}
+
+.upload-photo-container img{
+    width: 140px;
+    height: 176px;
+    margin-left: -10px;
+    margin-top: -3px;
+}	
+
+.UpdateCVButton {
+    margin: 0px 0px 0px 0px;
+    padding: 12px 31px 4px 20px;
+    background: url(../images/update_but.png) repeat-x;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Helvetica Condensed';
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    vertical-align: middle;
+    height: 22px;
+    width: 43px;
+}
+.UpdateCVButton span{
+    margin-top: -5px;
+    display: block;
+    margin-left: -5px;
+    width: 67px;
+}
+
+
+.CVUpdateResponse
+{
+    font-size: 14px;
+    font-family: 'Helvetica Condensed';
+    letter-spacing: 0.3px;
+    color: green;
+}
+
+.custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+/* Email Us form */
+#email-us-microsoft .form-control{
+    width: 96%;
+}
+/* Email Us form */
+.custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+}
+
+.file-upload-wrapper {
+    position: relative; 
+    margin-bottom: 5px;
+}
+.file-upload-input {
+    width: 245px;
+    color: #000;
+    font-size: 14px;
+    padding: 11px 17px; 
+    border: none;
+    background-color: rgb(249, 249, 249);
+    background: rgb(249, 249, 249);
+    @include transition(all 0.2s ease-in); 
+    float: left; /* IE 9 Fix */
+    &:hover, &:focus { 
+        outline: none; 
+    }
+}
+.file-upload-button {
+    font-weight: bold;
+    cursor: pointer; 
+    display: inline-block; 
+    color: rgb(255, 255, 255);
+    background: rgb(0, 87, 166);
+    font-size: 11px !important;
+    min-width: 170px;
+    max-width: 170px;
+    text-transform: uppercase;
+    padding: 11px 20px; 
+    border: none;
+    margin-left: -1px;  
+    float: left; /* IE 9 Fix */
+    @include transition(all 0.2s ease-in);
+    &:hover {
+    }
+}
+
+
+.ash-small-table {
+    width: 550px;
+    font-family: "Helvetica Neue", Helvetica, sans-serif
+}
+
+.ash-small-table thead {
+    background: SteelBlue;
+    color: white;
+}
+
+.ash-small-table th,
+.ash-small-table td {
+    padding: 5px 10px;
+}
+
+.ash-small-table th{
+    font-size: 12px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 87, 166);
+}
+.ash-small-table td{
+    font-size: 11px;
+    font-family: monospace;
+}
+.ash-small-table tbody tr:nth-child(even) {
+    background: WhiteSmoke;
+}
+.ash-small-table tbody tr td:nth-child(2), .ash-small-table tbody tr td:nth-child(3){
+    text-align:center;
+}
+.ash-small-table tbody tr td:nth-child(5){
+    width: 20px;
+    text-align:center;
+}
+
+.ash-small-table tbody tr td:nth-child(4),.ash-small-table tbody tr td:nth-child(6){
+    text-align:center;
+}
+.JobViewLnk
+{
+    text-decoration: none;
+    text-align: center;
+}
+.OpenJobDiv
+{
+    float: none !important;
+    width: 50px !important;
+    margin-left: 17px !important;
+    padding: 0px 0px 0px 0px !important;
+    height: 20px !important;
+}
+.JobsTitleArabicTable
+{
+    text-align: right !important;
+}
+.AshVideoLink
+{
+    color: black;
+    font-size: 12px;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+.Sub-Score-Lbl{
+    padding-left: 10px;
+    font-size: 10px;
+    font-family: monospace;
+}
+
+.messi{
+    top:160px!important;
+}
+
+.SignLanguage{
+    position: absolute;
+    margin-left: 5px;
+    margin-top: -35px;
+}
+
+.VideoThumbnailContainer{
+
+    width: 120px;
+    float: right;
+    padding: 0px 0px 0px 0px;
+}
+
+.ThumbImg {
+    height: 80px;
+    width: 120px;
+}
+.VideoThumbnailContainer .PlayIcon{
+    position: absolute;
+    /*z-index: 100000;*/
+    height: 35px;
+    width: 35px;
+    margin: 25px 5px 5px 45px;
+}
+.messi-closebtn{
+    right: auto !important;
+}
+.social-share-icons{
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/*******************************************************************************************************/
+/*  NEW CSS */
+/*******************************************************************************************************/
+
+.vjf-header {background: #F2F2F2; min-height: 70px}
+.vjf-header *, #sponsor-section * {box-sizing: border-box}
+.vjf-header .wrap-header {width: 1014px; margin: 0 auto}
+.vjf-header .logo {margin-top: 10px}
+
+.top-search {text-align: right; position: relative; margin-top: 20px}
+.top-search .form-control {box-shadow: none; border-color: #d1d1d1; padding-left: 35px; font-size: 13px; font-family: Arial}
+.top-search span.icon-search {position: absolute; top:6px; left: 9px; width: 22px; height: 23px; background: url(//vepimg.b8cdn.com/uploads/vjf/common/search.jpg) no-repeat center center}
+.top-search .dropdown-menu {width: 100%; top:32px !important}
+.top-search .dropdown-menu > a {color: #666; font-family: Arial; font-size: 13px}
+.top-search .dropdown-menu > .active > a,
+.top-search .dropdown-menu > .active > a:hover,
+.top-search .dropdown-menu > .active > a:focus {
+  background: #999;
+  color: #fff
+}
+
+.menu-top {float:right; border-right: 1px solid #ddd; padding: 0}
+.menu-top .nav-tabs {border-bottom: none; float: right; border-left: 1px solid #ddd; padding: 3px 0 2px}
+.menu-top .nav-tabs > li > a {color: #666; border-radius: 0; border: none; background: none !important}
+.menu-top .nav-tabs > li > a:hover {background: none; border-radius: 0; border: none}
+.menu-top .nav-tabs .dropdown-menu {border-radius: 0; border-color: #ddd; width: 100%; margin-left: -1px; background: #F2F2F2}
+.menu-top .nav-tabs .dropdown-menu li > a {color: #666; font-size: 13px}
+.menu-top .nav-tabs .dropdown-menu li > a > span {margin-right: 3px; margin-top: 1px; vertical-align: top}
+.menu-top .caret {border-left-width: 6px; border-right-width: 6px; border-top-width: 7px}
+.menu-top img.user-dp {border-radius: 25px; border:1px solid #eee; width: 45px}
+
+.main-nav, .lobby-main-nav {background: #E9573E; height: 60px; color: #fff; font-family: "Bree Serif Regular","Bree Serif"; font-size: 16px; width: 924px; margin: 32px auto 13px; font-weight: normal}
+.main-nav ul, .lobby-main-nav ul {list-style: none; padding: 0}
+.main-nav ul li, .lobby-main-nav ul li {display: inline-block; list-style: none; text-align: left; border-right: 1px solid #EE806C; padding: 0}
+.main-nav ul li:last-child, .lobby-main-nav ul li:last-child {border-right: none}
+.main-nav ul li a, .lobby-main-nav ul li a {color: #fff; text-decoration: none; outline: none; display: block; padding: 14px 12px 10px 11px}
+.icon-nav {width: 36px; height: 36px; background-repeat: no-repeat; background-position: center center; background-size: 36px 36px; display: inline-block; vertical-align: middle; margin-right: 7px}
+.icon-companies {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-companies.png)}
+.icon-docs {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-docs.png)}
+.icon-video {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-video.png)}
+.icon-webinar {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-webinar.png)}
+.icon-webinar-2 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-webinar-2.png)}
+.icon-briefcase {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-briefcase.png)}
+.icon-chat {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-chat.png)}
+.icon-gift-bag {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/shopping-bag-icon.png)}
+.icon-info-desk {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/info-desk.png)}
+.icon-lobby-area {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/lobby-icon.png)}
+.icon-job-search {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-job-search.png)}
+.icon-survey {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-survey.png)}
+.icon-chat-availability {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-time.png)}
+.icon-rss {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-rss.png)}
+.icon-graduation2 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-graduation-cap2.png)}
+
+
+.companies-menu-item {position: relative}
+.companies-drp {position: absolute; left:0; z-index: 0; border-radius: 0; display:none}
+.companies-drp .select2-container {opacity: 0; top: -33px; z-index: 0}
+.select2-drop {border: none; box-shadow: none; width: 300px !important; max-height: 350px; background: #fff; padding: 10px; border-radius: 0}
+.select2-search input {border-color: #d1d1d1; background-color: #fff; background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/search.jpg); background-repeat: no-repeat; background-position: 6px 4px; background-size: 18px 18px; border-radius: 3px; padding-left: 30px; border-radius: 3px; margin-bottom: 10px}
+.select2-results .select2-highlighted {background: #fff; color: #333}
+.select2-results .select2-result-label {padding: 0 0 10px; font-size: 16px; font-family: Arial; font-weight: bold; color: #333}
+.select2-result-selectable .select2-match, .select2-result-unselectable .select2-match {text-decoration: none}
+.select2-results .select2-result-label img {border: 1px solid #e1e1e1}
+
+#searchDoc, #searchVid, #searchWebinar {border-color: #d1d1d1; background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/search.jpg); background-repeat: no-repeat; background-position: 7px 5px; background-size: 22px 22px; padding-left: 34px}
+
+#sponsor-section h2 {font-size: 32px; font-weight: bold; font-family: "Bree Serif Regular","Bree Serif"; text-align: center; color: #fff; margin: 25px 0 40px}
+#sponsor-section .col-md-3 {padding-bottom: 20px}
+#sponsor-1 {background: #fff; padding-top: 30px}
+#sponsor-2 {background: #fff}
+
+.vjf-modal * {box-sizing: border-box}
+.vjf-modal .modal-header {background: #666; border-radius: 4px 4px 0 0; padding: 11px 15px}
+.vjf-modal .modal-header > h4 {color: #fff}
+.vjf-modal .modal-header > .close > span {color: #fff}
+.vjf-modal .modal-body  {font-size: 13px; min-height: 335px; max-height: 335px; padding-top: 13px; overflow-y: auto; overflow-x: hidden}
+.vjf-modal .modal-body.alert-body  {min-height: 100px}
+.vjf-modal .control-label {padding-top: 7px}
+.vjf-modal .action-box {background: #F2F2F2; padding: 8px 10px}
+.vjf-modal .action-box span {vertical-align: middle; display: inline-block}
+.vjf-modal .action-box span.select-all {padding-top: 6px; font-weight:bold}
+.vjf-modal .action-box span.select-all > input {margin-top: 3px; vertical-align: top}
+.vjf-modal .col-sm-4 input[type=button], .vjf-modal .col-sm-4 a.btn-grey {font-size:12px !important; padding: 5px; line-height: 12px}
+.vjf-modal .col-sm-4 input[type=button].btn-grey, .vjf-modal .col-sm-4 a.btn-grey {background: #ccc}
+.vjf-modal select {font-size:13px}
+
+.vjf-modal .modal-body.webinar-body  {min-height: 460px; max-height: 460px}
+
+.modal-full-page .modal-dialog {width: 95% !important; margin-top: 30px}
+.modal-full-page .modal-header {background: #fff; border: none}
+.modal-full-page .modal-header > .close > span {color: #333}
+.modal-full-page .modal-content {height: 100%}
+.modal-full-page .modal-body {min-height: 90%; max-height: 90%; height: 90%; padding-top:0}
+
+.docfilter.form-group {margin-bottom: 13px}
+.docfilter .col-sm-3 {padding-left: 10px; padding-right: 10px}
+.docfilter .col-sm-9 {padding-left: 0; padding-right: 10px}
+.docrows {overflow-x: hidden; overflow-y: auto; max-height: 200px}
+.docrow {position: relative; padding: 10px; border-bottom: 1px solid #f7f7f7}
+.docrow .col-sm-4, .docrow .col-sm-8 {padding-left: 0; padding-right: 0}
+.docrow .col-sm-4 {text-align: right}
+.docrow h3 {font-size:14px; font-weight: bold; margin:4px 0 5px 70px; height: 15px; overflow: hidden}
+.docico {width: 56px; position: absolute; top:0; left: 0; background-position: right center; background-repeat: no-repeat; background-size: 32px; height: 32px}
+.docico input {margin-top: 10px}
+.docico-pdf {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/pdf.png)}
+.docico-doc {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/doc.png)}
+.docico-ppt {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ppt.png)}
+.docico-xls {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/xls.png)}
+.docico-avi {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/avi.png)}
+.docico-jpg {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/img.png)}
+.docico-png {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/img.png)}
+.docico-gif {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/img.png)}
+.docico-html, .docico-htm {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/html.png)}
+.docico-youtube {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/youtube.png?v=1)}
+.docico-webinar {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/icon-webinar-4.png)}
+.docico-thumb img {max-width: 100%}
+.docrow a {color: #333; outline: none}
+.docrow .btn-grey {border-color: #adadad}
+
+.webinar-list .video-row .docico {background-size: 60px; width: 60px; height: 60px}
+.webinar-list .video-row h3, .webinar-list .video-row p, .webinar-list .presenter {margin-left: 75px}
+.webinar-list .docico img {border: 1px solid #ddd}
+.webinar-list .docrow {border-color: #ddd}
+.webinar-list .docrow h3 {font-size: 16px; height: 17px}
+.webinar-list .presenter h4 {margin: 0; padding: 0 0 10px; font-size: 13px; font-weight: bold}
+.webinar-list .presenter img, .webinar-list .presenter span {display: inline-block; vertical-align: middle; font-size: 13px}
+.webinar-list .presenter img, .speaker-pic {border-radius: 25px; width: 50px; height: 50px; border: 1px solid #eee}
+
+.video-list .docrows, .webinar-list .docrows {max-height: 380px}
+.video-row .docico {width: 31px}
+.video-row h3, .video-row p {margin-left: 45px}
+.vd-player .video-js {width: 100%; height: 250px}
+.vd-player .video-js-2 {width: 100%; height: 305px}
+iframe#vd-vault-1 {border: 1px solid #ddd}
+.error {color: #c00; padding-top: 5px; font-size: 11px}
+.webinar-clock label {font-weight: normal; color: #f38b1f}
+.sm-instruction {font-size: 11px; color: #999; display: inline-block; font-weight: normal; margin-left: 10px}
+
+/*lobby info desk clicks*/
+.lobby-webinar-lnk {position: absolute; top: 38%; left: 6%; width: 13%; height: 17%; cursor: pointer}
+.lobby-hall-lnk {position: absolute; top: 38%; right: 5.5%; width: 13%; height: 17%; cursor: pointer}
+.lobby-info-lnk {position: absolute; top: 36%; width: 20%; height: 17%; right: 41%; cursor: pointer}
+.lobby-lft-bnr {position: absolute; top: 68.5%; width: 4%; height: 13.8%; left: 5.8%; cursor: pointer}
+.lobby-rgt-bnr {position: absolute; top: 68.5%; width: 3.3%; height: 11.5%; right: 6.5%; cursor: pointer}
+.desk-lft-bnr {position: absolute; top: 32.5%; width: 6.4%; height: 25%; left: 20.5%; cursor: pointer}
+.desk-rgt-bnr {position: absolute; top: 32.5%; width: 6.4%; height: 25%; right: 20.5%; cursor: pointer}
+.desk-chat-bnr {position: absolute; top: 49.5%; width: 18.4%; height: 17%; left: 42.5%; cursor: pointer; display: inline-block}
+
+/* large booth buttons */
+.Main-Large-View-Booth-Class-Ash .body-container {background: none; border:none}
+.Main-Large-View-Booth-Class-Ash .home-container .left {background: none}
+.bighrader-bot-bg {background: transparent; border: none}
+.view-booth-bg {height: 377px; background: transparent}
+.NextFloorBtn, .PrevFloorBtn {color: #fff; font-size: 11px; padding: 27px 7px 3px; border-radius: 0; width: 42px; margin: 0; line-height: 12px}
+.pre-but {margin: 6px 6px 0 -1px; width: auto}
+.next-but {margin: 6px 0 0 6px; width: auto}
+.PrevFloorBtn {background: #505D71 url(//vepimg.b8cdn.com/uploads/vjf/common/arw-left.png) no-repeat center 5px; background-size: 18px 18px}
+.NextFloorBtn {background: #505D71 url(//vepimg.b8cdn.com/uploads/vjf/common/arw-right.png) no-repeat center 5px; background-size: 18px 18px}
+.all-buts-container {margin: 6px 0 0; width: 796px; background: #F2F2F2; height: 53px}
+.all-buts-container table {width: auto}
+.all-buts-container table, .all-buts-container tr, .all-buts-container td {text-align: left !important}
+.all-but {background: transparent; border: none; color: #333; font-size: 14px; font-family: Arial; font-weight: bold; margin: 0; padding: 18px 12px 5px; height: 29px; line-height: 17px; text-align: center; border-right: 1px solid #ccc; border-radius: 0}
+.Tracking-ashfaq-Menus-tabs td:last-child .all-but {border-right: none}
+
+#tabs1.ui-widget-content {border: none; background: transparent; height: auto !important}
+#tabs1 .ui-widget-header {background: #FF6600; padding: 0; margin-bottom: 12px}
+#tabs1 > ul  > li {margin: 0 !important; padding: 0; background: none; border: none; border-right: 1px solid #AE4600}
+#tabs1 > ul > li > a {color: #fff; padding: 20px 20px 20px 50px; line-height: 20px; font-size: 15px; outline: none; text-transform: uppercase}
+#tabs1 > ul > li.custom-tab > a {padding: 20px; text-transform: none}
+#tabs1 .ui-state-active, #tabs1 .ui-widget-content .ui-state-active, #tabs1 .ui-widget-header .ui-state-active {background: #931501}
+#tabs1.ui-tabs .ui-tabs-panel {background: #f2f2f2; color: #333; padding: 20px 15px}
+#tabs1.ui-widget-content strong {font-family: "Proxima Nova Bold",Arial,sans-serif}
+#tabs1.ui-widget-content ul li {font-family: "Proxima Nova",Arial,sans-serif; font-size: 13px}
+.home-container .left p {color: #333}
+
+/* booth menu icons */
+#ui-id-1, #ui-id-2, #ui-id-3, #ui-id-4 {background-position: 20px center; background-repeat: no-repeat; background-size: 23px 23px}
+#ui-id-1 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-companies.png)}
+#ui-id-2 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-video.png)}
+#ui-id-3 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-docs.png)}
+#ui-id-4 {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/ico-job-search.png)}
+
+.TabsContainerForAllBooths {width: 612px !important}
+.home-container .user-online-container {width: 285px !important; border: none; background: none}
+.user-online-top {width: auto; background: #931501; font-size: 18px; font-weight: normal; line-height: 20px; padding: 20px 20px 8px; margin-bottom: 12px}
+.user-online-bot {background: #f2f2f2; color: #333}
+.user-online-bot li.gery {background: none; border-bottom: 1px solid #e0e1e3; border-top: none; border-left: none; border-right: none; margin: 0}
+
+.company-index-bot li {color: #555}
+
+.company-index-top h1, .user-online-top, #tabs1 > ul > li > a, .BacktoTheFloor, .invite {font-family: "Proxima Nova Semibold",Arial,sans-serif; font-weight: bold}
+.ui-tabs .ui-tabs-panel h1 {font-family: "Proxima Nova Bold",Arial,sans-serif; font-weight: bold}
+.vjf-modal .modal-body, .vjf-modal .modal-header > h4, .home-container .left p, .company-index-bot li, 
+.company-index-bot li:hover, .menu-top .nav-tabs > li > a, .menu-top .nav-tabs .dropdown-menu li > a,
+.NextFloorBtn, .PrevFloorBtn, .tab-video li {
+  font-family: "Proxima Nova",Arial,sans-serif
+}
+.home-container .left p, .company-index-bot li, .company-index-bot li:hover, .menu-top .nav-tabs > li > a {font-size: 13px}
+
+.large-booth-heading-area {padding:15px 0 10px}
+.large-booth-heading-area h1 {font-size: 28px; font-weight: normal; font-family: "Bree Serif Regular","Bree Serif"; color: #fff; padding: 15px; vertical-align: middle; display: inline-block}
+
+.tab-video ul {border-right: none; width: 100%}
+.tab-video ul li {background: none; width: 100%; color: #333}
+
+/* css to fix old design */
+.body-wrapper {padding-top: 0; height: 870px}
+.main-wrapper {width: 1014px} 
+.home-wrapper {width: 1014px; background: url(//vepimg.b8cdn.com/uploads/vjf/125/bgtrans.jpg) no-repeat top center; background-size: 100% 100%; padding-bottom: 10px}
+.body-container {padding: 0}
+.home-container {width: 922px}
+.home-container .left {width: auto; height: auto}
+.company-index-top, .company-index-bot {width: 100%}
+#SecondPageLoader {margin: 105px 0 0 46px !important}
+.short-menu {display: none}
+.navbar-collapse.collapse {display: none !important}
+.mob-booth-menu {display: none}
+#DynamicBoothsContainer {height: 100%; padding-left: 0}
+
+.cinema {background: url(//vepimg.b8cdn.com/uploads/vjf/common/bgwebinar-2.jpg) no-repeat; background-size: 100% auto; margin: 0 45px; height: 440px}
+.cinema .view-webinars {padding: 173px 0 0 380px}
+.cinema .view-webinars a {display: inline-block; width: 187px; height: 92px}
+
+.loby {background: url(//vepimg.b8cdn.com/uploads/vjf/common/lobby-image-v3.jpg) no-repeat; background-size: 100% auto; margin: 0 45px; height: 475px}
+.loby .view-webinars {padding: 173px 0 0 380px}
+.loby .view-webinars a {display: inline-block; width: 187px; height: 92px}
+
+.win-a-prize {float: right; padding-right: 7px; padding-top: 14px}
+.win-a-prize a {color: #666; font-size: 15px; background: url(//vepimg.b8cdn.com/uploads/vjf/125/ico-prize-sm.png) no-repeat; background-size: 48px 48px; display: inline-block; padding:8px 0 12px 54px; line-height: 15px; text-decoration: none}
+
+.vjs-big-play-button {display: none !important}
+.welcome-text {text-align: left; width: 90%; margin: 20px auto; font-family: Arial; line-height: 23px; font-size: 14px}
+.welcome-text p {font-size: 14px}
+/*.welcome-text a, .welcome-text a:hover {color: #171717; text-decoration: none}*/
+
+/* Replace old yellow buttons with bootstraped */
+.invite {
+    background: none;
+    border: none;
+    height: 15px;
+    line-height: 15px;
+}
+.Documents-for-tracking-clicks .btn, .Videos-for-tracking-clicks .btn {
+    float: right;
+}
+/* Replace old yellow buttons with bootstraped */
+
+/* stylish checkbox - base for label styling */
+.chk-vjf[type="checkbox"]:not(:checked),.chk-vjf[type="checkbox"]:checked {position: absolute; left: -9999px}
+.chk-vjf[type="checkbox"]:not(:checked) + .chk-vjf-lbl,.chk-vjf[type="checkbox"]:checked + .chk-vjf-lbl {position: relative; padding-left: 25px; cursor: pointer}
+/* checkbox aspect */
+.chk-vjf[type="checkbox"]:not(:checked) + .chk-vjf-lbl:before,.chk-vjf[type="checkbox"]:checked + .chk-vjf-lbl:before {content: ''; position: absolute; left:0; top: 2px; width: 17px; height: 17px; border: 1px solid #aaa; background: #f8f8f8; border-radius: 3px; box-shadow: inset 0 1px 3px rgba(0,0,0,.3)}
+/* checked mark aspect */
+.chk-vjf[type="checkbox"]:not(:checked) + .chk-vjf-lbl:after,.chk-vjf[type="checkbox"]:checked + .chk-vjf-lbl:after {content: '✔'; position: absolute; top: 3px; left: 4px; font-size: 18px; line-height: 0.8; color: #09ad7e; transition: all .2s}
+/* checked mark aspect changes */
+.chk-vjf[type="checkbox"]:not(:checked) + .chk-vjf-lbl:after {opacity: 0; transform: scale(0)}
+.chk-vjf[type="checkbox"]:checked + .chk-vjf-lbl:after {opacity: 1; transform: scale(1)}
+/* disabled checkbox */
+.chk-vjf[type="checkbox"]:disabled:not(:checked) + .chk-vjf-lbl:before,.chk-vjf[type="checkbox"]:disabled:checked + .chk-vjf-lbl:before {box-shadow: none; border-color: #bbb; background-color: #ddd}
+.chk-vjf[type="checkbox"]:disabled:checked + .chk-vjf-lbl:after {color: #999}
+.chk-vjf[type="checkbox"]:disabled + .chk-vjf-lbl {color: #aaa}
+/* accessibility */
+.chk-vjf[type="checkbox"]:checked:focus + .chk-vjf-lbl:before,.chk-vjf[type="checkbox"]:not(:checked):focus + .chk-vjf-lbl:before {border: 1px dotted blue}
+/* hover style just for information */
+.chk-vjf-lbl:hover:before {border: 1px solid #4778d9!important}
+
+/* chat timings */
+.chat-timings {background: #fff; color: #000; padding: 10px 20px 0; text-align: center}
+.chat-timings .table {margin-bottom: 0}
+.chat-timings .table, .chat-timings .table tr td:first-child {border: none !important}
+.chat-timings .table > tbody > tr > td {padding: 8px 2px; text-align: center; border-color: #e5e5e5}
+.chat-timings .btn {width: 155px; height: 36px; background-color: rgba(51, 153, 0, 1); border: none; border-radius: 0px; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; font-family: 'Lato', sans-serif; font-weight: 700; font-size: 16px; color: #FFFFFF; margin-top: 18px}
+.chat-timings .glyphicon-ok {color: green}
+.chat-schedule-p {text-align: center; font-family: 'Proxima Nova', sans-serif; font-size: 14px}
+/* end chat timings */
+
+/* cometchat embed */
+#comet-chat .cometchat_notification {display: none !important}
+#comet-chat .cometchat_traypopup {width: 100% !important; height: 100% !important; left: 0 !important; display: block !important}
+#comet-chat .cometchat_traycontent {height: 96% !important}
+#comet-chat .cometchat_traycontenttext {height: 100% !important}
+#comet-chat .cometchat_iframe {position: relative; height: 100% !important; width: 100% !important}
+#comet-chat #cometchat_base {width: 100% !important; left: 0 !important; border-radius: 0}
+#comet-chat #cometchat_userstab/*, #cometchat_optionsbutton*/, #cometchat_hide, .cometchat_trayiconimage/*, #cometchat_trayicons*/, #cometchat_trayicon_chatrooms {display: none}
+#comet-chat #cometchat_chatboxes_wide .cometchat_tab {background: rgba(4, 103, 169, 0.93)}
+#comet-chat #cometchat_chatboxes_wide .cometchat_tabmouseover.cometchat_tab:first-of-type, #cometchat_chatboxes_wide .cometchat_tabclick.cometchat_usertabclick.cometchat_tab:first-of-type {border-radius: 0}
+#comet-chat #cometchat_optionsbutton_popup {right: 2px; left: auto !important; z-index: 300004}
+#comet-chat #cometchat_trayicon_chatrooms_popup {position: relative; bottom: auto}
+#comet-chat #cometchat_trayicon_chatrooms_popup .cometchat_traytitle, #cometchat_trayicons {display: none !important}
+#comet-chat {max-width: 300px}
+#comet-chat #cometchat_optionsbutton {width: auto}
+#comet-chat #cometchat_optionsbutton.cometchat_tabmouseover {border-radius: 0}
+#comet-chat #cometchat_optionsbutton #cometchat_optionsbutton_icon {text-indent: 0 !important; width: auto; padding-left: 20px; padding-right: 10px}
+
+.user-online-chat-box {height: 100%; width: 100%; overflow-x: hidden; box-sizing: border-box; border: none}
+/* end cometchat embed */
+
+/******************************************/
+/********* information page start ***********/
+.main-nav {font-family: 'Proxima Nova', sans-serif; font-weight: 700}
+.topics-tabs {font-family: 'Proxima Nova', sans-serif; font-size: 14px; background: #fff; width: 767px; max-width: 100%; margin: 0 auto; padding: 40px; min-height: 270px}
+.topics-tabs .tab-content {padding: 20px 0}
+.topics-tabs .nav-tabs {border-bottom-color: #5285ad; background: #5285ad}
+.topics-tabs .nav-tabs>li>a {border-radius: 0; background: #5285ad; color: #f2f2f2; font-size: 14px; margin-right: 0; border: none; border-right: 1px solid #4077a0}
+.topics-tabs .nav-tabs>li:last-child>a {border-right: none}
+.topics-tabs .nav-tabs>li.active>a, .topics-tabs .nav-tabs>li.active>a:hover, .topics-tabs .nav-tabs>li.active>a:focus {background: #0066B3; color: #fff; border:none}
+.topics-tabs .btn {border-radius: 0; background: #E8890C; border: none; height: 17px}
+.topics-tabs .table>tbody>tr>td {vertical-align: middle; font-size: 14px}
+.topics-tabs .table>tbody>tr>td:nth-child(2) {text-align: center; width: 120px}
+.topics-tabs h4 {font-size: 16px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 20px; padding-top: 20px}
+#tab-videos {margin: -20px 0 0; border: 1px solid #d1d1d1; border-top: none; padding: 0 20px 20px}
+#tab-videos img {margin-bottom: 5px; cursor: pointer}
+#tab-videos p {margin-bottom: 20px; text-align: center; font-family: 'Proxima Nova', sans-serif; font-size: 13px}
+.topics-tabs p {font-family: 'Proxima Nova', sans-serif; font-size: 14px}
+.topics-tabs h4 {font-family: 'Proxima Nova Bold', sans-serif !important; font-size: 20px; text-transform: none; font-weight: 700; color: #231f20; margin-bottom: 10px; border-bottom: none}
+h1.info-tab-head {font-family: 'Proxima Nova Bold', sans-serif !important; font-size: 27px; text-transform: none; font-weight: 700; color: #231f20; margin-bottom: 15px}
+.topics-tabs a.btn {padding: 2px 12px 6px}
+.speaker-bio h4 {font-family: 'Proxima Nova Bold', sans-serif; margin-bottom: 15px; margin-top: 10px}
+.speaker-bio p {font-family: 'Proxima Nova', sans-serif; font-size: 13px; margin-bottom: 15px}
+.speaker-bio ul {margin-bottom: 30px}
+/********* information page end ***********/
+/******************************************/
+
+/******************************************/
+/************* exterior page **************/
+
+.ext-content {margin: 0 auto; position: relative}
+.ext-content img {max-width: 100%}
+.ext-content img.exterior-base {position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: -4}
+.ext-content a.lnk-wh100 {height: 100%; display: block; width: 100%; position: absolute; z-index: -3}
+/*.ext-content map {z-index: 4; position: absolute; cursor: default; width: 100%; height: 100%; top:0; left: 0}*/
+.ext-content .people-video {position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2}
+.ext-content .trans-video{width: 100%; height: 100%; position: absolute; z-index: -5}
+.ext-content .trans-video.trans-playing {position: relative; z-index: 1}
+.ext-content .trans-video video {width: 100%; height: 100%}
+.ext-video-layer {z-index: -1; position: absolute; width: 100%; height: 100%; background: transparent; cursor: pointer}
+.ext-video-layer object {cursor: pointer}
+#people-vid .vjs-error-display {display: none !important}
+
+/************ exterior page end ***********/
+/******************************************/
+
+.slim-bar {background: #333; text-align: right; position: absolute; top:0; left: 0; width: 100%; padding: 2px 0 4px}
+.slim-bar ul {list-style: none; margin: 0; padding: 0}
+.slim-bar ul > li {list-style: none; margin: 0 10px 0 0; padding: 5px 10px 0 0; display: inline-block; border-right: 1px solid #eee; height: 20px}
+.slim-bar ul > li:last-child {border-right: none}
+.slim-bar ul > li, .slim-bar ul > li > a {color: #fff; font-size: 11px; font-weight: 400; line-height: 13px; text-decoration: none}
+.slim-bar ul > li > a:hover {color: #fff; text-decoration: underline}
+#bar-sep {display: none}
+
+/******************************************/
+/*************** leaderboard **************/
+.leaderboard {font-family: 'Proxima Nova', sans-serif; font-size: 14px; background: #f7f7f7; width: 767px; max-width: 100%; margin: 0 auto; padding: 20px 40px; min-height: 270px}
+.leader {border-bottom: 1px solid #e9e9e9; position: relative; padding: 20px 0 20px 100px}
+.leader:last-child {border-bottom: none}
+.leader span {position: absolute; top: 16px; left: 0px; font-size: 36px; color: #fff; line-height: 52px; background: silver; width: 56px; text-align: center; padding: 4px 0 0 0; border-radius: 28px}
+.leader h3 {font-weight: 500; font-size: 24px}
+.leader label {color: #0077b7; font-size: 18px; display: block; line-height: 18px; margin: 8px 0 0}
+/************** leaderboard end ***********/
+/******************************************/
+
+#clockdiv{font-family: 'Proxima Nova',sans-serif;color: #fff;display: inline-block;font-weight: 100;text-align: center;font-size: 30px}
+#clockdiv > div{padding: 10px;border-radius: 3px;background: #00BF96;display: inline-block}
+#clockdiv div > span{padding: 15px;border-radius: 3px;background: #00816A;display: inline-block}
+#clockdiv .smalltext{padding-top: 5px;font-size: 16px}
+
+.vjf-header p#announcement-section {font-size: 12px; font-family: 'Proxima Nova Bold', sans-serif; padding-top: 25px; font-weight: bold; text-align: center}
+
+/* webinar popup */
+.block-overlay {display: none}
+.modal-webinar-full .modal-header {position: absolute; top: 0; left: 0; z-index: 1; width: 100%}
+.modal-webinar-full .modal-header a {font-size: 13px; color: #fff; cursor: pointer; text-decoration: none}
+.modal-webinar-full .modal-body {padding: 47px 0 0; height: 100%; min-height: 100%; max-height: 100%}
+.modal-webinar-full .vd-player, .modal-webinar-full .vd-player iframe, .modal-webinar-full #vd-vault-1 {height: 100% !important}
+.modal-webinar-full .vd-player {position: relative}
+.modal-webinar-full .block-overlay {position: absolute; top: 0; left: 0; z-index: 9999; height: 100%; width: 100%; display: block}
+.modal-webinar-full .block-overlay {position: absolute; top: 0; left: 0; z-index: 9999; height: 100%; width: 100%; display: block}
+
+.modal-webinar-full iframe {border: none !important}
+.modal-webinar-full .qa-section {display: none}
+.modal-webinar-full.webinar-qa .qa-section {display: inline-block}
+.webinar-qa .block-overlay {display: none !important}
+.webinar-qa iframe, .webinar-qa #vd-vault-1 {width: 75%}
+.qa-section {width: 25%; height: 100%; box-sizing: border-box; padding-bottom: 100px; vertical-align: top; position: relative}
+.qa-section h3 {color: #fff; background: #666; padding: 7px 12px; font-size: 20px; line-height: 20px}
+.qa-list {max-height: 90%; overflow: auto}
+.qa-list .qa-row {padding: 12px; border-bottom: 1px solid #ddd; font-size: 14px}
+.qa-list .qa-row:last-child {border-bottom: none}
+.qa-list .qa-row:nth-child(even) {background: #f2f2f2}
+.qa-list .qa-row > span {display: inline-block; margin-left: 10px; color: #aaa}
+.qa-input {position: absolute; bottom: 0; left: 0; padding: 10px 10px 7px; width: 100%; background: #f2f2f2; border-top: 1px solid #ddd}
+.qa-input-field {position: relative; padding-right: 66px}
+.qa-input textarea {height: 70px}
+.qa-input input {position: absolute; top: 0; right: 0; border-radius: 0}
+.qa-input span {display: block; color: #c00; margin: 3px 0 0; font-size: 12px}
+/* webinar popup end */
+
+/* webinar questions */
+.webinars-qa-list {background: #fff; margin: 0 auto; width: 800px; max-width: 100%; padding: 30px 35px}
+.webinars-qa-list h3 {font-weight: 700; margin-bottom: 15px}
+.webinars-qa-list .qa-list {max-height: none}
+/* webinar questions end */
+
+/* timer */
+#clockdiv{font-family: 'Proxima Nova Bold',sans-serif;color: #333;display: block;font-weight: 100;text-align: center;font-size: 16px; padding-top: 22px; display: block}
+#clockdiv > div {padding: 5px;border-radius: 3px;background: #eee;display: inline-block; margin-right: 5px}
+#clockdiv > div:last-child {margin-right: 0}
+#clockdiv div > span{padding: 7px 0 0;border-radius: 3px;background: none;display: block; line-height: 1em;min-width: 16px}
+#clockdiv .smalltext{padding-bottom: 3px;font-size: 10px}
+/* timer end */
+
+.tab-video .job-vacancy ul li:nth-child(5), .table-job-detail tr:nth-child(7) {display: none !important}
+
+/* lobby3d */
+.lobby3d-lnk-hall {position: absolute; height: 7%; width: 6%; top: 40%; left: 46.5%; z-index: 9999}
+.lobby3d-lnk-webinar {position: absolute; height: 7%; width: 12.5%; top: 41%; left: 17.5%; z-index: 9999}
+.lobby3d-lnk-info {position: absolute; height: 6%; width: 6%; top: 42.3%; right: 21%; z-index: 9999}
+/* end lobby3d */
+
+/*hall view instructions*/
+#WidgetMiddleBox {padding: 0 !important; overflow-x: hidden; overflow-y: auto}
+#WidgetMiddleBox h1 {background: #003fa9; color: #fff; padding: 12px 15px; margin: 0; border-bottom: 1px solid #535353 !important; font-family: "Proxima Nova Bold",sans-serif; font-size: 18px}
+#WidgetMiddleBox ol {padding: 15px 30px} 
+#WidgetMiddleBox ol li {text-align: left; border-bottom: none; padding-left: 0; font-family: "Proxima Nova", sans-serif; padding-bottom: 10px; line-height: 22px}
+/*end hall view instructions*/
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    margin-top: 80px
+  }
+}
+
+@media (max-width: 992px) {
+  .vjf-header .col-md-3 {text-align: center; position: relative}
+  .vjf-header .wrap-header, .home-wrapper, .footer-container, .footer-container .left, .footer-container .right {
+    width: 100%
+  }
+  .main-nav, .home-container, .home-wrapper .body-container, .banner_wrapper {width: 96%}
+  .bighrader-bg, .banner_container .thumbScroller,
+  .main-wrapper, .banner_container .thumbScroller .container, .view-booth-bg, .view-booth-bg img, .bighrader-bot-bg {
+    width: 100%
+  }
+  .view-booth-bg {height: auto}
+  .view-booth-bg img {margin-top: 35px; margin-bottom: 20px}
+  .Main-Large-View-Booth-Class-Ash .body-container {height: auto}
+  .TabsContainerForAllBooths {width: 100% !important}
+
+  
+  .icon-nav {width: 24px; height: 24px; background-size: 24px 24px; margin-right: 5px}
+  
+  .main-nav {height: auto; margin-top: 15px; font-size: 14px}
+  .main-nav ul li {width: 49%}
+  .main-nav ul li:nth-child(even) {border-right: none}
+  .body-wrapper {height: 500px}
+  #vjfModal .modal-dialog {width: 95%}
+  .progace-bar, .progace-bar .right {width: 91% !important}
+  #SecondPageLoader {margin: 208px 0 0 8px !important}
+  .top-search {margin-bottom: 10px; margin-top: 10px}
+  
+  .menu-top {float: none; text-align: center; display: none}
+  .menu-top .nav-tabs {border-left: none; display: inline-block; float: none}
+  .menu-top .nav-tabs .dropdown-menu {margin: 1px auto 0 15px; width: 90%}
+  .short-menu {display: inline-block; position: absolute; top:20px; right: 3px}
+  .navbar-default {background: none; border: none; margin-bottom: 0; float: right}
+  .navbar-header {margin: 0 !important}
+  .navbar-toggle {margin: 5px 0 0}
+  .navbar-collapse.collapse.in {display: block !important}
+  .navbar-collapse {padding: 0; text-align: left; font-size: 14px; background: #e1e1e1; margin-top: 15px}
+  .navbar-collapse ul.nav {border-top: 1px solid #ddd}
+  .navbar-collapse ul li:first-child {padding: 6px 0; padding-left: 15px}
+  .navbar-collapse ul li {display: block; float: none; border-bottom: 1px solid #eee}
+  .navbar-collapse ul li a {font-size: 14px}
+  
+  .vjf-modal .modal-body  {min-height: 100%; max-height: 100%; padding: 5px 5px 15px}
+  
+  .bighrader-bot-bg {position: relative}
+  .bighrader-bot-bg .pre-but {position: absolute; left:0; top:0; width: 50px}
+  .bighrader-bot-bg .next-but {position: absolute; right:5px; top:0; width: 50px}
+  .all-buts-container {float: none; width: 100%; margin: 6px 60px 0 61px; display: none}
+  #tabs1 > ul > li > a {padding: 15px 10px 15px 40px; background-position: 10px center}
+  .home-container .user-online-container {width: 100% !important; margin-top: 15px}
+  
+  .all-buts-container.mob-booth-menu {display: block; width: auto}
+  .mob-booth-menu .navbar-nav {margin: 0}
+  .mob-booth-menu .navbar-nav > li > a {padding: 0}
+  .mob-booth-menu .navbar-nav .open .dropdown-menu {position: absolute; background: #f2f2f2}
+  .mob-booth-menu .navbar-nav .open .dropdown-menu li {border-bottom: 1px solid #ccc}
+  .mob-booth-menu .navbar-nav .open .dropdown-menu li:last-child {border-bottom: none}
+  .mob-booth-menu .navbar-nav .open .dropdown-menu li a {color: #333; font-size: 14px; font-family: Arial; font-weight: bold}
+  .mob-booth-menu .all-but {padding: 9px 12px 10px; height: 34px}
+  .bighrader-left-arrow, .bighrader-right-arrow {display: none !important}
+}
+@media (max-width: 767px) {
+  #sponsor-section {text-align: center}
+  #sponsor-section img {width:200px !important}
+  .vjf-header .col-md-3 {text-align: center}
+  
+  .cinema .view-webinars {padding: 0}
+  .cinema .view-webinars a {display: inline-block; width: 100%; min-height: 200px}
+  .home-container .left {float: none}
+  .cinema {background-image: url(//vepimg.b8cdn.com/uploads/vjf/common/bgwebinar-sm.jpg); margin: 0 7px}
+  marquee {margin: 0 5px}
+  .welcome-text {width: 96%}
+  .lobby-3d {display: none !important}
+  .hall-wrap {display: block !important}
+}
+
+@media (max-width: 640px) {
+  #tabs1 > ul > li > a {padding: 13px 10px 13px 30px; background-size: 16px 16px !important; font-size: 13px}
+  .tab-video ul li span {font-size: 12px; max-height: 30px; overflow: hidden; max-width: 60%; text-overflow: ellipsis; white-space: nowrap}
+  
+  .webinar-qa iframe, .webinar-qa #vd-vault-1 {width: 65%}
+  .qa-section {width: 35%; height: 92%}
+  .qa-input-field {padding-right: 0}
+  .qa-input textarea {height: 70px}
+  .qa-input input {position: relative; top: auto; right: auto}
+}
