@@ -61,11 +61,15 @@ class OtpController extends Controller
         if($currectOtp == $enterdeOtp)
         {
             User::where('mobile',$authNumber)->update(['mobile_verification' => 'Yes']);
-            return redirect()->route('dashboard')->with(['msg' => 'Enter Correct OTP!']);
+            if(Auth::user()->compilation_status == 'Done') {
+                return redirect()->route('dashboard')->with(['status'=>'success', 'msg' => 'OTP Validated Successfully.']);
+            } else {
+                return redirect()->route('createprofile')->with(['status'=>'success', 'msg' => 'OTP Validated Successfully.']);
+            } 
         }
         else
         {
-            return redirect()->route('otpverification')->with(['msg' => 'Enter Correct OTP!']);
+            return redirect()->route('otpverification')->with(['status'=>'error', 'msg' => 'Enter Correct OTP!']);
         }
         
 

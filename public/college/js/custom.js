@@ -1,6 +1,10 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+$(".myadmin-alert .closed").click(function(event) {
+    $(this).parents(".myadmin-alert").fadeToggle(350);
 
+    return false;
+});
 $(document).ready(function () {
 
     "use strict";

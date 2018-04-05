@@ -115,6 +115,18 @@
                     @yield('content')
                     <!-- /.container-fluid -->
                     <footer class="footer text-center"> 2018 &copy; By ZRMindzGlobal </footer>
+
+                    {{-- ## Notification  --}}
+                    @if (session('msg') && session('status'))
+                    <div class="myadmin-alert myadmin-alert-img myadmin-alert-click myadmin-alert-top alerttop2 {{ session('status')=='error'? 'alert-danger':'alert-success'}}" style="display:block">
+                            {{-- <img src="../plugins/images/users/genu.jpg" class="img" alt="img"> --}}
+                            <h4>{{ session('status') }}</h4>
+                            <b>{{ session('msg') }}</b> 
+                            <a href="#" class="closed">&times;</a>
+                        </div>
+                    @endif
+                </div>
+                    
                 </div>
         </div>
         <!-- jQuery -->
