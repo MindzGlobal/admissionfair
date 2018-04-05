@@ -60,13 +60,14 @@ class OtpVerificationController extends Controller
             
             Click here to become Smart Investor/Earner 08049202111";
 
-            $student=Student::where('mobile',$mobile)->value('student_id');
-            $UserVerification=UserVerification::firstOrNew(['unique_id'=>$student->student_id]);
+            $studentId=Student::where('mobile',$mobile)->value('student_id');
+            $UserVerification=UserVerification::firstOrNew(['unique_id'=>$studentId]);
             
-            $UserVerification->unique_id = $student->student_id;
+            $UserVerification->unique_id = $studentId;
             $UserVerification->mobile_token = $OTP;
             if($UserVerification->save()){
                 $this->sendSMS($mobile, $message);
+               
                 return redirect()->back()->withErrors(['status'=>'success','message'=>'Success ,New Otp has sent to your Registered Mobile Number']);
             }
             return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);
