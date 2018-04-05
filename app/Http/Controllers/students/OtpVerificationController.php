@@ -61,7 +61,7 @@ class OtpVerificationController extends Controller
             Click here to become Smart Investor/Earner 08049202111";
 
             $student=Student::where('mobile',$mobile)->value('student_id');
-            $UserVerification=StudentGraduationDetails::firstOrNew(['student_id'=>$student->student_id]);
+            $UserVerification=UserVerification::firstOrNew(['unique_id'=>$student->student_id]);
             
             $UserVerification->unique_id = $student->student_id;
             $UserVerification->mobile_token = $OTP;
