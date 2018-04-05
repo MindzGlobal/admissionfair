@@ -126,39 +126,6 @@ marquee {background: #fff; color: #171717; padding: 10px; margin: 0 45px}
     position: relative; 
     margin-bottom: 5px;
 }
-.file-upload-input {
-    width: 245px;
-    color: #000;
-    font-size: 14px;
-    padding: 11px 17px; 
-    border: none;
-    background-color: rgb(249, 249, 249);
-    background: rgb(249, 249, 249);
-    @include transition(all 0.2s ease-in); 
-    float: left; /* IE 9 Fix */
-    &:hover, &:focus { 
-        outline: none; 
-    }
-}
-.file-upload-button {
-    font-weight: bold;
-    cursor: pointer; 
-    display: inline-block; 
-    color: rgb(255, 255, 255);
-    background: rgb(0, 87, 166);
-    font-size: 11px !important;
-    min-width: 170px;
-    max-width: 170px;
-    text-transform: uppercase;
-    padding: 11px 20px; 
-    border: none;
-    margin-left: -1px;  
-    float: left; /* IE 9 Fix */
-    @include transition(all 0.2s ease-in);
-    &:hover {
-    }
-}
-
 
 .ash-small-table {
     width: 550px;
@@ -685,7 +652,7 @@ h1.info-tab-head {font-family: 'Proxima Nova Bold', sans-serif !important; font-
 /* end lobby3d */
 
 /*hall view instructions*/
-#WidgetMiddleBox {padding: 0 !important; overflow-x: hidden; overflow-y: auto}
+#WidgetMiddleBox {padding: 0 !important;}
 #WidgetMiddleBox h1 {background: #003fa9; color: #fff; padding: 12px 15px; margin: 0; border-bottom: 1px solid #535353 !important; font-family: "Proxima Nova Bold",sans-serif; font-size: 18px}
 #WidgetMiddleBox ol {padding: 15px 30px} 
 #WidgetMiddleBox ol li {text-align: left; border-bottom: none; padding-left: 0; font-family: "Proxima Nova", sans-serif; padding-bottom: 10px; line-height: 22px}

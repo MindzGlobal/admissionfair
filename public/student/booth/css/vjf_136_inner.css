@@ -120,7 +120,7 @@ marquee, .win-a-prize {display: none}
 /* NEW HALL */
 #hallview .body-container, .banner_wrapper, .banner_wrapper .banner_container, .banner_container .thumbScroller, 
 .banner_container .thumbScroller > .container, .banner_container .thumbScroller .content, .banner_container .thumbScroller .content .bg {
-  height: 519px !important;
+  height: 370px !important;
 }
 .find-job-bayt-logo {width: 153px !important; margin: 0 auto !important}
 .find-job-bayt-logo .video {background: transparent; padding: 0; margin: 38px 3px 0 0 !important}
@@ -132,7 +132,7 @@ marquee, .win-a-prize {display: none}
 /*.banner_container .thumbScroller .content .bg table td.leicester-booth:nth-child(odd) {margin-top: 90px}
 .banner_container .thumbScroller .content {min-width: 665px; width: 665px}
 .thumbs .logo-container {width: 182px}*/
-.banner_container .thumbScroller .content .bg table td.leicester-booth:nth-child(odd) {margin-top:20%;}
+.banner_container .thumbScroller .content .bg table td.leicester-booth:nth-child(odd) {margin-top:30%;}
 .banner_container .thumbScroller .content {min-width: 540px; width: 540px}
 .thumbs .logo-container {width: 265px}
 .view-booth-bg {text-align: center; padding: 20px 0; background-size: auto; background-image: url(//vepimg.b8cdn.com//uploads/vjf/162-intac-expo/backdrop-hall.jpg?v=2) !important; background-position: left bottom}
