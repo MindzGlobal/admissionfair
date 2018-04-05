@@ -3,13 +3,13 @@
 
 @section('css')
     <style type="text/css">
-    <style>
+
       .btn-default {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
-    width: 113%;
-    height: 100px;
+    width: 113%!important;
+    height: 100px!important;
 }
 .col-md-3 {
     width: 36%;
@@ -36,6 +36,16 @@ background: #15030394;
     margin-left: -5px;
     margin-top: -1%;
 }
+.bg
+{
+    height:620px!important;
+}
+
+.pos
+{
+    position:absolute;
+    top:8% 
+}
    </style>
 
     @endsection
@@ -44,11 +54,11 @@ background: #15030394;
 
 @section('content')
        <!-- Strat Banner Section -->
-       <div class=" padding-bt-150 banner-height" style="background:url({{ asset('student/booth/images/booth.jpg')}});">
+       <div class=" padding-bt-150 banner-height bg" style="background:url({{ asset('student/booth/images/booth.jpg')}});">
             <div class="container">
             
                         <!-- Strat Banner Section -->
-                        <div class=" padding-bt-150" style="position: fixed;top:8%;">
+                        <div class=" padding-bt-150 pos">
                          <div class="container">
                       <div class="page-title-box">
                       <h3>Single Booth-College</h3>
@@ -56,9 +66,9 @@ background: #15030394;
                       </div>
                            <!-- particles.js container -->
                            <div class="col-md-6">
-                              <img src="{{ asset('student/booth/images/single.png')}}" alt="">
+                              <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
                                           <div class="col-md-3">
-                              <button class="btn-default">Video Gallery</button>
+                              <button class="btn-default dg">Video Gallery</button>
                               </div>
                               <div class="col-md-3">
                                   <button class=" btn-default">Image Gallery</button>
