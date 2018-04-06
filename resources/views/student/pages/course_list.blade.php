@@ -31,7 +31,7 @@
                <div class="col-md-12">
                   <div class="category bg-white">
                      <form>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-9">
                            <label>Engineering Courses</label>
                            <select class="form-control">
                               <option>Computer Science Engineering </option>
@@ -40,9 +40,6 @@
                               <option>Mechanical Engineering</option>
                               <option>TeleCommunication Engineering</option>
                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                           <input type="submit" name="Apply" value="Apply" class="form-submit btn">
                         </div>
                      </form>
                   </div>
@@ -183,7 +180,7 @@
                               <span class="input-group-addon">
                               <i class="fa fa-user"></i>
                               </span>
-                              <input class="form-control" type="text" placeholder="Your Name">
+                              <input class="form-control" type="text" placeholder="Course Name">
                            </div>
                         </div>
                         <div class="form-group">
@@ -191,7 +188,7 @@
                               <span class="input-group-addon">
                               <i class="fa fa-envelope-o"></i>
                               </span>
-                              <input class="form-control" type="email" placeholder="Email address">
+                              <input class="form-control" type="email" placeholder="Department Name">
                            </div>
                         </div>
                         <div class="form-group">

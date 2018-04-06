@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+<<<<<<< HEAD
+use File;
+=======
 use App\Model\UserVerification;
 use Illuminate\Support\Str;
+>>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
 
 class CollegeController extends Controller
 {
@@ -28,17 +32,27 @@ class CollegeController extends Controller
             if($mobileVerificationStatus == 'No'){
                 return redirect()->route('otpverification');
             } 
-            else if(Auth::user()->compilation_status!='Done') {
-              if(Route::currentRouteName() != 'createprofile'){
-                return redirect()->route('createprofile');
-              }
-            }
+            // else if(Auth::user()->compilation_status!='Done') {
+            //   if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile'))){
+            //     return redirect()->route('createprofile');
+            //   }
+            // }
             return $next($request);
         });
     }
 
     protected function createprofile(){
       return view('college.create_profile');
+    }
+
+    public function select_booth()
+    {
+      return view('college.select_booth');
+    }
+
+    public function packegeview()
+    {
+      return view('college.subscribe_price');
     }
 
     public function insertProfile(Request $request)
@@ -54,14 +68,18 @@ class CollegeController extends Controller
       $clgDetais->college_email = Input::get('email');
       $clgDetais->college_number_1 = Input::get('mobile');
       $clgDetais->college_number_2 = Input::get('college_number_1');
+      $clgDetais->college_state = Input::get('state');
+      $clgDetais->college_city = Input::get('city');
+      $clgDetais->college_pincode = Input::get('pincode');
       $clgDetais->state = Input::get('state');
-      $clgDetais->pincode = Input::get('pincode');
       $clgDetais->city = Input::get('city');
+      $clgDetais->pincode = Input::get('pincode');
       $clgDetais->website = Input::get('website');
-      $clgDetais->university_name = Input::get('university_name');
+      $clgDetais->university_name = Input::get('college_type')!='Autonomous' ? Input::get('university_name') : '';
       $clgDetais->college_type = Input::get('college_type');
       $clgDetais->college_category = $str_clgDetais;
       $clgDetais->college_address = Input::get('college_address');
+      $clgDetais->compilation_status = 'Done';
       $img = Input::file('college_img');
       $video = Input::file('college_video');
       $brochure = Input::file('college_brochure');
@@ -121,6 +139,7 @@ class CollegeController extends Controller
         }
 
         $insertData[] = [
+          'reg_id'  => Auth::user()->reg_id,
           'course_offer'  => $course_offer[$i],
           'course_duration'   => $course_duration[$i],
           'course_total_fee'  => $course_total_fee[$i],
@@ -155,9 +174,15 @@ class CollegeController extends Controller
       $user->college_email = $request->Input('email');
       $user->college_number_1 = $request->Input('mobile');
       $user->college_number_2 = $request->Input('college_number_1');
+
       $user->state = $request->Input('state');
       $user->city = $request->Input('city');
       $user->pincode = $request->Input('pincode');
+
+      $user->college_state = Input::get('state');
+      $user->college_city = Input::get('city');
+      $user->college_pincode = Input::get('pincode');
+
       $user->website = $request->Input('website');
       $user->college_address = $request->Input('college_address');
       $user->save();
@@ -169,9 +194,9 @@ class CollegeController extends Controller
       $reg_id = Auth::user()->reg_id;
 
       $user = CollegeDetail::find($id);
-      $user->university_name = $request->Input('university_name');
+      $user->university_name = $request->Input('college_type')!='Autonomous' ? $request->Input('university_name') : '';
       $user->college_type = $request->Input('college_type');
-      $user->$str_clgDetais = explode (",", $request->Input('college_category'));
+      $user->college_category = implode(",", $request->Input('college_category'));
       
         if($img=$request->file('college_img'))
         {
@@ -275,7 +300,7 @@ class CollegeController extends Controller
         $msg = "Some Error Occurred!";
       }
 
-      return $this->Result($res,$msg);
+      return redirect("college/package");
     }
 
 
