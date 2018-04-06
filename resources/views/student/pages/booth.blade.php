@@ -16,7 +16,7 @@
 }
 	</style>
 </head>
-<body>
+<body style="background:darkgray!important;">
     <div class="main">
         <div class="first text-center fadeIn">
             <center>
@@ -132,16 +132,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav nav-tabs">
-          <li>
-            <img src="https://vepimg.b8cdn.com/uploads/vjf/common/default-user.png" class="user-dp" alt="Avatar">&nbsp;
-       Rooopa A   </li>
-                               <li>
-            <a href="Javascript:;" class="ShowMyResume" title="My Resume"><span class="glyphicon glyphicon-file"></span>Resume</a>
-           </li>
-            
-          <li>
-            <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-          </li>
+        <li>
+              <a href="#" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
+            </li>
+            <li>
+              <a href="#" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
+            </li>
+            <li>
+              <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
         </ul>
       </div><!-- /.navbar-collapse -->
       
@@ -166,7 +165,10 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="Javascript:;" class="ShowMyResume" title="My Resume"><span class="glyphicon glyphicon-file"></span> Resume</a>
+              <a href="#" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
+            </li>
+            <li>
+              <a href="#" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
             </li>
             <li>
               <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
