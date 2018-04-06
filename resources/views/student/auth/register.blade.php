@@ -110,7 +110,7 @@
                 </form>
             </div>
         </div>
-    @include('alerts')
+ 
     </section>
     <!-- jQuery -->
     <script src="{{ asset('college/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
@@ -130,5 +130,5 @@
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
     
 </body>
-
+@include('alerts')
 </html>

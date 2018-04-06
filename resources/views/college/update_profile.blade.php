@@ -19,6 +19,11 @@
     .tabs-style-bar nav ul li a{
     background-color: #03a9f3;
     }
+    .doc{
+    margin-top: -33px!important;
+    font-size: 11px;
+    color: red;
+    }
 </style>
 @endsection
 
@@ -49,7 +54,7 @@
                                     <div class="content-wrap">
                                       <!--Tab section1-->
                                         <section id="section-bar-1">
-                                          <form method="post" action="{{ url('college/updatecollegedetails') }}">
+                                          <form method="post" id="validation" action="{{ url('college/updatecollegedetails') }}">
                                           @csrf                                         
                                           <div class="wizard-pane active" role="tabpanel">
                                           <div class="col-md-6">
@@ -156,53 +161,56 @@
                                         </section>
                                         <!--Tab section 2-->
                                         <section id="section-bar-2">
-                                          <form method="post" action="{{ url('college/updatecollegecourse')}}">
+                                          <form method="post" action="{{ url('college/updatecollegecourse')}}" enctype="multipart/form-data">
                                           @csrf
                                           <div class="wizard-pane active" role="tabpanel">
 
                                              <div class="col-md-6">
                                                 <div class="form-group">
-                                                   <label class="col-xs-3 control-label">Type Of College</label><br>
-                                                   <div class="col-xs-5">
-                                                      <label for="chkYes">
-                                                      <input type="radio" id="chkYes" name="chk" value="" onclick="ShowHideDiv()" />
-                                                      Affilated To
-                                                      </label>&nbsp
-                                                      <label for="chkNo">
-                                                      <input type="radio" id="chkNo" name="chk" value="" onclick="ShowHideDiv()" />
-                                                      Autonomous
-                                                      </label>&nbsp
-                                                      <label for="chkYes1">
-                                                      <input type="radio" id="chkYes1" name="chk" value="" onclick="ShowHideDiv()" />
-                                                      Both
-                                                      </label>
+                                                    <label class="col-xs-3 control-label">Type Of College</label><br>
+                                                    <div class="col-xs-5">
+                                                        <label for="chkYes">
+                                                        <input type="radio" id="chkYes" name="college_type" value="Affilated To" value="Aluminum" onclick="ShowHideDiv('show')" checked
+                                                        {{ $user->college_type == 'Affilated To' ? 'checked' : '' }}  />
+                                                        Affilated To
+                                                        </label>&nbsp
+                                                        <label for="chkNo">
+                                                        <input type="radio" id="chkNo" name="college_type" value="Autonomous" onclick="ShowHideDiv('hide')" 
+                                                        {{ $user->college_type == 'Autonomous' ? 'checked' : '' }} />
+                                                        Autonomous
+                                                        </label>&nbsp
+                                                        <label for="chkYes1">
+                                                        <input type="radio" id="chkYes1" name="college_type" value="Both" onclick="ShowHideDiv('show')" 
+                                                        {{ $user->college_type == 'Both' ? 'checked' : '' }} />
+                                                        Both
+                                                        </label>
+                                                    
+                                                        <div id="dvtext" style="display:none;">
+                                                        Type University Name:
+                                                        <input class="form-control" type="text" name="university_name" id="txtBoxUn" value="{{ $user->university_name }}"/>
+                                                        </div>
 
-                                                      <div id="dvtext" style="display: none">
-                                                         Type University Name:
-                                                         <input class="form-control textbox" type="text" id="txtBox" />
-                                                      </div>
 
+                                                        <!-- <div id="dvtext1" style="display: none">
+                                                        Type University Name:
+                                                        <input class="form-control" name="university_name1" type="text" id="txtBox" />
+                                                        </div> -->
 
-                                                      <div id="dvtext1" style="display: none">
-                                                         Type University Name:
-                                                         <input class="form-control textbox" type="text" id="txtBox" />
-                                                      </div>
-
-                                                   </div>
+                                                    </div>
                                                 </div>
-                                             </div>
+                                            </div>
 
                                              <div class="col-md-6">
                                                 <div class="form-group">
-                                                   <label class="col-xs-3 control-label">Type Of College:</label><br>
-                                                   <div class="col-xs-5">
-                                                      <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Technology</label>
-                                                      <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Medical</label>
-                                                      <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Management</label>
-                                                      <label class="checkbox-inline"><input type="checkbox" value="" name="optradio">Arts</label>
-                                                   </div>
+                                                    <label class="col-xs-3 control-label">catagory Of College:</label><br>
+                                                    <div class="col-xs-5">
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]">Technology</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]">Medical</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]">Management</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]">Arts</label>
+                                                    </div>
                                                 </div>
-                                             </div>
+                                            </div>
 
 
                                                 <div class="input_fields_wrap1">
@@ -211,16 +219,13 @@
                                                   <div class="form-group">
                                                   <div class="col-md-12">
                                                       <label class="col-xs-3 control-label">Add Courses:</label> <br>
-                                                      <div class="col-xs-5">
-
+                                                        <div class="col-xs-5">
                                                               <div class="col-md-3">Courses Offered:</div>
-                                                              <div class="col-md-2">Course duration:</div>
-                                                              <div class="col-md-2">Fee Structure:</div>
-                                                              <div class="col-md-3">
-                                                              <div class="col-md-6">Old File:</div>
-                                                              <div class="col-md-6">Upload Doc:</div>
-                                                              </div>
-                                                          </div>
+                                                              <div class="col-md-3">Course duration:</div>
+                                                              <div class="col-md-3">Fee Structure:</div>
+                                                              <div class="col-md-3">Upload Doc:</div>
+                                                        </div>
+                                                            
                                                             @foreach($courseoffer as $courseoffer)
                                                               <div class ="col-md-3">
                                                                   <div class="form-group">
@@ -228,30 +233,25 @@
                                                                   </div>
                                                               </div>
 
-                                                              <div class ="col-md-2">
+                                                              <div class ="col-md-3">
                                                                   <div class="form-group">
                                                                   <input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" value="{{ $courseoffer->course_duration }}">
                                                                   </div>
                                                               </div>
 
-                                                              <div class ="col-md-2">
+                                                              <div class ="col-md-3">
                                                                   <div class="form-group">
                                                                   <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" value="{{ $courseoffer->course_total_fee }}">
                                                                   </div>
                                                               </div>
 
-                                                              <div class ="col-md-5">
-                                                                  <div class="col-md-4">
-                                                                  <div class="form-group">
-                                                                  <input type="text" class="form-control textbox" name="fee_structure_file_name[]" value="{{ $courseoffer->fee_structure_file_name }}">
-                                                                  </div>
-                                                                  </div>
-                                                                  <div class="col-md-8">
+                                                              <div class ="col-md-3">
                                                                   <div class="form-group">
                                                                   <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
                                                                   </div>
-                                                                  </div>
+                                                                  <p class="pull-right doc">selcted document*  {{ $courseoffer->fee_structure_file_name }}</p>
                                                               </div>
+                                                              
 
                                                               <div class ="col-md-12">
                                                                   <label class="col-xs-3 control-label">Add Departments</label><br>
@@ -276,22 +276,22 @@
                                         </section>
                                         <!--Tab section 3-->
                                         <section id="section-bar-3">
-                                        <form method="post" action="{{ url('college/updatecollegemedia')}}" enctype="multipart/form">
-                                        @csrf
+                                        <form method="post" action="{{ url('college/updatecollegemedia')}}" enctype="multipart/form-data">
+                                          @csrf
                                           <div class="wizard-pane active" role="tabpanel">
                                             <div class="form-group">
                                                 <div class="row">
                                                 <div class="col-sm-6 ol-md-6 col-xs-12">
                                                 <div class="white-box">
                                                 <h3 class="box-title">College Images</h3>
-                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M"/>
+                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M" data-default-file="{{ asset($user->college_img) }}"/>
                                                 <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                                 </div>
                                                 </div>
                                                 <div class="col-sm-6 ol-md-6 col-xs-12">
                                                 <div class="white-box">
                                                 <h3 class="box-title">College Videos</h3>
-                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_video" accept="" data-max-file-size="2M" data-default-file="{{ asset($user->college_img) }}"/>
+                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_video" accept="" data-max-file-size="2M" data-default-file="{{ asset($user->college_video) }}"/>
                                                 <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                                 </div>
                                                 </div>
@@ -300,7 +300,7 @@
                                                 <div class="col-sm-12 ol-md-12 col-xs-12">
                                                 <div class="white-box">
                                                 <h3 class="box-title">College Brochures</h3>
-                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_brochure" data-max-file-size="2M" data-default-file="{{ asset($user->college_img) }}"/>
+                                                <input type="file" id="input-file-max-fs" class="dropify" name="college_brochure" data-max-file-size="2M" data-default-file="{{ asset($user->college_brochure) }}"/>
                                                 <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                                 </div>
                                                 </div>

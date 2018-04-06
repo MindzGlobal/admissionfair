@@ -59,6 +59,14 @@
                             <p>Already have an account? <a href="{{ url('college/login') }}" class="text-primary m-l-5"><b>Sign In</b></a></p>
                         </div>
                     </div>
+                    @if (session('msg') && session('status'))
+                    <div class="myadmin-alert myadmin-alert-img myadmin-alert-click myadmin-alert-top alerttop2 {{ session('status')=='error'? 'alert-success':'alert-danger'}}" style="display:block">
+                            {{-- <img src="../plugins/images/users/genu.jpg" class="img" alt="img"> --}}
+                            <h4>{{ session('status') }}</h4>
+                            <b>{{ session('msg') }}</b> 
+                            <a href="#" class="closed">&times;</a>
+                        </div>
+                    @endif
                 </form>
             </div>
         </div>

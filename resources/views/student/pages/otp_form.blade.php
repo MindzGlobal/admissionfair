@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('college/images/favicon.png') }}">
-    <title>Register|Virtual Admission Fair</title>
+    <title>OTP Verify|Virtual Admission Fair</title>
      <!-- Bootstrap Core CSS -->
      <link href="{{ asset('college/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
      <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
@@ -32,15 +32,17 @@
                     <a href="javascript:void(0)" class="text-center db"><br/><img src="{{ asset('college/images/logo.png') }}" alt="" style="width: 250px;"/></a>
                     <h3 class="box-title m-t-40 m-b-0">Verify Now</h3><small>Access your account and enjoy</small>
                     <div id="regForm">
-                        <div class="form-group m-t-20">
+                        @if(Session::has('mobile'))
+                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                               <input type="hidden"  name="userMobile" class="form-control" value="{{$mobile}}">
-                               <input type="text"  name="userMobile1" class="form-control" value="{{$mobile}}"  disabled>
+                               <input type="hidden"  name="userMobile" class="form-control" value="{{Session::get('mobile')}}">
+                               <input type="text"  name="userMobile1" class="form-control" value="{{Session::get('mobile')}}"  disabled>
                             </div>
-                        </div>
+                         </div>
+                        @endif
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <input id="name" type="text" class="form-control" name="otp" value="" placeholder="Enter OTP"  autofocus>
+                                <input id="otp_value" type="text" class="form-control" name="otp_value"  placeholder="Enter OTP"  autofocus>
                                 @if (session('msg'))
                                     <span class="invalid-feedback">
                                         <strong>{{ session('msg') }}</strong>
@@ -48,7 +50,7 @@
                                 @endif
                             </div>
                             <div class="col-xs-12">
-                                <a href="{{ route('student.resendotp') }}"  class="pull-right m-t-10 loading" ><b><i class="fa fa-undo"></i> Resend OTP</b></a>
+                                <a href="{{ route('student.resendotp',['mobile'=>Session::get('mobile')]) }}"  class="pull-right m-t-10 loading" ><b><i class="fa fa-undo"></i> Resend OTP</b></a>
                             </div>
                         </div>
 
@@ -68,11 +70,13 @@
                 </form>
             </div>
         </div>
-        @include('alerts')
+       
     </section>
-    <!-- jQuery -->
+    <!-- Import Jquery Min Js -->
+    <script type="text/javascript" src="{{ asset('student/js/jquery.min.js')}}"></script>
+    {{-- <!-- jQuery -->
     <script src="{{ asset('college/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
-    <!-- Bootstrap Core JavaScript -->
+    <!-- Bootstrap Core JavaScript --> --}}
     <script src="{{ asset('college/bootstrap/dist/js/tether.min.js') }}"></script>
     <script src="{{ asset('college/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
@@ -89,5 +93,5 @@
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
     <script src="{{ asset('college/js/all.ajax.js') }}"></script>
 </body>
-
+@include('alerts')
 </html>
