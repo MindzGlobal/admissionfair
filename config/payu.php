@@ -51,15 +51,15 @@ return [
         |
         */
         'payubiz' => [
-            'key' => 'eBuDeEBa',
-            'salt' => '2JrkOUrvPY',
+            'key' => '',
+            'salt' => '',
             'money' => false,
             'auth' => null
         ],
 
         'payumoney' => [
-            'key' => 'eBuDeEBa',
-            'salt' => '2JrkOUrvPY',
+            'key' => '',
+            'salt' => '',
             'money' => true,
             'auth' => null
         ],
