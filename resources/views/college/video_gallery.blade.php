@@ -39,6 +39,11 @@
    max-width: 100%;
    height: auto;
    }
+      .v{
+        border:2px solid #8e8e8e;
+        width:300px;
+        height:240px;
+        }
 </style>
 @endsection
 @section('content')
@@ -90,7 +95,7 @@
                            <div class="img-wrap">
                               <span onClick=delFiles("{{ url('college/deletevideogallery/'.$user->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>
                               <a href="{{ asset($user->file_url) }}" class="popup-youtube" >
-                                 <video  controls>
+                                 <video class="v" controls>
                                     <source src="{{ asset($user->file_url) }}" type="video/mp4" class="all landscape" />
                               </a>
                               </video>

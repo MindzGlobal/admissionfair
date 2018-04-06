@@ -30,7 +30,8 @@ CONTENTS:
     height: 521px;
     max-width: 100%;
     outline: none;
-    direction: ltr;
+	direction: ltr;
+	margin-top:-4%;
 	}
 
 	.mTSContainer{

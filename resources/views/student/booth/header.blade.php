@@ -207,11 +207,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-1">
                                                                 {{-- <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here--> --}}
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-1"><img class="Top-Tv-Player" id="Top-Video-1" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                             
                                                                 <table id="MainBoothTable-1" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-1">
@@ -255,11 +251,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-2">
                                                                 {{-- <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here--> --}}
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-2"><img class="Top-Tv-Player" id="Top-Video-2" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                            
                                                                 <table id="MainBoothTable-2" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-2">
@@ -304,11 +296,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-3">
                                                                 {{-- <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here--> --}}
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-3"><img class="Top-Tv-Player" id="Top-Video-3" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                          
                                                                 <table id="MainBoothTable-3" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-3">
@@ -352,11 +340,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-4">
                                                                 {{-- <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here--> --}}
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-4"><img class="Top-Tv-Player" id="Top-Video-4" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                         
                                                                 <table id="MainBoothTable-4" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-4">
@@ -400,11 +384,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-5">
                                                                 {{-- <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here--> --}}
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-5"><img class="Top-Tv-Player" id="Top-Video-5" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                          
                                                                 <table id="MainBoothTable-5" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-5">
@@ -447,11 +427,7 @@
                                                             <div class="bg" id="BoothsAndThumbContainer-9">
                                                                 <!--div class="person-1"></div-->
                                                                 <!-- Progace bar start here-->
-                                                                <div class="find-job-bayt-logo">
-                                                                    <div class="video">
-                                                                        <a class="Top-Videos-List-Tv" href="javascript:;" id="TopBanner-Video-9"><img class="Top-Tv-Player" id="Top-Video-9" src="" style="width: 144px;height: 84px; float: right;"></a>
-                                                                    </div>
-                                                                </div>
+                                                        
                                                                 <table id="MainBoothTable-9" cellpadding="0" cellspacing="0" border="0">
                                                                     <tbody>
                                                                         <tr id="BeforeBooths-9">
@@ -594,7 +570,7 @@
       <div class="right" id="WidgetRightBox">
    <a href="javascript:;" onclick="launchChatWindow('Public Chat', 111);"></a></div>
    </a>
-   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="javascript:;" onclick="showWebinarScreen();"><img src="http://vepimg.b8cdn.com//uploads/vjf/136-euromba/banner-1.png"></a></div>
+   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="javascript:;"><img src="http://vepimg.b8cdn.com//uploads/vjf/136-euromba/banner-1.png" style="width:45%;"></a></div>
    <div class="clear"></div>
 </div>
 </div>

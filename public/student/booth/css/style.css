@@ -700,7 +700,7 @@ font-weight: bold;
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
 	overflow:auto;
-	height:184px;
+	height:124px;
 	}
 .company-index-bot ul{
 	margin:1px 0px 0px 0px;
@@ -832,7 +832,7 @@ font-weight: bold;
 .home-container .right {
 	float:right;
 	width:284px;
-	height:211px;
+	height:164px!important;
 	background:#ffffff;
 	border:1px solid #e0e1e3;
 	margin:0px 0px 0px 0px;
@@ -1256,15 +1256,7 @@ font-weight: bold;
 	margin:10px auto 0px auto;
 	padding:0px 0px 0px 0px;
 	}
-.label {
-	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
-	text-align:left;
-	color:##636363;
-	font-size:12px;
-	font-family:'Helvetica Condensed';
-	letter-spacing:0.5px;
-	}
+
 .text-box{
 	margin:7px 0px 7px 0px;
 	padding:5px 5px 5px 5px;
