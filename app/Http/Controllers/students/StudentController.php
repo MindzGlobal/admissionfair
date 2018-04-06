@@ -38,7 +38,7 @@ class StudentController extends Controller
        
       $education_details=null;
       $graduation_details=null;
-       // if(Auth::user()->otp_verified>0){
+        if(Auth::user()->otp_verified>0){
             
          $education_details=StudentEducationDetails::where('student_id',Auth::user()->student_id)->first();
         
@@ -50,8 +50,8 @@ class StudentController extends Controller
          return redirect('student/addprofile')
                 ->with('success','Login Successfull ,Complete the form to proceed further');
     
-        // }
-        // return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
+        }
+        return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
 
     }
 

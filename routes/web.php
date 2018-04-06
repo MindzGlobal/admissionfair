@@ -60,13 +60,8 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 
-    Route::post('resetlogindetails','CollegeController@resetlogindetails');
-    Route::get('resetpwd','CollegeController@resetpwd');
-
-    // Route::get('validation','CollegeController@validation');
-    Route::post('changepwd','CollegeController@changepwd');
-
-
+    Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'AutoCompleteController@index'));
+    Route::get('searchajax',array('as'=>'searchajax','uses'=>'AutoCompleteController@autoComplete'));
 });
 
 
@@ -104,7 +99,6 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
     Route::get('booth','CollegeDetailsController@showBooth');
     Route::get('singlebooth/{reg_id}','CollegeDetailsController@showSinglebooth');
-    Route::get('{reg_id}/{dept_id}','CollegeDetailsController@showDepartment');
 
 
 });
@@ -112,10 +106,3 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-// Route::get('student/booth', function () {
-//     return view('student.pages.booth');
-// });
-// Route::get('student/singlebooth', function () {
-//     return view('student.pages.singlebooth');
-// });
-
