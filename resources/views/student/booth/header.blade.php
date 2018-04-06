@@ -502,7 +502,7 @@
             </div>
         </div>
     </div>
-<div class="home-container" id="osponsor-section" style="border: 10px solid #fff;padding:12px;">
+<div class="home-container" id="osponsor-section" style="border:4px solid #fff;padding:12px;">
    <div class="left">
       <div class="company-index-top AshToolTip" title="Company Index">
          <h1 id="CompanyIndexHeading" style="text-align: left;">College Index</h1>
@@ -520,9 +520,9 @@
    </div>
    <a href="#">
       <div class="right" id="WidgetRightBox">
-   <a href="javascript:;" onclick="launchChatWindow('Public Chat', 111);"></a></div>
+    <a href="#">  <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></a></div>
    </a>
-   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="javascript:;"><img src="http://vepimg.b8cdn.com//uploads/vjf/136-euromba/banner-1.png" style="width:45%;"></a></div>
+   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="#"><img src="{{ asset('student/images/virtual-logo.png')}}"  style="width:100%;"></a></div>
    <div class="clear"></div>
 </div>
 </div>

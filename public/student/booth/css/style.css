@@ -681,7 +681,7 @@ font-weight: bold;
 .company-index-top{
 	background:url(../images/company_index_bg.png) repeat-x;
 	width:310px;
-	height:37px;
+	height:60px;
 	margin:0px 0px 0px 0px;
 	padding:10px 0px 0px 0px;
 	}
@@ -832,7 +832,7 @@ font-weight: bold;
 .home-container .right {
 	float:right;
 	width:284px;
-	height:164px!important;
+	height:187px!important;
 	background:#ffffff;
 	border:1px solid #e0e1e3;
 	margin:0px 0px 0px 0px;

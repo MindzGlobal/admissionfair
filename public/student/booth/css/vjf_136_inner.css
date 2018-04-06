@@ -85,10 +85,10 @@ marquee, .win-a-prize {display: none}
 .vjf-header .logo {height: 60px;margin-left: -15px;margin-top: 1px;margin-bottom: 0px;}
 .vjf-header .col-md-4 {display: none}
 .vjf-modal .close {opacity: .7}
-.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #fcc911}
+.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #2a72a7}
 #tabs1 .ui-state-active, #tabs1 .ui-widget-content .ui-state-active, #tabs1 .ui-widget-header .ui-state-active {background: #002194; border-color: #daad0d}
 #tabs1 > ul  > li{border-color: #daad0d}
-.user-online-top, .company-index-top h1 {color: #555}
+.user-online-top, .company-index-top h1 {color: #fff}
 .company-index-top, .company-index-bot {width: 100%}
 #FancyLoaderBox {margin: 87px 46px !important}
 #SecondPageLoader {margin-top: 14px !important}
@@ -177,4 +177,8 @@ marquee, .win-a-prize {display: none}
   .main-nav ul li {border-bottom: 1px solid #324a9e}
   .Main-Large-View-Booth-Class-Ash .home-container .left {width: 100%}
   .home-container .user-online-container {width: 100% !important}
+}
+.right
+{
+  border:2px solid #2a72a7!important;
 }
