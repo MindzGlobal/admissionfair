@@ -98,13 +98,8 @@
                                               <div class="form-group">
                                                   <label class="col-xs-3 control-label">State</label>
                                                   <div class="col-xs-5">
-                                                      <select class="form-control" name="state" id="sel1" value="{{ $user->state }}">
-                                                      <option></option>
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                      <option>3</option>
-                                                      <option>4</option>
-                                                      </select>
+                                                      <input type="hidden" id="selectedState" value="{{ $user->state }}"/>
+                                                      <select class="form-control" name="state" id="listBox" onchange='selct_district(this.value)'></select>
                                                   </div>
                                               </div>
                                           </div>
@@ -113,12 +108,8 @@
                                               <div class="form-group">
                                                   <label class="col-xs-3 control-label">City</label>
                                                   <div class="col-xs-5">
-                                                      <select class="form-control" name="city" id="sel1" value="{{ $user->city }}">
-                                                      <option></option>
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                      <option>3</option>
-                                                      <option>4</option>
+                                                      <select class="form-control" name="city" id="secondlist">
+                                                        <option value="{{ $user->city }}" selected>{{ $user->city }}</option>
                                                       </select>
                                                   </div>
                                               </div>
@@ -190,24 +181,21 @@
                                                         <input class="form-control" type="text" name="university_name" id="txtBoxUn" value="{{ $user->university_name }}"/>
                                                         </div>
 
-
-                                                        <!-- <div id="dvtext1" style="display: none">
-                                                        Type University Name:
-                                                        <input class="form-control" name="university_name1" type="text" id="txtBox" />
-                                                        </div> -->
-
                                                     </div>
                                                 </div>
                                             </div>
 
                                              <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="col-xs-3 control-label">catagory Of College:</label><br>
+                                                    @php
+                                                        $cat = explode(',',$user->college_category);
+                                                    @endphp
+                                                    <label class="col-xs-3 control-label">catagory Of College: </label><br>
                                                     <div class="col-xs-5">
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]">Technology</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]">Medical</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]">Management</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]">Arts</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]" {{ in_array('Technology',$cat)? 'checked':''}}>Technology</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]" {{ in_array('Medical',$cat)? 'checked':''}}>Medical</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]" {{ in_array('Management',$cat)? 'checked':''}}>Management</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]" {{ in_array('Arts',$cat)? 'checked':''}}>Arts</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,7 +314,7 @@
 @section('js')
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('college/js/UpdateformValidation.js') }}"></script>
-    <script src="{{ asset('college/js/countries.js') }}"></script>
+    <script src="{{ asset('college/js/state.js') }}"></script>
     <script src="{{ asset('college/js/cbpFWTabs.js') }}"></script>
                    <script type="text/javascript">
                    (function() {

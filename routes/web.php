@@ -17,9 +17,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
 //Student Section ###############################################################################
 Route::get('college/demo', function () {
-    return view('college.create_profile');
+    return view('college.subscribe_price');
 });
-
+Route::post('pay','PaymentController@collegePay')->name('pay');
+Route::get('paystatus','PaymentController@status')->name('paystatus');
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
     Route::get('register','CollegeAuthController@register');
@@ -41,12 +42,20 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('deletevideogallery/{id}','videoController@deleteVideo');
 
     Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
-    Route::post('insertprofile','CollegeController@insertprofile');
+    Route::post('insertprofile','CollegeController@insertprofile')->name('insertprofile');
+
+    Route::get('select_booth','CollegeController@select_booth');
+    Route::post('insertBooth','CollegeController@insertBooth');
+
+    Route::get('package','CollegeController@packegeview');
 
     Route::get('update_profile','CollegeController@updateformprofile');
     Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
+
+    Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'AutoCompleteController@index'));
+    Route::get('searchajax',array('as'=>'searchajax','uses'=>'AutoCompleteController@autoComplete'));
 });
 
 //Student Section  ##############################################################################
@@ -84,5 +93,3 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-
-
