@@ -91,10 +91,10 @@
                         <div class="panel-body">
                         <ul class="disc">
                             @foreach($data['departments'] as $d_data)
-                            <li>{{ $d_data['Dept']}}</li>
+                        <li><a href="{{ url('student/'.$college->reg_id.'/'.$d_data->id.'')}}">{{ $d_data['Dept']}} {{$d_data->id}}</a></li>
                             @endforeach
                         </ul>
-                        <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>
+                        {{-- <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button> --}}
                         </div>
                     </div>
                 </div>
