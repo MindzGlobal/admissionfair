@@ -1,0 +1,585 @@
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .first {
+            background-image: url('https://amccollege.files.wordpress.com/2014/07/1.jpg');
+            background-position: initial;
+            position: absolute;
+            /* min-height: 100%; */
+            width: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -64;
+            transform: translateX(-50%) translateY(-50%);
+            transition: 1s opacity;
+        }
+        
+        .b {
+            position: relative;
+            top:66px;
+            color: #000;
+        }
+        
+        .ba {
+            position: relative;
+            top: 100px;
+            color: #fff;
+        }
+        
+        .third {
+            background-image: url(../images/help.jpg);
+            background-position: initial;
+            position: absolute;
+            /* min-height: 100%; */
+            width: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        
+        .fourth {
+            background-image: url('images/auditourium1.jpg');
+            background-position: initial;
+            position: absolute;
+            /* min-height: 100%; */
+            width: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        
+        @media screen and (max-width: 500px) {
+            div {
+                width: 100%;
+            }
+
+		
+				
+
+        }
+        
+        @media screen and (max-device-width:768px) {
+            #talktous {
+                margin-right: -258%;
+                margin-top: -81px;
+            }
+			#nav-icons .nav-icon
+			{
+				margin-left:15%!important;
+			}
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        a {
+            color: #b63b4d;
+            text-decoration: none;
+        }
+        /** =======================
+ * Contenedor Principal
+ ===========================*/
+
+ * Submenu
+ -----------------------------*/
+        
+        .submenu {
+            display: none;
+            background: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+        }
+        
+        .submenu li {
+            border-bottom: 1px solid #4b4a5e;
+        }
+        
+        .submenu a {
+            display: block;
+            text-decoration: none;
+            color: #d9d9d9;
+            padding: 12px;
+            padding-left: 42px;
+            -webkit-transition: all 0.25s ease;
+            -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+        }
+        
+        .submenu a:hover {
+            background: #b63b4d;
+            color: #FFF;
+        }
+        
+        .swingimage {
+            position: relative;
+        width: 58%;
+    height: 20%;
+    left: 100%;
+    margin-top: 76%
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+            -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+            animation: swinging 3.5s ease-in-out forwards infinite;
+        }
+        
+        @-webkit-keyframes swinging 
+		{
+            0% 
+			{
+                -webkit-transform: rotate(6deg);
+            }
+            50% 
+			{
+                -webkit-transform: rotate(-3deg)
+            }
+            100%
+			{
+                -webkit-transform: rotate(6deg);
+            }
+        }
+        
+        @media screen and (max-device-width:800px) {
+            .swingimage
+			{
+                position: relative;
+                width: 30%!important;
+                height: 11%!important;
+                left: 72px;
+            }
+            #Backtosecond 
+			{
+                position: relative;
+                top: 3px!important;
+                width: 25%!important;
+            }
+            #acc 
+			{
+                width: 143%!important;
+            }
+            #md1 
+			{
+                width: 142%;
+            }
+            .md11 
+			{
+                width: 82%;
+            }
+        }
+        
+        #ig 
+		{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -114px 0 0 -26px;
+            cursor: pointer;
+        }
+		#walking-people {
+    position: absolute;
+    top: 50px;
+    z-index: 20;
+}
+#walking-people-film, #walking-people-video {
+    display: none;
+}
+video {
+    object-fit: contain;
+}
+/* Strat Header Top CSS Start */
+.top_header {
+    background: #2980b9;
+}
+
+.header-topbar-col {
+    padding: 10px 0;
+}
+
+.header-topbar-col ul {
+    color: #ffffff;
+    margin-top: 10px;
+	font-size: 18px;
+    padding: 4px;
+}
+
+.header-topbar-col ul li i {
+    color: #ffffff;
+}
+
+.header-topbar-col ul li a {
+    color: #ffffff;
+}
+
+.header-topbar-col .form-control {
+    background: #fff;
+    margin-bottom: 0;
+    margin-top: 5px;
+    height: 35px;
+    border: none;
+    position: relative;
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-topbar-col .form-control:hover {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-topbar-col .input-group .form-control:focus {
+    background: #ffffff;
+    border-color: #2980b9;
+    box-shadow: none;
+}
+
+.header-topbar-col .input-group .btn {
+    background: #9fae93;
+    color: #ffffff;
+    height: 35px;
+    width: 50px;
+    border: none;
+    border-radius: 0px;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.header-two .modal-content {
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    padding: 25px 0px;
+}
+
+.header-two .modal-content .form-control {
+    background: #fff;
+    margin-bottom: 0;
+    margin-top: 8px;
+    height: 50px;
+    border: 1px solid #ddd;
+    position: relative;
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navbar CSS start */
+.header-navbar {
+    color: #ffffff;
+}
+
+.header-navbar .navbar-brand {
+    padding: 0;
+}
+
+.header-navbar .navbar-brand img {
+    width: 180px;
+    height: auto;
+}
+
+.header-navbar .navbar {
+    margin-bottom: 0;
+}
+
+.header-navbar .navbar-nav {
+    margin-top: 8px;
+}
+
+.header-navbar .navbar-default {
+    background: transparent;
+    border: none;
+    padding: 10px 0 15px;
+}
+
+.header-navbar .navbar-default .navbar-nav > .active > a,
+.header-navbar .navbar-default .navbar-nav > li > a:hover {
+    color: #2980b9;
+    background-color: transparent;
+}
+
+.header-navbar .navbar-default .navbar-nav > li > a {
+    color: #333333;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 30px;
+}
+
+.header-navbar .navbar-default .navbar-nav > li > a:focus,
+.header-navbar .navbar-default .navbar-nav > li > a:hover {
+    background: transparent;
+}
+
+.header-navbar .navbar-right .dropdown-menu {
+    right: auto;
+}
+
+.header-navbar .navbar-nav .dropdown-menu {
+    padding: 0;
+    margin-left: 30px;
+}
+
+.header-navbar .navbar-nav .dropdown-menu > li > a {
+    padding: 15px 10px;
+    color: #333333;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-left: 5px solid transparent;
+    border-top: 1px solid #eeeeee;
+}
+
+.header-navbar .navbar-nav .dropdown-menu > li > a:hover {
+    border-left-color: #2980b9;
+}
+
+.header-navbar .navbar-default .navbar-nav > .open > a,
+.header-navbar .navbar-default .navbar-nav > .open > a:focus,
+.header-navbar .navbar-default .navbar-nav > .open > a:hover {
+    background-color: transparent;
+}
+
+/* NavBar Fixed CSS */
+.affix {
+    border-bottom: 1px solid #cccccc;
+    background: #ffffff;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+    -webkit-box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* End Header Two CSS Start */
+
+/* Strat Header Two CSS Start */
+.header-two {
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-two.changer {
+    background: #ffffff;
+    -webkit-box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+}
+
+.header-two .navbar .logo-1 {
+    margin-top: 5px;
+    display: none;
+}
+
+.header-two .navbar .logo-2 {
+    margin-top: 5px;
+    display: block;
+}
+
+.header-two.changer .navbar .logo-1 {
+    display: block;
+}
+
+.header-two.changer .navbar .logo-2 {
+    display: none;
+}
+
+.header-navbar-two .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.header-two.changer .navbar-default .navbar-nav > li > a {
+    color: #333333;
+}
+
+.header-two.changer .navbar-default .navbar-nav > .active > a,
+.header-two.changer .navbar-default .navbar-nav > li > a:hover {
+    color: #2980b9;
+}
+
+.header-navbar-two .navbar-nav {
+    margin-right: 30px;
+}
+
+.header-col {
+    position: relative;
+}
+
+.nav-search-box {
+    position: absolute;
+    top: 32px;
+    right: 0;
+}
+
+.nav-search-box i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.header-two.changer .nav-search-box i {
+    color: #2980b9;
+}
+
+.header-two .nav-search-box .modal {
+    z-index: 99999999;
+}
+
+/* End Header CSS */
+	#toolbar {
+    position: fixed;
+    z-index: 600;
+    width: 100%;
+    max-width: 1680px;
+    height: 125px;
+    bottom: 28px;
+}
+#toolbar-container {
+    position: relative;
+    height: 125px;
+    margin: auto;
+}
+#toolbar-dock {
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    top:70%!important;
+}
+#nav-icons {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    height: 105px;
+}
+#nav-icons .nav-icon {
+    float: left;
+    width: 65px;
+    margin-left: 25%;
+}
+.hall
+{
+font-size: 14px;
+    text-decoration: underline;
+    font-weight: 600;
+    color: #2a80b9;
+}	
+.click
+{
+position:relative;
+top:15px;
+color:#403434; 
+width:3%;
+cursor:pointer;
+}	
+.video-people
+{
+	
+	position: fixed;
+				top: 27%;
+				left: 51%;
+				min-height: 100%;
+				width: 39%;min-width: 59%;
+}
+.support
+{
+	cursor: pointer; 
+	position: fixed;
+	width: 15%;
+	left: 43%;
+	top: 25%;
+	z-index: 99;
+	box-shadow:1px 0px 15px;
+    border:1px solid;
+}
+.enter-hall
+{
+	width: 12%;
+    height: 54px;
+    background: #2980b9;
+    border: 2px solid;
+    border-radius: 12px;
+    font-size: 23px;
+	margin-top: 6%;
+    color: #fff;
+	
+}
+#blink_text
+{
+ font-size:30px;
+ color:#000;
+ font-weight:bold;
+ animation: blink 1s infinite;	
+}
+@keyframes blink 
+{  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+}
+@media screen and (max-width: 780px) {
+  .enter-hall {
+    width:68%;
+	margin-top:20%;
+	padding-left: 12%;
+  }
+  .video-people {
+    position: fixed;
+    left: 51%;
+    min-height: 100%;
+    width: 39%;
+    min-width: 61%;
+    top: 40%;
+}
+.support
+{
+	    height: 107px!important;
+}
+}
+.img-top
+{
+	
+	margin-top:0px;
+}
+.img-top:hover
+{
+margin-top:-5px;	
+}

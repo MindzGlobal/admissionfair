@@ -13,6 +13,13 @@
       position: relative;
       left: 8%;
     }
+    .ribbon{
+        top: 214px;
+        cursor:pointer;
+    }
+    .ribbon-right{
+        right: 7px;
+    }
 </style>
 @endsection
 
@@ -39,10 +46,10 @@
                  <div class="user-bg">
                     <img width="100%" alt="user" src="{{ asset($user->profile_image) }}">
                  </div>
-
-                 <div class="pull-right add-btn">
+                 <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image+</div>
+                 <!-- <div class="pull-right add-btn">
                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image +</button>
-                 </div>
+                 </div> -->
                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                      <div class="modal-dialog" role="document">
                          <div class="modal-content">
@@ -100,8 +107,7 @@
                     <div class="col-md-12 col-sm-12 text-center">
                        <button class="btn btn-facebook waves-effect btn-circle waves-light" type="button"> <i class="fa fa-facebook"></i> </button>
                        <button class="btn btn-googleplus waves-effect btn-circle waves-light" type="button"> <i class="fa fa-google-plus"></i> </button>
-                       <button class="btn btn-twitter waves-effect btn-circle waves-light" type="button"> <i class="fa fa-twitter"></i> </button>
-                    </div>
+                       <button class="btn btn-linkedin waves-effect btn-circle waves-light" type="button"> <i class="fa fa-linkedin"></i> </button>                    </div>
                  </div>
               </div>
            </div>
@@ -154,6 +160,7 @@
                                    <table class="table table-bordered">
                                       <thead>
                                          <tr>
+                                            <th>Course Department</th>
                                             <th>Courses Offered</th>
                                             <th>Course duration</th>
                                             <th>Fee Structure:</th>
@@ -163,6 +170,7 @@
                                       <tbody>
                                         @foreach($course as $courses)
                                          <tr>
+                                            <td>{{$courses->course_department}}</td>
                                             <td>{{$courses->course_offer}}</td>
                                             <td>{{$courses->course_duration}}</td>
                                             <td>{{$courses->course_total_fee}}</td>

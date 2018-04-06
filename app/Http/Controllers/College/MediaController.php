@@ -87,7 +87,7 @@ class MediaController extends Controller
      $regid = Auth::user()->reg_id;
      $user=User::where('reg_id',$regid)->first();
      // $course = courseOffers::where('reg_id',$regid)->get();
-     $course=courseOffers::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url']);
+     $course=courseOffers::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
      // dd($course->all());
      return view("college.index")->with(['user' => $user, 'course' => $course]);
    }
