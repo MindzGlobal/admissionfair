@@ -106,21 +106,10 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-<<<<<<< HEAD
 // Route::get('student/booth', function () {
 //     return view('student.pages.booth');
 // });
 // Route::get('student/singlebooth', function () {
 //     return view('student.pages.singlebooth');
 // });
-=======
-
-Route::get('college/resetpwd', function () {
-    return view('college.resetpwd');
-});
-
-Route::get('college/std_profile', function () {
-    return view('college.std_profile');
-});
->>>>>>> 2cb0951968cd60e998192ea2136bdcc745e24870
 
