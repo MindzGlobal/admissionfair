@@ -10,11 +10,12 @@
     border-color: #ccc;
     width: 113%!important;
     height: 100px!important;
+    margin-left: -86%;
 }
 .col-md-3 {
     width: 36%;
-    margin-top: 0%;
-    margin-left: 9%;
+    margin-top: -4%;
+    margin-left: 14%;
 }
 .page-title-box {
     position: relative;
@@ -24,11 +25,16 @@
     padding: 5px 66px;
     display: inline-block;
     float: left;
+    margin-left: -11%;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff!important;
+    text-decoration: none;
 }
 .panel-group {
     margin-bottom: 20px;
-    height: 300px;
-    overflow: scroll;
+    max-height: 300px;
+    overflow-y: auto;
 }
 .null{
 background: #15030394;
@@ -46,6 +52,10 @@ background: #15030394;
     position:absolute;
     top:8% 
 }
+.test {
+    word-wrap: break-word;
+    width: 80%;
+}
    </style>
 
     @endsection
@@ -61,12 +71,12 @@ background: #15030394;
                         <div class=" padding-bt-150 pos">
                          <div class="container">
                       <div class="page-title-box">
-                      <h3>Single Booth-College</h3>
+                      <h3 class=" text-center test">Single Booth-College sfgfdfd <h3p>
                       </div>
                       </div>
                            <!-- particles.js container -->
                            <div class="col-md-6">
-                              <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
+                              <img src="{{ asset('student/booth/images/0010.png')}}" alt="" style="margin-left:-15%">
                                           <div class="col-md-3">
                               <button class="btn-default dg">Video Gallery</button>
                               </div>
@@ -74,7 +84,7 @@ background: #15030394;
                                   <button class=" btn-default">Image Gallery</button>
                           </div>
                            </div>
-                        <br>
+                     
                   <div class="col-md-6 null">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                        <div class="panel panel-default">
@@ -179,81 +189,11 @@ background: #15030394;
                                     </div>
                                 </div>
             </div>
-            <!-- particles.js container -->
-            {{-- <div id="particles-js"></div> --}}
-         
+          
+        
     {{----------------------------------------------End of modal section of image upload------------------------------------------------------}}
 @endsection
 
-@section('js')
-<script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
-        <!-- Import Particles Js -->
-<script type="text/javascript">
 
-        $(document).ready(function() {
-        // Basic
-        $('.dropify').dropify();
 
-        // Translated
-        $('.dropify-fr').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé, le fichier trop volumineux'
-            }
-        });
-
-        // Used events
-        var drEvent = $('#input-file-events').dropify();
-
-        drEvent.on('dropify.beforeClear', function(event, element) {
-            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-        });
-
-        drEvent.on('dropify.afterClear', function(event, element) {
-            alert('File deleted');
-        });
-
-        drEvent.on('dropify.errors', function(event, element) {
-            console.log('Has Errors');
-        });
-
-        var drDestroy = $('#input-file-to-destroy').dropify();
-        drDestroy = drDestroy.data('dropify')
-        $('#toggleDropify').on('click', function(e) {
-            e.preventDefault();
-            if (drDestroy.isDropified()) {
-                drDestroy.destroy();
-            } else {
-                drDestroy.init();
-            }
-        })
-    });// end of document ready function
-         
-    function myFunction() {
-        var x = document.getElementById("View-Degree");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-        if (this.value=="view more") this.value = "view less";
-        else this.value = "view more";
-    }
- 
-    $(".button").click(function() {
-    $(".button span").html($(".button span").html() == 'View More' ? 'View Less' : 'View More');
-
-        var x = document.getElementById("View-Degree");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-    });
-    
-   
-    </script>
-@endsection
       

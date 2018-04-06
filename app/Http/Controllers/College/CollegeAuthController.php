@@ -31,5 +31,4 @@ class CollegeAuthController extends Controller
   {
     return view('college.select_booth');
   }
-   
 }
