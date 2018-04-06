@@ -60,10 +60,6 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 
-<<<<<<< HEAD
-    Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'AutoCompleteController@index'));
-    Route::get('searchajax',array('as'=>'searchajax','uses'=>'AutoCompleteController@autoComplete'));
-=======
     Route::post('resetlogindetails','CollegeController@resetlogindetails');
     Route::get('resetpwd','CollegeController@resetpwd');
 
@@ -71,7 +67,6 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('changepwd','CollegeController@changepwd');
 
 
->>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
 });
 
 
@@ -116,8 +111,6 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-<<<<<<< HEAD
-=======
 // Route::get('student/booth', function () {
 //     return view('student.pages.booth');
 // });
@@ -125,4 +118,3 @@ Route::get('college/std_profile1', function () {
 //     return view('student.pages.singlebooth');
 // });
 
->>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
