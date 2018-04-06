@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
 use App\Model\College\courseOffers;
+use App\Model\students\Student;
+use App\Model\students\Student_Graduation__Details;
+use App\Model\students\Student_Education_Details;
+use App\Model\StudentAppliedHistory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -25,7 +29,14 @@ class CollegeController extends Controller
         });
     }
 
-      public function insertProfile(Request $request)
+    protected function createprofile()
+    {
+        return view('college.create_profile');
+    }
+
+    // Insert profile details of college
+      
+    public function insertProfile(Request $request)
       {
         $res = 'success';
         $msg = "Done";
@@ -152,7 +163,9 @@ class CollegeController extends Controller
         return $this->Result($res,$msg);
       }
   
-    public function updateformprofile(Request $request){
+    // Update profile details  
+    
+    public function updateformprofile(Request $request){ //To show view
         $id = Auth::user()->id;
         $reg_id = Auth::user()->reg_id;
         $user = CollegeDetail::find($id);
@@ -160,7 +173,7 @@ class CollegeController extends Controller
         return view('college.update_profile',['user' => $user,'courseoffer'=>$course]);
     }
 
-    public function updatecollegedetails(Request $request){
+    public function updatecollegedetails(Request $request){ //To update coll details
         $id = Auth::user()->id;
         $user = CollegeDetail::find($id);
         $user->college_name = $request->Input('name');
@@ -176,14 +189,14 @@ class CollegeController extends Controller
         return redirect("college/update_profile");       
     }
 
-    public function updatecollegecourse(Request $request){
+    public function updatecollegecourse(Request $request){ //To update course details
         $id = Auth::user()->id;
         $reg_id = Auth::user()->reg_id;
 
         $user = CollegeDetail::find($id);
         $user->university_name = $request->Input('university_name');
         $user->college_type = $request->Input('college_type');
-        $user->$str_clgDetais = explode (",", $request->Input('college_category'));
+        // $user->$str_clgDetais = explode(",", $model->college_category);
        
 
         courseOffers::where('reg_id',$reg_id)->delete();
@@ -226,7 +239,7 @@ class CollegeController extends Controller
         return redirect("college/update_profile");  
     }
 
-    public function updatecollegemedia(Request $request){
+    public function updatecollegemedia(Request $request){ //To Update media
       $id = Auth::user()->id;
       $clgDetais = CollegeDetail::find($id);
       
@@ -262,7 +275,9 @@ class CollegeController extends Controller
         return redirect("college/update_profile");
     }
      
-      public function insertBooth(Request $request)
+    //Select booth for the college
+      
+    public function insertBooth(Request $request)
       {
         
         $res = 'success';
@@ -285,16 +300,19 @@ class CollegeController extends Controller
         return $this->Result($res,$msg);
       }
 
-    protected function dashboard()
-    {
-        return view('college/dashboard');
-    }
+    //To display student profile details
 
-    protected function createprofile()
-    {
-        return view('college.create_profile');
+    public function std_profile(Request $request){ //To show view
+      // $student = Student::where('student_id','STDvn3t7KIvxL')->get();
+      // return view('college.std_profile',['student' => $student]);
+      $student_id = $request->student_id;
+      $student = DB::table('students')->where('student_id',$student_id)->first();
+      $student_education = DB::table('student_education_details')->where('student_id',$student_id)->first();
+      $student_graduation = DB::table('student_graduation_details')->where('student_id',$student_id)->first();
+      $student_applied = DB::table('student_applied_histories')->where('student_id',$student_id)->first();
+      return view("college.std_profile",['students' => $student,'student_educations' => $student_education,'student_graduations' => $student_graduation,
+      'student_applied' => $student_applied]);
     }
-
    
 
 }
