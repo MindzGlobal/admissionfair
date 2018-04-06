@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css') }}">
 <link href="{{ asset('college/plugins/bower_components/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+<link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
 
 @endsection
 
@@ -76,34 +77,23 @@
                             <div class="clearfix"></div>
 
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-xs-3 control-label">State</label>
-                                    <div class="col-xs-5">
-                                        <select class="form-control" name="state" id="sel1">
-                                        <option></option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        </select>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">State</label>
+                                        <div class="col-xs-5">
+                                            <input type="hidden" id="selectedState" value=""/>
+                                            <select class="form-control" name="state" id="listBox" onchange='selct_district(this.value)'></select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-xs-3 control-label">City</label>
-                                    <div class="col-xs-5">
-                                        <select class="form-control" name="city" id="sel1">
-                                        <option></option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        </select>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">City</label>
+                                        <div class="col-xs-5">
+                                            <select class="form-control" name="city" id="secondlist"></select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <div class="clearfix"></div>
 
                             <div class="col-md-6">
@@ -203,7 +193,7 @@
                                         </div>
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" >
+                                                    <input type="text" class="form-control textbox ui-autocomplete-input search_courses" autocomplete="off" id="search_text" name="course_offer[]" placeholder="Course" >
                                                     </div>
                                                 </div>
 
@@ -239,7 +229,7 @@
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" >
+                                                        <input type="text" class="form-control textbox ui-autocomplete-input search_courses" autocomplete="off" id="search_text" name="course_offer[]" placeholder="Course" >
                                                     </div>
                                                 </div>
 
@@ -324,15 +314,20 @@
         <!-- /.row -->
         <!-- .right-sidebar -->
         <!-- /.right-sidebar -->
-
-
-
-     
-    
+    </div>
+    <input type="hidden" id="ajaxCourseUrl" value="{{ route('searchajax') }}">
 @endsection
 
 @section('js')
+    <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('college/js/formValidation.js') }}"></script>
-    <script src="{{ asset('js/countries.js') }}"></script>
+    <script src="{{ asset('college/js/state.js') }}"></script>
+    <script>
+            $(document).ready(function() {
+             
+         });
+
+         
+    </script>
 @endsection

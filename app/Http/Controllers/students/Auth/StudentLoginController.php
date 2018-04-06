@@ -54,7 +54,7 @@ class StudentLoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         // dd($this->guard('student')->attempt($this->credentials($request), $request->filled('remember')));//'email_verification'=>'verified'
-         $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password ]); 
+         $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password,'otp_verified'=>1 ]); 
      
          return $validStudent;
     }

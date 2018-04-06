@@ -15,28 +15,21 @@ class CreatePayuPaymentsTable extends Migration
     {
         Schema::create('payu_payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('account');
-            $table->unsignedInteger('payable_id')->nullable();
-            $table->string('payable_type')->nullable();
-            $table->string('txnid');
-            $table->string('mihpayid');
-            $table->string('firstname');
+            $table->string('account_id')->nullable();
+            $table->string('txnid')->nullable();
+            $table->string('mihpayid')->nullable();
+            $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('email');
-            $table->string('phone');
-            $table->double('amount');
-            $table->double('discount');
-            $table->double('net_amount_debit');
-            $table->text('data');
-            $table->string('status');
-            $table->string('unmappedstatus');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->double('amount')->nullable();
+            $table->string('status')->nullable();
+            $table->string('unmappedstatus')->nullable();
             $table->string('mode')->nullable();
             $table->string('bank_ref_num')->nullable();
             $table->string('bankcode')->nullable();
-            $table->string('cardnum')->nullable();
-            $table->string('name_on_card')->nullable();
-            $table->string('issuing_bank')->nullable();
-            $table->string('card_type')->nullable();
+            $table->string('account')->nullable();
+            $table->text('data')->nullable();
             $table->timestamps();
         });
     }

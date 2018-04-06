@@ -26,16 +26,18 @@
                                         <div class="pricing-body b-l">
                                             <div class="pricing-header">
                                                 <h4 class="text-center">Silver</h4>
-                                                <h2 class="text-center"><span class="price-sign">Rs</span> 2400</h2>
+                                                <h2 class="text-center"><span class="price-sign"></span> Free</h2>
                                                 <p class="uppercase">per month</p>
                                             </div>
                                             <div class="price-table-content">
                                                 <div class="price-row"><i class="icon-user"></i> 3 Members</div>
                                                 <div class="price-row"><i class="icon-screen-smartphone"></i> Single Device</div>
-                                                <div class="price-row"><i class="icon-drawar"></i> 50GB Storage</div>
-                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div>
+                                                {{-- <div class="price-row"><i class="icon-drawar"></i> 50GB Storage</div>
+                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div> --}}
                                                 <div class="price-row">
-                                                    <button class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    <form action="{{ route('pay') }}" method="post">@csrf
+                                                        <button type="submit" name="subscribe" value="Free" class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,10 +54,12 @@
                                             <div class="price-table-content">
                                                 <div class="price-row"><i class="icon-user"></i> 5 Members</div>
                                                 <div class="price-row"><i class="icon-screen-smartphone"></i> Single Device</div>
-                                                <div class="price-row"><i class="icon-drawar"></i> 80GB Storage</div>
-                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div>
+                                                {{-- <div class="price-row"><i class="icon-drawar"></i> 80GB Storage</div>
+                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div> --}}
                                                 <div class="price-row">
-                                                    <button class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    <form action="{{ route('pay') }}" method="post">@csrf
+                                                        <button type="submit" name="subscribe" value="Gold" class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,10 +77,12 @@
                                             <div class="price-table-content">
                                                 <div class="price-row"><i class="icon-user"></i> 10 Members</div>
                                                 <div class="price-row"><i class="icon-screen-smartphone"></i> Single Device</div>
-                                                <div class="price-row"><i class="icon-drawar"></i> 120GB Storage</div>
-                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div>
+                                                {{-- <div class="price-row"><i class="icon-drawar"></i> 120GB Storage</div>
+                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div> --}}
                                                 <div class="price-row">
-                                                    <button class="btn btn-lg btn-info waves-effect waves-light m-t-20">Subscribe</button>
+                                                    <form action="{{ route('pay') }}" method="post">@csrf
+                                                        <button type="submit" name="subscribe" value="Platinum" class="btn btn-lg btn-info waves-effect waves-light m-t-20">Subscribe</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -93,10 +99,12 @@
                                             <div class="price-table-content">
                                                 <div class="price-row"><i class="icon-user"></i> 15 Members</div>
                                                 <div class="price-row"><i class="icon-screen-smartphone"></i> Single Device</div>
-                                                <div class="price-row"><i class="icon-drawar"></i> 1TB Storage</div>
-                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div>
+                                                {{-- <div class="price-row"><i class="icon-drawar"></i> 1TB Storage</div>
+                                                <div class="price-row"><i class="icon-refresh"></i> Monthly Backups</div> --}}
                                                 <div class="price-row">
-                                                    <button class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    <form action="{{ route('pay') }}" method="post">@csrf    
+                                                        <button type="submit" name="subscribe" value="Dimond" class="btn btn-success waves-effect waves-light m-t-20">Subscribe</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
