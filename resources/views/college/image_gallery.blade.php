@@ -86,18 +86,21 @@
                   </div>
                </div>
             </div>
-            <div class="popup-gallery m-t-30">
-               @foreach($user as $users)
-               <div class="img-wrap col-md-2">
-                  <span onClick=delFiles("{{ url('college/deleteimagegallery/'.$users->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>  
-                  <a href="{{ asset($users->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
-                  <img src="{{ asset($users->file_url) }}" class="all landscape img-responsive img-thumbnail" alt="gallery" />
-                  </a>
-               </div>
+            <div class="gallery-content ">
+                <div class="popup-gallery m-t-30">
+                @foreach($user as $users)
+                <div class="img-wrap col-md-3">
+                    <span onClick=delFiles("{{ url('college/deleteimagegallery/'.$users->id) }}") class="close"><i class="fa fa-times-circle-o"></i></span>  
+                    <a href="{{ asset($users->file_url) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="Image title will be apear here" >
+                    <img src="{{ asset($users->file_url) }}" class="all landscape img-responsive img-thumbnail" alt="gallery" width="100%" height="100%"/>
+                    </a>
+                </div>
                @endforeach
+                </div>
             </div>
-         </div>
+         
          <div class="clearfix"></div>
+         </div>
       </div>
    </div>
 </div>

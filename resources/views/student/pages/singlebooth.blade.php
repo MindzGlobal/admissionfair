@@ -10,11 +10,12 @@
     border-color: #ccc;
     width: 113%!important;
     height: 100px!important;
+    margin-left: -86%;
 }
 .col-md-3 {
     width: 36%;
-    margin-top: 0%;
-    margin-left: 9%;
+    margin-top: -4%;
+    margin-left: 14%;
 }
 .page-title-box {
     position: relative;
@@ -24,11 +25,16 @@
     padding: 5px 66px;
     display: inline-block;
     float: left;
+    margin-left: -11%;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff!important;
+    text-decoration: none;
 }
 .panel-group {
     margin-bottom: 20px;
-    height: 300px;
-    overflow: scroll;
+    max-height: 300px;
+    overflow-y: auto;
 }
 .null{
 background: #15030394;
@@ -46,6 +52,10 @@ background: #15030394;
     position:absolute;
     top:8% 
 }
+.test {
+    word-wrap: break-word;
+    width: 80%;
+}
    </style>
 
     @endsection
@@ -61,12 +71,12 @@ background: #15030394;
                         <div class=" padding-bt-150 pos">
                          <div class="container">
                       <div class="page-title-box">
-                      <h3>{{$college->college_name}}</h3>
+                      <h3 class=" text-center test" >{{$college->college_name}}</h3>
                       </div>
                       </div>
                            <!-- particles.js container -->
                            <div class="col-md-6">
-                              <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
+                              <img src="{{ asset('student/booth/images/0010.png')}}" alt="" style="margin-left:-15%">
                                           <div class="col-md-3">
                               <button class="btn-default dg">Video Gallery</button>
                               </div>
@@ -76,6 +86,8 @@ background: #15030394;
                            </div>
                         <br>
                                 <div class="col-md-6 null">
+                     
+                  <div class="col-md-6 null">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                       @foreach($courseDetail as $data)
                                         <div class="panel panel-default">

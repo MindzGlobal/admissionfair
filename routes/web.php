@@ -20,6 +20,7 @@ Route::get('college/demo', function () {
     return view('college.create_profile');
 });
 
+
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
     Route::get('register','CollegeAuthController@register');
@@ -27,7 +28,8 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
     Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
     Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
-    Route::get('dashboard','CollegeController@dashboard')->name('dashboard');
+    
+    Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
   
     Route::post('index','MediaController@uploadprofile_image');
     Route::get('myprofile','MediaController@showprofile_image');
@@ -43,11 +45,25 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
     Route::post('insertprofile','CollegeController@insertprofile');
 
+    Route::post('insertBooth','CollegeController@insertBooth');
+    Route::get('select_booth','CollegeAuthcontroller@select_booth');
+
+    Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
+
     Route::get('update_profile','CollegeController@updateformprofile');
     Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
+
+    Route::post('resetlogindetails','CollegeController@resetlogindetails');
+    Route::get('resetpwd','CollegeController@resetpwd');
+
+    // Route::get('validation','CollegeController@validation');
+    Route::post('changepwd','CollegeController@changepwd');
+
+
 });
+
 
 //Student Section  ##############################################################################
 Route::prefix('student')->namespace('students')->group(function(){
@@ -86,13 +102,25 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
 
 });
+
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
+<<<<<<< HEAD
 // Route::get('student/booth', function () {
 //     return view('student.pages.booth');
 // });
 // Route::get('student/singlebooth', function () {
 //     return view('student.pages.singlebooth');
 // });
+=======
+
+Route::get('college/resetpwd', function () {
+    return view('college.resetpwd');
+});
+
+Route::get('college/std_profile', function () {
+    return view('college.std_profile');
+});
+>>>>>>> 2cb0951968cd60e998192ea2136bdcc745e24870
 

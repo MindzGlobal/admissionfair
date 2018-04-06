@@ -91,7 +91,6 @@
                         <option>Select Gender</option>
                         <option>Male</option>
                         <option>Female</option>
-                        <option>Other</option>
                      </select>
                   </div>
                </div>
@@ -268,23 +267,29 @@
                      <div class="col-md-12">
                         <div class="form-group">
                            <label for="chkYes">
-                            <input name="graduation_type" type="radio" id="full-time" name="chk" value="" />
+                            <input name="graduation_type" type="radio" id="full-time"  value="Full Time"  />
                             Full Time
                             </label>&nbsp
                             <label for="chkNo">
-                            <input name="graduation_type" type="radio" id="part-time" name="chk" value="" />
+                            <input name="graduation_type" type="radio" id="part-time"  value="Part Time" />
                             Part Time
                             </label>&nbsp
                             <label for="chkYes1">
-                            <input name="graduation_type"  type="radio" id="coresspondance" name="chk" value="" />
+                            <input name="graduation_type"  type="radio" id="coresspondance" value="  Correspondance" />
                             Coresspondance
                            </label>
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-3">
                         <div class="form-group">
                            <label for="clg_location">Course:</label>
-                           <input type="text" name="course" class="form-control textbox" id="mob" placeholder="Enter University Name" >
+                           <input type="text" name="course" class="form-control textbox" id="mob" placeholder="Enter Course Name" >
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label for="clg_location">Department:</label>
+                           <input type="text" name="department" class="form-control textbox" id="mob" placeholder="Enter Department Name" >
                         </div>
                      </div>
                      <div class="col-md-3">
