@@ -188,7 +188,7 @@
                                                 <div class ="col-md-3">Courses Offered:</div>
                                                 <div class ="col-md-3">Course duration:</div>
                                                 <div class ="col-md-3">Fee Structure:</div>
-                                                <div class ="col-md-3">Fee Structure (PDF Format):</div>
+                                                <div class ="col-md-3">Add Departments</div>
                                             </div>
                                         </div>
                                                 <div class ="col-md-3">
@@ -205,20 +205,61 @@
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
+                                                    <input type="text" class="form-control textbox" id="" name="course_department[]" placeholder="Add Departments" >
+                                                    </div>
+                                                </div>
+
+                                                <div class ="col-md-3">
+
+                                                    <div class="form-group">
                                                     <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" >
+                                                    </div>
+
+                                                </div>
+
+                                                <div class ="col-md-12">
+                                                    <div class ="col-md-6"></div>
+                                                    <div class="form-group col-md-3 ">
+                                                    <label class="control-label pull-right">Fee Structure (PDF Format):</label><br><br>
+                                                    </div>
+                                                    <div class="form-group col-md-3 pull-right">
+                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
                                                     </div>
                                                 </div>
 
                                                 <div class ="col-md-3">
                                                     <div class="form-group">
-                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
+                                                        <input type="text" class="form-control textbox ui-autocomplete-input search_courses" autocomplete="off" id="search_text" name="course_offer[]" placeholder="Course" >
                                                     </div>
                                                 </div>
 
-                                                <div class ="col-md-12">
-                                                    <label class="col-xs-3 control-label">Add Departments</label><br>
+                                                <div class ="col-md-3">
+                                                    <div class="form-group">
+                                                    <input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" >
+                                                    </div>
+                                                </div>
+
+                                                 <div class ="col-md-3">
                                                     <div class="form-group">
                                                     <input type="text" class="form-control textbox" id="" name="course_department[]" placeholder="Add Departments" >
+                                                    </div>
+                                                </div>
+
+                                                <div class ="col-md-3">
+
+                                                    <div class="form-group">
+                                                    <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" >
+                                                    </div>
+
+                                                </div>
+
+                                                <div class ="col-md-12">
+                                                    <div class ="col-md-6"></div>
+                                                    <div class="form-group col-md-3 ">
+                                                    <label class="control-label pull-right">Fee Structure (PDF Format):</label><br><br>
+                                                    </div>
+                                                    <div class="form-group col-md-3 pull-right">
+                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
                                                     </div>
                                                 </div>
 
@@ -269,6 +310,7 @@
                 </div>
             </div>
         </div>
+    </div> 
         <!-- /.row -->
         <!-- .right-sidebar -->
         <!-- /.right-sidebar -->

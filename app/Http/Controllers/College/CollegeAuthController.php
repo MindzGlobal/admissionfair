@@ -26,5 +26,9 @@ class CollegeAuthController extends Controller
   {
     return view('college.register');
   }
-   
+
+  public function select_booth()
+  {
+    return view('college.select_booth');
+  }
 }

@@ -48,7 +48,7 @@ class StudentController extends Controller
             return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
          }
          return redirect('student/addprofile')
-                ->with(['status'=>'success','message'=>'Login Successfull ,Complete the form to proceed further']);
+                ->with('success','Login Successfull ,Complete the form to proceed further');
     
         }
         return view('student.pages.otp_form')->with('mobile', Auth::user()->mobile);
@@ -115,7 +115,7 @@ class StudentController extends Controller
                     $graduation->percentage = Input::get("percentage");  
                     $graduation->save();
                 }
-            return redirect('student/profile')->with(['status'=>'success','message'=>'Profile Updated Successfully ']);
+            return redirect('student/profile')->with('success','Profile Updated Successfully');
             }
         return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);
         }

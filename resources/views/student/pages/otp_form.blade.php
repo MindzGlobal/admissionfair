@@ -92,6 +92,7 @@
     <!--Style Switcher -->
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
     <script src="{{ asset('college/js/all.ajax.js') }}"></script>
+    @include('alerts')
 </body>
-@include('alerts')
+
 </html>

@@ -1,194 +1,130 @@
 @extends('college.layouts.app')
 @section('css')
     <style type="text/css">
-        .tabs-style-underline nav li a::after {
-        background: #03a9f3;
+   
+        .font15{
+            font-size:15px;
         }
-        .sttabs nav li.tab-current a {
-        color: #03a9f3;
-        }
+    .pagination>.active>a {
+        background-color: #03a9f3;
+        border-color: #03a9f3;
+    }
+
     </style>
 @endsection
 
 @section('js')
     <!--Style Switcher -->
     <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
-    <script type="text/javascript">
-        (function() {
-        
-            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
-                new CBPFWTabs(el);
-            });
-        
-        })();
-    </script>
+    
 @endsection
+
 @section('content')
 <!-- Page Content -->
 <div class="container-fluid">
-        <div class="row bg-title">
-           <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">My Profile</h4>
-           </div>
-           <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-              <ol class="breadcrumb">
-                 <li><a href="#">Dashboard</a></li>
-                 <li class="active">My Profile</li>
-              </ol>
-           </div>
-        </div>
-        <!-- /.row -->
-        <!-- .row -->
-        <div class="row">
-           <div class="col-md-4 col-xs-12">
-              <div class="white-box">
-                 <div class="user-bg">
-                    <img width="100%" alt="user" src="{{ asset('college/plugins/images/big/img1.jpg') }}">
-                 </div>
-                 <div class="fileupload btn btn-info btn-rounded waves-effect waves-light pull-right"><span><i class="ion-upload m-r-5 fa fa-pencil-square-o "></i>Upload</span>
-                    <input type="file" class="upload">
-                 </div>
-                 <div class="user-btm-box">
-                    <!-- .row -->
-                    <div class="row text-center m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Name</strong>
-                          <p>E104, Dharti-2, Chandlodia Ahmedabad</p>
-                       </div>
-                    </div>
-                    <hr>
-                    <div class="row text-center m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Location</strong>
-                          <p>Chandlodia Ahmedabad Gujarat, India.</p>
-                       </div>
-                    </div>
-                    <hr>
-                    <div class="row text-center m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Address</strong>
-                          <p>E104, Dharti-2, Chandlodia Ahmedabad
-                             <br> Gujarat, India.
-                          </p>
-                       </div>
-                    </div>
-                    <hr>
-                    <!-- /.row -->
-                    <div class="col-md-12 col-sm-12 text-center">
-                       <button class="btn btn-facebook waves-effect btn-circle waves-light" type="button"> <i class="fa fa-facebook"></i> </button>
-                       <button class="btn btn-googleplus waves-effect btn-circle waves-light" type="button"> <i class="fa fa-google-plus"></i> </button>
-                       <button class="btn btn-twitter waves-effect btn-circle waves-light" type="button"> <i class="fa fa-twitter"></i> </button>
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <div class="col-md-8 col-xs-12">
-              <div class="white-box">
-                 <!-- Tabstyle start -->
-                 <section class="m-t-20">
-                    <div class="sttabs tabs-style-underline">
-                       <nav>
-                          <ul>
-                             <li class=""><a href="#section-underline-1" class="sticon fa fa-university"><span>College Details</span></a></li>
-                             <li class=""><a href="#section-underline-4" class="sticon fa fa-graduation-cap"><span>Courses Details</span></a></li>
-                          </ul>
-                       </nav>
-                       <br>
-                       <div class="content-wrap">
-                          <section id="section-underline-1" class="">
-                             <fieldset disabled="">
-                                <label for="" class="col-md-12">College Official Email ID</label>
-                                <div class="col-md-12">
-                                   asdf@gmail.com
+                <div class="row bg-title">
+                                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                        <h4 class="page-title">Dashboard</h4>
+                                    </div>
+                                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                                        <ol class="breadcrumb">
+                                            <li><a href="#">Dashboard</a></li>
+                                            <li class="active">Widgets</li>
+                                        </ol>
+                                    </div>
+                                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 col-xs-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">Applied Student</h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="icon-people text-info"></i></li>
+                                        <li class="text-right"><span class="counter">23</span></li>
+                                    </ul>
                                 </div>
-                             </fieldset>
-                             <hr>
-                             <fieldset disabled="">
-                                <label for="" class="col-md-12">College Mobile Number</label>
-                                <div class="col-md-12">
-                                   9988665588
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-xs-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">Courses</h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="icon-book-open text-purple"></i></li>
+                                        <li class="text-right"><span class="counter">169</span></li>
+                                    </ul>
                                 </div>
-                             </fieldset>
-                             <hr>
-                             <fieldset disabled="">
-                                <label for="" class="col-md-12">College Landline Number</label>
-                                <div class="col-md-12">
-                                   022678998
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-xs-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">Department</h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class=" icon-layers text-danger"></i></li>
+                                        <li class="text-right"><span class="counter">311</span></li>
+                                    </ul>
                                 </div>
-                             </fieldset>
-                             <hr>
-                             <fieldset disabled="">
-                                <label for="" class="col-md-12">College Website URL</label>
-                                <div class="col-md-12">
-                                   asdf@gmail.com
+                            </div>
+                            <div class="col-lg-3 col-sm-3 col-xs-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">NEW Invoices</h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="ti-wallet text-success"></i></li>
+                                        <li class="text-right"><span class="counter">117</span></li>
+                                    </ul>
                                 </div>
-                             </fieldset>
-                             <hr>
-                          </section>
-                          <section id="section-underline-2" class="" style="padding:0px;">
-                             <div class="white-box">
-                                <div class="table-responsive">
-                                   <table class="table table-bordered">
-                                      <thead>
-                                         <tr>
-                                            <th>Courses Offered</th>
-                                            <th>Course duration</th>
-                                            <th>Fee Structure:</th>
-                                            <th>Fee Structure (PDF Format)</th>
-                                         </tr>
-                                      </thead>
-                                      <tbody>
-                                         <tr>
-                                            <td>Bacholar of Enginering</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Master of Computer Science</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Bacholar of Fine Arts</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Master of Commerce</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Bacholar of Science </td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                         <tr>
-                                            <td>Master of Science</td>
-                                            <td>4 Years </td>
-                                            <td>4,00,000 </td>
-                                            <td>----</td>
-                                         </tr>
-                                      </tbody>
-                                   </table>
-                                </div>
-                             </div>
-                          </section>
-                       </div>
-                       <!-- /content -->
+                            </div>
+                        </div>
                     </div>
-                    <!-- /tabs -->
-                 </section>
-                 <!-- Tabstyle start -->
-              </div>
-           </div>
-        </div>
-        <!-- /.row -->
-     </div>
+
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Applied Student History</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered">
+                                    <tbody>
+                                        @foreach($users as $user)
+                                        <tr>
+                                            <td>
+                                                <center><img alt="img" class="thumb-lg img-circle" src="{{ asset($user->profile_image) }}"></center>
+                                                <br>@if ($user->pay_status == "Not Paid")
+                                                <center><span class="label label-rouded label-danger">Not Paid</span></center>
+                                                @else<center><span class="label label-rouded label-success">Paid</span></center>
+                                                @endif</td>
+                                            <td>
+                                                <div class="m-l-40">
+                                                <p class="font15">
+                                                   <b class="text-info ">Name :</b> {{ $user->first_name. ". " .$user->last_name }}
+                                                </p>    
+                                                <p class="font15"><b class="text-info ">E-mail -</b> {{ $user->email }}</p>
+                                                <p class="font15"><b class="text-info ">Mobile - </b> {{ $user->mobile }}</p>
+                                                <p class="font15"><b class="text-info ">Course applied -</b> {{ $user->course }}</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="m-t-40 text-center">
+                                                <a href='{{ url("college/std_profile/{$user->student_id}") }}'><button type="submit" class="btn btn-info btn-rounded ">View Profile</button></a>
+                                                </div>
+                                            </td>   
+                                        </tr>
+                                        @endforeach 
+                                    </tbody>
+                                </table>
+
+                                <ul class="pagination pagination-split pull-right">
+                                <li> <a href="#"><i class="fa fa-angle-left"></i></a> </li>
+                                <li class="active"> <a href="#">1</a> </li>
+                                <li class=""> <a href="#">2</a> </li>
+                                <li> <a href="#">3</a> </li>
+                                <li> <a href="#">4</a> </li>
+                                <li> <a href="#">5</a> </li>
+                                <li> <a href="#"><i class="fa fa-angle-right"></i></a> </li>
+                            </ul>
+                            </div> 
+                        </div>
+                    </div> 
+                </div>
+
+                 </div>      
 <!-- /#page-wrapper -->
 @endsection

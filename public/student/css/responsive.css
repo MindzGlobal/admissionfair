@@ -653,6 +653,51 @@
     }
 }
 
+@media only screen and (max-width: 420px) {
+.pos{
+    top:1%!important;
+}
+.bx{
+    margin-bottom:5%;
+    padding:0px 66px!important;
+}
+.bth
+{
+    font-size:15px;
+}
+.bg {
+    height: 1000px!important;
+    background:none!important;
+}
+.videogallery
+{
+    float:left;
+}
+.imagegallery
+{
+    float:right;
+}
+.dg
+{
+    max-height: 49px;
+    margin-left: -37%;
+    margin-top: -15%;
+}
+.null {
+    background: #15030394;
+    padding: 38px;
+    margin-left: -5px;
+    margin-top: 5%!important;
+}
+.panelgrp
+{
+    margin-bottom: 20px;
+    max-height: 196px!important;
+    overflow-y: auto;
+}
+}
+
+
 @media only screen and (max-width: 380px) {
     .carousel-caption h3 {
         font-size: 20px;

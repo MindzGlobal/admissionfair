@@ -14,16 +14,13 @@
           </tr>
           <tr>
             <td colspan="2" style="padding:30px 0;">
-                @if($type=="STUDENT")
-                  <p style="color:#1d2227;line-height:28px;font-size:22px;margin:12px 10px 20px 10px;font-weight:400;">Hi {{ ucwords($user->first_name)}} {{ucwords($user->last_name)}} it's great to meet you.</p>
-                @else
-                  <p style="color:#1d2227;line-height:28px;font-size:22px;margin:12px 10px 20px 10px;font-weight:400;">Hi {{ ucwords($user['name'])}} it's great to meet you.</p>
-                @endif  
               <p style="margin:0 10px 10px 10px;padding:0;">We'd like to make sure we got your email address right. Please click the following button to activate your account</p>
-              <p>
+            <p>
                 @if($type=="STUDENT")
+                <p style="color:#1d2227;line-height:28px;font-size:22px;margin:12px 10px 20px 10px;font-weight:400;">Hi {{ ucwords($user->first_name)}} {{ucwords($user->last_name)}} it's great to meet you.</p>
                    <a style="display:inline-block;text-decoration:none;padding:15px 20px;background-color:#2baaed;border:1px solid #2baaed;border-radius:3px;color:#FFF;font-weight:bold;" href="{{route('authenticateStudentEmail',['studentId' =>$studentId,'email_token'=>$token])}}" target="_blank">Click Here – Activate Now</a>
                 @else
+                  <p style="color:#1d2227;line-height:28px;font-size:22px;margin:12px 10px 20px 10px;font-weight:400;">Hi {{ ucwords($user['name'])}} it's great to meet you.</p>
                    <a style="display:inline-block;text-decoration:none;padding:15px 20px;background-color:#2baaed;border:1px solid #2baaed;border-radius:3px;color:#FFF;font-weight:bold;" href="{{route('authenticateStudentEmail',['unique_id' =>$unique_id,'email_token'=>$token])}}" target="_blank">Click Here – Activate Now</a>
                 @endif
               </p>
