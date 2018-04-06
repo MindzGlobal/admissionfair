@@ -61,7 +61,7 @@ background: #15030394;
                         <div class=" padding-bt-150 pos">
                          <div class="container">
                       <div class="page-title-box">
-                      <h3>Single Booth-College</h3>
+                      <h3>{{$college->college_name}}</h3>
                       </div>
                       </div>
                            <!-- particles.js container -->
@@ -75,185 +75,43 @@ background: #15030394;
                           </div>
                            </div>
                         <br>
-                  <div class="col-md-6 null">
+                                <div class="col-md-6 null">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                       <div class="panel panel-default">
-                                          <div class="panel-heading" role="tab" id="headingOne">
+                                      @foreach($courseDetail as $data)
+                                        <div class="panel panel-default">
+                                          <div class="panel-heading" role="tab" id="heading{{ $loop->iteration }}">
                                              <h4 class="panel-title">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                Engineering Courses 
+                                                <a class="{{$loop->iteration ==1 ?'collapse' :'collapsed'}}" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $loop->iteration }}" aria-expanded="false" aria-controls="collapse{{ $loop->iteration }}">
+                                                    {{ $data['course']}} 
                                                 </a>
                                              </h4>
                                           </div>
-                                          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                          <div id="collapse{{ $loop->iteration }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $loop->iteration }}">
                                              <div class="panel-body">
                                                 <ul class="disc">
-                                                   <li>computer science Engineering</li>
-                                                   <li>Civil Engineering</li>
-                                                   <li>Mechanical Engineering</li>
-                                                   <li>Civil Engineering</li>
-                                                   <li>Mechanical Engineering</li>
+                                                  @foreach($data['departments'] as $d_data)
+                                                    <li>{{ $d_data['Dept']}}</li>
+                                                  @endforeach
                                                 </ul>
                                                 <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>
                                              </div>
                                           </div>
                                        </div>
-                                       <div class="panel panel-default">
-                                          <div class="panel-heading" role="tab" id="headingTwo">
-                                             <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Undergraduate Education
-                                                </a>
-                                             </h4>
-                                          </div>
-                                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                             <div class="panel-body">
-                                                <ul class="disc">
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                </ul>
-                                                <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>	  
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="panel panel-default">
-                                          <div class="panel-heading" role="tab" id="headingThree">
-                                             <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Graduate Education 
-                                                </a>
-                                             </h4>
-                                          </div>
-                                          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                             <div class="panel-body">
-                                                <ul class="disc">
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                </ul>
-                                                <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>	  
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="panel panel-default">
-                                          <div class="panel-heading" role="tab" id="headingFour">
-                                             <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                Law Courses
-                                                </a>
-                                             </h4>
-                                          </div>
-                                          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                             <div class="panel-body">
-                                                <ul class="disc">
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                </ul>
-                                                <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>	  
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="panel panel-default">
-                                          <div class="panel-heading" role="tab" id="headingFive">
-                                             <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                Management Courses
-                                                </a>
-                                             </h4>
-                                          </div>
-                                          <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                             <div class="panel-body">
-                                                <ul class="disc">
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                   <li>computer science </li>
-                                                </ul>
-                                                <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>	  
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    </div>
-                                    </div>
+                                       @endforeach
+                                    </div> 
                                 </div>
-            </div>
+                                
+                            </div>
+                        </div>
+                    </div>
             <!-- particles.js container -->
-            {{-- <div id="particles-js"></div> --}}
+            {{-- <div id="particles-js" ></div> --}}
          
     {{----------------------------------------------End of modal section of image upload------------------------------------------------------}}
 @endsection
 
 @section('js')
-<script type="text/javascript" src="{{ asset('student/js/dropify.js')}}"></script>
-        <!-- Import Particles Js -->
-<script type="text/javascript">
 
-        $(document).ready(function() {
-        // Basic
-        $('.dropify').dropify();
 
-        // Translated
-        $('.dropify-fr').dropify({
-            messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                remove: 'Supprimer',
-                error: 'Désolé, le fichier trop volumineux'
-            }
-        });
-
-        // Used events
-        var drEvent = $('#input-file-events').dropify();
-
-        drEvent.on('dropify.beforeClear', function(event, element) {
-            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-        });
-
-        drEvent.on('dropify.afterClear', function(event, element) {
-            alert('File deleted');
-        });
-
-        drEvent.on('dropify.errors', function(event, element) {
-            console.log('Has Errors');
-        });
-
-        var drDestroy = $('#input-file-to-destroy').dropify();
-        drDestroy = drDestroy.data('dropify')
-        $('#toggleDropify').on('click', function(e) {
-            e.preventDefault();
-            if (drDestroy.isDropified()) {
-                drDestroy.destroy();
-            } else {
-                drDestroy.init();
-            }
-        })
-    });// end of document ready function
-         
-    function myFunction() {
-        var x = document.getElementById("View-Degree");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-        if (this.value=="view more") this.value = "view less";
-        else this.value = "view more";
-    }
- 
-    $(".button").click(function() {
-    $(".button span").html($(".button span").html() == 'View More' ? 'View Less' : 'View More');
-
-        var x = document.getElementById("View-Degree");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-    });
-    
-   
-    </script>
 @endsection
       

@@ -92,7 +92,7 @@
 </div>
             </div>
         </div>
-        <!----auditorium with video modals------------------------------------------->
+        {{-- <!----auditorium with video modals------------------------------------------->
         <!--div class="fourth">
             <center>
                 <img src="http://ammomasters.com/wp-content/uploads/2015/01/back_button_orange_13582411991.png" id="Backtosecond" class="pull-left" style="position: relative;top: 12px;width:11%;cursor: pointer;">
@@ -101,7 +101,7 @@
                 <i class="fa fa-play-circle fa-5x" id="ig" data-toggle="modal" data-target="#acc"></i>
                 <h3 style="position: absolute;left: 50%;top: 50%;margin: -58px 0 0 -51px;font-weight:700;">Click Here</h3>
             </center>
-        </div-->
+        </div--> --}}
 
         <div class="fifth" style="display:none; background-color: rgba(23, 20, 22, 0.18);">
             <center>
@@ -158,14 +158,19 @@
       <ul class="nav nav-tabs">
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff;" role="button" aria-haspopup="true" aria-expanded="false">
-            <img src="https://vepimg.b8cdn.com/uploads/vjf/common/default-user.png" class="user-dp" alt="Avatar">&nbsp;
-         Roopa A <span class="caret"></span>
+             @if(isset(Auth::user()->profile_image))
+                <img src="{{ asset(Auth::user()->profile_image) }}"  class="user-dp" alt="Avatar" >  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} &nbsp;<span class="caret"></span>
+            @else
+                <img src="{{ asset('student/images/profile_images/dummy_image.png') }}"  class="user-dp" alt="Avatar">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}}&nbsp;<span class="caret"></span>
+            @endif
           </a>
           <ul class="dropdown-menu">
-                                <li>
+            <li>
               <a href="Javascript:;" class="ShowMyResume" title="My Resume"><span class="glyphicon glyphicon-file"></span> Resume</a>
             </li>
-                      <li><a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li>
+              <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -176,13 +181,13 @@
   <div class="clearfix"></div>
 </div>
 @include('student.booth.header')
-            {{-- ?php include"header.php";? --}}
+         
 			
         </div>
 
     <!-- Modal -->
 </div>
-        <!-----video modals begin-------------------------------------------->
+        {{-- <!-----video modals begin--------------------------------------------> --}}
         <div class="modal fade" id="md1" tabindex="-1" role="dialog" aria-labelledby="md1" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content md11">
@@ -196,8 +201,8 @@
                 </div>
             </div>
         </div>
-        <!--------video modals end------------------------------------------->
-						<!-- Modal content-->
+        {{-- <!--------video modals end------------------------------------------->
+						<!-- Modal content--> --}}
 
 		{{-- <div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">

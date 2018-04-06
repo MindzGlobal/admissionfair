@@ -509,60 +509,12 @@
       </div>
       <div class="company-index-bot">
          <ul class="navlist" id="CompanyIndex">
-            <a href="#" onclick="showBooth('LargeViewWrapper-4405');" style="text-decoration:none;">
-               <li>Aperam </li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4503');" style="text-decoration:none;">
-               <li>Bristol-Myers Squibb</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4403');" style="text-decoration:none;">
-               <li>CMA CGM</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4476');" style="text-decoration:none;">
-               <li>Cognizant </li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4404');" style="text-decoration:none;">
-               <li>Criteo</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-3739');" style="text-decoration:none;">
-               <li>Deutsche Bank</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4459');" style="text-decoration:none;">
-               <li>GO Concept </li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4402');" style="text-decoration:none;">
-               <li>Hilti</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-3722');" style="text-decoration:none;">
-               <li>Hyatt </li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4499');" style="text-decoration:none;">
-               <li>Logista</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4498');" style="text-decoration:none;">
-               <li>Nestle</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-3718');" style="text-decoration:none;">
-               <li>Partner Business Schools</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4497');" style="text-decoration:none;">
-               <li>Royal Canin MARS</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4460');" style="text-decoration:none;">
-               <li>Saham Group</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4401');" style="text-decoration:none;">
-               <li>The Nielsen Company</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4451');" style="text-decoration:none;">
-               <li>UTC</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4425');" style="text-decoration:none;">
-               <li>Vodafone</li>
-            </a>
-            <a href="#" onclick="showBooth('LargeViewWrapper-4496');" style="text-decoration:none;">
-               <li>Wavestone</li>
-            </a>
+             @foreach ($college as $data)
+             <li><a href="{{ url('student/singlebooth/'.$data->reg_id.'')}}" style="text-decoration:none;"> {{ $data->college_name }} </a></li>
+                
+             @endforeach
+             
+           
          </ul>
       </div>
    </div>
