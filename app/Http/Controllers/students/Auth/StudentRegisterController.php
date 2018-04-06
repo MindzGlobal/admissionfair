@@ -107,11 +107,14 @@ class StudentRegisterController extends Controller
             if($studentVerfify->save()){
                $this->sendStudentVerificationEmail_And_Otp($student,$email_token,$OTP);
                  
-               $this->guard('student')->login($student);//update
-               Session::flash('success','Success ,verify your account through Email Or OTP.');
+              // $this->guard('student')->login($student);//update
+              // Session::flash('success','Success ,verify your account through Email Or OTP.');
               // return view('student.pages.otp_form'); //redirect()->route('student.otpform');//->with(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
-                return view('student.pages.otp_form')->with('mobile',$student->mobile);
-            //      ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+              //  return view('student.pages.otp_form')->with('mobile',$student->mobile);
+              //    ->withErrors(['status'=>'success','message'=>'Success ,verify your account through Email Or OTP.']);
+               return redirect('student/otp')->with('mobile',$student->mobile)
+                      ->with('success','Registration Successfull ,verify your account through Email Or OTP.');
+
             }
           //Token Not Generated
           return redirect()->back()
@@ -125,7 +128,7 @@ class StudentRegisterController extends Controller
 
     public function random()
     {
-        $chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@&%!";
+        $chars = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@&!";
         $clen   = strlen( $chars )-1;
         $id  = '';
         $length = 10;
@@ -170,14 +173,14 @@ class StudentRegisterController extends Controller
                 if((Student::where(['student_id'=>$student_id,'email_verified'=>0])->update(['email_verified'=>1]))>0){
                       UserVerification::where(['unique_id'=>$student_verify->unique_id])->update(['email_token'=>Null]);
                    
-                    return view('student.auth.login')->with(['status'=>'success','message'=>'Your e-mail is verified successfully ,You can login now.']);
+                    return view('student.auth.login')->with('success','Your e-mail is verified successfully ,You can login now.');
                 }
-                return view('student.auth.login')->with(['status'=>'danger','message'=>'Sorry ,Something Went Wrong Please try Again Later.']);
+                return view('student.auth.login')->with('danger','Sorry ,Something Went Wrong Please try Again Later.');
             }//here we can resend if route need
-         return view('student.auth.login')->with(['status'=>'warning','message'=>'Already verified ,your email has been verified Already,You can login Now.']);
+         return view('student.auth.login')->with('warning','Already verified ,your email has been verified Already,You can login Now.');
         }
         else{
-            return view('student.auth.login')->with(['status'=>'danger','message'=>'Sorry , your email cannot be identified.']);
+            return view('student.auth.login')->with('danger','Sorry , your email cannot be identified.');
         }
     }
 }

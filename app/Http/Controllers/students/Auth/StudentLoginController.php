@@ -69,7 +69,8 @@ class StudentLoginController extends Controller
     protected function authenticated(Request $request, $student)
     {
         if($student->otp_verified>0){
-          return redirect()->intended('/student/profile');
+          return redirect()->intended('/student/profile')
+           ->with('success','successfully Login to Virtual AdmissionFair');
          }
         return redirect()->intended(route('student.otpform'));
     }
