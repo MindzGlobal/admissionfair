@@ -43,18 +43,25 @@ class CollegeDetailsController extends Controller
               
                         //print($arrayData['course']).'</br>';
                         $departments= courseOffers::where(['reg_id'=>$request->reg_id,'course_offer'=>$arrayData['course']])
-                                                      ->get(['course_department AS Dept']);
+                                                      ->get(['course_department AS Dept','id']);
                        // print($departments).'</br>';
                         $arrayData['departments']=$departments;
                        }    
                       // print($courseDetail).'</br>';
-                      // dd('$courseDetail');  
+                      // dd($college);  
                 return view('student.pages.singlebooth',['college'=>$college,'courseDetail'=> $courseDetail]);
             }
             return redirect('student/booth')->with('danger', 'Something Went Wrong Please try again Later');
         }
     }
     
+
+    public function coursedepartments(Request $request)
+    {
+
+        return view('student.pages.course_department');
+
+    }
 
 
 }
