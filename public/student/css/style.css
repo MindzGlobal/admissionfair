@@ -85,7 +85,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Varela Round', sans-serif;
+    font-family: poppins!important;
     color: #111111;
     line-height: 1.2;
     font-weight: 400;
@@ -102,6 +102,7 @@ h1, h2 {
 p {
     margin: 0;
     padding: 0;
+    font-family: poppins!important;
 }
 
 a {
@@ -1874,6 +1875,7 @@ input:-moz-placeholder {
     padding: 15px 20px;
     text-transform: capitalize;
     margin-bottom: 0;
+    font-family: poppins!important;
 }
 
 .blog-page.edu-course .blog-post .course-info ul {
@@ -1885,7 +1887,8 @@ input:-moz-placeholder {
     border-bottom: 1px solid #c1c1c1;
     color: #3f3f3f;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 600;
+    font-family: poppins!important;
     padding: 12px 5px;
 }
 
@@ -1923,22 +1926,9 @@ input:-moz-placeholder {
     transition: all 0.3s ease-in-out
 }
 
-.blog-page.edu-course .blog-post .course-teacher:hover h3,
-.blog-page.edu-course .blog-post .course-info:hover h3 {
-    background: #ededed;
-    color: #333;
-}
 
-.blog-page.edu-course .blog-post .course-teacher:hover .teacher-detail,
-.blog-page.edu-course .blog-post .course-info:hover ul {
-    background: #2980b9;
-}
 
-.blog-page.edu-course .blog-post .course-teacher:hover .teacher-detail h4,
-.blog-page.edu-course .blog-post .course-teacher:hover .teacher-detail p,
-.blog-page.edu-course .blog-post .course-info:hover ul li {
-    color: #fff;
-}
+
 
 .blog-page.edu-course .blog-post .course-teacher .teacher-detail h4 {
     color: #3f3f3f;
@@ -3114,6 +3104,7 @@ input:-moz-placeholder {
     font-size: 16px;
     position: relative;
     overflow: hidden;
+    font-family: poppins!important;
 }
 
 .blog-page .blog-post .blog-post-image .post-image .overlay {
@@ -3356,6 +3347,7 @@ input:-moz-placeholder {
 .sidber .widget .wiget-title span {
     color: #2980b9;
     font-size: 12px;
+    font-family: poppins!important;
 }
 
 .sidber .widget .wiget-title h4 {
@@ -3380,6 +3372,7 @@ input:-moz-placeholder {
     width: 100%;
     display: table-cell;
     vertical-align: middle;
+    font-family: poppins!important;
 }
 
 .sidber .posi-inner {
@@ -3394,6 +3387,7 @@ input:-moz-placeholder {
     float: left;
     margin: 0px 0px 8px;
     width: 100%;
+    font-family: poppins!important;
 }
 
 .sidber .posi-inner h6 a {
@@ -3403,6 +3397,7 @@ input:-moz-placeholder {
 .sidber .posi-inner span {
     color: #2980b9;
     font-size: 12px;
+    font-family: poppins!important;
 }
 
 .sidber .posi-inner span i {
@@ -3513,6 +3508,7 @@ input:-moz-placeholder {
 .sidber .widget .widget-text span {
     color: #2980b9;
     display: inline-block;
+    font-family: poppins!important;
 }
 
 .sidber .widget .widget-text h5
@@ -4089,18 +4085,19 @@ input:-moz-placeholder {
 /*  20. Category CSS Strat
 /*--------------------------------*/
 .edu-category {
-    background: #eee9ff;
+    background: #eeeeee;
 }
 
 .edu-category .category {
     position: relative;
     margin-top: -50px;
     border: 1px solid #e6e6e6;
-    padding: 30px 30px;
+    padding: 8px 30px;
     overflow: hidden;
     left: 0;
-    width: 100%;
+    width: 103%;
     z-index: 3;
+    margin-left: -17px;
 }
 
 .edu-category .category .form-control {
@@ -4114,7 +4111,7 @@ input:-moz-placeholder {
     float: left;
     height: 42px;
     padding: 5px 25px;
-    margin: 33px 10px 0px 0px;
+    margin: 24px 10px 0px 0px;
 }
 
 .edu-category .category .list-tab {

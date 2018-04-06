@@ -15,13 +15,6 @@
             <div class="count-particles">
                <span class="js-count-particles"></span>
             </div>
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="page-title-box">
-                     <h2>Engineering Courses</h2>
-                  </div>
-               </div>
-            </div>
          </div>
          <!-- particles.js container -->
          <div id="particles-js"></div>
@@ -44,6 +37,9 @@
                               <option>TeleCommunication Engineering</option>
                            </select>
                         </div>
+                        <div class="form-group col-md-3">
+                           <input type="submit" name="Apply" value="Search" class="form-submit btn">
+                        </div>
                      </form>
                   </div>
                </div>
@@ -53,7 +49,7 @@
       <!-- End Category Section -->
       <!-- Strat Advisors Area-->
       <section class="blog-page list-1 edu-course clearfix">
-         <div class="container">
+         <div class="container" style="margin-top: -17px;">
             <!-- // End Row -->
             <div class="row">
                <div class="col-sm-12 col-md-8">
