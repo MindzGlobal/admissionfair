@@ -49,10 +49,17 @@
                                     <input type="email" class="form-control" id="inputEmail2" placeholder="" data-error="Bruh, that email address is invalid" required="" name="email" value="{{ Auth::user()->email }}">
                                     <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
                                     <label for="" class="control-label">Mobile Number</label>
                                    
-                                            <input type="text" data-toggle="validator" data-minlength="6" class="form-control" id="" placeholder="" name="mobile" value="{{ Auth::user()->mobile }}" required="">
+                                            <input type="text" data-toggle="validator" data-minlength="10" class="form-control" id="" placeholder="" name="mobile" value="{{ Auth::user()->mobile }}" required="">
+
+                                             @if ($errors->has('mobile'))
+                                                    <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('mobile') }}</strong>
+                                                    </span>
+                                            @endif
+
                                              </div>
                                     
                             
@@ -85,16 +92,16 @@
 
                                              </div>
 
-                                <div class="form-group{{ $errors->has('new_pwd') ? ' has-error' : '' }}  col-sm-12">
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}  col-sm-12">
 
                                     <label for="inputPassword2" class="control-label"> New Password</label>
                                     
-                                            <input type="password" data-toggle="validator" data-minlength="8" class="form-control" id="inputPassword2" name="new_pwd" placeholder=" New Password" required="required">
+                                            <input type="password" data-toggle="validator" data-minlength="8" class="form-control" id="inputPassword2" name="password" placeholder=" New Password" required="required">
                                             <span class="help-block">Minimum of 8 characters</span>
 
-                                            @if ($errors->has('new_pwd'))
+                                            @if ($errors->has('password'))
                                                     <span class="invalid-feedback">
-                                                        <strong>{{ $errors->first('new_pwd') }}</strong>
+                                                        <strong>{{ $errors->first('password') }}</strong>
                                                     </span>
                                             @endif
 
@@ -102,17 +109,13 @@
 
 
 
-                                            <div class="form-group{{ $errors->has('confirm_pwd') ? ' has-error' : '' }}  col-sm-12">
+                                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}  col-sm-12">
 
                                             <label for="inputPassword2" class="control-label">Confirm Password</label>
-                                            <input type="password" class="form-control" id="inputPasswordConfirm2" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="confirm_pwd" placeholder="Confirm Password" required="required">
+                                            <input type="password" class="form-control" id="inputPasswordConfirm2" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="password_confirmation" placeholder="Confirm Password" required="required">
                                             <div class="help-block with-errors"></div>
 
-                                            @if ($errors->has('confirm_pwd'))
-                                                    <span class="invalid-feedback">
-                                                        <strong>{{ $errors->first('confirm_pwd') }}</strong>
-                                                    </span>
-                                            @endif
+                                          
 
                                         </div>
                                   

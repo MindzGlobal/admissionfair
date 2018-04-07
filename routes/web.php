@@ -55,11 +55,11 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 
-    Route::post('resetlogindetails','CollegeController@resetlogindetails');
-    Route::get('resetpwd','CollegeController@resetpwd');
+    Route::post('resetlogindetails','ResetPasswordController@resetlogindetails');
+    Route::get('resetpwd','ResetPasswordController@resetpwd');
 
     // Route::get('validation','CollegeController@validation');
-    Route::post('changepwd','CollegeController@changepwd');
+    Route::post('changepwd','ResetPasswordController@changepwd');
 
 
 });
@@ -103,9 +103,9 @@ Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
 
-Route::get('college/resetpwd', function () {
-    return view('college.resetpwd');
-});
+// Route::get('college/resetpwd', function () {
+//     return view('college.resetpwd');
+// });
 
 Route::get('college/std_profile', function () {
     return view('college.std_profile');
