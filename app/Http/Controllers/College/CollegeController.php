@@ -1,4 +1,4 @@
-gi<?php
+<?php
 
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
