@@ -25,9 +25,12 @@
                           
                         @else
                             <li>
+                                 <a href="{{ url('student/booth') }}" >Enter Hall</a>
+                            </li>
+                            <li>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(isset($students->profile_image))
-                                        <img src="{{ asset($students->profile_image) }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
+                                    @if(isset(Auth::user()->profile_image))
+                                        <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
                                     @else
                                         <img src="{{ asset('student/images/profile_images/dummy_image.png') }}" alt="user-img" style="width:36px;" class="img-circle">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} <span class="caret"></span>
                                     @endif

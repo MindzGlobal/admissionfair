@@ -1,6 +1,7 @@
 @extends('college.layouts.app')
 @section('css')
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+<link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
 <style>
     .sttabs{
     border:1px solid #eee;
@@ -97,13 +98,8 @@
                                               <div class="form-group">
                                                   <label class="col-xs-3 control-label">State</label>
                                                   <div class="col-xs-5">
-                                                      <select class="form-control" name="state" id="sel1" value="{{ $user->state }}">
-                                                      <option></option>
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                      <option>3</option>
-                                                      <option>4</option>
-                                                      </select>
+                                                      <input type="hidden" id="selectedState" value="{{ $user->state }}"/>
+                                                      <select class="form-control" name="state" id="listBox" onchange='selct_district(this.value)'></select>
                                                   </div>
                                               </div>
                                           </div>
@@ -112,12 +108,8 @@
                                               <div class="form-group">
                                                   <label class="col-xs-3 control-label">City</label>
                                                   <div class="col-xs-5">
-                                                      <select class="form-control" name="city" id="sel1" value="{{ $user->city }}">
-                                                      <option></option>
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                      <option>3</option>
-                                                      <option>4</option>
+                                                      <select class="form-control" name="city" id="secondlist">
+                                                        <option value="{{ $user->city }}" selected>{{ $user->city }}</option>
                                                       </select>
                                                   </div>
                                               </div>
@@ -189,24 +181,21 @@
                                                         <input class="form-control" type="text" name="university_name" id="txtBoxUn" value="{{ $user->university_name }}"/>
                                                         </div>
 
-
-                                                        <!-- <div id="dvtext1" style="display: none">
-                                                        Type University Name:
-                                                        <input class="form-control" name="university_name1" type="text" id="txtBox" />
-                                                        </div> -->
-
                                                     </div>
                                                 </div>
                                             </div>
 
                                              <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="col-xs-3 control-label">catagory Of College:</label><br>
+                                                    @php
+                                                        $cat = explode(',',$user->college_category);
+                                                    @endphp
+                                                    <label class="col-xs-3 control-label">catagory Of College: </label><br>
                                                     <div class="col-xs-5">
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]">Technology</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]">Medical</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]">Management</label>
-                                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]">Arts</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Technology" name="college_category[]" {{ in_array('Technology',$cat)? 'checked':''}}>Technology</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Medical" name="college_category[]" {{ in_array('Medical',$cat)? 'checked':''}}>Medical</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Management" name="college_category[]" {{ in_array('Management',$cat)? 'checked':''}}>Management</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" value="Arts" name="college_category[]" {{ in_array('Arts',$cat)? 'checked':''}}>Arts</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,14 +215,15 @@
                                                         </div>
                                                             
                                                             @foreach($courseoffer as $courseoffer)
+                                                            <div style="border-top: 2px dotted #2b2b2b70;margin-bottom: 30px;"></div>
                                                               <div class ="col-md-3">
                                                                   <div class="form-group">
-                                                                  <input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" value="{{ $courseoffer->course_offer }}" >
+                                                                  <input type="text" class="form-control textbox ui-autocomplete-input search_courses" autocomplete="off" name="course_offer[]" placeholder="Course" value="{{ $courseoffer->course_offer }}" >
                                                                   </div>
                                                               </div>
                                                               <div class ="col-md-3">
                                                                   <div class="form-group">
-                                                                  <input type="text" class="form-control textbox" id="" name="course_department[]" placeholder="Add Departments" value="{{ $courseoffer->course_department }}">
+                                                                  <input type="text" class="form-control textbox ui-autocomplete-input search_department" autocomplete="off" name="course_department[]" placeholder="Add Departments" value="{{ $courseoffer->course_department }}">
                                                                   </div>
                                                               </div>
                                                               <div class ="col-md-3">
@@ -247,18 +237,24 @@
                                                                   <input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" value="{{ $courseoffer->course_total_fee }}">
                                                                   </div>
                                                               </div>
-                                                              <div class="col-md-12">
-                                                              <div class="col-md-6">
-                                                                    <p class="doc">selcted document*  {{ $courseoffer->fee_structure_file_name }}</p>        
+                                                              <div class ="col-md-12">
+                                                                    <div class="form-group">
+                                                                    <textarea class="form-control textbox" id="" name="course_description[]" placeholder="Course Description">{{ $courseoffer->course_description }}</textarea>
                                                                     </div>
-                                                              <div class="col-md-3"><label class="control-label pull-right m-t-10">Fee Structure(Doc Format):</label></div>
-                                                              <div class ="col-md-3 pull-right">                   
-                                                                  <div class="form-group">
-                                                                  <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
-                                                                  </div>                                                  
+                                                                </div>
+                                                              <div class="col-md-12">
+                                                                <div class="col-md-6">
+                                                                    <p class="doc">selcted document*  {{ $courseoffer->fee_structure_file_name }}</p>        
+                                                                </div>
+                                                                <div class="col-md-3"><label class="control-label pull-right m-t-10">Fee Structure(Doc Format):</label></div>
+                                                                <div class ="col-md-3 pull-right">                   
+                                                                    <div class="form-group">
+                                                                    <input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" >
+                                                                    </div>                                                  
+                                                                </div>
                                                               </div>
-                                                              </div>
-
+                                                              <div class="clearfix"></div>
+                                                              
                                                             @endforeach
                                                       </div>
                                                    </div>
@@ -321,13 +317,15 @@
                           </div>
                           </div>
                           </div>
+                          <input type="hidden" id="ajaxCourseUrl" value="{{ route('searchcourseajax') }}">
+                          <input type="hidden" id="ajaxDeparmentUrl" value="{{ route('searchdeparmentajax') }}">                          
 @endsection
 
 @section('js')
+    <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('college/js/UpdateformValidation.js') }}"></script>
-    <script src="{{ asset('college/js/validator.js') }}"></script>
-    <script src="{{ asset('college/js/countries.js') }}"></script>
+    <script src="{{ asset('college/js/state.js') }}"></script>
     <script src="{{ asset('college/js/cbpFWTabs.js') }}"></script>
                    <script type="text/javascript">
                    (function() {

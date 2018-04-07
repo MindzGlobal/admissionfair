@@ -17,22 +17,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@about')->name('home');
 //Student Section ###############################################################################
 Route::get('college/demo', function () {
-    return view('college.create_profile');
+    return view('college.subscribe_price');
 });
+Route::post('pay','PaymentController@collegePay')->name('pay');
+Route::get('paystatus','PaymentController@status')->name('paystatus');
 
-
+Route::post('pay-student','PaymentController@studentPay')->name('studentPay');
+Route::get('paystatus-student','PaymentController@studentStatus')->name('studentpaystatus');
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
     Route::get('register','CollegeAuthController@register');
     Route::get('login','CollegeAuthController@login')->name('collegelogin');
+
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
     Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
     Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
     
     Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
-  
     Route::post('index','MediaController@uploadprofile_image');
-    Route::get('myprofile','MediaController@showprofile_image');
+    Route::get('myprofile','MediaController@showprofile_image')->name('myprofile');
 
     Route::post('image_gallery','MediaController@uploadimage');
     Route::get('image_gallery','MediaController@showimages');
@@ -43,10 +46,15 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('deletevideogallery/{id}','videoController@deleteVideo');
 
     Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
-    Route::post('insertprofile','CollegeController@insertprofile');
+    Route::post('insertprofile','CollegeController@insertprofile')->name('insertprofile');
+
+    Route::get('select_booth','CollegeController@select_booth');
+    Route::post('insertBooth','CollegeController@insertBooth');
+
+    Route::get('package','CollegeController@packegeview');
 
     Route::post('insertBooth','CollegeController@insertBooth');
-    Route::get('select_booth','CollegeAuthcontroller@select_booth');
+    Route::get('select_booth','CollegeController@select_booth');
 
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
@@ -55,10 +63,11 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 
+    Route::get('searchcourseajax',array('as'=>'searchcourseajax','uses'=>'AutoCompleteController@autoCourseComplete'));
+    Route::get('searchdeparmentajax',array('as'=>'searchdeparmentajax','uses'=>'AutoCompleteController@autoDepartmentComplete'));
+
     Route::post('resetlogindetails','ResetPasswordController@resetlogindetails');
     Route::get('resetpwd','ResetPasswordController@resetpwd');
-
-    // Route::get('validation','CollegeController@validation');
     Route::post('changepwd','ResetPasswordController@changepwd');
 
 
@@ -97,17 +106,17 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::post('upload_image','StudentController@uploadprofileImage');
     Route::get('delete_image','StudentController@deleteprofileImage');
 
+    Route::get('booth','CollegeDetailsController@showBooth');
+    Route::get('singlebooth/{reg_id}','CollegeDetailsController@showSinglebooth');
+    Route::get('{reg_id}/{dept_id}','CollegeDetailsController@coursedepartments');
+    Route::get('course','CollegeDetailsController@showSelectedDepartment');
+    Route::post('apply','CollegeDetailsController@ApplyCollege');
+
+    Route::get('gallery','CollegeDetailsController@collegeGallery');
+
 });
 
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
-});
-
-// Route::get('college/resetpwd', function () {
-//     return view('college.resetpwd');
-// });
-
-Route::get('college/std_profile', function () {
-    return view('college.std_profile');
 });
 

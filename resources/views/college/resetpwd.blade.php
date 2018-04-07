@@ -8,6 +8,7 @@
     .pagination>.active>a {
     background-color: #03a9f3;
     border-color: #03a9f3;
+    }
     </style>
 @endsection
 
@@ -17,7 +18,6 @@
     
 @endsection
 @section('content')
-<!-- Page Content -->
 <div class="container-fluid">
                 <div class="row bg-title">
                                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -82,7 +82,7 @@
 
                                     <label for="" class="control-label">Old Password</label>
                                     
-                                            <input type="password" data-toggle="validator" data-minlength="8" class="form-control" id="" placeholder="Old Password" name="old_pwd" required="required">
+                                            <input type="text" data-toggle="validator" data-minlength="8" class="form-control" id="" placeholder="Old Password" name="old_pwd" required="required" value="{{ old('old_pwd') }}">
 
                                             @if ($errors->has('old_pwd'))
                                                     <span class="invalid-feedback">
@@ -97,8 +97,11 @@
                                     <label for="inputPassword2" class="control-label"> New Password</label>
                                     
                                             <input type="password" data-toggle="validator" data-minlength="8" class="form-control" id="inputPassword2" name="password" placeholder=" New Password" required="required">
+<<<<<<< HEAD
                                             <span class="help-block">Minimum of 8 characters</span>
 
+=======
+>>>>>>> 3ee2e17298ecd8d44bd1a6b6dd447e6b7235837b
                                             @if ($errors->has('password'))
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $errors->first('password') }}</strong>
@@ -113,10 +116,13 @@
 
                                             <label for="inputPassword2" class="control-label">Confirm Password</label>
                                             <input type="password" class="form-control" id="inputPasswordConfirm2" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="password_confirmation" placeholder="Confirm Password" required="required">
+<<<<<<< HEAD
                                             <div class="help-block with-errors"></div>
 
                                           
 
+=======
+>>>>>>> 3ee2e17298ecd8d44bd1a6b6dd447e6b7235837b
                                         </div>
                                   
                                 
