@@ -1901,13 +1901,14 @@ input:-moz-placeholder {
     color: #666;
 }
 
-.blog-page.edu-course .blog-post .course-teacher img {
+ .teacher-detail img {
     width: 80px;
     border-radius: 50%;
     margin: 0 auto;
+    height: 80px;
 }
 
-.blog-page.edu-course .blog-post .course-teacher h3 {
+.course-teacher h3 {
     background-color: #2980b9;
     color: #fff;
     font-size: 18px;
@@ -1917,7 +1918,7 @@ input:-moz-placeholder {
     margin-bottom: 0;
 }
 
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail {
+.teacher-detail {
     background: #f6f6f6 none repeat scroll 0 0;
     padding: 20px 20px 30px;
     text-align: center;
@@ -1930,7 +1931,7 @@ input:-moz-placeholder {
 
 
 
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail h4 {
+ .teacher-detail h4 {
     color: #3f3f3f;
     font-size: 18px;
     font-weight: 500;
@@ -1938,21 +1939,20 @@ input:-moz-placeholder {
     text-transform: capitalize;
 }
 
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail p {
+ .teacher-detail p {
     color: #3f3f3f;
     font-weight: 500;
     margin: 0 0 20px;
     text-align: left;
 }
 
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail ul {
+ .teacher-detail ul {
     float: left;
     width: 100%;
     border-top: 1px solid #dddddd;
     padding: 20px 0px 0px;
 }
-
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail ul li a {
+.teacher-detail ul li a {
     width: 42px;
     height: 42px;
     text-align: center;
@@ -1961,8 +1961,7 @@ input:-moz-placeholder {
     font-size: 18px;
     line-height: 1.4em;
 }
-
-.blog-page.edu-course .blog-post .course-teacher .teacher-detail ul li a i {
+ .teacher-detail ul li a i {
     color: #fff;
 }
 
