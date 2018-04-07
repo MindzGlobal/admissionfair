@@ -112,7 +112,8 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::get('course','CollegeDetailsController@showSelectedDepartment');
     Route::post('apply','CollegeDetailsController@ApplyCollege');
 
-    Route::get('gallery','CollegeDetailsController@collegeGallery');
+    Route::get('image/{clg}/gallery','CollegeDetailsController@collegeImageGallery');
+    Route::get('video/{clg}/gallery','CollegeDetailsController@collegevideoGallery');
 
 });
 

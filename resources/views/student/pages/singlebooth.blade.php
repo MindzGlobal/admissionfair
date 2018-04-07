@@ -20,11 +20,15 @@
    top: 95px;
    color: #fff;
    background: #15030394;
-   padding: 5px 66px;
+  
    display: inline-block;
    float: left;
-   margin-left: -16%;
+   width:30%;
    }
+   .page-title-box h3
+{
+    font-size:12px!important;
+}
    .btn.focus, .btn:focus, .btn:hover {
    color: #fff!important;
    text-decoration: none;
@@ -38,7 +42,6 @@
    background: #15030394;
    padding: 38px;
    margin-left: -5px;
-   margin-top: -4%;
    }
    .bg
    {
@@ -82,10 +85,10 @@
          <div class="col-md-6">
             <img src="{{ asset('student/booth/images/0010.png')}}" alt="" style="margin-left:-15%">
             <div class="col-md-3">
-               <button class="btn-default dg">Video Gallery</button>
+               <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
             </div>
             <div class="col-md-3">
-               <button class=" btn-default">Image Gallery</button>
+               <button class=" btn-default" onclick="location.href='{{ url('student/image/'.$college->reg_id.'/gallery')}}';">Image Gallery</button>
             </div>
          </div>
          <div class="col-md-6 null">
