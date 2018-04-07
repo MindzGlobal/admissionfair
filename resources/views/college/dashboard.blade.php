@@ -18,6 +18,7 @@
     <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
     
 @endsection
+
 @section('content')
 <!-- Page Content -->
 <div class="container-fluid">

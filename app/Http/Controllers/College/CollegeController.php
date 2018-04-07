@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Auth;
+use File;
+use App\Model\UserVerification;
+use Illuminate\Support\Str;
 
 
 
@@ -24,7 +30,12 @@ class CollegeController extends Controller
             $mobileVerificationStatus = Auth::user()->mobile_verification;
             if($mobileVerificationStatus == 'No'){
                 return redirect()->route('otpverification');
-            }
+            } 
+            // else if(Auth::user()->compilation_status!='Done') {
+            //   if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile'))){
+            //     return redirect()->route('createprofile');
+            //   }
+            // }
             return $next($request);
         });
     }
@@ -36,6 +47,16 @@ class CollegeController extends Controller
 
     // Insert profile details of college
       
+    public function select_booth()
+    {
+      return view('college.select_booth');
+    }
+
+    public function packegeview()
+    {
+      return view('college.subscribe_price');
+    }
+
     public function insertProfile(Request $request)
       {
         $res = 'success';
@@ -173,73 +194,81 @@ class CollegeController extends Controller
       return view('college.update_profile',['user' => $user,'courseoffer'=>$course]);
   }
 
-  public function updatecollegedetails(Request $request){ //To update coll details
+  public function updatecollegedetails(Request $request){
       $id = Auth::user()->id;
       $user = CollegeDetail::find($id);
       $user->college_name = $request->Input('name');
       $user->college_email = $request->Input('email');
       $user->college_number_1 = $request->Input('mobile');
       $user->college_number_2 = $request->Input('college_number_1');
+
       $user->state = $request->Input('state');
       $user->city = $request->Input('city');
       $user->pincode = $request->Input('pincode');
+
+      $user->college_state = Input::get('state');
+      $user->college_city = Input::get('city');
+      $user->college_pincode = Input::get('pincode');
+
       $user->website = $request->Input('website');
       $user->college_address = $request->Input('college_address');
       $user->save();
       return redirect("college/update_profile");       
   }
 
-  public function updatecollegecourse(Request $request){ //To update course details
-      $id = Auth::user()->id;
-      $reg_id = Auth::user()->reg_id;
+  public function updatecollegecourse(Request $request){
+    $id = Auth::user()->id;
+    $reg_id = Auth::user()->reg_id;
 
-      $user = CollegeDetail::find($id);
-      $user->university_name = $request->Input('university_name');
-      $user->college_type = $request->Input('college_type');
-      // $user->$str_clgDetais = explode(",", $model->college_category);
-     
+    $user = CollegeDetail::find($id);
+    $user->university_name = $request->Input('university_name');
+    $user->college_type = $request->Input('college_type');
+    // $user->$str_clgDetais = explode(",", $model->college_category);
+   
 
-      courseOffers::where('reg_id',$reg_id)->delete();
-      $course_offer = Input::get('course_offer');
-      $course_duration = Input::get('course_duration');
-      $course_total_fee = Input::get('course_total_fee');
-      $fee_structure_file_name = Input::get('fee_structure_file_name');
-      $course_department = Input::get('course_department');
-      $files = Input::file('fee_structure_file_name');
+    courseOffers::where('reg_id',$reg_id)->delete();
+    $course_offer = Input::get('course_offer');
+    $course_duration = Input::get('course_duration');
+    $course_total_fee = Input::get('course_total_fee');
+    $fee_structure_file_name = Input::get('fee_structure_file_name');
+    $course_department = Input::get('course_department');
+    $course_description = Input::get('course_description');
+    $files = Input::file('fee_structure_file_name');
 
-      $insertData = array();
-      for($i=0; $i<count($course_offer);$i++)
+    $insertData = array();
+    for($i=0; $i<count($course_offer);$i++)
+    {
+
+      $file_url='';
+      $name = '';
+      if($files[$i]!='')
       {
-
-        $file_url='';
-        $name = '';
-        if($files[$i]!='')
-        {
-          $name = str_random(6) . '_' . $files[$i]->getClientOriginalName();
-          $destination_path = '/college/images/docs';
-          $files[$i]->move(public_path().$destination_path, $name);
-          $file_url = 'college/images/docs/'.$name;
-        }
-
-        $insertData[] = [
-          'reg_id'  => $reg_id,
-          'course_offer'  => $course_offer[$i],
-          'course_duration'   => $course_duration[$i],
-          'course_total_fee'  => $course_total_fee[$i],
-          'fee_structure_file_name'  => $name,
-          'fee_structure_file_url' => $file_url,
-          'course_department'  => $course_department[$i],
-          ];
+        $name = str_random(6) . '_' . $files[$i]->getClientOriginalName();
+        $destination_path = '/college/images/docs';
+        $files[$i]->move(public_path().$destination_path, $name);
+        $file_url = 'college/images/docs/'.$name;
       }
-      // dd($insertData);
-      $user->save();
-      $news = new courseOffers();
-      $news->insert($insertData);
 
-      return redirect("college/update_profile");  
-  }
+      $insertData[] = [
+        'reg_id'  => $reg_id,
+        'course_offer'  => $course_offer[$i],
+        'course_duration'   => $course_duration[$i],
+        'course_description'  => $course_description[$i],
+        'course_total_fee'  => $course_total_fee[$i],
+        'fee_structure_file_name'  => $name,
+        'fee_structure_file_url' => $file_url,
+        'course_department'  => $course_department[$i],
+        ];
+    }
+    // dd($insertData);
+    $user->save();
+    $news = new courseOffers();
+    $news->insert($insertData);
 
-  public function updatecollegemedia(Request $request){ //To Update media
+    return redirect("college/update_profile"); 
+    }
+
+  public function updatecollegemedia(Request $request){
     $id = Auth::user()->id;
     $clgDetais = CollegeDetail::find($id);
     

@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Tzsk\Payu\Provider\PayuServiceProvider::class,
         LaravelTrailingSlash\RoutingServiceProvider::class,
+        Tzsk\Payu\Provider\PayuServiceProvider::class,
 
         /*
          * Package Service Providers...

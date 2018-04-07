@@ -274,23 +274,33 @@
                      <div class="col-md-12">
                         <div class="form-group">
                            <label for="chkYes">
-                            <input name="graduation_type" type="radio" id="full-time" name="chk" value="" />
-                            Full Time
-                            </label>&nbsp
-                            <label for="chkNo">
-                            <input name="graduation_type" type="radio" id="part-time" name="chk" value="" />
-                            Part Time
-                            </label>&nbsp
-                            <label for="chkYes1">
-                            <input name="graduation_type"  type="radio" id="coresspondance" name="chk" value="" />
-                            Coresspondance
-                           </label>
-                        </div>
+                                <label for="chkYes">
+                                <input type="radio" id="chkYes" name="graduation_type" value="Full Time"  checked
+                                {{ $graduation->graduation_type == 'Full Time' ? 'checked' : '' }}  />
+                                Full Time
+                                </label>&nbsp
+                                <label for="chkNo">
+                                <input type="radio" id="chkNo" name="graduation_type" value="Part Time"  
+                                {{ $graduation->graduation_type == 'Part Time' ? 'checked' : '' }} />
+                                Part Time
+                                </label>&nbsp
+                                <label for="chkYes1">
+                                <input type="radio" id="chkYes1" name="graduation_type" value="Correspondance" 
+                                {{ $graduation->graduation_type == 'Correspondance' ? 'checked' : '' }} />
+                                Correspondance
+                                </label>
+                          </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-3">
                         <div class="form-group">
                            <label for="clg_location">Course:</label>
                            <input type="text" name="course" class="form-control textbox" id="mob" placeholder="Enter University Name" required  value="{{ $graduation-> course }}"/>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label for="clg_location">Department:</label>
+                           <input type="text" name="department" class="form-control textbox" id="mob" placeholder="Enter Department Name" value="{{ $graduation-> department }}">
                         </div>
                      </div>
                      <div class="col-md-3">

@@ -37,21 +37,21 @@
                 <nav class="navbar navbar-default navbar-static-top m-b-0">
                     <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
 
-                        <div class="top-left-part"><a class="logo" href="index.html">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}" alt=""/ style="width: 150px;>
+                        <div class="top-left-part"><a class="logo" href="{{ route('dashboard') }}">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}" alt=""/ style="width: 150px;>
                         margin-left: 30px;"></span></a></div>
                         <ul class="nav navbar-top-links navbar-left hidden-xs">
                             <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
-                            <li>
+                            {{-- <li>
                                 <form role="search" class="app-search hidden-xs">
                                     <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-                            </li>
+                            </li> --}}
                         </ul>
                         <ul class="nav navbar-top-links navbar-right pull-right">
                             <!-- /.dropdown -->
                             <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
-                                    <li><a href="{{ route('dashboard') }}"><i class="ti-user"></i>  My Profile</a></li>
+                                    <li><a href="{{ url('college/myprofile') }}"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"  ></i>  Logout</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -81,13 +81,15 @@
                                 <a href="#" class="waves-effect"><img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" class="img-circle"> <span class="hide-menu">{{ Auth::user()->name}}</span>
                                 </a>
                             </li>
-                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="icon-people p-r-10"></i> <span class="hide-menu"> My Profile</span></a>
-                            </li>
-                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> Update Profile</span></a>
-                            </li>
-                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a>
-                            </li>
-                            <li><a href="{{ route('dashboard') }}" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Select Booth </span></a></li>
+                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-dashboard p-r-10"></i> <span class="hide-menu"> Dashboard</span></a></li>
+
+                            <li> <a href="{{ url('college/myprofile') }}" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> College Profile</span></a></li>
+
+                            <li> <a href="{{ url('college/update_profile') }}" class="waves-effect"><i class="fa fa-edit p-r-10"></i> <span class="hide-menu"> Update Profile</span></a></li>
+
+                            {{-- <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a></li> --}}
+
+                            {{-- <li><a href="{{ route('dashboard') }}" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Select Booth </span></a></li> --}}
                             <!-- <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-bars p-r-10"></i> <span class="hide-menu"> Courses <span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="">All Courses</a> </li>
@@ -96,7 +98,7 @@
                                     <li> <a href="">Course Information</a> </li>
                                 </ul>
                             </li> -->
-                            <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="icon-basket p-r-10"></i> <span class="hide-menu"> Subscription Price</span></a></li>
+                            {{-- <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="icon-basket p-r-10"></i> <span class="hide-menu"> Subscription Price</span></a></li> --}}
                             <li> <a href="#" class="waves-effect"><i class="icon-picture p-r-10"></i><span class="hide-menu">Gallery<span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level">
                                     <li><a href="{{ url('college/image_gallery') }}">Image Gallery</a></li>
