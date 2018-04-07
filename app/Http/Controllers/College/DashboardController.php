@@ -30,11 +30,13 @@ class DashboardController extends Controller
     }
 
     public function dashboard(Request $request){
+      $reg_id = Auth::user()->reg_id;
       $user = DB::table('student_applied_histories')
-            ->join('students', 'student_applied_histories.student_id', '=', 'students.student_id')
-            ->join('users', 'student_applied_histories.college_id', '=', 'users.reg_id')
+            ->where('student_applied_histories.college_id',$reg_id)
+            ->join('students', 'student_applied_histories.student_id', '=', 'students.student_id')           
             ->select('student_applied_histories.*', 'students.first_name', 'students.email','students.mobile','students.last_name','students.profile_image')
-            ->get();    
+           ->paginate(3);
+    //   $user = DB::table('student_applied_histories')->paginate(3);
       return view("college.dashboard",['users' => $user]);
     }
 }
