@@ -68,6 +68,13 @@
         background: #eee;
       }
 
+      #clg-logo{
+        width: 238px;
+        position: absolute;
+        margin: 51px 66px;
+        height: 73px;
+      }
+
 </style>
 @endsection
 @section('content')
@@ -83,7 +90,8 @@
          </div>
          <!-- particles.js container -->
          <div class="col-md-6">
-            <img src="{{ asset('student/booth/images/0010.png')}}" alt="" style="margin-left:-15%">
+            <img src="{{ asset($college->college_img)}}" alt="{{ $college->college_name }}" id="clg-logo">
+            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%">
             <div class="col-md-3">
                <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
             </div>
