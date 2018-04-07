@@ -105,17 +105,13 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
     Route::get('booth','CollegeDetailsController@showBooth');
     Route::get('singlebooth/{reg_id}','CollegeDetailsController@showSinglebooth');
+    Route::get('{reg_id}/{dept_id}','CollegeDetailsController@coursedepartments');
+    Route::get('document/{id}','CollegeDetailsController@downloadDocuments');
 
+    Route::get('gallery','CollegeDetailsController@collegeGallery');
 
 });
 
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-// Route::get('student/booth', function () {
-//     return view('student.pages.booth');
-// });
-// Route::get('student/singlebooth', function () {
-//     return view('student.pages.singlebooth');
-// });
-

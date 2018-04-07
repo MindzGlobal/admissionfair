@@ -19,11 +19,11 @@
    position: relative;
    top: 95px;
    color: #fff;
-   background: rgba(0, 0, 0, 0.7)!important;
+   background: #15030394;
    padding: 5px 66px;
    display: inline-block;
    float: left;
-   margin-left: -11%;
+   margin-left: -16%;
    }
    .btn.focus, .btn:focus, .btn:hover {
    color: #fff!important;
@@ -38,7 +38,7 @@
    background: #15030394;
    padding: 38px;
    margin-left: -5px;
-   margin-top: -1%;
+   margin-top: -4%;
    }
    .bg
    {
@@ -51,8 +51,20 @@
    }
    .test {
    word-wrap: break-word;
-   width: 80%;
+   width:99%;
    }
+   .acc>li:hover
+      {
+        padding: 7px 7px;
+        color: #333333;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-left: 5px solid transparent;
+        border-top: 1px solid #eeeeee;
+        border-left-color: #2980b9;
+        background: #eee;
+      }
+
 </style>
 @endsection
 @section('content')
@@ -89,12 +101,12 @@
                     </div>
                     <div id="collapse{{ $loop->iteration }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $loop->iteration }}">
                         <div class="panel-body">
-                        <ul class="disc">
+                        <ul class="acc">
                             @foreach($data['departments'] as $d_data)
-                            <li>{{ $d_data['Dept']}}</li>
+                        <li><a href="{{ url('student/'.$college->reg_id.'/'.$d_data->id.'')}}"><i class=" fa fa-hand-o-right"></i> {{ $d_data->Dept}}</a></li>
                             @endforeach
                         </ul>
-                        <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button>
+                        {{-- <button class="btn more-link pull-right next-step" id="send" onclick="ViewCourse();">Read More</button> --}}
                         </div>
                     </div>
                 </div>
