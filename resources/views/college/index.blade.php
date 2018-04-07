@@ -46,7 +46,7 @@
                  <div class="user-bg">
                     <img width="100%" alt="user" src="{{ asset($user->profile_image) }}">
                  </div>
-                 <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image+</div>
+                 <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image<i class="fa fa-edit pull-right m-t-10"></i></div>
                  <!-- <div class="pull-right add-btn">
                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image +</button>
                  </div> -->
@@ -104,10 +104,11 @@
                     </div>
                     <hr>
                     <!-- /.row -->
-                    <div class="col-md-12 col-sm-12 text-center">
+                    <!-- <div class="col-md-12 col-sm-12 text-center">
                        <button class="btn btn-facebook waves-effect btn-circle waves-light" type="button"> <i class="fa fa-facebook"></i> </button>
                        <button class="btn btn-googleplus waves-effect btn-circle waves-light" type="button"> <i class="fa fa-google-plus"></i> </button>
-                       <button class="btn btn-linkedin waves-effect btn-circle waves-light" type="button"> <i class="fa fa-linkedin"></i> </button>                    </div>
+                       <button class="btn btn-linkedin waves-effect btn-circle waves-light" type="button"> <i class="fa fa-linkedin"></i> </button>
+                   </div> -->
                  </div>
               </div>
            </div>
@@ -153,6 +154,9 @@
                                 </div>
                              </fieldset>
                              <hr>
+                             <div class="col-md-2 pull-right">
+                                <a href='{{ url("college/update_profile") }}'><button class="btn btn-info waves-effect waves-light"><span>Edit</span> <i class="fa fa-edit m-l-5"></i></button></a>
+                             </div>
                           </section>
                           <section id="section-underline-2" class="" style="padding:0px;">
                              <div class="white-box">
@@ -179,6 +183,10 @@
                                          @endforeach
                                       </tbody>
                                    </table>
+                                   <br>
+                                   <div class="col-md-2 pull-right">
+                                     <a href='{{ url("college/update_profile") }}'><button class="btn btn-info waves-effect waves-light"><span>Edit</span> <i class="fa fa-edit m-l-5"></i></button></a>
+                                   </div>
                                 </div>
                              </div>
                           </section>

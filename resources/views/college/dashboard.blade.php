@@ -107,12 +107,10 @@
                                                 </div>
                                             </td>   
                                         </tr>
-                                        @endforeach 
+                                        @endforeach                                       
                                     </tbody>
                                 </table>
-                                <div class="pull-right">
-                                    {{ $users->links() }}
-                                </div>
+                                <div class="pull-right">{{ $users->links() }}</div>
                             </div> 
                         </div>
                     </div> 

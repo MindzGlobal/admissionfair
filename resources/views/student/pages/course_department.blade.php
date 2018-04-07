@@ -3,7 +3,27 @@
 
 @section('css')
 <style type="text/css">
-
+hr {
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+.teacher-detail p {
+    color: #3f3f3f;
+    font-weight: 600;
+    margin: 4px 0 0px;
+    text-align: left;
+    padding-top: 0px;
+}
+span.clg-deiatls {
+	float: right;
+	color: #33333391;
+}
+h4
+{
+	margin-top:0px!important;
+}
 </style>
 @endsection
 
@@ -26,18 +46,18 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="category bg-white">
-                     <form>
+                     <form role="form" action="{{ url('student/course') }}" method="get">
                         <div class="form-group col-md-9">
+                           <input type="hidden" name="reg_id" value="{{$college->reg_id}}"/>
                            <label>{{$course->course_offer}}</label>
-                          
-                           <select class="form-control">
-                               @foreach($alldept as $d_data)
-                              <option value="{{ $d_data->id}}">{{ $d_data->departments}}</option>
-                              @endforeach
+                           <select class="form-control" name="DeptId">
+                            @foreach($alldept as $d_data)
+                              <option value="{{ $d_data->id}}" {{ $d_data->id ==$selected ? 'selected' : ''}}>{{$d_data->departments}}</option>
+                            @endforeach
                            </select>
                         </div>
-                        <div class="form-group col-md-3">
-                           <input type="submit" name="Apply" value="Search" class="form-submit btn">
+                        <div class="form-group col-md-3">{{--name="Apply" value="Search" --}}
+                           <input type="submit"  class="form-submit btn">
                         </div>
                      </form>
                   </div>
@@ -78,26 +98,51 @@
                         <div class="post-content">
                             <h4>{{ $course->course_department}}</h4>
                            <blockquote><i class="fa fa-quote-left"></i>
-                              {{$course->course_description}}<i class="fa fa-quote-right"></i>
+                                @if(!is_null($course->course_description))
+                                {{$course->course_description}}
+                                @else
+                                    Higher education, also called tertiary, third stage, or post secondary education, is the
+                                    non-compulsory educational level
+                                    that follows the completion of a school providing a secondary education, such as a high
+                                    school or secondary school. Tertiary education is normally taken to include
+                                    undergraduate and postgraduate education.
+                                @endif <i class="fa fa-quote-right"></i>
                            </blockquote>
                         </div>
-                        <div class="course-info col-md-9">
+						<div class="row">
+						<div class="course-teacher col-md-6">
+                                <h3>College Details</h3>
+
+                                <div class="teacher-detail bg-gray">
+                                   <p>University Name: <span class="clg-deiatls">   {{$college->university_name}}</span></p>
+									<hr class="list-inline">
+									<p>Email: <span class="clg-deiatls"> {{$college->college_email}}</span> </p>
+									<hr class="list-inline">
+									<p>Contact no: <span class="clg-deiatls">  {{$college->college_number_1}},{{$college->college_number_2}}</span> </p>
+									<hr class="list-inline">
+									<p>College Type:  <span class="clg-deiatls">  {{$college->college_type}}</span> </p>
+									<hr class="list-inline">
+									<p>College Category:  <span class="clg-deiatls"> {{$college->college_category}}</span> </p>
+									<hr class="list-inline">
+									<p>College Address:  <span class="clg-deiatls"> {{$college->college_address}},{{$college->college_state}}</span> </p>
+									<hr class="list-inline">
+                                 
+
+                                  </div>
+                            </div>
+                        <div class="course-info col-md-6">
                            <h3 class="sidebar-title">Courses Information</h3>
                            <ul class="bg-gray"> 
                               <li>Course :<span>{{$course->course_offer}}</span></li>
                               <li>Department :<span>{{$course->course_department}}</span></li>
                               <li>Duration:<span>{{$course->course_duration}} </span></li>
                               <li>Fees :<span>{{$course->course_total_fee}}  </span></li>
-                              <li>File :<span>
-                                          <a href="{{ url( 'student/document/'. $course->id)  }}" target="_blank">{{$course->fee_structure_file_name}}</a></span></li> 
-                        {{-- {!! Html::link(asset($course->fee_structure_file_url), $course->fee_structure_file_name) !!}</span> {{$course->fee_structure_file_name}}</li>
-                                     --}}
-                                   
-                              
-                              
+                              <li>File :<span><a href="{{asset($course->fee_structure_file_url)}}" download="{{$course->fee_structure_file_name}}">{{$course->fee_structure_file_name}}</a></span></li> 
                         </ul>
                            <button class="btn more-link pull-right next-step" id="send" data-toggle="modal" data-target="#apply">Apply</button>
                         </div>
+						
+							</div>
                         <br>
                         </br>
                      </article>
@@ -108,42 +153,28 @@
                <div class="col-sm-12 col-md-4 sidber">
                   <!-- // End Widget -->
                   <div class="widget">
-                     <div class="wiget-title">
-                        <h4>Populer Colleges</h4>
+				  	  <div class="wiget-title">
+                      
+                        <h4>Contact Person</h4>
+                    </div>
+                    <div class="teacher-detail bg-gray">
+				
+                                      @if(!is_null($college->profile_image))
+                              <img class="img-responsive" src="{{ asset($college->profile_image) }}" alt="Blog_image">
+                             @else
+                             <img class="img-responsive" src="{{ asset('student/images/blog/1.jpg') }}" alt="Blog_image">
+                              @endif
+							  <br>
+                                    <h4>{{$college->name}}</h4>
+
+                                    <p>Email: <span class="clg-deiatls">  {{$college->email}}</span></p>
+									<hr class="list-inline">
+									<p>Contact No: <span class="clg-deiatls">  {{$college->mobile}}</span></p>
+									<hr class="list-inline">
+									
+                                </div>
                      </div>
-                     <div class="sidber-widget">
-                        <div class="wiget-post">
-                           <div class="wiget-img">
-                              <img src="{{ asset('student/images/blog/1.jpg')}}" alt="Sidber Image">
-                           </div>
-                           <div class="posi-inner">
-                              <h6><a href="#">Students Have Enough</a></h6>
-                              <span>John Milton</span>
-                              <p>Price: <strong>Free</strong></p>
-                           </div>
-                        </div>
-                        <div class="wiget-post">
-                           <div class="wiget-img">
-                              <img src="{{ asset('student/images/blog/1.jpg')}}" alt="Sidber Image">
-                           </div>
-                           <div class="posi-inner">
-                              <h6><a href="#">Students Have Enough</a></h6>
-                              <span>John Milton</span>
-                              <p>Price: <strong>$29</strong></p>
-                           </div>
-                        </div>
-                        <div class="wiget-post">
-                           <div class="wiget-img">
-                              <img src="{{ asset('student/images/blog/1.jpg') }}" alt="Sidber Image">
-                           </div>
-                           <div class="posi-inner">
-                              <h6><a href="#">Students Have Enough</a></h6>
-                              <span>John Milton</span>
-                              <p>Price: <strong>$50</strong></p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                 
                   <!-- // End Widget -->
                   <div class="widget">
                      <div class="video-widget clearfix">
@@ -185,15 +216,19 @@
                <div class="modal-body ">
                   <div class="comment-box">
                      <div class="title">
-                        <h4>Leave a comment</h4>
+                        <h4>{{$college->college_name}}</h4>
                      </div>
-                     <form>
+                     <form role="form" action="{{ route('studentPay') }}" method="post">
+                        @csrf
+                        <input  type="hidden" name="college_id" value="{{$course->reg_id}}"/>
+                        <input type="hidden" name="dept_id" value="{{$course->id}}"/>
+
                         <div class="form-group col-sm-6 padding-left-0">
                            <div class="input-group">
                               <span class="input-group-addon">
                               <i class="fa fa-user"></i>
                               </span>
-                              <input class="form-control" type="text" placeholder="Course Name">
+                              <input class="form-control" type="text" value="{{$course->course_offer}}" placeholder="Course Name">
                            </div>
                         </div>
                         <div class="form-group">
@@ -201,13 +236,29 @@
                               <span class="input-group-addon">
                               <i class="fa fa-envelope-o"></i>
                               </span>
-                              <input class="form-control" type="email" placeholder="Department Name">
+                              <input class="form-control" type="text"  value="{{$course->course_department}}" placeholder="Department Name">
                            </div>
                         </div>
-                        <div class="form-group">
-                           <textarea class="form-control message" rows="7" placeholder="Message..."></textarea>
-                        </div>
-                        <button class="btn more-link" id="send">Send Message</button>
+                        <div class="form-group col-sm-6 padding-left-0">
+                                <div class="input-group">
+                                   <span class="input-group-addon">
+                                   <i class="fa fa-user"></i>
+                                   </span>
+                                   <input class="form-control" type="text" value="{{$course->course_duration}}" placeholder="Course Duration">
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <div class="input-group col-sm-6">
+                                   <span class="input-group-addon">
+                                   <i class="fa fa-envelope-o"></i>
+                                   </span>
+                                   <input class="form-control" type="text"  value="{{$course->course_total_fee}}" placeholder="Course Fees">
+                                </div>
+                             </div>
+                          <div class="form-group">
+                           <textarea class="form-control message" name="student_query" rows="7" placeholder="Query..."></textarea>
+                        </div>  
+                        <button  type="submit"  class="btn more-link" id="send">Send Message</button>
                      </form>
                   </div>
                </div>

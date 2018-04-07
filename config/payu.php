@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'env' => 'secure',
+    'env' => 'test',
 
     /*
     |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ return [
     | The account to be used for Payment
     |
     */
-    'default' => 'payumoney',
+    'default' => 'payubiz',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,22 +44,22 @@ return [
         | The account name and credentials which are found in the PayuBiz or
         | PayuMoney Console.
         |
-        | key   => (string)     Merchant Key. (gtKFFx)
-        | salt  => (string)     Merchant Salt. (eCwWELxi)
+        | key   => (string)     Merchant Key.
+        | salt  => (string)     Merchant Salt.
         | money => (boolean)    Is it a payumoney account?
         | auth  => (string)     Authorization Token if it is a payumoney account.
         |
         */
         'payubiz' => [
-            'key' => 'eBuDeEBa',
-            'salt' => '2JrkOUrvPY',
+            'key' => 'gtKFFx',
+            'salt' => 'eCwWELxi',
             'money' => false,
             'auth' => null
         ],
 
         'payumoney' => [
-            'key' => 'eBuDeEBa',
-            'salt' => '2JrkOUrvPY',
+            'key' => 'JBZaLc',
+            'salt' => 'GQs7yium',
             'money' => true,
             'auth' => null
         ],

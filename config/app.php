@@ -146,6 +146,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Tzsk\Payu\Provider\PayuServiceProvider::class,
         LaravelTrailingSlash\RoutingServiceProvider::class,
         Tzsk\Payu\Provider\PayuServiceProvider::class,
 
