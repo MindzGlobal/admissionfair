@@ -31,7 +31,7 @@
    margin-bottom: 20px;
    max-height: 300px;
    overflow-y: auto;
-   margin-top: 10%;
+   margin-top: 6%;
    background: #15030394;
     padding: 20px;
    }

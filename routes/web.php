@@ -108,7 +108,8 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::get('{reg_id}/{dept_id}','CollegeDetailsController@coursedepartments');
     Route::get('document/{id}','CollegeDetailsController@downloadDocuments');
 
-    Route::get('gallery','CollegeDetailsController@collegeGallery');
+    Route::get('image/{clg}/gallery','CollegeDetailsController@collegeImageGallery');
+    Route::get('video/{clg}/gallery','CollegeDetailsController@collegevideoGallery');
 
 });
 
