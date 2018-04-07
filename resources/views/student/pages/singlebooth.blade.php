@@ -50,14 +50,16 @@
 .v_gallery
 {
 	position: relative;
-    left: -1%;
+    left: -4%;
+    margin-top: -12%;
 }
 #clg-logo
 {
     width: 238px;
     position: absolute;
     margin: 42px 52px;
-    height: 75px;
+    height: 111px;
+    border-radius: 15px;
 }
 @media only screen and (max-width: 600px) {
 .singlebooth
@@ -91,7 +93,7 @@ height:850px!important;
 			</div>
          <div class="col-md-6 col-sm-12">
            <img src="{{ asset($college->college_img)}}" alt="{{ $college->college_name }}" id="clg-logo">
-            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%">
+            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%;height: 400px;">
 			<center class="v_gallery">
             <div class="col-md-4">
            <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
