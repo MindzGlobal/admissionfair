@@ -25,14 +25,14 @@ Route::get('paystatus','PaymentController@status')->name('paystatus');
 Route::prefix('college')->namespace('college')->group(function(){
     Route::get('register','CollegeAuthController@register');
     Route::get('login','CollegeAuthController@login')->name('collegelogin');
+
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
     Route::post('otpverify', 'OtpController@OtpVerify')->name('otpverify');
     Route::post('resendotp', 'OtpController@resendotp')->name('clgresendotp');
     
     Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
-  
     Route::post('index','MediaController@uploadprofile_image');
-    Route::get('myprofile','MediaController@showprofile_image');
+    Route::get('myprofile','MediaController@showprofile_image')->name('myprofile');
 
     Route::post('image_gallery','MediaController@uploadimage');
     Route::get('image_gallery','MediaController@showimages');
@@ -60,18 +60,14 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
     Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
 
-<<<<<<< HEAD
-    Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'AutoCompleteController@index'));
-    Route::get('searchajax',array('as'=>'searchajax','uses'=>'AutoCompleteController@autoComplete'));
-=======
-    Route::post('resetlogindetails','CollegeController@resetlogindetails');
-    Route::get('resetpwd','CollegeController@resetpwd');
+    Route::get('searchcourseajax',array('as'=>'searchcourseajax','uses'=>'AutoCompleteController@autoCourseComplete'));
+    Route::get('searchdeparmentajax',array('as'=>'searchdeparmentajax','uses'=>'AutoCompleteController@autoDepartmentComplete'));
 
-    // Route::get('validation','CollegeController@validation');
-    Route::post('changepwd','CollegeController@changepwd');
+    Route::post('resetlogindetails','ResetPasswordController@resetlogindetails');
+    Route::get('resetpwd','ResetPasswordController@resetpwd');
+    Route::post('changepwd','ResetPasswordController@changepwd');
 
 
->>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
 });
 
 
@@ -116,8 +112,6 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
-<<<<<<< HEAD
-=======
 // Route::get('student/booth', function () {
 //     return view('student.pages.booth');
 // });
@@ -125,4 +119,3 @@ Route::get('college/std_profile1', function () {
 //     return view('student.pages.singlebooth');
 // });
 
->>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
