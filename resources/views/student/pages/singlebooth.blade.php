@@ -3,27 +3,24 @@
 @section('css')
 <style type="text/css">
    .btn-default {
-   color: #333;
-   background-color: #fff;
+   color: #fff;
+   background-color: #4a92c31c;
    border-color: #ccc;
    width: 113%!important;
-   height: 100px!important;
-   margin-left: -86%;
+   height: 80px!important;
+   border-radius: 50px;
+    border: 2px solid #3c17179c;
+	font-size: 18px;
    }
-   .col-md-3 {
-   width: 36%;
-   margin-top: -4%;
-   margin-left: 14%;
-   }
+
    .page-title-box {
    position: relative;
    top: 95px;
    color: #fff;
    background: #15030394;
    padding: 5px 66px;
-   display: inline-block;
-   float: left;
-   margin-left: -16%;
+   margin: 27px 3px 7% 4px;
+
    }
    .btn.focus, .btn:focus, .btn:hover {
    color: #fff!important;
@@ -33,26 +30,11 @@
    margin-bottom: 20px;
    max-height: 300px;
    overflow-y: auto;
-   }
-   .null{
+   margin-top: 10%;
    background: #15030394;
-   padding: 38px;
-   margin-left: -5px;
-   margin-top: -4%;
+    padding: 20px;
    }
-   .bg
-   {
-   height:620px!important;
-   }
-   .pos
-   {
-   position:absolute;
-   top:8% 
-   }
-   .test {
-   word-wrap: break-word;
-   width:99%;
-   }
+
    .acc>li:hover
       {
         padding: 7px 7px;
@@ -64,31 +46,53 @@
         border-left-color: #2980b9;
         background: #eee;
       }
-
+.v_gallery
+{
+	position: relative;
+    left: 12%;
+}
+@media only screen and (max-width: 600px) {
+.singlebooth
+	{
+height:850px!important;
+	}
+	.overlay
+	{
+	height:850px!important;	
+	}
+}
 </style>
 @endsection
 @section('content')
 <!-- Strat Banner Section -->
-<div class=" padding-bt-150 banner-height bg" style="background:url({{ asset('student/booth/images/booth.jpg')}});">
+<div class="singlebooth" style="background: url(http://localhost/admissionfair/public/student/booth/images/booth.jpg);
+    height: 600px;">
+	<div class="overlay" style="background: #3384803b;
+    height: 600px;">
    <div class="container">
       <!-- Strat Banner Section -->
-      <div class=" padding-bt-150 pos">
-         <div class="container">
+      <div class=" padding-bt-150">
+ 
+     
+         <!-- particles.js container -->
+		 <div class="row container">
+		         <div class="col-md-12">
             <div class="page-title-box">
                <h3 class=" text-center test">{{$college->college_name}}<h3>
             </div>
-         </div>
-         <!-- particles.js container -->
-         <div class="col-md-6">
-            <img src="{{ asset('student/booth/images/0010.png')}}" alt="" style="margin-left:-15%">
-            <div class="col-md-3">
+			</div>
+         <div class="col-md-6 col-sm-12">
+            <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
+			<center class="v_gallery">
+            <div class="col-md-4">
                <button class="btn-default dg">Video Gallery</button>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                <button class=" btn-default">Image Gallery</button>
             </div>
+			</center>
          </div>
-         <div class="col-md-6 null">
+         <div class="col-md-6 col-sm-12">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 @foreach($courseDetail as $data)
                 <div class="panel panel-default">
@@ -113,8 +117,10 @@
                 @endforeach
             </div>
          </div>
+		 </div>
       </div>
    </div>
+</div>
 </div>
 {{----------------------------------------------End of modal section of image upload------------------------------------------------------}}
 @endsection
