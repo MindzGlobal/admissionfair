@@ -77,7 +77,7 @@ class CollegeDetailsController extends Controller
                     //                                  ->get(['course_department AS Dept','id']);
                     //    $arrayData['departments']=$departments;
                     //   }    
-                return view('student.pages.course_department',['college'=>$college,'course'=>$course ,'alldept'=> $alldept]);
+                return view('student.pages.course_department',['college'=>$college,'course'=>$course ,'alldept'=> $alldept,'selected'=>$request->dept_id]);
             }
             return redirect('student/booth')->with('danger', 'Something Went Wrong Please try again Later');
         }
@@ -85,15 +85,25 @@ class CollegeDetailsController extends Controller
 
     }
 
-    public function downloadDocuments(Request $request)
+    public function showSelectedDepartment(Request $request)
     {
-        //dd($request->id);
-        $file_path = courseOffers::find($request->id)->value('fee_structure_file_url');
-        $headers = array(
-            'Content-Type: application/pdf',
-          );
-        
-        return response()->download(public_path().'/'.$file_path,'filename.pdf',$headers);
+        if(Auth::user()->otp_verified>0){
+           // dd($request->DeptId);
+            if(!is_null($request->reg_id) && !is_null($request->DeptId)){
+               $college= User::where('reg_id',$request->reg_id)->first();
+               $course = courseOffers::find($request->DeptId);
+               
+               $alldept = courseOffers::where(['reg_id'=>$request->reg_id,'course_offer'=>$course->course_offer])
+                                                ->orderBy('course_department', 'ASC')
+                                                ->get(["course_department AS departments",'id']);
+                              
+                     
+                return view('student.pages.course_department',['college'=>$college,'course'=>$course ,'alldept'=> $alldept,'selected'=>$request->DeptId]);
+            }
+            return redirect('student/booth')->with('danger', 'Something Went Wrong Please try again Later');
+        }
+        return redirect()->back()->with('danger', 'Something Went Wrong Please try again Later');
+
     }
 
     public function collegeGallery(Request $request)
@@ -103,6 +113,18 @@ class CollegeDetailsController extends Controller
     return view('student.pages.Gallery');
 
     }
+
+    public function ApplyCollege(Request $request)
+    {
+    dd($request->all());
+    
+    return view('student.pages.Gallery');
+
+    }
+
+
+
+    
     
     // public function getDownload()
     // {
