@@ -301,7 +301,7 @@ class CollegeController extends Controller
       $clgname= Auth::user()->college_name;
       $clgDetais = CollegeDetail::find($id);
       $old = Input::get('college_booth'); 
-      $new ='/college/images/selected_booth/'.$clgname.'.jpg';
+      $new ='/college/images/selected_booth/'.$clgname.'.png';
       $new1 = File::copy($old, public_path().$new);
       $clgDetais->college_booth = $new;
       if(!$clgDetais->update())

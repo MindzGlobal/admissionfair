@@ -22,6 +22,7 @@ class CollegeDetailsController extends Controller
         if(Auth::user()->otp_verified>0){
 
           $college= User::where('mobile_verification','Yes')->orderBy('id','asc') ->get();
+         // dd($college);
       
              return view('student.pages.booth',['college'=>$college]);
         }

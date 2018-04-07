@@ -307,10 +307,12 @@ a.prev_image{
 
 .leicester-booth-top-logo
 {
-	margin:0px auto 3px auto;
-	padding:0px 0px 0px 0px;
-	width:110px;
-	height:0px;
+	margin: 45px 78px;
+    padding: 0px 0px 0px 0px;
+    width: 107px;
+    height: 1px;
+    /* z-index: 131; */
+    position: absolute;
 }
 .leicester-top-left{
 	margin:20px 0px 0px 14px;

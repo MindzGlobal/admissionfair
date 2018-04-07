@@ -51,7 +51,7 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('package','CollegeController@packegeview');
 
     Route::post('insertBooth','CollegeController@insertBooth');
-    Route::get('select_booth','CollegeAuthcontroller@select_booth');
+    Route::get('select_booth','CollegeController@select_booth');
 
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
