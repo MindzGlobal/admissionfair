@@ -169,28 +169,44 @@ $(add_button).click(function(e){ //on add input button click
 e.preventDefault();
 if(x < max_fields){ //max input box allowed
     x++; //text box increment
-    $(wrapper).append('<div><div class="form-group"><div class ="col-md-12"><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_offer[]" placeholder="Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_department[]" placeholder="Add Departments" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" ></div></div><div class ="col-md-12"><div class ="col-md-6"></div><div class="form-group col-md-3 "><label class="control-label pull-right">Fee Structure (PDF Format):</label><br><br></div><div class="form-group col-md-3 pull-right"><input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" ></div></div></div><button type="button" id="add-more" class="btn btn-danger remove_field1" style="float:left; padding: 5px;"> Remove</button><br></div></div>'); //add input box
+    $(wrapper).append('<div><div class="form-group"><div class ="col-md-12"><div style="border-top: 2px dotted #2b2b2b70;margin-bottom: 30px;"></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textboxui-autocomplete-input search_courses" autocomplete="off" id="search_text" name="course_offer[]" placeholder="Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox ui-autocomplete-input search_department" autocomplete="off" name="course_department[]" placeholder="Add Departments" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_duration[]" placeholder="Duration Of Course" ></div></div><div class ="col-md-3"><div class="form-group"><input type="text" class="form-control textbox" id="" name="course_total_fee[]" placeholder="Overall Fee Of Course" ></div></div><div class ="col-md-12"><div class="form-group"><textarea class="form-control textbox" id="" name="course_description[]" placeholder="Course Description"></textarea></div></div><div class ="col-md-12"><div class ="col-md-6"></div><div class="form-group col-md-3 "><label class="control-label pull-right">Fee Structure (PDF Format):</label><br><br></div><div class="form-group col-md-3 pull-right"><input type="file" class="form-control textbox" id="" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="fee_structure_file_name[]" placeholder="" ></div></div></div><button type="button" id="add-more" class="btn btn-danger remove_field1" style="float:left; padding: 5px;"> Remove</button><br></div></div>'); //add input box
 }
-
-src = $('#ajaxCourseUrl').val();
-var options =  $(".search_courses").autocomplete({
+ // For auto Compleate Course
+srcCourse = $('#ajaxCourseUrl').val();
+$(".search_courses").autocomplete({
     source: function(request, response) {
         $.ajax({
-            url: src,
+            url: srcCourse,
             dataType: "json",
             data: {
                 term : request.term
             },
             success: function(data) {
-                console.log(data);
                 response(data);
-            
             }
         });
     },
     minLength:0,
 
 });
+ // For auto Compleate Course
+ srcDepartment = $('#ajaxDeparmentUrl').val();
+ $(".search_department").autocomplete({
+     source: function(request, response) {
+         $.ajax({
+             url: srcDepartment,
+             dataType: "json",
+             data: {
+                 term : request.term
+             },
+             success: function(data) {
+                 response(data);
+             }
+         });
+     },
+     minLength:0,
+ 
+ });
 }).click();
 
 $(wrapper).on("click",".remove_field1", function(e){ //user click on remove text

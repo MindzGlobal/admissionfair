@@ -29,7 +29,6 @@ class PaymentController extends Controller
 
 
     public function collegePay(Request $request){
-        dd($request);
         $this->selected_pack = $request->subscribe;
         $this->name = Auth::user()->name;
         $this->mobile = Auth::user()->mobile;
