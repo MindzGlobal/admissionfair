@@ -18,21 +18,10 @@
    top: 95px;
    color: #fff;
    background: #15030394;
-<<<<<<< HEAD
    padding: 5px 66px;
    margin: 27px 3px 7% 4px;
 
-=======
-  
-   display: inline-block;
-   float: left;
-   width:30%;
->>>>>>> 2b6a7a4c0b4a1a176ebf791573f80f446b67f3c5
    }
-   .page-title-box h3
-{
-    font-size:12px!important;
-}
    .btn.focus, .btn:focus, .btn:hover {
    color: #fff!important;
    text-decoration: none;
@@ -43,25 +32,7 @@
    overflow-y: auto;
    margin-top: 10%;
    background: #15030394;
-<<<<<<< HEAD
     padding: 20px;
-=======
-   padding: 38px;
-   margin-left: -5px;
-   }
-   .bg
-   {
-   height:620px!important;
-   }
-   .pos
-   {
-   position:absolute;
-   top:8% 
-   }
-   .test {
-   word-wrap: break-word;
-   width:99%;
->>>>>>> 2b6a7a4c0b4a1a176ebf791573f80f446b67f3c5
    }
 
    .acc>li:hover
@@ -75,7 +46,6 @@
         border-left-color: #2980b9;
         background: #eee;
       }
-<<<<<<< HEAD
 .v_gallery
 {
 	position: relative;
@@ -91,16 +61,6 @@ height:850px!important;
 	height:850px!important;	
 	}
 }
-=======
-
-      #clg-logo{
-        width: 238px;
-        position: absolute;
-        margin: 51px 66px;
-        height: 73px;
-      }
-
->>>>>>> 2b6a7a4c0b4a1a176ebf791573f80f446b67f3c5
 </style>
 @endsection
 @section('content')
@@ -120,7 +80,6 @@ height:850px!important;
             <div class="page-title-box">
                <h3 class=" text-center test">{{$college->college_name}}<h3>
             </div>
-<<<<<<< HEAD
 			</div>
          <div class="col-md-6 col-sm-12">
             <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
@@ -130,18 +89,6 @@ height:850px!important;
             </div>
             <div class="col-md-4">
                <button class=" btn-default">Image Gallery</button>
-=======
-         </div>
-         <!-- particles.js container -->
-         <div class="col-md-6">
-            <img src="{{ asset($college->college_img)}}" alt="{{ $college->college_name }}" id="clg-logo">
-            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%">
-            <div class="col-md-3">
-               <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
-            </div>
-            <div class="col-md-3">
-               <button class=" btn-default" onclick="location.href='{{ url('student/image/'.$college->reg_id.'/gallery')}}';">Image Gallery</button>
->>>>>>> 2b6a7a4c0b4a1a176ebf791573f80f446b67f3c5
             </div>
 			</center>
          </div>

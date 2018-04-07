@@ -8,6 +8,8 @@ use Tzsk\Payu\Facade\Payment;
 use App\User;
 use App\Model\PayuPayment;
 use Auth;
+use App\Model\StudentAppliedHistory;
+use App\Model\College\courseOffers;
 
 
 class PaymentController extends Controller
@@ -18,6 +20,13 @@ class PaymentController extends Controller
     protected $emaill;
     protected $mobile;
     protected $amount;
+
+    public function __construct()
+    {
+        $this->middleware(['auth:student','auth'])->except('logout');
+     }
+   
+
 
     public function collegePay(Request $request){
         $this->selected_pack = $request->subscribe;
@@ -92,4 +101,55 @@ public function pay(){
    });
 
    }
+
+
+   protected function studentPay(Request $request){
+   
+
+    $college= User::where('reg_id',$request->college_id)->first();
+    $course = courseOffers::find($request->dept_id);
+
+    $studentApplied = new StudentAppliedHistory();
+    $studentApplied->college_id= $college->reg_id;
+    $studentApplied->student_id=Auth::User()->student_id;
+    $studentApplied->course=$course->course_offer;
+    $studentApplied->department=$course->course_department;
+    $studentApplied->course_amount=str_replace(',', '', $course->course_total_fee);
+    $studentApplied->pay_status='Pending';
+    $studentApplied->student_query=$request->student_query;
+    //dd($studentApplied);
+   if($studentApplied->save()){
+    
+    $data = [
+        'txnid' => strtoupper(str_random(8)), # Transaction ID.
+        'amount' => $studentApplied->course_amount, # Amount to be charged.
+        'productinfo' => $studentApplied->course.':'.$studentApplied->department,
+        'firstname' => Auth::User()->first_name, # Payee Name.
+        'firstname' => Auth::User()->last_name, # Payee Name.
+        'email' => Auth::User()->email, # Payee Email Address.
+        'phone' => Auth::User()->mobile, # Payee Phone Number.
+       ];
+       return Payment::make($data, function($then) {
+
+            $then->redirectTo('studentpaystatus'); # Your Status page endpoint.
+        });
+   }
+
+   }
+
+
+   protected function studentStatus(){
+        $payment = Payment::capture();
+        $array = json_decode($payment, true);
+         dd($array);
+        $reg_array = array('account_id'=>Auth::User()->reg_id);
+        if(PayuPayment::where('txnid',$array['txnid'])->count() == 0){
+            PayuPayment::create($array+$reg_array);
+            if($array['txnid']=='success')
+            {
+                Student::where('student_id',Auth::user()->student_id)->update(['compilation_status'=>'Done']);
+            }
+        }
+        return view('college.empty',['payment'=>$payment]);
+    }
 }
