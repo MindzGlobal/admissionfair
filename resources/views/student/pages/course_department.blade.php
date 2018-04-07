@@ -18,7 +18,6 @@ hr {
 }
 span.clg-deiatls {
 	float: right;
-	color: #33333391;
 }
 h4
 {
