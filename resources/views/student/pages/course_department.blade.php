@@ -28,13 +28,12 @@
                   <div class="category bg-white">
                      <form>
                         <div class="form-group col-md-9">
-                           <label>Engineering Courses</label>
+                           <label>{{$course->course_offer}}</label>
+                          
                            <select class="form-control">
-                              <option>Computer Science Engineering </option>
-                              <option>Information Science Engineering</option>
-                              <option>Civil Engineering</option>
-                              <option>Mechanical Engineering</option>
-                              <option>TeleCommunication Engineering</option>
+                               @foreach($alldept as $d_data)
+                              <option value="{{ $d_data->id}}">{{ $d_data->departments}}</option>
+                              @endforeach
                            </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -61,35 +60,42 @@
                         <div class="blog-box">
                            <div class="blog-image-box">
                               <div class=" comment-box title">
-                                 <h4>COMPUTER SCIENCE ENGINEERING</h4>
+                                 <h4>{{$college->college_name}}</h4>
                               </div>
-                              <img class="img-responsive" src="{{ asset('student/images/blog/1.jpg') }}" alt="Blog_image">
+                              @if(!is_null($college->college_img))
+                              <img class="img-responsive" src="{{ asset($college->college_img) }}" alt="Blog_image">
+                             @else
+                             <img class="img-responsive" src="{{ asset('student/images/blog/1.jpg') }}" alt="Blog_image">
+                              @endif
                               <div class="social-icon-info">
                                  <ul class="icon">
-                                    <li><a href="#" class="fa fa-search"></a></li>
-                                    <li><a href="#" class="fa fa-link"></a></li>
+                                    <li><a href="{{$college->website}}" class="fa fa-search"></a></li>
+                                    <li><a href="{{$college->website}}" class="fa fa-link"></a></li>
                                  </ul>
                               </div>
                            </div>
                         </div>
                         <div class="post-content">
+                            <h4>{{ $course->course_department}}</h4>
                            <blockquote><i class="fa fa-quote-left"></i>
-                              Higher education, also called tertiary, third stage, or post secondary education, is the
-                              non-compulsory educational level
-                              that follows the completion of a school providing a secondary education, such as a high
-                              school or secondary school. Tertiary education is normally taken to include
-                              undergraduate and postgraduate education.<i class="fa fa-quote-right"></i>
+                              {{$course->course_description}}<i class="fa fa-quote-right"></i>
                            </blockquote>
                         </div>
                         <div class="course-info col-md-9">
                            <h3 class="sidebar-title">Courses Information</h3>
-                           <ul class="bg-gray">
-                              <li>Levels :<span>Beginner</span></li>
-                              <li>Start On :<span>14.06.2017</span></li>
-                              <li>Duration :<span>30 Hours</span></li>
-                              <li>Time :<span>07am - 12pm</span></li>
-                              <li>Fees :<span>1,00000/-</span></li>
-                           </ul>
+                           <ul class="bg-gray"> 
+                              <li>Course :<span>{{$course->course_offer}}</span></li>
+                              <li>Department :<span>{{$course->course_department}}</span></li>
+                              <li>Duration:<span>{{$course->course_duration}} </span></li>
+                              <li>Fees :<span>{{$course->course_total_fee}}  </span></li>
+                              <li>File :<span>
+                                          <a href="{{ url( 'student/document/'. $course->id)  }}" target="_blank">{{$course->fee_structure_file_name}}</a></span></li> 
+                        {{-- {!! Html::link(asset($course->fee_structure_file_url), $course->fee_structure_file_name) !!}</span> {{$course->fee_structure_file_name}}</li>
+                                     --}}
+                                   
+                              
+                              
+                        </ul>
                            <button class="btn more-link pull-right next-step" id="send" data-toggle="modal" data-target="#apply">Apply</button>
                         </div>
                         <br>
@@ -103,13 +109,12 @@
                   <!-- // End Widget -->
                   <div class="widget">
                      <div class="wiget-title">
-                        <span>What You Get From Us</span>
-                        <h4>Populer Courses</h4>
+                        <h4>Populer Colleges</h4>
                      </div>
                      <div class="sidber-widget">
                         <div class="wiget-post">
                            <div class="wiget-img">
-                              <img src="{{ asset('student/images/course/1.jpg')}}" alt="Sidber Image">
+                              <img src="{{ asset('student/images/blog/1.jpg')}}" alt="Sidber Image">
                            </div>
                            <div class="posi-inner">
                               <h6><a href="#">Students Have Enough</a></h6>
@@ -119,7 +124,7 @@
                         </div>
                         <div class="wiget-post">
                            <div class="wiget-img">
-                              <img src="{{ asset('student/images/course/1.jpg')}}" alt="Sidber Image">
+                              <img src="{{ asset('student/images/blog/1.jpg')}}" alt="Sidber Image">
                            </div>
                            <div class="posi-inner">
                               <h6><a href="#">Students Have Enough</a></h6>
@@ -129,7 +134,7 @@
                         </div>
                         <div class="wiget-post">
                            <div class="wiget-img">
-                              <img src="{{ asset('student/images/course/1.jpg') }}" alt="Sidber Image">
+                              <img src="{{ asset('student/images/blog/1.jpg') }}" alt="Sidber Image">
                            </div>
                            <div class="posi-inner">
                               <h6><a href="#">Students Have Enough</a></h6>
@@ -142,13 +147,22 @@
                   <!-- // End Widget -->
                   <div class="widget">
                      <div class="video-widget clearfix">
-                        <a class="demo" href="https://vimeo.com/209802644">
-                        <img src="{{ asset('student/images/blog/3.jpg') }}" alt="Blog Image">
+                           @if(!is_null($college->college_video))
+                              <a class="demo" href="{{ asset($college->college_video) }}">
+                           @else
+                               <a class="demo" href="https://vimeo.com/209802644">
+                           @endif
+
+                           @if(!is_null($college->college_img))
+                              <img src="{{ asset($college->college_img) }}" alt="Blog Image">
+                           @else
+                             <img src="{{ asset('student/images/blog/3.jpg') }}" alt="Blog Image">
+                           @endif
                         <i class="fa fa-play"></i>
                         </a>
                      </div>
                      <div class="widget-text clearfix text-center">
-                        <span class="mar-btm-20">September 16, 2017</span>
+                        <span class="mar-btm-20">{{date('d-m-Y', strtotime($college->updated_at))}}</span>
                         <h5>
                            <a href="#">Tuition Is Crazy Expensive</a>
                         </h5>

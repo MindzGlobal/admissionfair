@@ -15,12 +15,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
-<<<<<<< HEAD
-use File;
-=======
 use App\Model\UserVerification;
 use Illuminate\Support\Str;
->>>>>>> 9d8f8cfff2f39191b09cc766b55a443d6bf4179c
 
 class CollegeController extends Controller
 {

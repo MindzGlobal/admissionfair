@@ -59,9 +59,61 @@ class CollegeDetailsController extends Controller
     public function coursedepartments(Request $request)
     {
 
-        return view('student.pages.course_department');
+        if(Auth::user()->otp_verified>0){
+            if(!is_null($request->reg_id) && !is_null($request->dept_id)){
+               // $college= User::where('reg_id',$request->reg_id)->first();
+               // $courseDetail = courseOffers::find($request->reg_id);
+               $college= User::where('reg_id',$request->reg_id)->first();
+             //  $course = courseOffers::where('id',$request->dept_id)->value('course_offer');
+               $course = courseOffers::find($request->dept_id);
+               $alldept = courseOffers::where(['reg_id'=>$request->reg_id,'course_offer'=>$course->course_offer])->orderBy('course_department', 'ASC')
+                                                ->get(["course_department AS departments",'id']);
+                              
+                                                //dd($course->);
+                      //  $departments=null;
+                    //     foreach ($courseDetail as $arrayData){
+             
+                    //    $departments= courseOffers::where(['reg_id'=>$request->reg_id,'course_offer'=>$arrayData['course']])
+                    //                                  ->get(['course_department AS Dept','id']);
+                    //    $arrayData['departments']=$departments;
+                    //   }    
+                return view('student.pages.course_department',['college'=>$college,'course'=>$course ,'alldept'=> $alldept]);
+            }
+            return redirect('student/booth')->with('danger', 'Something Went Wrong Please try again Later');
+        }
+        return redirect()->back()->with('danger', 'Something Went Wrong Please try again Later');
 
     }
 
+    public function downloadDocuments(Request $request)
+    {
+        //dd($request->id);
+        $file_path = courseOffers::find($request->id)->value('fee_structure_file_url');
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+        
+        return response()->download(public_path().'/'.$file_path,'filename.pdf',$headers);
+    }
+
+    public function collegeGallery(Request $request)
+    {
+    
+    
+    return view('student.pages.Gallery');
+
+    }
+    
+    // public function getDownload()
+    // {
+    //     //PDF file is stored under project/public/download/info.pdf
+    //     $file= public_path(). "/download/info.pdf";
+    
+    //     $headers = array(
+    //               'Content-Type: application/pdf',
+    //             );
+    
+    //     return Response::download($file, 'filename.pdf', );
+    // }    
 
 }
