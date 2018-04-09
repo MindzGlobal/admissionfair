@@ -209,6 +209,42 @@
            </div>
         </div>
         <!-- /.row -->
+        <div class="row">
+                <!-- .col -->
+                <div class="col-sm-9">
+                    <div class="white-box">
+                        <h3 class="box-title m-b-0">College gallery</h3>
+                        <div class="row m-t-30">
+                            <div class="col-sm-6">
+                                    <a href="{{ asset($user->college_booth) }}" class="image-popup-vertical-fit" title="">
+                                            <img src="{{ asset($user->college_booth) }}" class="img-responsive">
+                                    </a>
+                            </div>
+                            <div class="col-sm-6">
+                                    <a href="{{ asset($user->college_video) }}" class="popup-youtube m-b-30" title="">
+                                            <video controls="" width="100%">
+                                                <source src="{{ asset($user->college_video) }}" type="video/mp4">
+                                          </video>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <!-- .col -->
+                <div class="col-sm-3">
+                    <div class="white-box">
+                        <h3 class="box-title m-b-0">Document</h3>
+                        <div class="m-t-5">
+                                <p>{{$user->college_name}}</p>
+                                <a href="{{ asset($user->college_brochure) }}">
+                                <img src="{{ asset('college/images/filedownload.png') }}" width="100%">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
      </div>
 <!-- /#page-wrapper -->
 @endsection

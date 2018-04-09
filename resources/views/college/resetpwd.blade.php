@@ -97,11 +97,8 @@
                                     <label for="inputPassword2" class="control-label"> New Password</label>
                                     
                                             <input type="password" data-toggle="validator" data-minlength="8" class="form-control" id="inputPassword2" name="password" placeholder=" New Password" required="required">
-<<<<<<< HEAD
                                             <span class="help-block">Minimum of 8 characters</span>
 
-=======
->>>>>>> 3ee2e17298ecd8d44bd1a6b6dd447e6b7235837b
                                             @if ($errors->has('password'))
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $errors->first('password') }}</strong>
@@ -116,13 +113,6 @@
 
                                             <label for="inputPassword2" class="control-label">Confirm Password</label>
                                             <input type="password" class="form-control" id="inputPasswordConfirm2" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="password_confirmation" placeholder="Confirm Password" required="required">
-<<<<<<< HEAD
-                                            <div class="help-block with-errors"></div>
-
-                                          
-
-=======
->>>>>>> 3ee2e17298ecd8d44bd1a6b6dd447e6b7235837b
                                         </div>
                                   
                                 

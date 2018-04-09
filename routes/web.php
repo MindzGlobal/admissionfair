@@ -115,6 +115,7 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
 });
 
+Route::get('/','students\CollegeDetailsController@showBooth');
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
