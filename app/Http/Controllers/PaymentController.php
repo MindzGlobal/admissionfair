@@ -20,10 +20,17 @@ class PaymentController extends Controller
     protected $emaill;
     protected $mobile;
     protected $amount;
+    protected $student=null;
 
     public function __construct()
     {
-        $this->middleware(['auth:student','auth'])->except('logout');
+        $this->middleware(function ($request, $next) {
+           
+            if(Auth::guard('web')->user()==null){
+                $this->student= Auth::guard('student')->user();
+            }
+            return $next($request);
+        });
      }
    
 
@@ -36,6 +43,7 @@ class PaymentController extends Controller
         switch ($this->selected_pack) {
             case "Free":
                 User::where('reg_id',Auth::user()->reg_id)->update(['compilation_status'=>'Done']); 
+                return redirect()->route('dashboard')->with(['status'=>'Success', 'msg'=>'Accout Activated Successfuly.']);
                 break;
             case "Gold":
             $this->amount = 1000;
