@@ -31,7 +31,7 @@
             </center>
         </div>
 
-        <div class="second">
+        <div class="second ">
             <video id="bgvid">
                 <source src="{{ asset('student/booth/video/student.mp4')}}#t=25'" type="video/mp4">
             </video>
@@ -247,7 +247,7 @@
                     $('.fourth').hide();
                     $('.fifth').hide();
                     $('.first').hide();
-                }, 2400);
+                }, 5000);
             });
 
             $('#auditorium').click(function(e) {
