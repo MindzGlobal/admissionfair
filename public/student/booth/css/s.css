@@ -13,18 +13,17 @@
             background-repeat: no-repeat;
             height: 100vh;
         }
-        
+
+      
+ 
         video {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -64;
-            transform: translateX(-50%) translateY(-50%);
-            transition: 1s opacity;
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           width: 100%;
+           background-size:cover; 
+   height:100vh;
+   transform: translateX(-50%) translateY(-50%);
         }
         
         .b {
@@ -201,7 +200,7 @@
     display: none;
 }
 video {
-    object-fit: contain;
+    object-fit: cover;
 }
 /* Strat Header Top CSS Start */
 .top_header {
@@ -513,11 +512,12 @@ cursor:pointer;
 .video-people
 {
 	
-	position: fixed;
-				top: 27%;
-				left: 51%;
-				min-height: 100%;
-				width: 39%;min-width: 59%;
+    position: fixed;
+    top: 28%;
+    left: 50%;
+    min-height: 100%;
+    width: 55%;
+    object-fit: contain;
 }
 .support
 {
@@ -577,7 +577,8 @@ cursor:pointer;
 .img-top
 {
 	
-	margin-top:0px;
+    margin-top:0px;
+    cursor:pointer;
 }
 .img-top:hover
 {
