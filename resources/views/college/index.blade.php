@@ -2,6 +2,7 @@
 @section('css')
 <link href="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}" rel="stylesheet">
 <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.css') }}" />
 <style type="text/css">
     .tabs-style-underline nav li a::after {
     background: #03a9f3;
@@ -200,6 +201,22 @@
            </div>
         </div>
         <!-- /.row -->
+        <div class="white-box">
+            <h3 class="box-title m-b-0">College gallery</h3>
+            <div class="popup-gallery m-t-15">
+                <a href="{{ asset($user->college_video) }}" title="">
+                    <video controls="" width="32.5%">
+                        <source src="{{ asset($user->college_video) }}" type="video/mp4">
+                  </video>
+                </a>
+                <a href="{{ asset($user->college_booth) }}" title="">
+                    <img src="{{ asset($user->college_booth) }}" width="32.5%">
+                </a>
+                <a href="{{ asset('college/images/clg_images/N8aO04_landscape12.jpg') }}" title="Caption. Can be aligned to any side and contain any HTML.">
+                    <img src="{{ asset('college/images/clg_images/N8aO04_landscape12.jpg') }}" width="32.5%">
+                </a>
+            </div>
+        </div>
      </div>
 <!-- /#page-wrapper -->
 @endsection
@@ -210,7 +227,7 @@
     <script src="{{ asset('college/plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('college/plugins/bower_components/fancybox/ekko-lightbox.min.js') }}"></script>
     <script src="{{ asset('college/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <script>
     $(document).ready(function() {
