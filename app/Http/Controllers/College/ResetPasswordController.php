@@ -55,4 +55,48 @@ class ResetPasswordController extends Controller
         return redirect("college/resetpwd")->with(['status'=>'error','msg'=> $msg]);
       }
     }
+
+
+     public function resetlogindetails(Request $request){
+
+      $id = Auth::user()->id;
+      $old_mob = Auth::user()->mobile;
+      $number = $request->Input('mobile');
+      $user = CollegeDetail::find($id);
+      $user->name = $request->Input('name');
+      $user->email = $request->Input('email');
+     
+       $this->validate($request, [
+            
+            'mobile' => 'required|numeric|min:10|unique:users',
+            
+        ]);
+
+      if($old_mob != $request->Input('mobile'))
+      {
+        // OTP sms ################################################
+        $OTP = mt_rand(100000,(int)999999);
+        $message = "Dear $OTP
+
+        MoneyMindz wishes you Happy B'Day
+
+        Click here to become Smart Investor/Earner 08049202111";
+
+        $UserVerification = new UserVerification;
+        $UserVerification->unique_id = $number;
+        $UserVerification->mobile_token = $OTP;
+
+        if($UserVerification->save()){
+            $this->sendSMS($number, $message);
+        }
+
+        $user->mobile = $request->Input('mobile');
+        $user->mobile_verification = 'No';
+      }
+
+      $user->save();
+
+      return redirect("college/otpverification");   
+    }
+    
 }

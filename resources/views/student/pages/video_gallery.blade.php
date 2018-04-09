@@ -13,7 +13,7 @@
                      </div>
                      <div class="row">
                         <div class="col-sm-12">
-                           <div class="page-title-box">
+                              <div class="page-title-box" style="margin-top:-5%!important;">
                               <h2>Video Gallery</h2>
                            </div>
                         </div>
@@ -31,12 +31,22 @@
                            <h3><u>Video Gallery</u></h3>
                         </div>
                         <div class="gallery col-3 gutter">
-                           <div class="gallery-item gp-two">
+                           @if(count($media)>0)
+                               @foreach($media as $video)
+                                    <div class="gallery-item gp-{{ $loop->iteration }}">
+                                          <div class="thumb">
+                                          <iframe class="video-size" src="{{ asset($video->file_url) }}" frameborder="0" allowfullscreen></iframe>
+                                          </div>
+                                    </div>
+                                @endforeach
+                           @else
+                              <div class="gallery-item gp-three">
                               <div class="thumb">
-                                 <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                               </div>
-                           </div>
-                           <div class="gallery-item gp-three">
+                              </div>
+                           @endif
+                           {{-- <div class="gallery-item gp-three">
                               <div class="thumb">
                                  <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                               </div>
@@ -60,9 +70,19 @@
                               <div class="thumb">
                                  <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                               </div>
-                           </div>
+                           </div> --}}
                         </div>
                      </div>
+                     <span class="pull-right">
+                         {{ $media->links()}}
+                       </span>
+                       @if(count($media)<0)
+                        <span class="pull-left" >
+                              <button  onclick="location.href='{{ url('student/singlebooth/'.$media[0]->reg_id)}}';"
+                                    class="btn more-link pull-left" >Go back To college
+                              </button>
+                        </span>
+                      @endif
                   </div>
                </section>
       

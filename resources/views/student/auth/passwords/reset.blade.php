@@ -1,6 +1,21 @@
 {{-- //@extends('layouts.app') --}}
 @extends('student.layouts.student_general')
 @section('title', "Reset Password")
+@section('css')
+<style>
+.blog-post {
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 57px;
+    text-align: center;
+    padding: 40px 30px 20px;
+    box-shadow: 1px 0px 15px #2980b978!important;
+    width: 70%;
+    margin-left: 15%;
+}
+</style>
+@endsection
 @section('content')
 <div class="edu-banner padding-bt-150 banner-height">
         <div class="container">
@@ -20,20 +35,7 @@
      </div>
      <!-- End Banner Section -->
      <div class="container wizardform">
-        <div class="stepwizard">
-           <div class="stepwizard-row setup-panel">
-              {{-- <div class="stepwizard-step">
-                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">Personal Info</a>
-              </div>
-              <div class="stepwizard-step">
-                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">Academic Info</a>
-              </div>
-              <div class="stepwizard-step">
-                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">Form Complete</a>
-              </div> --}}
-           </div>
-        </div>
-        <br>
+    <div class="blog-post">
         <br>
         <form method="POST" action="{{ route('student.password.request') }}">
                 @csrf
@@ -82,13 +84,14 @@
                 </div>
 
                 <div class="form-group row mb-0">
-                    <div class="col-md-6 ">
-                        <button type="submit" class="btn btn-primary">
+                    <div class="col-md-12 ">
+                        <button type="submit" class="btn btn-primary pull-right">
                             {{ __('Reset Password') }}
                         </button>
                     </div>
                 </div>
             </form>
+                </div>
      </div>
 
 @endsection

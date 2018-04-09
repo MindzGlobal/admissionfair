@@ -33,7 +33,7 @@
 
         <div class="second">
             <video id="bgvid">
-                <source src="{{ asset('student/booth/video/Student-hall.mp4')}}" type="video/mp4">
+                <source src="{{ asset('student/booth/video/student.mp4')}}#t=25'" type="video/mp4">
             </video>
         </div>
 
@@ -247,7 +247,7 @@
                     $('.fourth').hide();
                     $('.fifth').hide();
                     $('.first').hide();
-                }, 3700);
+                }, 2400);
             });
 
             $('#auditorium').click(function(e) {
@@ -280,7 +280,10 @@
         var vid = document.getElementById("bgvid");
 
         function Button1() {
-            vid.play();
+            setTimeout(function() {
+                //alert("hello");
+                vid.play();
+            },10);
         }
 
         // $(document).ready(function() {
@@ -346,8 +349,8 @@
         });
     </script>
 	<script type="text/javascript">
-            function showBooth() {
-                 document.location.href = '../singlebooth';
+            function showBooth(action) {
+                 document.location.href = action;
             }
         </script>
 	
