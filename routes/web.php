@@ -21,6 +21,9 @@ Route::get('college/demo', function () {
 });
 Route::post('pay','PaymentController@collegePay')->name('pay');
 Route::get('paystatus','PaymentController@status')->name('paystatus');
+
+Route::post('pay-student','PaymentController@studentPay')->name('studentPay');
+Route::get('paystatus-student','PaymentController@studentStatus')->name('studentpaystatus');
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
     Route::get('register','CollegeAuthController@register');
@@ -51,7 +54,7 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('package','CollegeController@packegeview');
 
     Route::post('insertBooth','CollegeController@insertBooth');
-    Route::get('select_booth','CollegeAuthcontroller@select_booth');
+    Route::get('select_booth','CollegeController@select_booth');
 
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
@@ -106,12 +109,15 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::get('booth','CollegeDetailsController@showBooth');
     Route::get('singlebooth/{reg_id}','CollegeDetailsController@showSinglebooth');
     Route::get('{reg_id}/{dept_id}','CollegeDetailsController@coursedepartments');
-    Route::get('document/{id}','CollegeDetailsController@downloadDocuments');
+    Route::get('course','CollegeDetailsController@showSelectedDepartment');
+    Route::post('apply','CollegeDetailsController@ApplyCollege');
 
-    Route::get('gallery','CollegeDetailsController@collegeGallery');
+    Route::get('image/{clg}/gallery','CollegeDetailsController@collegeImageGallery');
+    Route::get('video/{clg}/gallery','CollegeDetailsController@collegevideoGallery');
 
 });
 
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
+
