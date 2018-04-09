@@ -10,9 +10,7 @@
     margin-bottom: 57px;
     text-align: center;
     padding: 40px 30px 20px;
-    /* box-shadow: 0 0 10px #f2f2f2; */
-    border: 4px solid #2980b978;
-     box-shadow:none!important;
+    box-shadow: 1px 0px 15px #2980b978!important;
     width: 70%;
     margin-left: 15%;
 }
