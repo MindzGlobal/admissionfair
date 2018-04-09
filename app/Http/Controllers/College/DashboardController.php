@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use Auth;
 
 
@@ -25,6 +26,11 @@ class DashboardController extends Controller
             $mobileVerificationStatus = Auth::user()->mobile_verification;
             if($mobileVerificationStatus == 'No'){
                 return redirect()->route('otpverification');
+            }
+            else if(Auth::user()->compilation_status!='Done') {
+                if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile'))){
+                  return redirect()->route('createprofile');
+                }
             }
             return $next($request);
         });
