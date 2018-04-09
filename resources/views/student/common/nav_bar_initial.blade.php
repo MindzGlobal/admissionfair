@@ -39,6 +39,9 @@
                                     <li>
                                         <a href="{{ url('student/profile') }}"><i class="fa fa-user"></i> My Profile</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('student.password.reset') }}"><i class="fa fa-unlock-alt"></i> Change Password</a>
+                                    </li>
                                     <li>    
                                         <a class="dropdown-item" href="{{ route('student.logout') }}"
                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">

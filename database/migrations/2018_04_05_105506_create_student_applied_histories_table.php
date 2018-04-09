@@ -17,6 +17,7 @@ class CreateStudentAppliedHistoriesTable extends Migration
             $table->increments('id');
             $table->string('college_id')->nullable();
             $table->string('student_id')->nullable();
+            $table->integer('course_dept_id')->nullable();
             $table->string('course')->nullable();
             $table->string('department')->nullable();
             $table->string('course_amount')->nullable();
