@@ -48,14 +48,10 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
     Route::post('insertprofile','CollegeController@insertprofile')->name('insertprofile');
 
-    Route::get('select_booth','CollegeController@select_booth');
-    Route::post('insertBooth','CollegeController@insertBooth');
+    Route::get('select_booth','CollegeController@select_booth')->name('select_booth');
+    Route::post('insertBooth','CollegeController@insertBooth')->name('insertBooth');
 
-    Route::get('package','CollegeController@packegeview');
-
-    Route::post('insertBooth','CollegeController@insertBooth');
-    Route::get('select_booth','CollegeController@select_booth');
-
+    Route::get('package','CollegeController@packegeview')->name('package');
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
     Route::get('update_profile','CollegeController@updateformprofile');

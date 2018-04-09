@@ -44,7 +44,7 @@
               <div class="white-box">
 
                  <div class="user-bg">
-                    <img width="100%" alt="user" src="{{ asset($user->profile_image) }}">
+                    <img width="100%" alt="user" src="{{ asset($user->college_img) }}">
                  </div>
                  <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image<i class="fa fa-edit pull-right m-t-10"></i></div>
                  <!-- <div class="pull-right add-btn">
@@ -178,7 +178,16 @@
                                             <td>{{$courses->course_offer}}</td>
                                             <td>{{$courses->course_duration}}</td>
                                             <td>{{$courses->course_total_fee}}</td>
-                                            <td>{{$courses->fee_structure_file_name}} <a href="{{$courses->fee_structure_file_url}}"><i class="fa fa-download"></i></a> </td>
+                                            <td>
+                                                @if($courses->fee_structure_file_name != '')
+                                                    {{$courses->fee_structure_file_name}} 
+                                                    <a href="{{$courses->fee_structure_file_url}}">
+                                                        <i class="fa fa-download"></i>
+                                                    </a>
+                                                @else
+                                                    <p>File Not Uploaded</p>
+                                                @endif
+                                            </td>
                                          </tr>
                                          @endforeach
                                       </tbody>
