@@ -70,6 +70,8 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('resetpwd','ResetPasswordController@resetpwd');
     Route::post('changepwd','ResetPasswordController@changepwd');
 
+    Route::any('dashboardsearch','DashboardController@dashboardsearch')->name('dashboardsearch');
+
 
 });
 
