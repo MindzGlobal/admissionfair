@@ -217,7 +217,8 @@
                                                 <div id="mTS_1" class="mTSWrapper mTS_horizontal" style="overflow: inherit;">
                                                     <ul id="mTS_1_container" class="mTSContainer" style="position: relative; top: 0px; left: 0px; width: 4861px; overflow: inherit;">
 
-                                                        {{ $count = 0}}{{ $countj = 1}}
+                                                        @php $count=0;  $countj=1; @endphp
+                                                        @php $totalCount = $college->count() @endphp
                                                         @foreach($college as $data)
                                                         @if($count %2 ==0 )
                                                         {{-- <!--**block  1st---> --}}
@@ -240,7 +241,7 @@
                                                                                     </a>
                                                                                 </div>
                                                                             </td>
-                                                        @if($countj %2 ==0 )
+                                                        @if($countj %2 ==0  ||  $count==$totalCount-1)
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -248,7 +249,7 @@
                                                         </div>
                                                         <!--block  1st-->
                                                         @endif
-                                                        {{ $count++ }}{{ $countj++ }}
+                                                        @php $count++;  $countj++; @endphp
                                                         @endforeach
                                                     </ul>
                                                 </div>

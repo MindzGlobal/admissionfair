@@ -202,8 +202,6 @@
 
 
                                                 <div class="input_fields_wrap1">
-
-
                                                   <div class="form-group">
                                                   <div class="col-md-12">
                                                       <label class="col-xs-3 control-label">Add Courses:</label> <br>

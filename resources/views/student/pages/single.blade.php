@@ -10,8 +10,7 @@
    height: 80px!important;
    border-radius: 50px;
     border: 2px solid #3c17179c;
-    font-size: 18px;
-    font-family: poppins!important;
+	font-size: 18px;
    }
 
    .page-title-box {
@@ -31,7 +30,7 @@
    margin-bottom: 20px;
    max-height: 300px;
    overflow-y: auto;
-   margin-top: 6%;
+   margin-top: 10%;
    background: #15030394;
     padding: 20px;
    }
@@ -50,16 +49,7 @@
 .v_gallery
 {
 	position: relative;
-    left: -4%;
-    margin-top: -12%;
-}
-#clg-logo
-{
-    width: 238px;
-    position: absolute;
-    margin: 42px 52px;
-    height: 111px;
-    border-radius: 15px;
+    left: 12%;
 }
 @media only screen and (max-width: 600px) {
 .singlebooth
@@ -92,15 +82,13 @@ height:850px!important;
             </div>
 			</div>
          <div class="col-md-6 col-sm-12">
-           <img src="{{ asset($college->college_img)}}" alt="{{ $college->college_name }}" id="clg-logo">
-            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%;height: 400px;">
+            <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
 			<center class="v_gallery">
             <div class="col-md-4">
-           <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
-
+               <button class="btn-default dg">Video Gallery</button>
             </div>
             <div class="col-md-4">
-                             <button class=" btn-default" onclick="location.href='{{ url('student/image/'.$college->reg_id.'/gallery')}}';">Image Gallery</button>
+               <button class=" btn-default">Image Gallery</button>
             </div>
 			</center>
          </div>

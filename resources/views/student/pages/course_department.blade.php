@@ -18,7 +18,6 @@ hr {
 }
 span.clg-deiatls {
 	float: right;
-	color: #33333391;
 }
 h4
 {
@@ -77,7 +76,8 @@ h4
                         <div class="pin-icon">
                            <i class="fa fa-thumb-tack"></i>
                         </div>
-                        <div class="blog-box">
+                        <h4>{{$college->college_name}}</h4>
+                        <div class="blog-box" style="display:none">
                            <div class="blog-image-box">
                               <div class=" comment-box title">
                                  <h4>{{$college->college_name}}</h4>
@@ -98,7 +98,7 @@ h4
                         <div class="post-content">
                             <h4>{{ $course->course_department}}</h4>
                            <blockquote><i class="fa fa-quote-left"></i>
-                                @if(!is_null($course->course_description))
+                                @if(is_null($course->course_description))
                                 {{$course->course_description}}
                                 @else
                                     Higher education, also called tertiary, third stage, or post secondary education, is the

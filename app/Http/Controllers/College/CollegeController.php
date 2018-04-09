@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
 use App\Model\College\courseOffers;
-use App\Model\students\Student;
-use App\Model\students\Student_Graduation__Details;
-use App\Model\students\Student_Education_Details;
-use App\Model\StudentAppliedHistory;
+// use App\Model\students\Student;
+// use App\Model\students\Student_Graduation__Details;
+// use App\Model\students\Student_Education_Details;
+// use App\Model\StudentAppliedHistory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;

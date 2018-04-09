@@ -33,7 +33,7 @@
 
         <div class="second">
             <video id="bgvid">
-                <source src="{{ asset('student/booth/video/Student-hall.mp4')}}#t=25'" type="video/mp4">
+                <source src="{{ asset('student/booth/video/student.mp4')}}#t=25'" type="video/mp4">
             </video>
         </div>
 
@@ -281,7 +281,7 @@
 
         function Button1() {
             setTimeout(function() {
-                alert("hello");
+                //alert("hello");
                 vid.play();
             },10);
         }
