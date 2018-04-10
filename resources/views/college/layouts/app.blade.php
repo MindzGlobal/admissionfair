@@ -51,7 +51,8 @@
                             <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
-                                    <li><a href="{{ url('college/myprofile') }}"><i class="ti-user"></i>  My Profile</a></li>
+                                    <li><a href="{{ url('college/myprofile') }}"><i class="fa fa-graduation-cap"></i>  College Profile</a></li>
+                                    <li><a href="{{ url('college/resetpwd') }}"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"  ></i>  Logout</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

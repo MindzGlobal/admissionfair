@@ -75,8 +75,8 @@ class MediaController extends Controller
      if(Input::hasFile('image'))
     {
         $file=Input::file('image');
-        $file->move(public_path().'/college/images/profile_images', $file->getClientOriginalName());
-        $user->profile_image = 'college/images/profile_images/'.$file->getClientOriginalName();
+        $file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
+        $user->profile_image = 'college/images/clg_images/'.$file->getClientOriginalName();
     }
 
      $user->update();

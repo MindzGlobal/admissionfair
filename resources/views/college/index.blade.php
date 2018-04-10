@@ -44,7 +44,7 @@
               <div class="white-box">
 
                  <div class="user-bg">
-                    <img width="100%" alt="user" src="{{ asset($user->profile_image) }}">
+                    <img width="100%" alt="user" src="{{ asset($user->college_img) }}">
                  </div>
                  <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image<i class="fa fa-edit pull-right m-t-10"></i></div>
                  <!-- <div class="pull-right add-btn">
@@ -178,7 +178,16 @@
                                             <td>{{$courses->course_offer}}</td>
                                             <td>{{$courses->course_duration}}</td>
                                             <td>{{$courses->course_total_fee}}</td>
-                                            <td>{{$courses->fee_structure_file_name}} <a href="{{$courses->fee_structure_file_url}}"><i class="fa fa-download"></i></a> </td>
+                                            <td>
+                                                @if($courses->fee_structure_file_name != '')
+                                                    {{$courses->fee_structure_file_name}} 
+                                                    <a href="{{$courses->fee_structure_file_url}}">
+                                                        <i class="fa fa-download"></i>
+                                                    </a>
+                                                @else
+                                                    <p>File Not Uploaded</p>
+                                                @endif
+                                            </td>
                                          </tr>
                                          @endforeach
                                       </tbody>
@@ -200,6 +209,42 @@
            </div>
         </div>
         <!-- /.row -->
+        <div class="row">
+                <!-- .col -->
+                <div class="col-sm-9">
+                    <div class="white-box">
+                        <h3 class="box-title m-b-0">College gallery</h3>
+                        <div class="row m-t-30">
+                            <div class="col-sm-6">
+                                    <a href="{{ asset($user->college_booth) }}" class="image-popup-vertical-fit" title="">
+                                            <img src="{{ asset($user->college_booth) }}" class="img-responsive">
+                                    </a>
+                            </div>
+                            <div class="col-sm-6">
+                                    <a href="{{ asset($user->college_video) }}" class="popup-youtube m-b-30" title="">
+                                            <video controls="" width="100%">
+                                                <source src="{{ asset($user->college_video) }}" type="video/mp4">
+                                          </video>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <!-- .col -->
+                <div class="col-sm-3">
+                    <div class="white-box">
+                        <h3 class="box-title m-b-0">Document</h3>
+                        <div class="m-t-5">
+                                <p>{{$user->college_name}}</p>
+                                <a href="{{ asset($user->college_brochure) }}">
+                                <img src="{{ asset('college/images/filedownload.png') }}" width="100%">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
      </div>
 <!-- /#page-wrapper -->
 @endsection

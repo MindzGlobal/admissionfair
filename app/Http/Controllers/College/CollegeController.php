@@ -31,17 +31,25 @@ class CollegeController extends Controller
             if($mobileVerificationStatus == 'No'){
                 return redirect()->route('otpverification');
             } 
-            // else if(Auth::user()->compilation_status!='Done') {
-            //   if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile'))){
-            //     return redirect()->route('createprofile');
-            //   }
-            // }
+            else if(Auth::user()->compilation_status!='Done') {
+              if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile','select_booth','insertBooth','package','pay'))){
+                return redirect()->route('createprofile');
+              }
+            }
             return $next($request);
         });
     }
 
+    public function chackCompilation(){
+      if(Auth::user()->compilation_status=='Done')
+      {
+        return redirect()->route('dashboard');
+      }
+    }
+
     protected function createprofile()
     {
+        $this->chackCompilation();
         return view('college.create_profile');
     }
 
@@ -136,6 +144,7 @@ class CollegeController extends Controller
         $course_total_fee = Input::get('course_total_fee');
         $fee_structure_file_name = Input::get('fee_structure_file_name');
         $course_department = Input::get('course_department');
+        $course_description = Input::get('course_description');
         $files = Input::file('fee_structure_file_name');
         //dd($files);
   
@@ -155,7 +164,9 @@ class CollegeController extends Controller
           }
   
           $insertData[] = [
+            'reg_id'  => Auth::user()->reg_id,
             'course_offer'  => $course_offer[$i],
+            'course_description'  => $course_description[$i],
             'course_duration'   => $course_duration[$i],
             'course_total_fee'  => $course_total_fee[$i],
             'fee_structure_file_name'  => $name,
@@ -309,8 +320,8 @@ class CollegeController extends Controller
     public function insertBooth(Request $request)
       {
         
-        $res = 'success';
-        $msg = "Done";
+        $res = 'Success';
+        $msg = "Booth Selected Successfuly.";
         $id = Auth::user()->id;
         $clgname= Auth::user()->college_name;
         $clgDetais = CollegeDetail::find($id);
@@ -321,12 +332,13 @@ class CollegeController extends Controller
         if(!$clgDetais->update())
         {
           $res = 'Error';
-          $msg = "Some Error Occurred!";
+          $msg = "Booth Selection Failed.!";
         }
 
        // $news = new courseOffers();
 
-        return $this->Result($res,$msg);
+        return redirect()->route('package')->with(['status'=>$res,'msg'=>$msg]);
+        //$this->Result($res,$msg);
       }
 
     //To display student profile details

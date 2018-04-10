@@ -41,6 +41,33 @@
         section > .container, section > .container-fluid {
     padding-top: 25px!important;
         }
+
+    .college-img{
+    width: 80px;
+    /* //border-radius: 50%; */
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+}
+.label-text{
+    /* background: #2980b9; */
+    font-size: small;
+    font-family: poppins;
+    padding: 0px;
+    width:60%;
+    word-break: break-all;
+    /* border-radius: 7px; */
+}
+.clg_applied
+{
+    width:83%;
+}
+.font15{
+    color:#2e6da4;
+}
+.textInfo{
+    color:black;
+}
 </style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
@@ -88,19 +115,60 @@
                                  </div>
                     </div>
                      <ul class="nav nav-tabs">
-                        <li class=""><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
-                        <li class="active"><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab3" aria-expanded="false">Educational Information</a></li>
                      </ul>
                      <div class="tab-content">
-                        <div id="tab1" class="tab-pane fade ">
-                           <dl class="dl-horizontal doctor-info">
-                              <dt>Last Name</dt>
-                              <dd>
-                                 Roopa
-                              </dd>
-                              <hr>
-                           </dl>
+                        <div id="tab1" class="tab-pane fade active in ">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered">
+                                    <tbody>
+                                        @foreach($appliedTo as $applied)
+                                        <tr>
+                                            {{-- <td>
+                                               <span class="label label-text" style="color:#884343;"><b>{{$applied->college[0]->collegeName}}</b></span>
+                                               <br>
+                                                <img alt="Blog_image" class="img-responsive college-img" src="{{ asset($applied->college[0]->college_img) }}">
+                                                {{-- <br> --}}  
+                                                {{-- @if ($applied->pay_status == "Pending")
+                                                <center><span class="label label-rouded label-danger">Not Paid</span></center>
+                                                @else<center><span class="label label-rouded label-success">Paid</span></center>
+                                                @endif
+                                            </td> --}}
+                                            <td class="clg_applied">
+                                                <div class="m-l-40">
+                                                {{-- <p class="font15">
+                                                   <b class="text-info ">College Name :</b> 
+                                                </p>     --}}
+                                                <p class="font15" ><b class=" textInfo ">College Name : </b> <b>{{$applied->college[0]->collegeName}}</b></p>
+                                                <p class="font15"><b class=" textInfo ">Course :  </b> <b>{{$applied->course}}</b></p>
+                                                <p class="font15"><b class="textInfo">Department : </b> <b>{{$applied->department}}</b></p>
+                                                <p class="font15"><b class="textInfo ">Applied At : </b> <b>{{ date('d-m-Y', strtotime($applied->created_at))}}</b></p>
+                                                {{-- <p class="font15"><b class="text-info ">Course Duartion :</b> </p>
+                                                <p class="font15"><b class="text-info ">fees :</b> </p> --}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="m-t-20 text-center">
+                                                    @if ($applied->pay_status == "Pending")
+                                                    <button type="button" class="btn btn-danger btn-rounded ">Not Paid</button>
+                                                    @else
+                                                    <button type="button" class="btn btn-success btn-rounded ">Paid</button>
+                                                    @endif   
+                                                    <br>
+                                                    <br>
+                                                   <a href='{{ url('student/'.$applied->college[0]->collegeId.'/'.$applied->course_dept_id.'')}}'>
+                                                     <button type="submit" class="btn btn-primary btn-rounded ">View College</button>
+                                                   </a>
+                                                </div>
+                                            </td>   
+                                        </tr>
+                                        @endforeach                                       
+                                    </tbody>
+                                </table>
+                                <div class="pull-right">{{ $appliedTo->links() }}</div>
+                            </div> 
                         </div>
                         <div id="tab2" class="tab-pane fade">
                       
@@ -141,7 +209,7 @@
                               </dd>
                            </dl>
                         </div>
-                        <div id="tab3" class="tab-pane fade active in">
+                        <div id="tab3" class="tab-pane fade ">
                           <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
 						  
                            <hr>

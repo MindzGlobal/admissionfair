@@ -165,13 +165,17 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
+              <a href="{{ url('student/profile') }}" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
             </li>
             <li>
-              <a href="#" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
+              <a href="{{ route('student.password.reset') }}" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
             </li>
             <li>
-              <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              <a href="{{ route('student.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="log out">
+                <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
           </ul>
         </li>
