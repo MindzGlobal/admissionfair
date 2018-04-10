@@ -124,7 +124,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <tbody>
-                                        @if(count($appliedTo)>0)
+                                        @if(!is_null($appliedTo))
                                         @foreach($appliedTo as $applied)
                                         <tr>
                                             {{-- <td>
@@ -171,7 +171,9 @@
                                         @endif                                     
                                     </tbody>
                                 </table>
+                                @if(!is_null($appliedTo))
                                 <div class="pull-right">{{ $appliedTo->links() }}</div>
+                                @endif
                             </div> 
                         </div>
                         <div id="tab2" class="tab-pane fade">
