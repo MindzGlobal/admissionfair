@@ -98,7 +98,7 @@
  * Contenedor Principal
  ===========================*/
 
- * Submenu
+ /* Submenu
  -----------------------------*/
         
         .submenu {
@@ -132,7 +132,7 @@
         width: 58%;
     height: 20%;
     left: 100%;
-    margin-top: 76%
+    margin-top: 76%;
             -webkit-transform-origin: 50% 0;
             transform-origin: 50% 0;
             -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
