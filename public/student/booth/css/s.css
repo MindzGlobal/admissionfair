@@ -39,7 +39,7 @@
         }
         
         .third {
-            background-image: url(../images/help.jpg);
+            background-image: url('http://vepimg.b8cdn.com/uploads/vjf/136-euromba/info-desk.jpg?v=4');
             background-position: initial;
             position: absolute;
             /* min-height: 100%; */
@@ -98,7 +98,7 @@
  * Contenedor Principal
  ===========================*/
 
- * Submenu
+ /* Submenu
  -----------------------------*/
         
         .submenu {
@@ -132,7 +132,7 @@
         width: 58%;
     height: 20%;
     left: 100%;
-    margin-top: 76%
+    margin-top: 76%;
             -webkit-transform-origin: 50% 0;
             transform-origin: 50% 0;
             -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
@@ -510,22 +510,21 @@ width:3%;
 cursor:pointer;
 }	
 .video-people
-{
-	
+{	
     position: fixed;
-    top: 28%;
+    top: 40%;
     left: 50%;
     min-height: 100%;
-    width: 55%;
+    width: 29%;
     object-fit: contain;
 }
 .support
 {
 	cursor: pointer; 
 	position: fixed;
-	width: 15%;
-	left: 43%;
-	top: 25%;
+	width: 16%;
+    left: 42%;
+	top: 13%;
 	z-index: 99;
 	box-shadow:1px 0px 15px;
     border:1px solid;

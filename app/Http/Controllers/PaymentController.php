@@ -90,7 +90,7 @@ class PaymentController extends Controller
                 User::where('reg_id',Auth::user()->reg_id)->update(['compilation_status'=>'Done']);
             }
         }
-        return view('college.empty',['payment'=>$payment]);
+        return view('college.paystatus',$array);
     }
     
  

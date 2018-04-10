@@ -13,8 +13,7 @@
 
 // Auth Section ##############################################################################
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'HomeController@about')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 //Student Section ###############################################################################
 Route::get('college/demo', function () {
     return view('college.subscribe_price');
@@ -26,7 +25,7 @@ Route::post('pay-student','PaymentController@studentPay')->name('studentPay');
 Route::get('paystatus-student','PaymentController@studentStatus')->name('studentpaystatus');
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
-    Route::get('register','CollegeAuthController@register');
+    Route::get('register','CollegeAuthController@register')->name('college.register');
     Route::get('login','CollegeAuthController@login')->name('collegelogin');
 
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
@@ -115,7 +114,5 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
 });
 
-Route::get('college/std_profile1', function () {
-    return view('college.std_profile1');
-});
+
 
