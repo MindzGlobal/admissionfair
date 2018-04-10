@@ -89,7 +89,7 @@ Route::prefix('student')->namespace('students')->group(function(){
 
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
-    Route::post('password/reset','Auth\ResetPasswordController@reset');
+    Route::post('password/reset','Auth\StudentResetPasswordController@reset')->name('student.password.resetdo');
     Route::get('resetpassword','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
  //   Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');

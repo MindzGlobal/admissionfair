@@ -124,6 +124,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <tbody>
+                                        @if(count($appliedTo)>0)
                                         @foreach($appliedTo as $applied)
                                         <tr>
                                             {{-- <td>
@@ -164,7 +165,10 @@
                                                 </div>
                                             </td>   
                                         </tr>
-                                        @endforeach                                       
+                                        @endforeach  
+                                        @else
+                                        
+                                        @endif                                     
                                     </tbody>
                                 </table>
                                 <div class="pull-right">{{ $appliedTo->links() }}</div>
