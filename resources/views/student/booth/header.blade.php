@@ -57,7 +57,7 @@
             outline: none;
             direction: ltr;
             margin-top: -4%;
-            background: linear-gradient(0deg,rgba(140, 137, 137, 0.41),rgba(0, 0, 0, 0.52)),url({{ asset('student/images/booth.jpg') }});
+            background:url({{ asset('student/images/booth.jpg') }});
         }
 
         #clg-logo{
@@ -306,7 +306,9 @@
       <div class="right" id="WidgetRightBox">
     <a href="#">  <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></a></div>
    </a>
-   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="#"><img src="{{ asset('student/images/virtual-logo.png')}}"  style="width:100%;"></a></div>
+   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="#"><img src="{{ asset('student/images/3.jpg')}}"  style="height:180px;
+    width:100%;/*maintain aspect ratio*/
+    max-width:392px;"></a></div>
    <div class="clear"></div>
 </div>
 </div>
