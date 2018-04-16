@@ -73,7 +73,7 @@
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/custom-bootstrap-margin-padding.css') }}">
      <link href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet">
-@endsection
+         @endsection
 
 
 
@@ -101,7 +101,7 @@
          <div class="container">
             <div class="section-content">
                <div class="row">
-                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-sm-15 student-info">
+                  <div class="col-xs-12 col-sm-8 col-md-8 pull-right pl-sm-15">
                      <div>
                         <span style="font-size:25px;font-family:poppins;!important">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
                      </div>

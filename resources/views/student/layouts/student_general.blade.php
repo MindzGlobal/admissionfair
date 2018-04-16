@@ -18,6 +18,7 @@
                 <link rel="stylesheet" href="{{ asset('student/css/bootstrap.min.css')}}">
                 <!-- Custom CSS -->
                 <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style.css')}}">
+                <link rel="stylesheet" type="text/css" href="{{ asset('student/css/owl.carousel.min.css')}}">
                 <!-- Responsive stylesheet  -->
                 <link rel="stylesheet" type="text/css" href="{{ asset('student/css/responsive.css')}}">
                 
@@ -90,7 +91,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 clearfix">
                     <div class="footer-service fo-title">
                         <div class="footer-logo">
-                            <img src="{{ asset('student/images/ZR-Mindz-Global-Technologies-logo.png')}}" alt="Gallery Image" width=200px;>
+                            <img src="{{ asset('student/images/logo.png')}}" alt="Gallery Image" width=200px;>
 
                             <p class="cl-white">ZR Mindz Global believes in the power of each Human, 
                             the power to do smart, to make smart, to be Smart.</p>

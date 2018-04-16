@@ -14,6 +14,10 @@
 	.vjf-header {
     background: #2a72a7!important;
 }
+.dropdown:hover .dropdown-menu
+{
+	display:block!important;
+}
 	</style>
 </head>
 <body style="background:darkgray!important;">
@@ -38,6 +42,152 @@
         </div>
 
         <div class="third" style="display:none;">
+		   <!-- Strat Header Section -->
+<div class="vjf-header" role="Header">    
+  <div class="wrap-header">
+    <div class="col-md-3">
+
+              <a href="#"><img src="{{ asset('student/images/logo.png')}}" style="width: 52%;" class="logo" alt="Logo"></a>
+
+            
+      <nav class="navbar navbar-default short-menu">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+        </div><!-- /.container-fluid -->
+      </nav>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav nav-tabs">
+        <li>
+              <a href="#" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
+            </li>
+            <li>
+              <a href="#" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
+            </li>
+            <li>
+              <a href="/test-drive/index.php?Logout=1" title="log out"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      
+    </div>
+    <div class="col-md-4">
+              <div class="top-search">
+          <span class="icon-search"></span>
+          <input type="text" class="typeahead form-control" placeholder="Search for a Department">
+        </div>
+            <div class="clearfix"></div>
+    </div>
+    <div class="col-md-5 menu-top">
+              
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff;" role="button" aria-haspopup="true" aria-expanded="false">
+             @if(isset(Auth::user()->profile_image))
+                <img src="{{ asset(Auth::user()->profile_image) }}"  class="user-dp" alt="Avatar" >  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} &nbsp;<span class="caret"></span>
+            @else
+                <img src="{{ asset('student/images/profile_images/dummy_image.png') }}"  class="user-dp" alt="Avatar">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}}&nbsp;<span class="caret"></span>
+            @endif
+          </a>
+          <!-- <ul class="dropdown-menu">
+            <li>
+              <a href="{{ url('student/profile') }}" class="" title="My Profile"><span class="glyphicon glyphicon-user"></span>My Profile</a>
+            </li>
+            <li>
+              <a href="{{ route('student.password.reset') }}" class="" title="Change Password"><span class="glyphicon glyphicon-file"></span>Change Password</a>
+            </li>
+            <li>
+              <a href="{{ route('student.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="log out">
+                <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              <form id="logout-form" action="{{ route('student.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+          </ul> -->
+          <ul class="dropdown-menu mega-dropdown-menu">
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Men Collection</li>                            
+                            <div id="menCollection" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href="#"><img src="http://placehold.it/254x150/ff3546/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                    <h4><small>Summer dress floral prints</small></h4>                                        
+                                    <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>       
+                                </div><!-- End Item -->
+                                <div class="item">
+                                    <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                    <h4><small>Gold sandals with shiny touch</small></h4>                                        
+                                    <button class="btn btn-primary" type="button">9,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>        
+                                </div><!-- End Item -->
+                                <div class="item">
+                                    <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                    <h4><small>Denin jacket stamped</small></h4>                                        
+                                    <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>      
+                                </div><!-- End Item -->                                
+                              </div><!-- End Carousel Inner -->
+                              <!-- Controls -->
+                              <a class="left carousel-control" href="#menCollection" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#menCollection" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div><!-- /.carousel -->
+                            <li class="divider"></li>
+                            <li><a href="#">View all Collection <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Features</li>
+							<li><a href="#">Auto Carousel</a></li>
+                            <li><a href="#">Carousel Control</a></li>
+                            <li><a href="#">Left & Right Navigation</a></li>
+							<li><a href="#">Four Columns Grid</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Fonts</li>
+                            <li><a href="#">Glyphicon</a></li>
+							<li><a href="#">Google Fonts</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Plus</li>
+							<li><a href="#">Navbar Inverse</a></li>
+							<li><a href="#">Pull Right Elements</a></li>
+							<li><a href="#">Coloured Headers</a></li>                            
+							<li><a href="#">Primary Buttons & Default</a></li>							
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Much more</li>
+                            <li><a href="#">Easy to Customize</a></li>
+							<li><a href="#">Calls to action</a></li>
+							<li><a href="#">Custom Fonts</a></li>
+							<li><a href="#">Slide down on Hover</a></li>                         
+						</ul>
+					</li>
+				</ul>				
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+</div>
             <div class="">
                 <div class="row">
 				   <!--div class="col-md-4">
