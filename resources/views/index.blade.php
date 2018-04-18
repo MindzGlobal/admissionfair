@@ -7,7 +7,7 @@
         min-height:285px;
     }
     .mt5{
-        margin-top: 5%;
+        margin-top: 15%;
     }
     .up_coming {
     position: absolute;
@@ -17,9 +17,9 @@
     left: 0;
     z-index: 2;
     padding: 50px 0 150px;
-    background: #000000a3;
     opacity: 0.7;
-    height: 500px;
+    height: 100vh;
+    background:#100a07eb;
 }
 .service-box
 {
@@ -39,23 +39,25 @@
     width: 100%;
     opacity: 1;
 }
-.header-navbar .navbar-brand img {
-    width: 220px;
-    height: auto;
-    margin-top: -11%;
-}
+
 .navbar {
     position: relative;
     min-height: 67px;
 }
-</style>
+#particles-js {
+    margin-top: 20%;
+}
+.service-box:hover {
+    background-image: url('{{ asset('student/images/header-bg.jpg') }}');
+}
+    </style>
 @endsection
 
 
 
 @section('content')
 <!-- Strat First Section -->
-<div class="relative-div" style="background:url('http://www.admissioninfo.co.in/images/vidya-vikas-college-of-nursing-mysore-admission-fee-structure.jpg'); height: 500px;
+<div class="relative-div" style="background:url('{{ asset('student/images/admition.jpg') }}'); height:100vh;
     background-size: cover;
     background-repeat: no-repeat;">
     <!-- count particles -->
@@ -67,9 +69,9 @@
             <div class="row">
                 <div class="col-sm-12 coming">
                     <div class="timieng">
-                        <div class="content mt5">
-                            <h2>Virtual Admission Fair -<span class="txt_blu">2018</span></h2>
-                            <p> We are working to bring best admission fair platform.<br>Now getting admission in your dream college is easy.
+                        <div class="content mt5 ">
+                            <h2 class="animated fadeInLeft">Virtual Admission Fair -<span class="txt_blu">2018</span></h2>
+                            <p class="animated fadeInRight"> We are working to bring best admission fair platform.<br>Now getting admission in your dream college is easy.
                                 Stay tuned!</p>                            
                         </div>
                         

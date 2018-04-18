@@ -440,7 +440,7 @@ img {
 }
 
 .header-two .modal-content .form-control {
-    background: #fff;
+    background: #111111de!important; 
     margin-bottom: 0;
     margin-top: 8px;
     height: 50px;
@@ -455,10 +455,7 @@ img {
 }
 
 /* Navbar CSS start */
-.header-navbar {
-    color: #ffffff;
-    background: #2980b9;
-}
+
 .affix {
     position: fixed;
     background:#111111de!important; 
@@ -467,10 +464,7 @@ img {
     padding: 0;
 }
 
-.header-navbar .navbar-brand img {
-    width: 150px;
-    height: auto;
-}
+
 
 .header-navbar .navbar {
     margin-bottom: 0;
@@ -478,12 +472,13 @@ img {
 
 .header-navbar .navbar-nav {
     margin-top: 3px;
+    padding-top: 10px;
 }
 
 .header-navbar .navbar-default {
     background: transparent;
     border: none;
-    padding: 0px 0 0px;
+    padding: 0px 0 12px;
 }
 
 .header-navbar .navbar-default .navbar-nav > .active > a,
@@ -501,8 +496,7 @@ img {
     margin-left: 30px;
 }
 .header-navbar .navbar-brand img {
-    width: 220px;
-    height: auto;
+
     margin-top: -11%;
 }
 .navbar {
@@ -891,6 +885,7 @@ img {
     position: relative;
     display: block;
     overflow: hidden;
+    margin-top: 12%;
 }
 
 .about-box:before,
@@ -898,7 +893,7 @@ img {
     content: '';
     width: 94%;
     height: 94%;
-    background:#2980b9;
+    background:#2980b980;
     position: absolute;
     top: 3%;
     left: 3%;
@@ -3215,7 +3210,6 @@ input:-moz-placeholder {
 .blog-page .blog-comment .comment-list .comment-meta span em {
     color: #999999;
     font-size: 13px;
-    margin-left: 15px;
 }
 
 .blog-page .blog-comment .comment-list .comment-meta span .reply {
@@ -4489,6 +4483,7 @@ input:-moz-placeholder {
     background-repeat: no-repeat;
     position: relative;
     padding: 0 0;
+  
 }
 
 .particles-js-canvas-el {
@@ -4519,7 +4514,6 @@ input:-moz-placeholder {
     left: 0;
     z-index: 2;
     padding: 50px 0 150px;
-    background: #000000db;
     opacity: 0.7;
 }
 
@@ -4567,8 +4561,9 @@ input:-moz-placeholder {
     margin: 20px 0 30px 0;
     font-size: 22px;
     line-height: 36px;
-    color: #ffffff;
+    color: #ff9600;
     z-index: 11;
+    font-weight: 600;
 }
 
 .up_coming .content .more-link {
@@ -4603,7 +4598,7 @@ input:-moz-placeholder {
 /*--------------------------------*/
 .footer .top-footer {
     background: #111;
-    padding: 80px 0px 30px;
+    padding: 13px 0px 0px;
 }
 
 .footer .top-footer .fo-title h4 {
@@ -5397,7 +5392,7 @@ section, .section {
 	padding-bottom:0px !important;
 }
 .txt_blu{
-	color:#2980b9;
+	color:#ff9600;
 }
 .dline{
 	width: 98%;
@@ -5684,7 +5679,8 @@ height:480px;
 		.body-back
 {
 	border: 7px solid rgb(41, 128, 185);
-	margin-top:15%;
+    margin-top:15%;
+    border-radius: 0px!important;
 }  
 .next-step
 {

@@ -68,6 +68,10 @@
 .textInfo{
     color:black;
 }
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 </style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/utility-classes.css') }}">
@@ -105,15 +109,18 @@
                      <div>
                         <span style="font-size:25px;font-family:poppins;!important">{{ ucwords($students->first_name) }} {{ ucwords($students->last_name) }}</h4>
                      </div>
-                    <div class="bg-light1 media  pt-15 mb-20">
-                                 <div class="media-left">
-                                    <i class="fa fa-user text-theme-colored  font-24 mt-5 ml-5"></i>
-                                 </div>
-                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-0">About You:</h5>
-                                    <p> {{ $students->about_you }}</p>  
-                                 </div>
-                    </div>
+                   
+                                    <div class="bg-light media border-bottom-theme-colored-2px p-15 mb-20">
+                                       <div class="media-left">
+                                          <i class="fa fa-user text-theme-colored font-24 mt-5"></i>
+                                       </div>
+                                       <div class="media-body">
+                                          <h5 class="mt-0 mb-0">About You:</h5>
+                                          <p> {{ $students->about_you }}</p>
+                                       </div>
+                                    </div>
+                              
+                   
                      <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab1" aria-expanded="true">Colleges Applied</a></li>
                         <li class=""><a data-toggle="tab" href="#tab2" aria-expanded="false">Personal Information</a></li>
@@ -181,7 +188,7 @@
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
                                 <h4 class="ptl" style="color:#02325d;"><b>About You</b></h4>
-                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a>
+                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;margin-top: -4%;">Edit Info</button></a>
                             </div>
                             <hr>
                                <dt>Birth Date</dt>
@@ -216,7 +223,7 @@
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade ">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;margin-top: -4%;">Edit Info</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}

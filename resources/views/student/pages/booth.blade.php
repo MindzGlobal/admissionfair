@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 	.vjf-header {
-    background: #2a72a7!important;
+    background: #111111de!important;
 }
 
 
@@ -48,7 +48,7 @@ a, a:hover, a.active, a:active, a:visited, a:focus{
 	float: left;
 	list-style: none;
 	position:relative;
-	background: #2980b9;
+	background:#111111de!important;
 }
 .exo-menu > li {	display: inline-block;float:right;}
 .exo-menu > li > a{
@@ -288,7 +288,7 @@ li.flyout-mega>a:hover +.flyout-mega-wrap{
  @media (min-width:767px){
 	.exo-menu > li > a{
 	display:block;
-	padding: 20px 22px;
+	padding: 24px 22px;
  }
 .mega-menu, .flyout-mega-wrap, .Images, .Blog,.flyout-right>ul,
 .flyout-left>ul, li.drop-down>ul{
@@ -353,6 +353,53 @@ clor
     color:#fff;
 }
 
+.enter_hall {
+    position:absolute;
+    top:22%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:block;
+    padding: 10px 15px;
+    border:2px solid #000;
+    background: #ef7319!important;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    overflow:hidden;
+}
+.enter_hall span {
+    font-size:20px;
+    color: #fff;
+    mix-blend-mode: difference;
+}
+.enter_hall:before {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:40px;
+    background:#000;
+    transition:.5s;
+    transform: skewX(-15deg);
+    animation: animate 2s linear infinite;
+}
+
+.enter_hall:hover:before {
+    width:100%;
+    transform: skewX(0deg);
+    animation:none;
+}
+
+@keyframes animate 
+{
+    0% {
+        left: -40px;
+    }
+    100% {
+        left: calc(100% + 10%);
+    }
+}
 </style>
 	
 </head>
@@ -364,9 +411,10 @@ clor
                 <br>
                 <!--button id="Button1" type="button" class="btn btn-primary btn-lg b" onclick="Button1();">Enter Hall</button-->
                 <div class="flex-1">
-                    <button class="button button-mat btn--5 enter-hall" id="Button1" onclick="Button1();" >
+                    {{-- <button class="button button-mat btn--5 enter-hall"  >
                         <div class="psuedo-text">Enter Hall</div>
-                    </button>
+                    </button> --}}
+                    <a href="#" class ="enter_hall" id="Button1" onclick="Button1();"><span>Enter Hall</span></a>
                 </div>
             </center>
         </div>
@@ -381,7 +429,10 @@ clor
         <div class="content">
 	 
      <ul class="exo-menu">
-              <a href="#"><img src="http://localhost/admissionfair/public/student/images/virtual-logo.png" style="width: 11%;" class="logo" alt="Logo" ></a>
+              <a href="#"><img src="{{ asset('student/images/logo.png')}}" style="width: 220px;
+                height: auto;
+                margin-top: -24px;
+                margin-bottom: -22px;" class="logo" alt="Logo" ></a>
 
      <li class="drop-down"><a id="navbarDropdown"   style="color:#fff!important;" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre="">
                                                                             <img src="http://localhost/admissionfair/public/student/images/profile_images/dummy_image.png" alt="user-img" style="width:26px;" class="img-circle" >  mala  gowda <span class="caret"></span>
@@ -410,7 +461,7 @@ clor
                          <div class="col-md-12">
                              <ul class="stander">
                              <div class="col-md-3">
-                             <i class="fa fa-medkit  fa-1x"></i> <a href="#">  {{$college->	course_offer}}</a>
+                             <i class="fa fa-medkit  fa-1x"></i> <a href="#"></a>
                                  <span>Description of Women</span>
                                  <i class="fa fa-medkit  fa-1x"></i> <a href="#">Computer</a>
                                  <span>Description of Women</span>
@@ -626,7 +677,7 @@ clor
   <div class="wrap-header">
     <div class="col-md-3">
 
-              <a href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" style="width: 52%;" class="logo" alt="Logo"></a>
+              <a href="#"><img src="{{ asset('student/images/logo.png')}}" style="width: 52%;" class="logo" alt="Logo"></a>
 
             
       <nav class="navbar navbar-default short-menu">
@@ -669,7 +720,7 @@ clor
               
       <ul class="nav nav-tabs">
         <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff;" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff!important;margin-top:-33%;" role="button" aria-haspopup="true" aria-expanded="false">
              @if(isset(Auth::user()->profile_image))
                 <img src="{{ asset(Auth::user()->profile_image) }}"  class="user-dp" alt="Avatar" >  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} &nbsp;<span class="caret"></span>
             @else
