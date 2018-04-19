@@ -5409,6 +5409,7 @@ blockquote p {
   color: #555555;
   padding: 12px 20px;
   margin-right: 0;
+  border-color: #eee #eee #ddd!important;
 }
 .nav-tabs > li > a .fa {
   margin-right: 10px;

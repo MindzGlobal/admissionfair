@@ -10,11 +10,398 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{{ asset('student/booth/css/s.css')}}">
 	<link rel="shortcut icon" type="image/png" href="{{ asset('student/booth/images/favi.png')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 	.vjf-header {
-    background: #2a72a7!important;
+    background: #111111de!important;
 }
-	</style>
+
+
+:after,
+:before {
+  box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+  content: '';
+  display: table
+}
+
+.clearfix:after {
+  clear: both;
+  display: block
+}
+ul{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+a, a:hover, a.active, a:active, a:visited, a:focus{
+	color:#fefefe;
+	text-decoration:none;
+}
+
+
+.exo-menu{
+	width: 100%;
+	float: left;
+	list-style: none;
+	position:relative;
+	background:#111111de!important;
+}
+.exo-menu > li {	display: inline-block;float:right;}
+.exo-menu > li > a{
+	color: #ccc;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-right: 1px #365670 dotted;
+	-webkit-transition: color 0.2s linear, background 0.2s linear;
+	-moz-transition: color 0.2s linear, background 0.2s linear;
+	-o-transition: color 0.2s linear, background 0.2s linear;
+	transition: color 0.2s linear, background 0.2s linear;
+}
+.exo-menu > li > a.active,
+.exo-menu > li > a:hover,
+li.drop-down ul > li > a:hover{
+	background:#009FE1;
+	color:#fff;
+}
+.exo-menu i {
+  float: left;
+  font-size: 18px;
+  margin-right: 6px;
+  line-height: 20px !important;
+}
+li.drop-down,
+.flyout-right,
+.flyout-left{position:relative;}
+li.drop-down:before {
+  color: #fff;
+  font-family: FontAwesome;
+  font-style: normal;
+  display: inline;
+  position: absolute;
+  right: 6px;
+  top: 20px;
+  font-size: 14px;
+}
+li.drop-down>ul{
+	left: 0px;
+	min-width: 230px;
+
+}
+.drop-down-ul{display:none;}
+.flyout-right>ul,
+.flyout-left>ul{
+  top: 0;
+  min-width: 230px;
+  display: none;
+  border-left: 1px solid #365670;
+  }
+
+li.drop-down>ul>li>a,
+.flyout-right ul>li>a ,
+.flyout-left ul>li>a {
+	color: #fff;
+	display: block;
+	padding: 20px 22px;
+	text-decoration: none;
+	background-color: #365670;
+	border-bottom: 1px dotted #547787;
+	-webkit-transition: color 0.2s linear, background 0.2s linear;
+	-moz-transition: color 0.2s linear, background 0.2s linear;
+	-o-transition: color 0.2s linear, background 0.2s linear;
+	transition: color 0.2s linear, background 0.2s linear;
+}
+.flyout-right ul>li>a ,
+.flyout-left ul>li>a {
+	border-bottom: 1px dotted #B8C7BC;
+}
+
+
+/*Flyout Mega*/
+.flyout-mega-wrap {
+	top: 0;
+	right: 0;
+	left: 100%;
+	width: 100%;
+	display:none;
+	height: 100%;
+	padding: 15px;
+	min-width: 742px;
+
+}
+h4.row.mega-title {
+  color:#eee;
+  margin-top: 0px;
+  font-size: 14px;
+  padding-left: 15px;
+  padding-bottom: 13px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+ }
+.flyout-mega ul > li > a {
+  font-size: 90%;
+  line-height: 25px;
+  color: #fff;
+  font-family: inherit;
+}
+.flyout-mega ul > li > a:hover,
+.flyout-mega ul > li > a:active,
+.flyout-mega ul > li > a:focus{
+  text-decoration: none;
+  background-color: transparent !important;
+  color: #ccc !important
+}
+/*mega menu*/
+
+.mega-menu {
+  left: 0;
+  right: 0;
+  padding: 15px;
+  display:none;
+  padding-top: 0;
+  min-height: 100%;
+
+}
+h4.row.mega-title {
+  color: #eee;
+  margin-top: 0px;
+  font-size: 14px;
+  padding-left: 15px;
+  padding-bottom: 13px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #547787;
+  padding-top: 15px;
+  background-color: #365670
+  }
+ .mega-menu ul li a {
+  line-height: 25px;
+  font-size: 14px!important;
+  display: block;
+}
+ul.stander li a {
+    padding: 3px 0px;
+}
+
+ul.description li {
+    padding-bottom: 12px;
+    line-height: 8px;
+}
+
+ul.description li span {
+    color: #ccc;
+    font-size: 85%;
+}
+a.view-more{
+  border-radius: 1px;
+  margin-top:15px;
+  background-color: #009FE1;
+  padding: 2px 10px !important;
+  line-height: 21px !important;
+  display: inline-block !important;
+}
+a.view-more:hover{
+	color:#fff;
+	background:#0DADEF;
+}
+ul.icon-des li a i {
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #009FE1;
+    line-height: 35px !important;
+}
+
+ul.icon-des li {
+    width: 100%;
+    display: table;
+    margin-bottom: 11px;
+}
+/*Blog DropDown*/
+.Blog{
+	left:0;
+	display:none;
+	color:#fefefe;
+	padding-top:15px;
+	background:#547787;
+	padding-bottom:15px;
+}
+.Blog .blog-title{
+	color:#fff;
+	font-size:15px;
+	text-transform:uppercase;
+
+}
+.Blog .blog-des{
+	color:#ccc;
+	font-size:90%;
+	margin-top:15px;
+}
+.Blog a.view-more{
+	margin-top:0px;
+}
+/*Images*/
+.Images{
+	left:0;
+   width:100%;
+	 display:none;
+	color:#fefefe;
+	padding-top:15px;
+	background:#547787;
+	padding-bottom:15px;
+}
+.Images h4 {
+  font-size: 15px;
+  margin-top: 0px;
+  text-transform: uppercase;
+}
+/*common*/
+.flyout-right ul>li>a ,
+.flyout-left ul>li>a,
+.flyout-mega-wrap,
+.mega-menu{
+	background-color: #fff;
+}
+
+/*hover*/
+.Blog:hover,
+.Images:hover,
+.mega-menu:hover,
+.drop-down-ul:hover,
+li.flyout-left>ul:hover,
+li.flyout-right>ul:hover,
+.flyout-mega-wrap:hover,
+li.flyout-left a:hover +ul,
+li.flyout-right a:hover +ul,
+.blog-drop-down >a:hover+.Blog,
+li.drop-down>a:hover +.drop-down-ul,
+.images-drop-down>a:hover +.Images,
+.mega-drop-down a:hover+.mega-menu,
+li.flyout-mega>a:hover +.flyout-mega-wrap{
+	display:block;
+}
+/*responsive*/
+ @media (min-width:767px){
+	.exo-menu > li > a{
+	display:block;
+	padding: 24px 22px;
+ }
+.mega-menu, .flyout-mega-wrap, .Images, .Blog,.flyout-right>ul,
+.flyout-left>ul, li.drop-down>ul{
+		position:absolute;
+}
+ .flyout-right>ul{
+	left: 100%;
+	}
+	.flyout-left>ul{
+	right: 100%;
+}
+ }
+@media (max-width:767px){
+
+	.exo-menu {
+		min-height: 58px;
+		background-color: #000;
+		width: 100%;
+	}
+	
+	.exo-menu > li > a{
+		width:100% ;
+	    display:none ;
+	
+	}
+	.exo-menu > li{
+		width:100%;
+	}
+	.display.exo-menu > li > a{
+	  display:block ;
+	  	padding: 20px 22px;
+	}
+	
+.mega-menu, .Images, .Blog,.flyout-right>ul,
+.flyout-left>ul, li.drop-down>ul{
+		position:relative;
+}
+
+}
+a.toggle-menu{
+    position: absolute;
+    right: 0px;
+    padding: 20px;
+    font-size: 27px;
+    background-color: #000;
+    color: #000;
+    top: 0px;
+}
+span{
+    display: block;
+    line-height: 28px;
+    font-size: 14px;
+}
+a
+{
+    color:#2980b9!important;
+    font-size: 16px;
+}
+clor
+
+{
+    color:#fff;
+}
+
+.enter_hall {
+    position:absolute;
+    top:22%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:block;
+    padding: 10px 15px;
+    border:2px solid #000;
+    background: #ef7319!important;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    overflow:hidden;
+}
+.enter_hall span {
+    font-size:20px;
+    color: #fff;
+    mix-blend-mode: difference;
+}
+.enter_hall:before {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:40px;
+    background:#000;
+    transition:.5s;
+    transform: skewX(-15deg);
+    animation: animate 2s linear infinite;
+}
+
+.enter_hall:hover:before {
+    width:100%;
+    transform: skewX(0deg);
+    animation:none;
+}
+
+@keyframes animate 
+{
+    0% {
+        left: -40px;
+    }
+    100% {
+        left: calc(100% + 10%);
+    }
+}
+</style>
+	
 </head>
 <body style="background:darkgray!important;">
     <div class="main">
@@ -24,9 +411,10 @@
                 <br>
                 <!--button id="Button1" type="button" class="btn btn-primary btn-lg b" onclick="Button1();">Enter Hall</button-->
                 <div class="flex-1">
-                    <button class="button button-mat btn--5 enter-hall" id="Button1" onclick="Button1();" >
+                    {{-- <button class="button button-mat btn--5 enter-hall"  >
                         <div class="psuedo-text">Enter Hall</div>
-                    </button>
+                    </button> --}}
+                    <a href="#" class ="enter_hall" id="Button1" onclick="Button1();"><span>Enter Hall</span></a>
                 </div>
             </center>
         </div>
@@ -38,6 +426,182 @@
         </div>
 
         <div class="third" style="display:none;">
+        <div class="content">
+	 
+     <ul class="exo-menu">
+              <a href="#"><img src="{{ asset('student/images/logo.png')}}" style="width: 220px;
+                height: auto;
+                margin-top: -24px;
+                margin-bottom: -22px;" class="logo" alt="Logo" ></a>
+
+     <li class="drop-down"><a id="navbarDropdown"   style="color:#fff!important;" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre="">
+                                                                            <img src="http://localhost/admissionfair/public/student/images/profile_images/dummy_image.png" alt="user-img" style="width:26px;" class="img-circle" >  mala  gowda <span class="caret"></span>
+                                                                    </a>
+    
+             <!--Drop Down-->
+             <ul class="drop-down-ul animated fadeIn">
+             <li>
+              <a href="{{ url('student/profile') }}" class="" title="My Profile"  style="color:#fff!important;"><span class="glyphicon glyphicon-user"  style="color:#fff!important;"></span>My Profile</a>
+            </li>
+            <li>
+              <a href="{{ route('student.password.reset') }}" class="" title="Change Password"  style="color:#fff!important;"><span class="glyphicon glyphicon-file"  style="color:#fff!important;"></span>Change Password</a>
+            </li>
+            <li>
+            <li>
+              <a href="/test-drive/index.php?Logout=1" title="log out"  style="color:#fff!important;"><span class="glyphicon glyphicon-log-out"  style="color:#fff!important;"></span> Logout</a>
+            </li>
+             </ul>
+             <!--//End drop down-->
+         </li>
+        
+         <li class="mega-drop-down"><a style="color:#fff!important;"><i class="fa fa-graduation-cap"></i>Courses</a>
+             <div class="animated fadeIn mega-menu">
+                 <div class="mega-menu-wrap">
+                 <div class="row" style=" padding-top: 16px;">
+                         <div class="col-md-12">
+                             <ul class="stander">
+                             <div class="col-md-3">
+                             <i class="fa fa-medkit  fa-1x"></i> <a href="#"></a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i> <a href="#">Computer</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">Watch</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">laptop</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">Camera</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i> <a href="#">I pad</a><span>Description of Women</span>
+                                 </div>
+                                 <div class="col-md-3">
+                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
+                                 </div>
+                                 <div class="col-md-3">
+                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
+                                 </div>
+                                 <div class="col-md-3">
+                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
+                                 <span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
+                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
+                                 </div>
+                             </ul>
+                         </div>
+                     
+                     </div>
+                 </div>	
+             </div>
+         </li>
+         
+         <!-- <li><a href="#"><i class="fa fa-cogs"></i> Services</a></li>
+         <li><a href="#"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+
+         <li class="blog-drop-down"><a href="#"><i class="fa fa-bullhorn"></i> Blog</a>
+             <div class="Blog animated fadeIn">
+                 <div class="col-md-4">
+                     <img class="img-responsive" src="https://2.bp.blogspot.com/-VG_e0pKfrDo/VcLb6JwZqfI/AAAAAAAAGCk/8ZgA9kZqTQ8/s1600/images3.jpg">
+                     <div class="blog-des">
+                 <h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                         nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+                         Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+                         <a class="view-more btn- btn-sm" href="#">Read More</a>
+                     </div>
+                     
+                 </div>
+                 <div class="col-md-4">
+                     <img class="img-responsive" src="https://2.bp.blogspot.com/-VG_e0pKfrDo/VcLb6JwZqfI/AAAAAAAAGCk/8ZgA9kZqTQ8/s1600/images3.jpg">
+                     <div class="blog-des">
+                 <h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                         nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+                         Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+                         <a class="view-more btn- btn-sm" href="#">Read More</a>
+                     </div>
+                     
+                 </div>
+                 <div class="col-md-4">
+                     <img class="img-responsive" src="https://3.bp.blogspot.com/-hUt5FrdZHio/VcLb5dlwTBI/AAAAAAAAGCU/UUH5N1JkoQc/s1600/images1.jpg">
+                     <div class="blog-des">
+                     <h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                         nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+                         Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+                                 <a class="view-more btn- btn-sm" href="#">Read More</a>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <img class="img-responsive" src="https://4.bp.blogspot.com/-A7U1uPlSq6Y/VcLb5kKHCkI/AAAAAAAAGCc/7WghyndTEuY/s1600/images2.jpg">
+                     <div class="blog-des">
+                     <h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                         nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+                         Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+                                 <a class="view-more btn- btn-sm" href="#">Read More</a>
+                     </div>
+                 </div>
+                  
+                 
+             </div>
+         </li>
+         <li  class="images-drop-down"><a  href="#"><i class="fa fa-photo"></i> Images</a>
+             <div class="Images animated fadeIn">
+                 <div class="col-md-3">
+                     <h4>Images Title </h4>
+                     <img class="img-responsive" src="https://2.bp.blogspot.com/-VG_e0pKfrDo/VcLb6JwZqfI/AAAAAAAAGCk/8ZgA9kZqTQ8/s1600/images3.jpg">
+                 </div>
+                 <div class="col-md-3">
+                 <h4>Images Title </h4>
+                     <img class="img-responsive" src="https://3.bp.blogspot.com/-hUt5FrdZHio/VcLb5dlwTBI/AAAAAAAAGCU/UUH5N1JkoQc/s1600/images1.jpg">
+                 </div>
+                 <div class="col-md-3">
+                 <h4>Images Title </h4>
+                     <img class="img-responsive" src="https://4.bp.blogspot.com/-A7U1uPlSq6Y/VcLb5kKHCkI/AAAAAAAAGCc/7WghyndTEuY/s1600/images2.jpg">
+                 </div>
+                 <div class="col-md-3">
+                 <h4>Images Title </h4>
+                     <img class="img-responsive"  src="https://3.bp.blogspot.com/-hGrnZIjzL2k/VcLb47kyQKI/AAAAAAAAGCQ/J6Q2IAHIQvQ/s1600/image4.jpg">
+                 </div>
+                 
+             </div>
+         
+         </li>
+         <li><a href="#"><i class="fa fa-envelope"></i> Contact</a>
+             <div class="contact">
+         
+             </div>
+         </li>
+         <a href="#" class="toggle-menu visible-xs-block">|||</a>		
+ </ul>
+   -->
+  
+  </div>
+  
+
+
             <div class="">
                 <div class="row">
 				   <!--div class="col-md-4">
@@ -45,18 +609,18 @@
                             <img src="{{ asset('student/booth/images/au.png')}}" style="cursor: pointer; position: fixed;width: 15%;left: 43%;top: 55%;z-index: 99;" id="recruitment">
                         </center>
                     </div-->
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <center>
                             <img src="{{ asset('student/booth/images/support.jpg')}}" data-toggle="modal" data-target="#md1" data-theVideo="{{ asset('student/booth/video/Student-hall.mp4')}}" class="support">
                         </center>
-                    </div>
+                    </div> -->
 
-                     <div id="walking-people" style="left: 183px;">
+                     <!-- <div id="walking-people" style="left: 183px;">
 				
 				<div id="walking-people-video" style="display: block;">
 				<video id="walkingPeopleVideo" class="video-people" autoplay="" loop="" src="http://cdn-akamai.6connex.com//334/1418379397285_0.7706336518816249_origami_help_desk_01_001_crop.webm">
 				</video>
-				</div>
+				</div> -->
 	</div>
 
                 </div>
@@ -113,7 +677,7 @@
   <div class="wrap-header">
     <div class="col-md-3">
 
-              <a href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" style="width: 52%;" class="logo" alt="Logo"></a>
+              <a href="#"><img src="{{ asset('student/images/logo.png')}}" style="width: 52%;" class="logo" alt="Logo"></a>
 
             
       <nav class="navbar navbar-default short-menu">
@@ -156,7 +720,7 @@
               
       <ul class="nav nav-tabs">
         <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff;" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#fff!important;margin-top:-33%;" role="button" aria-haspopup="true" aria-expanded="false">
              @if(isset(Auth::user()->profile_image))
                 <img src="{{ asset(Auth::user()->profile_image) }}"  class="user-dp" alt="Avatar" >  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}} &nbsp;<span class="caret"></span>
             @else
@@ -198,7 +762,7 @@
             <div class="modal-dialog ">
                 <div class="modal-content md11">
                     <div class="modal-body md11">
-                        <i class="fa fa-times-circle-o fa-2x pull-right" data-dismiss="modal" aria-hidden="true" style="margin: -14px -13px 0 0;
+                        <i class="fa fa-times-circle-o fa-1x pull-right" data-dismiss="modal" aria-hidden="true" style="margin: -14px -13px 0 0;
 					opacity: 8;"></i>
                         <div>
                             <iframe width="100%" height="350" src=""></iframe>
@@ -357,6 +921,15 @@
                  document.location.href = action;
             }
         </script>
+        <script>
+        $(function () {
+ $('.toggle-menu').click(function(){
+	$('.exo-menu').toggleClass('display');
+	
+ });
+ 
+});
+</script>
 	
 
 </body>

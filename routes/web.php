@@ -117,5 +117,7 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
 });
 
-
+Route::get('student/demo1/', function () {
+    return view('student.pages.faculty');
+});
 

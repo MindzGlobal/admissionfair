@@ -7,16 +7,59 @@
         min-height:285px;
     }
     .mt5{
-        margin-top: 5%;
+        margin-top: 15%;
     }
-</style>
+    .up_coming {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    padding: 50px 0 150px;
+    opacity: 0.7;
+    height: 100vh;
+    background:#100a07eb;
+}
+.service-box
+{
+    background:#fff;
+}
+.single-teacher .img-title {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    left: 50%;
+    opacity: 0.8;
+    overflow: hidden;
+    padding: 0px 0 6px;
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    opacity: 1;
+}
+
+.navbar {
+    position: relative;
+    min-height: 67px;
+}
+#particles-js {
+    margin-top: 20%;
+}
+.service-box:hover {
+    background-image: url('{{ asset('student/images/header-bg.jpg') }}');
+}
+    </style>
 @endsection
 
 
 
 @section('content')
 <!-- Strat First Section -->
-<div class="relative-div" style="background:url({{ asset('student/images/college-main.jpg') }}); height:300px;">
+<div class="relative-div" style="background:url('{{ asset('student/images/admition.jpg') }}'); height:100vh;
+    background-size: cover;
+    background-repeat: no-repeat;">
     <!-- count particles -->
     <div class="count-particles">
         <span class="js-count-particles"></span>
@@ -26,11 +69,12 @@
             <div class="row">
                 <div class="col-sm-12 coming">
                     <div class="timieng">
-                        <div class="content mt5">
-                            <h2>Virtual Admission Fair -<span class="txt_blu">2018</span></h2>
-                            <p> We are working to bring best admission fair platform.<br>Now getting admission in your dream college is easy.
+                        <div class="content mt5 ">
+                            <h2 class="animated fadeInLeft">Virtual Admission Fair -<span class="txt_blu">2018</span></h2>
+                            <p class="animated fadeInRight"> We are working to bring best admission fair platform.<br>Now getting admission in your dream college is easy.
                                 Stay tuned!</p>                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -53,6 +97,13 @@
 <!-- Start coll/std Section -->
 <section class="event-area">
     <div class="container pb0">
+    <div class="edu-sec-header text-center">
+                    <div class="sec-title mar-btm-50">
+                        <h2>Login As Student/College</h2>
+
+                        <p>Deserunt quia ducimus ut illum optio cum eum voluptate <br> corrupti numquam.</p>
+                    </div>
+                </div>
         <div class="row">
             <div class="col-md-6 mar-btm-30">
                 <div class="event-item">
@@ -66,7 +117,7 @@
                             <h4><a class="text-blu text-center" href="#">For Student</a></h4>
                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
                                 piece of classical.</p>
-                          <button class="btn-form text-center" type="submit" value="Submit Form" onClick="parent.open('{{ route('student.registerform') }}')">Register</button>
+                          <button class="btn-form text-center" type="submit" value="Submit Form" onClick="parent.open('{{ route('student.registerform') }}')">Login</button>
                         </div>
                         <div class="pin-icon right">
                         </div>
@@ -85,7 +136,7 @@
                             <h4><a class="text-blu text-center" href="#">For College</a></h4>
                             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
                                 piece of classical.</p>
-                            <button class="btn-form text-center" type="submit" value="Submit Form" onClick="parent.open('{{ route('college.register') }}')">Register</button>
+                            <button class="btn-form text-center" type="submit" value="Submit Form" onClick="parent.open('{{ route('college.register') }}')">Login</button>
                         </div>
                         <div class="pin-icon right">
                         </div>
@@ -97,7 +148,7 @@
 </section>
 <!-- End coll/std Section -->
 <!-- Start HowItWorks Section  -->
-<section class="services-area">
+<section class="services-area" style="background:#eee;">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">

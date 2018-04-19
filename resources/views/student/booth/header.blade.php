@@ -57,12 +57,14 @@
             outline: none;
             direction: ltr;
             margin-top: -4%;
-            background: linear-gradient(0deg,rgba(140, 137, 137, 0.41),rgba(0, 0, 0, 0.52)),url({{ asset('student/images/booth.jpg') }});
+            background:url({{ asset('student/images/booth.jpg') }});
         }
 
         #clg-logo{
-            height: 66px;
-            width: 121px;
+    height: 40px;
+    width: 64px;
+    margin-top: 61%;
+    margin-left: 22%;
         }
                 
     </style>
@@ -237,7 +239,7 @@
                                                                                     </div>
                                                                                     <div id="Small-Booth-Banners-Parent-Div-LargeViewWrapper-3718" style="display:none;"></div>
                                                                                     <a id="Small-Booth-Image-LargeViewWrapper-3718" class="demo-tip-darkgray" title="{{ $data->college_name }}" href="javascript:;">
-                                                                                        <img id="SmallBooth-LargeViewWrapper-3718" src="{{ asset($data->college_booth)}}" alt="{{ $data->college_name }}" style="width:300px; height:300px;">
+                                                                                        <img id="SmallBooth-LargeViewWrapper-3718" src="{{ asset($data->college_booth)}}" alt="{{ $data->college_name }}" style="width:280px; height:280px;">
                                                                                     </a>
                                                                                 </div>
                                                                             </td>
@@ -306,7 +308,9 @@
       <div class="right" id="WidgetRightBox">
     <a href="#">  <iframe class="video-size" src="https://www.youtube.com/embed/KNChk5o8Fhg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></a></div>
    </a>
-   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="#"><img src="{{ asset('student/images/virtual-logo.png')}}"  style="width:100%;"></a></div>
+   <div id="WidgetMiddleBox" class="right" style="margin-right:10px;"><a href="#"><img src="{{ asset('student/images/3.jpg')}}"  style="height:180px;
+    width:100%;/*maintain aspect ratio*/
+    max-width:392px;"></a></div>
    <div class="clear"></div>
 </div>
 </div>
