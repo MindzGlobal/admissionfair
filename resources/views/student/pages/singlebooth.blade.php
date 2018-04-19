@@ -317,7 +317,7 @@
 <div class="singlebooth" style="background:url('{{ asset('student/images/admition.jpg') }}');
    height:780px;background-size: cover;
    background-repeat: no-repeat;">
-   <div class="overlay" style="background: #3384803b;
+   <div class="overlay" style="background: #130c06a1;
       height:100vh;    background-size: cover;
       background-repeat: no-repeat;">
       <div class="container">
