@@ -369,7 +369,7 @@
                <div class="post-content">
                   <blockquote>
                      <h3 class="text-center"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
-                     {{$college->	About_college}}
+                     {{!!$college->About_college!!}}
                   </blockquote>
                </div>
             </div>
