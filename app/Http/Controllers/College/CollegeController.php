@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
 use App\Model\College\courseOffers;
-// use App\Model\students\Student;
-// use App\Model\students\Student_Graduation__Details;
-// use App\Model\students\Student_Education_Details;
-// use App\Model\StudentAppliedHistory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -86,6 +82,7 @@ class CollegeController extends Controller
         $clgDetais->college_type = Input::get('college_type');
         $clgDetais->college_category = $str_clgDetais;
         $clgDetais->college_address = Input::get('college_address');
+        $user->college_about = $request->Input('college_about');
         $img = Input::file('college_img');
         $video = Input::file('college_video');
         $brochure = Input::file('college_brochure');
@@ -97,11 +94,6 @@ class CollegeController extends Controller
           $img->move(public_path().$destination_path, $name);
           $file_url = 'college/images/clg_images/'.$name;
           $clgDetais->college_img = $file_url;
-  
-          // $file = Input::file('college_img');
-          // $file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
-          // $clgDetais->college_img = $file->getClientOriginalName();
-  
         }
   
         if($video=$request->file('college_video')){
@@ -112,10 +104,6 @@ class CollegeController extends Controller
           $file_url = 'college/images/clg_videos/'.$name;
           $clgDetais->college_video = $file_url;
           
-          // $file = Input::file('college_video');
-          // $file->move(public_path().'/college/images/clg_videos', $file->getClientOriginalName());
-          // $clgDetais->college_video = $file->getClientOriginalName();
-  
         }
   
           if($brochure=$request->file('college_brochure')){
@@ -125,10 +113,6 @@ class CollegeController extends Controller
             $brochure->move(public_path().$destination_path, $name);
             $file_url = 'college/images/clg_brochure/'.$name;
             $clgDetais->college_brochure = $file_url;
-  
-          // $file = Input::file('college_brochure');
-          // $file->move(public_path().'/college/images/clg_brochure', $file->getClientOriginalName());
-          // $clgDetais->college_brochure = $file->getClientOriginalName();
   
           }
         
@@ -146,7 +130,6 @@ class CollegeController extends Controller
         $course_department = Input::get('course_department');
         $course_description = Input::get('course_description');
         $files = Input::file('fee_structure_file_name');
-        //dd($files);
   
   
         $insertData = array();
@@ -176,17 +159,7 @@ class CollegeController extends Controller
         }
         $news = new courseOffers();
         $news->insert($insertData);
-  
-        // for($i=0; $i<=count($course_offer);$i++)
-        // {
-        //     $news = new courseOffers();
-        //     $news->course_offer = $course_offer[$i];
-        //     $news->course_duration = $course_duration[$i]; 
-        //     $news->course_total_fee = $course_total_fee[$i];  
-        //     $news->fee_structure_file_name = $fee_structure_file_name[$i];
-        //     $news->course_department = $course_department[$i];   // here add [$i]
-        // }
-  
+
         if(!$news)
         {
           $res = 'Error';
@@ -197,7 +170,7 @@ class CollegeController extends Controller
   
     // Update profile details  
     
-    public function updateformprofile(Request $request){ //To show view
+  public function updateformprofile(Request $request){ //To show view
       $id = Auth::user()->id;
       $reg_id = Auth::user()->reg_id;
       $user = CollegeDetail::find($id);
@@ -208,6 +181,12 @@ class CollegeController extends Controller
   public function updatecollegedetails(Request $request){
       $id = Auth::user()->id;
       $user = CollegeDetail::find($id);
+
+      $str_clgDetais = implode (",", $request->Input('college_category'));
+      $user->university_name = $request->Input('university_name');
+      $user->college_type = $request->Input('college_type');
+      $user->college_category = $str_clgDetais;
+
       $user->college_name = $request->Input('name');
       $user->college_email = $request->Input('email');
       $user->college_number_1 = $request->Input('mobile');
@@ -223,6 +202,7 @@ class CollegeController extends Controller
 
       $user->website = $request->Input('website');
       $user->college_address = $request->Input('college_address');
+      $user->college_about = $request->Input('college_about');
       $user->save();
       return redirect("college/update_profile");       
   }
@@ -230,12 +210,6 @@ class CollegeController extends Controller
   public function updatecollegecourse(Request $request){
     $id = Auth::user()->id;
     $reg_id = Auth::user()->reg_id;
-
-    $user = CollegeDetail::find($id);
-    $user->university_name = $request->Input('university_name');
-    $user->college_type = $request->Input('college_type');
-    // $user->$str_clgDetais = explode(",", $model->college_category);
-   
 
     courseOffers::where('reg_id',$reg_id)->delete();
     $course_offer = Input::get('course_offer');
@@ -271,8 +245,7 @@ class CollegeController extends Controller
         'course_department'  => $course_department[$i],
         ];
     }
-    // dd($insertData);
-    $user->save();
+
     $news = new courseOffers();
     $news->insert($insertData);
 

@@ -14,61 +14,61 @@
             $('#validation').formValidation({
                 framework: 'bootstrap',
                 fields: {
-                    // name: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'The College name is required'
-                    //         },
-                    //         stringLength: {
-                    //             min: 3,
-                    //             max: 100,
-                    //             message: 'The username must be more than 3 and less than 100 characters long'
-                    //         }
-                    //     }
-                    // },
-                    // email: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'The email address is required'
-                    //         },
-                    //         emailAddress: {
-                    //             message: 'The input is not a valid email address'
-                    //         }
-                    //     }
-                    // },
-                    // mobile: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'College Mobile Number is required'
-                    //         },
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The College name is required'
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 100,
+                                message: 'The username must be more than 3 and less than 100 characters long'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The email address is required'
+                            },
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                    mobile: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile Number is required'
+                            },
 
-                    //         regexp: {
-                    //             regexp: /^[6789]{1}\d{5}\d{4}$/,
-                    //             message: 'The Mobile Number should be start from 6789'
-                    //         }
-                    //     }
-                    // },
-                    // state: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'College Mobile State is required'
-                    //         },
-                    //     }
-                    // },
-                    // city: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'College Mobile City is required'
-                    //         },
-                    //     }
-                    // },
-                    // college_address: {
-                    //     validators: {
-                    //         notEmpty: {
-                    //             message: 'College Mobile Address is required'
-                    //         },
-                    //     }
-                    // },
+                            regexp: {
+                                regexp: /^[6789]{1}\d{5}\d{4}$/,
+                                message: 'The Mobile Number should be start from 6789'
+                            }
+                        }
+                    },
+                    state: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile State is required'
+                            },
+                        }
+                    },
+                    city: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile City is required'
+                            },
+                        }
+                    },
+                    college_address: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile Address is required'
+                            },
+                        }
+                    },
                     college_type: {
                         validators: {
                             notEmpty: {

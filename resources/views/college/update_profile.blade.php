@@ -2,6 +2,8 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('college/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
 <link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
+<link href="{{ asset('college/plugins/bower_components/summernote/dist/summernote.css') }}" rel="stylesheet" />
+
 <style>
    .sttabs{
    border:1px solid #eee;
@@ -192,7 +194,7 @@
                               <div class="form-group">
                                  <label class="col-xs-3 control-label">About College</label>
                                  <div class="col-xs-5">
-                                    <textarea type="text" class="form-control" name="college_about">{{ $user->college_about }}</textarea>
+                                    <textarea type="text" id="summernote" class="form-control" name="college_about">{{ $user->college_about }}</textarea>
                                  </div>
                               </div>
                            </div>
@@ -327,6 +329,7 @@
 <script src="{{ asset('college/js/UpdateformValidation.js') }}"></script>
 <script src="{{ asset('college/js/state.js') }}"></script>
 <script src="{{ asset('college/js/cbpFWTabs.js') }}"></script>
+<script src="{{ asset('college/plugins/bower_components/summernote/dist/summernote.min.js') }}"></script>
 <script type="text/javascript">
    (function() {
    
@@ -336,4 +339,28 @@
    
    })();
 </script>
+<script>
+    jQuery(document).ready(function() {
+
+        $('#summernote').summernote({
+            height: 350, // set editor height
+            minHeight: null, // set minimum height of editor
+            maxHeight: null, // set maximum height of editor
+            focus: false // set focus to editable area after initializing summernote
+        });
+
+        $('.inline-editor').summernote({
+            airMode: true
+        });
+
+    });
+
+    window.edit = function() {
+            $(".click2edit").summernote()
+        },
+        window.save = function() {
+            $(".click2edit").summernote('destroy');
+        }
+    </script>
+
 @endsection
