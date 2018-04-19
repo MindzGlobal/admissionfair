@@ -53,6 +53,9 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('package','CollegeController@packegeview')->name('package');
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
+    Route::get('addcourse','CourseController@addcourse');
+    Route::post('addcoursedetail','CourseController@addcoursedetail');
+
     Route::get('update_profile','CollegeController@updateformprofile');
     Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
     Route::post('updatecollegecourse','CollegeController@updatecollegecourse');

@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use File;
+use Image;
 
 
 class MediaController extends Controller
@@ -26,7 +27,7 @@ class MediaController extends Controller
   public function uploadimage(Request $request) {
     $reg_id = Auth::user()->reg_id;
     $insertData = array();
-    //dd($request->file('file'));
+    dd($request->file('file'));
     if($file=$request->file('file'))
     {
         $name = str_random(6) . '_' . $file->getClientOriginalName();
@@ -75,8 +76,12 @@ class MediaController extends Controller
      if(Input::hasFile('image'))
     {
         $file=Input::file('image');
-        $file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
-        $user->profile_image = 'college/images/clg_images/'.$file->getClientOriginalName();
+
+        $thumb_img = Image::make($file->getRealPath())->resize(300, 300);
+        $thumb_img->save(public_path().'/college/images/clg_images/'.$file->getClientOriginalName(),80);
+
+        //$file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
+        $user->college_img = 'college/images/clg_images/'.$file->getClientOriginalName();
     }
 
      $user->update();
