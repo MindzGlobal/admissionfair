@@ -201,16 +201,27 @@ hr {
                               {{ $students->gender }}
                               </dd>
                               <hr>
+                              <dt>Father's Name</dt>
+                              <dd>
+                              {{ $students->fatherName }}
+                              </dd>
+                              <hr>
+                              <dt>Father's Email</dt>
+                              <dd>
+                              {{ $students->fatherEmail }}
+                              </dd>
+                              <hr>
+                              <dt>Father's Mobile</dt>
+                              <dd>
+                              {{ $students->fatherMobile }}
+                              </dd>
+                              <hr>
                               <dt>City</dt>
                               <dd>
                               {{ $students->city }}
                               </dd>
                               <hr>
-                              <dt>Pin Code</dt>
-                              <dd>
-                              {{ $students->pincode }}
-                              </dd>
-                              <hr>
+                              
                               <dt>State</dt>
                               <dd>
                               {{ $students->state }}
@@ -219,6 +230,11 @@ hr {
                               <dt>Country</dt>
                               <dd>
                               {{ $students->country }}
+                              </dd>
+                              <hr>
+                              <dt>Pin Code</dt>
+                              <dd>
+                              {{ $students->pincode }}
                               </dd>
                            </dl>
                         </div>

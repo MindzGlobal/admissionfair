@@ -64,6 +64,7 @@ class StudentController extends Controller
             
 
                 //dd($appliedTo[0]->college[0]->college_img);
+              
              return view('student.pages.student_dashboard',['students'=>Auth::user(),
                     'education'=>$education_details,'graduation'=>$graduation_details,'appliedTo'=>$appliedTo]);
 
@@ -88,6 +89,7 @@ class StudentController extends Controller
 
     public function addOrupdateStudentDetails(Request $request){
 
+      //  dd($request->all());
     
         $student = Student::find(Auth::user()->id);
         if(!is_null($student)){
@@ -107,7 +109,7 @@ class StudentController extends Controller
             $student->address = Input::get("address");    
             $student->about_you = Input::get("about_you");    
 
-            if($student->update()) {
+            if($student->save()) {
             
                 $education=StudentEducationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 

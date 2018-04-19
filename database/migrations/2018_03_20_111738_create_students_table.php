@@ -30,7 +30,7 @@ class CreateStudentsTable extends Migration
             $table->string('pincode',11)->nullable();
             $table->string('profile_image')->nullable();
             $table->string('address')->nullable();
-            $table->string('about_you')->nullable();
+            $table->text('about_you')->nullable();
             $table->string('role')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
