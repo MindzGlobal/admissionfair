@@ -3,14 +3,12 @@
     <style type="text/css">
    
         .font15{
-            font-size:15px;
+            /* font-size:15px; */
+            line-height: 0.9;
         }
     .pagination>.active>a {
         background-color: #03a9f3;
         border-color: #03a9f3;
-    }
-    .app-search .form-control, .app-search .form-control:focus {
-        margin-top: 0px !important;
     }
 
     </style>
@@ -46,7 +44,7 @@
                                     <h3 class="box-title">Applied Student</h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="icon-people text-info"></i></li>
-                                        <li class="text-right"><span class="counter">{{ $users->count() }}</span></li>
+                                        <li class="text-right"><span class="counter">23</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -55,7 +53,7 @@
                                     <h3 class="box-title">Courses</h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="icon-book-open text-purple"></i></li>
-                                        <li class="text-right"><span class="counter">{{ $courseCount }}</span></li>
+                                        <li class="text-right"><span class="counter">169</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -64,16 +62,16 @@
                                     <h3 class="box-title">Department</h3>
                                     <ul class="list-inline two-part">
                                         <li><i class=" icon-layers text-danger"></i></li>
-                                        <li class="text-right"><span class="counter">{{ $departmentCount }}</span></li>
+                                        <li class="text-right"><span class="counter">311</span></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-3 col-xs-12">
                                 <div class="white-box">
-                                    <h3 class="box-title">Visitors</h3>
+                                    <h3 class="box-title">NEW Invoices</h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="ti-wallet text-success"></i></li>
-                                        <li class="text-right"><span class="counter">{{ Auth::user()->visitors}}</span></li>
+                                        <li class="text-right"><span class="counter">117</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -82,15 +80,7 @@
 
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <div class='col-md-6'>
-                                <form role="search" method="POST" class="app-search hidden-xs" action="{{ route('dashboardsearch')}}">
-                                    @csrf
-                                    <input name="search" type="text" value="{{ $search }}" placeholder="Name,number,email...." class="form-control" style="background: rgba(202, 197, 197, 0.9)" required> 
-                                    <button type="submit" class="btn btn-success btn-rounded" style="font-size: 10px;"> <i class="fa fa-search"></i> Search</button>
-                                </form>
-                            </div>
-                            <h3 class="box-title col-md-6 text-right ">Applied Student History</h3>
-                            
+                            <h3 class="box-title">Applied Student History</h3>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <tbody>
@@ -98,10 +88,10 @@
                                         <tr>
                                             <td>
                                                 <center><img alt="img" class="thumb-lg img-circle" src="{{ asset($user->profile_image) }}"></center>
-                                                <br>@if ($user->pay_status == "Not Paid")
+                                                {{-- <br>@if ($user->pay_status == "Not Paid")
                                                 <center><span class="label label-rouded label-danger">Not Paid</span></center>
                                                 @else<center><span class="label label-rouded label-success">Paid</span></center>
-                                                @endif</td>
+                                                @endif</td> --}}
                                             <td>
                                                 <div class="m-l-40">
                                                 <p class="font15">

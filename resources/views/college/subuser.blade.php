@@ -43,77 +43,6 @@
         <!-- /.row -->
         <!-- .row -->
         <div class="row">
-           <div class="col-md-3 col-xs-12">
-              <div class="white-box">
-
-                 <div class="user-bg">
-                    <img width="100%" alt="user" src="{{ asset($user->college_img) }}">
-                 </div>
-                 <div class="ribbon ribbon-bookmark ribbon-right ribbon-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image<i class="fa fa-edit pull-right m-t-10"></i></div>
-                 <!-- <div class="pull-right add-btn">
-                   <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image +</button>
-                 </div> -->
-                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
-                     <div class="modal-dialog" role="document">
-                         <div class="modal-content">
-                             <div class="modal-header">
-                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                 <h4 class="modal-title" id="exampleModalLabel1">Upload Images</h4>
-                             </div>
-                             <div class="modal-body">
-                               <form action='{{url("college/index")}}' method="post" enctype="multipart/form-data">
-                                 @csrf
-                                  <div class="row">
-                                   <div class="col-sm-12 ol-md-12 col-xs-12">
-                                       <div class="white-box">
-                                           <h3 class="box-title">File Upload</h3>
-                                           <input type="file" id="input-file-now" class="dropify" name="image"/>
-                                       </div>
-                                   </div>
-
-                                   </div>
-                                   <div class="modal-footer">
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="submit" class="btn btn-info waves-effect waves-light">Upload</button>
-                                   </div>
-
-                               </form>
-                         </div>
-                     </div>
-                   </div>
-                 </div>
-
-                    <!-- .row -->
-                    <div class="row m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Name</strong>
-                          <p>{{$user->college_name}}</p>
-                       </div>
-                    </div>
-                    <hr>
-                    <div class="row m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Location</strong>
-                          <p>{{$user->college_state. ", " . $user->college_city}}</p>
-                       </div>
-                    </div>
-                    <hr>
-                    <div class="row m-t-10">
-                       <div class="col-md-12">
-                          <strong>College Address</strong>
-                          <p>{{$user->college_address}}
-                          <br>{{$user->college_pincode}}</p>
-                       </div>
-                    </div>
-                    <hr>
-                    <!-- /.row -->
-                    <!-- <div class="col-md-12 col-sm-12 text-center">
-                       <button class="btn btn-facebook waves-effect btn-circle waves-light" type="button"> <i class="fa fa-facebook"></i> </button>
-                       <button class="btn btn-googleplus waves-effect btn-circle waves-light" type="button"> <i class="fa fa-google-plus"></i> </button>
-                       <button class="btn btn-linkedin waves-effect btn-circle waves-light" type="button"> <i class="fa fa-linkedin"></i> </button>
-                   </div> -->
-              </div>
-           </div>
            <div class="col-md-9 col-xs-12">
               <div class="white-box">
                  <!-- Tabstyle start -->
@@ -141,7 +70,7 @@
                                                  </tr>
                                               </thead>
                                               <tbody>
-                                                @foreach($course as $courses)
+                                                {{-- @foreach($course as $courses)
                                                  <tr>
                                                     <td>{{$courses->course_department}}</td>
                                                     <td>{{$courses->course_offer}}</td>
@@ -151,16 +80,11 @@
                                                             <a href='{{ url("college/update_profile") }}' data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                                             <span data-toggle="tooltip" data-original-title="Close" onClick="deleteCourse({{$courses->id}})"> <i class="fa fa-close text-danger"></i> </span>
                                                         </td>
-                                                    {{-- <td>{{$courses->fee_structure_file_name}} <a href="{{$courses->fee_structure_file_url}}"><i class="fa fa-download"></i></a> </td> --}}
                                                  </tr>
-                                                 @endforeach
+                                                 @endforeach --}}
                                               </tbody>
                                            </table>
-                                           <div class="pull-right">{{ $course->links() }}</div>
-                                           {{-- <br>
-                                           <div class="col-md-2 pull-right">
-                                             <a href='{{ url("college/update_profile") }}'><button class="btn btn-info waves-effect waves-light"><span>Edit</span> <i class="fa fa-edit m-l-5"></i></button></a>
-                                           </div> --}}
+                                           {{-- <div class="pull-right">{{ $course->links() }}</div> --}}
                                         </div>
                           </section>
                           <section id="section-underline-2" class="" style="padding:0px;">

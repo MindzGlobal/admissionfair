@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('pincode',11)->nullable();
             $table->string('role')->nullable();
+            $table->enum('status',['Active', 'InActive'])->nullable();
+            $table->integer('adminId')->default(0)->nullable();
             $table->string('password')->nullable();
             $table->string('profile_image')->default('college/images/profile_images/profile.png');
             $table->string('university_name')->nullable();

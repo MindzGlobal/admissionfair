@@ -69,6 +69,9 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('changepwd','ResetPasswordController@changepwd');
 
     Route::any('dashboardsearch','DashboardController@dashboardsearch')->name('dashboardsearch');
+    Route::get('destroy/{id}', 'MediaController@destroy');
+
+    Route::get('adduser', 'MediaController@adduser');
 
 
 });
