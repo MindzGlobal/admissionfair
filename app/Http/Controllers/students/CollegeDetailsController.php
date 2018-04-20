@@ -62,10 +62,12 @@ class CollegeDetailsController extends Controller
                
                $college= User::where('reg_id',$request->reg_id)->first();
                $course = courseOffers::find($request->dept_id);
+            //    $course111 =$course->faculties;
+            //   dd($course111[0]->faculty_name);
                $alldept = courseOffers::where(['reg_id'=>$request->reg_id,'course_offer'=>$course->course_offer])->orderBy('course_department', 'ASC')
                                                 ->get(["course_department AS departments",'id']);
                               
-                return view('student.pages.course_department',['college'=>$college,'course'=>$course ,'alldept'=> $alldept,'selected'=>$request->dept_id]);
+                return view('student.pages.course_department',['college'=>$college,'faculties'=>$course->faculties,'courseGallery'=>$course->courseGallery,'course'=>$course ,'alldept'=> $alldept,'selected'=>$request->dept_id]);
             }
             return redirect('student/booth')->with('danger', 'Something Went Wrong Please try again Later');
         }
