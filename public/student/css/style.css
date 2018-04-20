@@ -479,7 +479,7 @@ img {
 .header-navbar .navbar-default {
     background: transparent;
     border: none;
-    padding: 0px 0 2px;
+    padding: 0px 0 14px;
 }
 
 .header-navbar .navbar-default .navbar-nav > .active > a,

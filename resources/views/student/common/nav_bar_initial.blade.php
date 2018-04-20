@@ -18,7 +18,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
                          data-animations="fadeInUp">
                         <ul class="nav navbar-nav navbar-right">
-                           <li><a href="#">Home</a>
+                            @guest
+                            <li>  <button type="submit" class="btn btn-primary btn-rounded " onClick="parent.open('{{ route('college.register') }}')" style="background: #cf860c; margin-top: 8px;">College Registration</button></li>
+                           @endguest
+                            <li><a href="#">Home</a>
                             <li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
                             </li>
                         @guest

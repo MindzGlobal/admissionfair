@@ -171,6 +171,7 @@ hr {
     margin-left: 77px;
     position: relative;
     top: -14px;
+    font-size: 11px;
 }
 #accordion .panel-body:before {
     background:none;
@@ -179,6 +180,20 @@ hr {
     color: #333333;
     font-size: 14px;
     font-family: poppins;
+}
+.active {
+    color: #2980b9 !important;
+    font-weight: 600!important;
+}
+.applied_list
+{
+    color:#000;
+    font-weight:600;
+}
+.vclg
+{
+    background: #3b7c6a!important;
+    border: 1px solid;
 }
 </style>
      <link rel="stylesheet" type="text/css" href="{{ asset('student/css/style-main.css') }}">
@@ -240,40 +255,51 @@ hr {
                                     <div class="table-responsive">
                                   
                                                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                                   <div class="panel panel-default">
+                                                        @foreach($appliedTo as $applied)
+                                                    <div class="panel panel-default">
                                                       <div class="panel-heading" role="tab" id="headingOne">
                                                          <div class=" title ">
-                                                            <img src="https://www.collegesearch.in/upload/institute/logo/small/140325041422_Screenshot_18.png" style="margin-bottom: -4%;
+                                                            <img  src="{{ asset($applied->college[0]->college_img) }}" style="margin-bottom: -4%;
                                                                max-width: 59px;"> 
                                                             &nbsp;  &nbsp;  &nbsp;
-                                                            <h5 style="display: inline-block;margin-left:-2%" class="text-center">MS Ramaiah Medical College (MSRMC) </h5>
+                                                            <h5 style="display: inline-block;margin-left:-2%" class="text-center">{{$applied->college[0]->collegeName}} </h5>
                                                             <br>
-                                                            <em class="eclg">Pune, Maharashtra</em>
+                                                            <em class="eclg">{{$applied->college[0]->college_state}},{{$applied->college[0]->college_city}}</em>
                                                          </div>
                                                       </div>
                                                       <div class="panel-body">
                                                          <div class="table-responsive">
-                                                            <p class="college-name"> Bachelor of Medicine, Bachelor of Surgery (MBBS)</p>
+                                                            <p class="college-name"> {{$applied->college[0]->collegeName}}</p>
                                                             <table class="table">
                                                                 <div class="col-md-12">
                                                                     <div class="row">
                                                                            <div class="col-md-6" style=" padding-left: 1px;">
-                                                                  <p>Duration : 4 Years 6 Months</p>
-                                                                  <p>Institute Type : Medical Institute</p>
-                                                                 
+                                                                  <p>Department : <span class="applied_list">{{$applied->department}}</span></p>
+                                                                  <p>Applied At :<span class="applied_list"> {{ date('d-m-Y', strtotime($applied->created_at))}}</span></p>       
                                                            </div>
                                                            <div class="col-md-6" style=" padding-left: 1px;">
-                                                                   <p>Applied At : 4 Years 6 Months</p>
-                                                                   <p>Fees : <i class="fa fa-inr"> 28,340/-</i></p>
-                                                                  
-                                                            </div>
+                                                                <p>Institute Type : <span class="applied_list">{{$applied->department}}</span></p>
+                                                                <p>Fees : <span class="applied_list">{{ date('d-m-Y', strtotime($applied->created_at))}}</span></p>       
+                                                         </div>
                                                            </div>
                                                        </div>
                                                             </table>
                                                          </div>
-                                                   
+                                                         <div class="m-t-20 text-center">
+                                                                {{-- @if ($applied->pay_status == "Pending")
+                                                                <button type="button" class="btn btn-danger btn-rounded ">Not Paid</button>
+                                                                @else
+                                                                <button type="button" class="btn btn-success btn-rounded ">Paid</button>
+                                                                @endif   
+                                                                <br>
+                                                                <br> --}}
+                                                               <a href='{{ url('student/'.$applied->college[0]->collegeId.'/'.$applied->course_dept_id.'')}}'>
+                                                                 <button type="submit" class="btn btn-primary btn-rounded pull-right vclg">View College</button>
+                                                               </a>
+                                                            </div>
                                                       </div>
                                                    </div>
+                                                   @endforeach
                                                 </div>
                                                 <br>
                                                 <br>
@@ -342,7 +368,7 @@ hr {
                         <dl class="dl-horizontal doctor-info">
                            <div class="row"> 
                                 <h4 class="ptl" style="color:#02325d;"><b>About You</b></h4>
-                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;margin-top: -4%;">Edit Info</button></a>
+                                <a href='{{ url("student/editprofile") }}'><button class="btn btn-primary vclg" style="float:right;margin-right:3%;margin-top: -4%;">Edit Information</button></a>
                             </div>
                             <hr>
                                <dt>Birth Date</dt>
@@ -393,7 +419,7 @@ hr {
                            </dl>
                         </div>
                         <div id="tab3" class="tab-pane fade ">
-                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary" style="float:right;margin-right:3%;margin-top: -4%;">Edit Info</button></a></div>
+                          <div class="row"> <h4 class="ptl" style="color:#02325d"><b>SSLC Information</b></h4><a href='{{ url("student/editprofile") }}'><button class="btn btn-primary vclg " style="float:right;margin-right:3%;margin-top: -4%;">Edit Information</button></a></div>
 						  
                            <hr>
                            {{--  @foreach($education as $educations)  --}}
