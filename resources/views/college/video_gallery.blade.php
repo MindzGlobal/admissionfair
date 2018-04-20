@@ -39,11 +39,6 @@
    max-width: 100%;
    height: auto;
    }
-      .v{
-        border:2px solid #8e8e8e;
-        width:300px;
-        height:240px;
-        }
 </style>
 @endsection
 @section('content')
