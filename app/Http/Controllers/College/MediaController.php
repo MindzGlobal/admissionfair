@@ -77,7 +77,7 @@ class MediaController extends Controller
     {
         $file=Input::file('image');
 
-        $thumb_img = Image::make($file->getRealPath())->resize(300, 300);
+        $thumb_img = Image::make($file->getRealPath())->resize(260, 170);
         $thumb_img->save(public_path().'/college/images/clg_images/'.$file->getClientOriginalName(),80);
 
         //$file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
@@ -92,8 +92,14 @@ class MediaController extends Controller
      $regid = Auth::user()->reg_id;
      $user=User::where('reg_id',$regid)->first();
      // $course = courseOffers::where('reg_id',$regid)->get();
-     $course=courseOffers::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
+     $course=courseOffers::where('reg_id',$regid)->get(['id','course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
      // dd($course->all());
+     $course=DB::table('course_offers')->paginate(5);
      return view("college.index")->with(['user' => $user, 'course' => $course]);
    }
+
+   public function destroy($id){ 
+      $courseoffer = courseOffers::where('id',$id)->delete();
+      return redirect("college/myprofile")->with(['status'=>'Success', 'msg'=>'Your course is deleted successfully!!']);
+    }
 }

@@ -9,6 +9,7 @@ use App\Model\College\courseOffers;
 use App\Model\College\CollegeFaculties;
 use App\Model\College\CollegeCourseGalleries;
 use Illuminate\Support\Facades\Input;
+use Image;
 
 use Auth;
 
@@ -60,28 +61,37 @@ class CourseController extends Controller
             {
                 for($i=0; $i<count($faculty_name);$i++)
                 {
-                    $file_url='';
                     $name = '';
+                    $file_url='';
+                    $specializationData = '';
+                    $designationData = '';
+                    $about_facultyData = '';
                     if(isset($files[$i]))
                     {
                         $name = str_random(6) . '_' . $files[$i]->getClientOriginalName();
-                        $destination_path = '/college/images/faculty_images';
-                        $files[$i]->move(public_path().$destination_path, $name);
-                        $file_url = 'college/images/faculty_images/'.$name;
+                        $destination_path = '/college/images/faculty_images/';
+                        $thumb_img = Image::make($files[$i]->getRealPath())->resize(300, 300);
+                        $thumb_img->save(public_path().$destination_path.$name,80);
+                        $file_url = $destination_path.$name;
                     }
+
+                    if(isset($specialization[$i])) { $specializationData = $specialization[$i]; }
+                    if(isset($designation[$i])) { $designationData = $designation[$i]; }
+                    if(isset($about_faculty[$i])) { $about_facultyData = $about_faculty[$i]; }
             
                     $insertData[] = [
                         'faculty_name'  => $faculty_name[$i],
-                        'specialization'   => $specialization[$i],
-                        'designation'  => $designation[$i],
+                        'specialization'   => $specializationData,
+                        'designation'  => $designationData,
                         'faculty_image' => $file_url,
-                        'about_faculty'  => $about_faculty[$i],
+                        'about_faculty'  => $about_facultyData,
                         'course_id'  => $courseDetails->id,
                         ];
                 }
 
-                $courses = new CollegeFaculties();
-                $courses->insert($insertData);   
+                $courseDetails->faculties()->createMany($insertData);
+                // $courses = new CollegeFaculties();
+                // $courses->insert($insertData);   
             }
             
             //#################################################### Add Course Gallery Image #####################################
@@ -126,9 +136,9 @@ class CourseController extends Controller
                         ];
                 }    
             }
-
-            $coursegalleries = new CollegeCourseGalleries();
-            $coursegalleries->insert($galleryData);
+            $courseDetails->courseGallery()->createMany($galleryData);
+            // $coursegalleries = new CollegeCourseGalleries();
+            // $coursegalleries->insert($galleryData);
           
         }
         else
