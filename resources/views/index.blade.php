@@ -50,6 +50,10 @@
 .service-box:hover {
     background-image: url('{{ asset('student/images/header-bg.jpg') }}');
 }
+.header-navbar .navbar-default {
+  
+    padding: 0px 0 25px;
+}
     </style>
 @endsection
 

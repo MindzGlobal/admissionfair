@@ -89,7 +89,7 @@ marquee, .win-a-prize {display: none}
   height: auto;}
 .vjf-header .col-md-4 {display: none}
 .vjf-modal .close {opacity: .7}
-.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #2a72a7}
+.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #256d59e3}
 #tabs1 .ui-state-active, #tabs1 .ui-widget-content .ui-state-active, #tabs1 .ui-widget-header .ui-state-active {background: #002194; border-color: #daad0d}
 #tabs1 > ul  > li{border-color: #daad0d}
 .user-online-top, .company-index-top h1 {color: #fff}
