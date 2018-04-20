@@ -35,6 +35,7 @@ Route::prefix('college')->namespace('college')->group(function(){
     
     Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
     Route::post('index','MediaController@uploadprofile_image');
+    Route::get('destroy/{id}', 'MediaController@destroy');
     Route::get('myprofile','MediaController@showprofile_image')->name('myprofile');
 
     Route::post('image_gallery','MediaController@uploadimage');
@@ -54,14 +55,19 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('package','CollegeController@packegeview');
 
     Route::post('insertBooth','CollegeController@insertBooth');
-    Route::get('select_booth','CollegeController@select_booth');
+    Route::post('insertcustombooth','CollegeController@insertcustombooth');
 
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
-    Route::get('update_profile','CollegeController@updateformprofile');
-    Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
-    Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
-    Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
+    Route::get('addcourse','CourseController@addcourse');
+    Route::post('addcoursedetail','CourseController@addcoursedetail');
+
+    Route::get('update_course/{id}','CourseController@updatecourse');
+    Route::post('updatecourserecord','CourseController@updatecourserecord');
+    Route::post('updatefaculty','CourseController@updatefaculty');
+    Route::post('updatepayment','CourseController@updatepayment');
+    Route::post('updateimages/{id}','CourseController@updateimages');
+    Route::post('deleteimages','CourseController@deleteimages');
 
     Route::get('searchcourseajax',array('as'=>'searchcourseajax','uses'=>'AutoCompleteController@autoCourseComplete'));
     Route::get('searchdeparmentajax',array('as'=>'searchdeparmentajax','uses'=>'AutoCompleteController@autoDepartmentComplete'));
@@ -120,4 +126,9 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
+
+
+// Route::get('college/addcourse', function () {
+//     return view('college.addcourse');
+// });
 

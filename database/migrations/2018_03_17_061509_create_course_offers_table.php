@@ -19,9 +19,14 @@ class CreateCourseOffersTable extends Migration
             $table->string('reg_id')->nullable();
             $table->string('course_offer')->nullable();
             $table->string('course_department')->nullable();
-            $table->text('course_description')->nullable();
             $table->string('course_duration')->nullable();
             $table->string('course_total_fee')->nullable();
+            $table->text('course_description')->nullable();
+            $table->text('why_join_us')->nullable();
+            $table->text('what_we_offer')->nullable();
+            $table->text('fee_structure')->nullable();
+            $table->text('Payment_mode')->nullable();
+            $table->integer('available_seat')->nullable();
             $table->string('fee_structure_file_name')->nullable();
             $table->string('fee_structure_file_url')->nullable();
             $table->timestamps();
