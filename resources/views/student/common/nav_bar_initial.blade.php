@@ -12,7 +12,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" alt="">
+                        <a class="navbar-brand" href="#"><img src="{{ asset('student/images/logo.png')}}" alt="">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
@@ -38,6 +38,9 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ url('student/profile') }}"><i class="fa fa-user"></i> My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('student.password.reset') }}"><i class="fa fa-unlock-alt"></i> Change Password</a>
                                     </li>
                                     <li>    
                                         <a class="dropdown-item" href="{{ route('student.logout') }}"

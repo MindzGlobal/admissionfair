@@ -121,15 +121,15 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">College Name</label>
+                                    <label class="col-xs-3 control-label">College Name<span class="text-danger">*</span></label>
                                     <div class="col-xs-5">
-                                        <input type="text" value="{{ Auth::user()->name }}" class="form-control" name="name" placeholder="College Name" />
+                                        <input type="text" value="" class="form-control" name="name" placeholder="College Name" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">College Official Email ID</label>
+                                    <label class="col-xs-3 control-label">College Official Email ID<span class="text-danger">*</span></label>
                                     <div class="col-xs-5">
                                         <input type="email" class="form-control" name="email" placeholder="College Email ID" />
                                     </div>
@@ -139,7 +139,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">Official Number</label>
+                                    <label class="col-xs-3 control-label">Official Number<span class="text-danger">*</span></label>
                                     <div class="col-xs-5">
                                         <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" />
                                     </div>
@@ -158,7 +158,7 @@
 
                             <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-xs-3 control-label">State</label>
+                                        <label class="col-xs-3 control-label">State<span class="text-danger">*</span></label>
                                         <div class="col-xs-5">
                                             <input type="hidden" id="selectedState" value=""/>
                                             <select class="form-control" name="state" id="listBox" onchange='selct_district(this.value)'></select>
@@ -168,7 +168,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-xs-3 control-label">City</label>
+                                        <label class="col-xs-3 control-label">City<span class="text-danger">*</span></label>
                                         <div class="col-xs-5">
                                             <select class="form-control" name="city" id="secondlist"></select>
                                         </div>
@@ -197,7 +197,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">College Address</label>
+                                    <label class="col-xs-3 control-label">College Address<span class="text-danger">*</span></label>
                                     <div class="col-xs-5">
                                         <textarea type="text" class="form-control" name="college_address"></textarea>
                                     </div>
@@ -228,14 +228,14 @@
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Images</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_img" data-allowed-file-extensions="jpg png" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     {{-- <div class="white-box">
                                     <h3 class="box-title">College Videos</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_video" accept="" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_video" data-allowed-file-extensions="mp4 3gp" data-max-file-size="8M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div> --}}
                                     <div class="white-box">

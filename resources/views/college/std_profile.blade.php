@@ -193,7 +193,7 @@
 
                                 </table>
                                 
-                                @if ($student_graduations->university_name!= "")
+                                @if (!is_null($student_graduations))
                                  <table class="table">
                                         <tbody>
                                         <div class="panel panel-success m-t-30">

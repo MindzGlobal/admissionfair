@@ -5,7 +5,9 @@ namespace App\Http\Controllers\students\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use App\Model\students\Student;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class StudentResetPasswordController extends Controller
 {
@@ -27,7 +29,7 @@ class StudentResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'student/profile';
 
     /**
      * Create a new controller instance.
@@ -37,6 +39,23 @@ class StudentResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('auth:student');
+    }
+
+    public function reset(Request $request)
+    {
+        $student=Student::where(['student_id'=>Auth::user()->student_id,])->first();
+        if(!is_null($student)){
+            if(Hash::check($request->currentPassword, $student->password)){
+
+              if(Student::where(['student_id'=>Auth::user()->student_id,])->update(['password'=>$request->newpassword])>0){
+
+                return redirect('student/profile')->with('success','Password has Updated Successfully!.');
+              }
+              return redirect()->back()->withErrors(['status'=>'danger','message'=>'Something Went Wrong ,Please try again later']);
+            }
+            return redirect()->back()->withErrors(['c_password'=>'Please Enter the Correct password']);
+        }
+        return redirect()->back()->withErrors(['status'=>'danger','message'=>'Something Went Wrong ,Please try again later']);
     }
 
 
@@ -53,5 +72,15 @@ class StudentResetPasswordController extends Controller
     {
         return view('student.auth.passwords.reset');
             //->with( ['token' => $token, 'email' => $request->email]);
+    }
+
+        /**
+     * Get the guard to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('student');
     }
 }

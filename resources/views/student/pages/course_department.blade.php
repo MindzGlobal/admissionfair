@@ -1,8 +1,8 @@
 @extends('student.layouts.student_general')
 @section('title', "Course Details")
-
 @section('css')
 <style type="text/css">
+
 hr {
     margin-top: 20px;
     margin-bottom: 0px!important;
@@ -23,13 +23,155 @@ h4
 {
 	margin-top:0px!important;
 }
+.clg-name{
+    font-weight: bold;
+    color: maroon;
+}
+.department {
+    color: #2980b9;
+    font-weight: bold;
+}
+   .blog-post .post-content blockquote {
+   text-align: left;
+   background: #f8f8f8;
+   border-color: #2980b9;
+   font-size: 14px;
+   position: relative;
+   overflow: hidden;
+   font-family: poppins!important;
+   }
+   .question
+   {
+   float:left;
+   color: #000;
+   font-weight: 600;
+   text-decoration: underline;
+   }
+   .blog-post .post-content {
+   margin-bottom: 20px;
+   margin-top: 0px;
+   display: inline-block;
+   }
+   .single-teacher .img-title {
+   background-color: rgba(0, 0, 0, 0.9);
+   left: 50%;
+   width:88%;
+   }
+   .blog-page .title {
+   margin-bottom: 25px;
+   line-height: 28px;
+   font-weight: 500;
+   padding-top: 0%;
+   }
+   .details {
+   margin-left: -15%;
+   }
+   hr {
+   margin-top: 30px;
+   margin-bottom: 0px!important;
+   border: 0;
+   border-top: 1px solid #65535378;
+   width: 109%;
+   margin-left: -4%;
+   }
+   .blog-box .blog-image-box {
+   overflow: initial!important;
+   position: relative;
+   }
+   .blog-box .blog-image-box:after
+   {
+   background:none;
+   }
+   .blog-post .pin-icon {
+   top: -8px;
+   right: -63px;
+   width: 171px;
+   height: 76px;
+   }
+   .blog-page .blog-comment .comment-list li
+   {
+   margin:0px!important;
+   }
+   ol, ul {
+   margin-top: 0;
+   margin-bottom: -5px;
+   }
+   .single-teacher {
+   border:none!important;
+   margin-left:10px; 
+   }
+   .gallery-item:hover .gallery-hover {
+   top: 0%;
+   height: 101%;
+   width: 84%;
+   left: 8%;
+   }
+   .owl-carousel .owl-item img {
+    display: block;
+    max-width: 100%;
+	min-height:270px;
+}
+.clgname
+{
+    font-size: 25px!important;
+    color:#2980b9!important;
+}
+.clgname1
+{
+    color:#2980b9!important;
+    font-size: 20px;
+}
+.pink-color
+{
+    color:#2980b9!important;
+}
+.infrastructure
+{
+    max-width: 100%;
+    min-height: 157px;
+}
+.select_apply {
+    background: #2980b9;
+    border-radius: 50%;
+    padding: 20px 22px;
+    border: 1px solid #ff6b49;
+    color: #fff;
+    width: 5%;
+    position: fixed;
+    margin-left: 85%;
+    top: 90%;
+}
+.fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+    margin-left: 4px;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color:pink!important;
+    text-decoration: none;
+}
+i.fa.fa-paper-plane.fa-spin:hover {
+    color: pink;
+}
+a:focus, a:hover {
+    color: pink;
+    text-decoration: underline;
+}
+.edu-banner{
+   padding: 48px 0;
+    height: 265px;
+}
 </style>
 @endsection
 
 @section('content')
-      
       <!-- Strat Banner Section -->
       <div class="edu-banner padding-bt-150">
+            <div class="col-sm-12">
+                    <div class="page-title-box">
+                       <h2>Course Details</h2>
+                    </div>
+                 </div>
          <div class="container">
             <div class="count-particles">
                <span class="js-count-particles"></span>
@@ -56,7 +198,7 @@ h4
                            </select>
                         </div>
                         <div class="form-group col-md-3">{{--name="Apply" value="Search" --}}
-                           <input type="submit"  class="form-submit btn">
+                     <input type="submit"  class="form-submit btn pull-right">
                         </div>
                      </form>
                   </div>
@@ -66,8 +208,8 @@ h4
       </div>
       <!-- End Category Section -->
       <!-- Strat Advisors Area-->
-      <section class="blog-page list-1 edu-course clearfix">
-         <div class="container" style="margin-top: -17px;">
+<section class="edu-blog blog-page clearfix">
+   <div class="container">
             <!-- // End Row -->
             <div class="row">
                <div class="col-sm-12 col-md-8">
@@ -76,136 +218,263 @@ h4
                         <div class="pin-icon">
                            <i class="fa fa-thumb-tack"></i>
                         </div>
-                        <h4>{{$college->college_name}}</h4>
-                        <div class="blog-box" style="display:none">
-                           <div class="blog-image-box">
-                              <div class=" comment-box title">
-                                 <h4>{{$college->college_name}}</h4>
+                  <div class="blog-comment" style="margin-top:-5%;">
+                     <ul class="comment-list list-unstyled">
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="comment-avatar" src="{{ asset('student/images/student.jpg') }}" alt="">
+                           </a>
+                           <div class="comment-meta">
+                              <a href="#" class="clgname">{{$college->college_name}} </a>
+                              <span>
+                              <em class="course_style">{{ $college->college_state}},{{ $college->college_city}}</em>
+                              </span>
                               </div>
-                              @if(!is_null($college->college_img))
-                              <img class="img-responsive" src="{{ asset($college->college_img) }}" alt="Blog_image">
-                             @else
-                             <img class="img-responsive" src="{{ asset('student/images/blog/1.jpg') }}" alt="Blog_image">
-                              @endif
-                              <div class="social-icon-info">
-                                 <ul class="icon">
-                                    <li><a href="{{$college->website}}" class="fa fa-search"></a></li>
-                                    <li><a href="{{$college->website}}" class="fa fa-link"></a></li>
+                        </li>
                                  </ul>
+                              </div>
+                  <hr>
+                  <br>
+                  <h3 class="clgname1">{{ $course->course_department}}</h3>
+                  <div class="question">
+                     <p>What we Offer?</p>
+                           </div>
+                  <div class="post-content col-md-12">
+                     <blockquote>
+                            {!! $course->what_we_offer!!}
+                
+                     </blockquote>
+                        </div>
+                  <div class="question">
+                     <p>Why Join Us?</p>
+                  </div>
+                        <div class="post-content col-md-12">
+                     <blockquote>
+                        {!! $course->why_join_us!!}
+                           </blockquote>
+                        </div>
+                  <div class="question">
+                     <p >Course Structure?</p>
+                  </div>
+                  <div class="post-content col-md-12">
+                     <blockquote>
+                        {!! $course->course_description!!}
+                     </blockquote>
+                  </div>
+                  <div class="question" style="padding-top:4%">
+                        <p>Fee Structure</p>
+                        </div>
+                     <div class="post-content col-md-12">
+                        <blockquote>
+                           {!! $course->fee_structure!!}
+                        </blockquote>
+                        </div>
+                  <div class="post-content col-md-12">
+                       
+                <p class="clgname1">Our Teaching Staffs</p>
+                   
+                      
+                           </div>
+                    <div class="container">
+                         
+						<div class="row ">            
+                        <div class="partenr">
+                               @foreach($faculties as $faculties)
+                           <div class="item">
+                              
+                              <div class="team-info">
+                                 <div class="single-teacher">
+                                    <div class="teacher-img">
+                                       <a href="#">
+                                       <img alt="Teacher Images" src="{{ asset($faculties->faculty_image) }}" >
+                                       </a>
+                                       <div class="img-title">
+                                          <h3>{{$faculties->faculty_name}}</h3>
+                                          <p>{{$faculties->designation}}</p>
+                                       </div>
+                                    </div>
+                                    <div class="teacher-details">
+                                            <h3>{{$faculties->specialization}}</h3>
+                                      
+                                       <a class="read-btn" href="student/demo1">Read More</a>
+                                    </div>
+                                 </div>
+                              </div>
+                             
+                           </div>
+                           @endforeach
+                     
+                                  </div>
+                            </div>
+                        </div>
+                  <div class="post-content">
+                     <p class="clgname1">Infrastructure of BBM</p>
+							</div>
+                        </br>
+                  <div class="row">
+                        @foreach($courseGallery as $courseGallery)
+                     <div class=" col-md-3 col-sm-3 col-xs-3">
+                        <div class="gallery-item gp-two">
+                           <div class="thumb">
+                              <img src="{{ asset($courseGallery->filePath) }}" class="infrastructure" alt="">
+                              <div class="gallery-hover">
+                                 <div class="gallery-info">
+                                    <div class="gallery-btn">
+                                       <a href="{{ asset($courseGallery->filePath) }}" data-fancybox-group="gallery"
+                                          class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i> 
+                                          @if( $loop->iteration==4)
+                                         + {{ $loop->iteration }} More
+                                          @endif
+                                        </a>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                         </div>
-                        <div class="post-content">
-                            <h4>{{ $course->course_department}}</h4>
-                           <blockquote><i class="fa fa-quote-left"></i>
-                                @if(is_null($course->course_description))
-                                {{$course->course_description}}
-                                @else
-                                    Higher education, also called tertiary, third stage, or post secondary education, is the
-                                    non-compulsory educational level
-                                    that follows the completion of a school providing a secondary education, such as a high
-                                    school or secondary school. Tertiary education is normally taken to include
-                                    undergraduate and postgraduate education.
-                                @endif <i class="fa fa-quote-right"></i>
-                           </blockquote>
-                        </div>
-						<div class="row">
-						<div class="course-teacher col-md-6">
-                                <h3>College Details</h3>
-
-                                <div class="teacher-detail bg-gray">
-                                   <p>University Name: <span class="clg-deiatls">   {{$college->university_name}}</span></p>
-									<hr class="list-inline">
-									<p>Email: <span class="clg-deiatls"> {{$college->college_email}}</span> </p>
-									<hr class="list-inline">
-									<p>Contact no: <span class="clg-deiatls">  {{$college->college_number_1}},{{$college->college_number_2}}</span> </p>
-									<hr class="list-inline">
-									<p>College Type:  <span class="clg-deiatls">  {{$college->college_type}}</span> </p>
-									<hr class="list-inline">
-									<p>College Category:  <span class="clg-deiatls"> {{$college->college_category}}</span> </p>
-									<hr class="list-inline">
-									<p>College Address:  <span class="clg-deiatls"> {{$college->college_address}},{{$college->college_state}}</span> </p>
-									<hr class="list-inline">
-                                 
-
-                                  </div>
-                            </div>
-                        <div class="course-info col-md-6">
-                           <h3 class="sidebar-title">Courses Information</h3>
-                           <ul class="bg-gray"> 
-                              <li>Course :<span>{{$course->course_offer}}</span></li>
-                              <li>Department :<span>{{$course->course_department}}</span></li>
-                              <li>Duration:<span>{{$course->course_duration}} </span></li>
-                              <li>Fees :<span>{{$course->course_total_fee}}  </span></li>
-                              <li>File :<span><a href="{{asset($course->fee_structure_file_url)}}" download="{{$course->fee_structure_file_name}}">{{$course->fee_structure_file_name}}</a></span></li> 
-                        </ul>
-                           <button class="btn more-link pull-right next-step" id="send" data-toggle="modal" data-target="#apply">Apply</button>
-                        </div>
-						
-							</div>
-                        <br>
-                        </br>
-                     </article>
-                     <!--  // Artical 01 -->
-                  </div>
-               </div>
-               <!-- //  End Left Sidber Sidber -->
-               <div class="col-sm-12 col-md-4 sidber">
-                  <!-- // End Widget -->
-                  <div class="widget">
-				  	  <div class="wiget-title">
-                      
-                        <h4>Contact Person</h4>
+                     </div>
+                     @endforeach
+                   
+                    
+                   
                     </div>
-                    <div class="teacher-detail bg-gray">
 				
-                                      @if(!is_null($college->profile_image))
-                              <img class="img-responsive" src="{{ asset($college->profile_image) }}" alt="Blog_image">
-                             @else
-                             <img class="img-responsive" src="{{ asset('student/images/blog/1.jpg') }}" alt="Blog_image">
-                              @endif
-							  <br>
-                                    <h4>{{$college->name}}</h4>
-
-                                    <p>Email: <span class="clg-deiatls">  {{$college->email}}</span></p>
-									<hr class="list-inline">
-									<p>Contact No: <span class="clg-deiatls">  {{$college->mobile}}</span></p>
-									<hr class="list-inline">
-									
-                                </div>
+               <br>
+                  <div class="post-content blog-comment col-md-12">
+                     <h4 class="text-left" style="padding-top: 4%;">Payment Options</h4>
+                     <blockquote>
+                            
+                        {!! $course->Payment_mode!!}
+                     </blockquote>
                      </div>
-                 
-                  <!-- // End Widget -->
-                  <div class="widget">
-                     <div class="video-widget clearfix">
-                           @if(!is_null($college->college_video))
-                              <a class="demo" href="{{ asset($college->college_video) }}">
-                           @else
-                               <a class="demo" href="https://vimeo.com/209802644">
-                           @endif
-
-                           @if(!is_null($college->college_img))
-                              <img src="{{ asset($college->college_img) }}" alt="Blog Image">
-                           @else
-                             <img src="{{ asset('student/images/blog/3.jpg') }}" alt="Blog Image">
-                           @endif
-                        <i class="fa fa-play"></i>
-                        </a>
-                     </div>
-                     <div class="widget-text clearfix text-center">
-                        <span class="mar-btm-20">{{date('d-m-Y', strtotime($college->updated_at))}}</span>
-                        <h5>
-                           <a href="#">Tuition Is Crazy Expensive</a>
-                        </h5>
-                     </div>
+                  <div class="blog-comment">
+                     <div class="title">
+                        <h4>Comments (3)</h4>
                   </div>
+                     <ul class="comment-list list-unstyled">
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="comment-avatar img-circle" src="{{ asset('student/images/student.jpg') }}" alt="">
+                           </a>
+                           <div class="comment-meta">
+                              <a href="#">JOHNATHON DOE </a>
+                              <span>
+                              <em class="pink-color">Sep 07, 2017, at 11:34</em>
+ 
+                              </span>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet
+                                 urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor
+                                 tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                              </p>
                </div>
-               <!-- Stra RIght Sidber Content -->
+                        </li>
+                        <li class="comment-sub width-80 pull-right">
+                           <a class="pull-left" href="#">
+                           <img class="comment-avatar img-circle" src="{{ asset('student/images/student.jpg') }}">
+                           </a>
+                           <div class="comment-meta">
+                              <a href="#">MATHEW ROOT </a>
+                              <span>
+                              <em class="pink-color">Sep 07, 2017, at 11:34</em>
+                          
+                              </span>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet
+                                 urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor
+                                 tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                              </p>
+            </div>
+                        </li>
+                        <li>
+                           <a class="pull-left" href="#">
+                           <img class="comment-avatar img-circle" src="{{ asset('student/images/student.jpg') }}" alt="">
+                           </a>
+                           <div class="comment-meta">
+                              <a href="#">CAMERON DIAZ</a>
+                              <span>
+                              <em class="pink-color">Sep 07, 2017, at 11:34</em>
+                           
+                              </span>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor sit amet
+                                 urna nec tempor. Nullam pellentesque in orci in luctus. Sed convallis tempor
+                                 tellus a faucibus. Suspendisse et quam eu velit commodo tempus.
+                              </p>
+         </div>
+                        </li>
+                     </ul>
+               </div>
+
+                   <button  type="submit" data-target="#apply" data-toggle="modal" class="btn more-link pull-right" id="send">Apply For The Course</button>
+
+               </article>
+               <!--  // Artical 01 -->
             </div>
          </div>
-      </section>
-      <!-- End Advisors Area-->
-      <div class="modal fade" id="apply" role="dialog">
+         <!-- //  End Left Sidber Sidber -->
+         <div class="col-sm-12 col-md-4 sidber">
+            <!-- // End Widget -->
+            <div class="widget">
+               <div class="wiget-title">
+                  <span>What You Get From Us</span>
+                  <h4 class="clgname1">Populer Colleges</h4>
+               </div>
+               <div class="sidber-widget">
+                  <div class="wiget-post">
+                     <div class="wiget-img">
+                        <img src="{{ asset('student/images/student.jpg') }}" alt="Sidber Image">
+                     </div>
+                     <div class="posi-inner">
+                        <h6><a href="#">Students Have Enough</a></h6>
+                        <span class="pink-color">John Milton</span>
+                       
+                     </div>
+                  </div>
+                  <div class="wiget-post">
+                     <div class="wiget-img">
+                        <img src="{{ asset('student/images/student.jpg') }}" alt="Sidber Image">
+                     </div>
+                     <div class="posi-inner">
+                        <h6><a href="#">Students Have Enough</a></h6>
+                        <span class="pink-color">John Milton</span>
+                      
+                     </div>
+                  </div>
+                  <div class="wiget-post">
+                     <div class="wiget-img">
+                        <img src="{{ asset('student/images/student.jpg') }}" alt="Sidber Image">
+                  </div>
+                     <div class="posi-inner">
+                        <h6><a href="#">Students Have Enough</a></h6>
+                        <span class="pink-color">John Milton</span>
+                       
+               </div>
+            </div>
+         </div>
+      </div>
+            <!-- // End Widget -->
+           <div class="widget">
+                    <div class="video-widget clearfix">
+                        <a class="demo" href="https://vimeo.com/209802644">
+                            <img src="{{ asset('student/images/3.jpg') }}"  alt="Blog Image">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="widget-text clearfix text-center">
+                        <span class="mar-btm-20">September 16, 2017</span>
+                        <h5>
+                            <a href="#">Tuition Is Crazy Expensive</a>
+                        </h5>
+                    </div>
+                </div>
+      
+         <!-- Stra RIght Sidber Content -->
+      </div>
+   </div>
+   <a href="javascript:void(0)" data-target="#apply" data-toggle="modal" class="raise-2 select_apply trackCTA" data-cta-name="cp_apply" title="Apply Now" type="button" data-head="Apply">
+                <i class="fa fa-paper-plane fa-spin"></i>
+            </a>
+</section>
+<!-- End Advisors Area-->
+<!-- modal Section -->
+<div class="modal fade" id="apply" role="dialog">
          <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content body-back">
@@ -265,9 +534,9 @@ h4
             </div>
          </div>
       </div>
-      
- @endsection
 
+
+ @endsection
 @section('js')
 
 

@@ -69,6 +69,7 @@ class CourseController extends Controller
                     if(isset($files[$i]))
                     {
                         $name = str_random(6) . '_' . $files[$i]->getClientOriginalName();
+<<<<<<< HEAD
                         $destination_path = '/college/images/faculty_images';
                         $files[$i]->move(public_path().$destination_path, $name);
                         $file_url = 'college/images/faculty_images/'.$name;
@@ -78,6 +79,12 @@ class CourseController extends Controller
                         // $thumb_img = Image::make($files[$i]->getRealPath())->resize(300, 300);
                         // $thumb_img->save(public_path().$destination_path,80);
                         // $file_url = 'college/images/faculty_images/'.$name;
+=======
+                        $destination_path = '/college/images/faculty_images/';
+                        $thumb_img = Image::make($files[$i]->getRealPath())->resize(300, 300);
+                        $thumb_img->save(public_path().$destination_path.$name,80);
+                        $file_url = $destination_path.$name;
+>>>>>>> 556675876e86d277508ad0970269ec919b5012f5
                     }
 
                     if(isset($specialization[$i])) { $specializationData = $specialization[$i]; }
@@ -94,8 +101,14 @@ class CourseController extends Controller
                         ];
                 }
 
+<<<<<<< HEAD
                 $courses = new CollegeFaculties();
                 $courses->insert($insertData);   
+=======
+                $courseDetails->faculties()->createMany($insertData);
+                // $courses = new CollegeFaculties();
+                // $courses->insert($insertData);   
+>>>>>>> 556675876e86d277508ad0970269ec919b5012f5
             }
             
             //#################################################### Add Course Gallery Image #####################################
@@ -140,9 +153,15 @@ class CourseController extends Controller
                         ];
                 }    
             }
+<<<<<<< HEAD
 
             $coursegalleries = new CollegeCourseGalleries();
             $coursegalleries->insert($galleryData);
+=======
+            $courseDetails->courseGallery()->createMany($galleryData);
+            // $coursegalleries = new CollegeCourseGalleries();
+            // $coursegalleries->insert($galleryData);
+>>>>>>> 556675876e86d277508ad0970269ec919b5012f5
           
         }
         else
@@ -153,6 +172,7 @@ class CourseController extends Controller
        
         return $this->Result($res,$msg);
     }
+<<<<<<< HEAD
     //##############################Update course details#############################//
     public function updatecourse(Request $request){ //To show view
        
@@ -296,4 +316,6 @@ class CourseController extends Controller
         $dataId = $request->dataId;
         CollegeCourseGalleries::where('id',$dataId)->delete(); 
     }
+=======
+>>>>>>> 556675876e86d277508ad0970269ec919b5012f5
 }

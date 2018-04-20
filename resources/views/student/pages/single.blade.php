@@ -82,13 +82,15 @@ height:850px!important;
             </div>
 			</div>
          <div class="col-md-6 col-sm-12">
-            <img src="{{ asset('student/booth/images/0010.png')}}" alt="">
+           <img src="{{ asset($college->college_img)}}" alt="{{ $college->college_name }}" id="clg-logo">
+            <img src="{{ asset($college->college_booth)}}" alt="" style="margin-left:-15%">
 			<center class="v_gallery">
             <div class="col-md-4">
-               <button class="btn-default dg">Video Gallery</button>
+           <button class="btn-default dg" onclick="location.href='{{ url('student/video/'.$college->reg_id.'/gallery')}}';">Video Gallery</button>
+
             </div>
             <div class="col-md-4">
-               <button class=" btn-default">Image Gallery</button>
+                             <button class=" btn-default" onclick="location.href='{{ url('student/image/'.$college->reg_id.'/gallery')}}';">Image Gallery</button>
             </div>
 			</center>
          </div>

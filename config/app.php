@@ -148,7 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Tzsk\Payu\Provider\PayuServiceProvider::class,
         LaravelTrailingSlash\RoutingServiceProvider::class,
-        Tzsk\Payu\Provider\PayuServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -212,6 +212,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Payment' => Tzsk\Payu\Facade\Payment::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
