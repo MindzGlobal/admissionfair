@@ -174,7 +174,7 @@ h4.row.mega-title {
   text-transform: uppercase;
   border-bottom: 1px solid #547787;
   padding-top: 15px;
-  background-color: #365670
+  background-color: #365670;
   }
  .mega-menu ul li a {
   line-height: 25px;
@@ -453,7 +453,7 @@ clor
              </ul>
              <!--//End drop down-->
          </li>
-        
+         
          <li class="mega-drop-down"><a style="color:#fff!important;"><i class="fa fa-graduation-cap"></i>Courses</a>
              <div class="animated fadeIn mega-menu">
                  <div class="mega-menu-wrap">
@@ -461,7 +461,11 @@ clor
                          <div class="col-md-12">
                              <ul class="stander">
                              <div class="col-md-3">
+<<<<<<< HEAD
+                             <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Mobile</a>
+=======
                              <i class="fa fa-medkit  fa-1x"></i> <a href="#"></a>
+>>>>>>> b113bfbc8f8cb5943a3e0ad69769f474be99cb50
                                  <span>Description of Women</span>
                                  <i class="fa fa-medkit  fa-1x"></i> <a href="#">Computer</a>
                                  <span>Description of Women</span>

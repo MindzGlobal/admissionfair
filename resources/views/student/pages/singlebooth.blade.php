@@ -378,8 +378,13 @@
             <div class="col-md-6">
                <div class="post-content">
                   <blockquote>
+<<<<<<< HEAD
+                     <h3 class="text-center"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
+                     {{!!$college->About_college!!}}
+=======
                      <h3 class="text-center" style="color:#ff9600"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
                      {!!$college->About_college!!}
+>>>>>>> b113bfbc8f8cb5943a3e0ad69769f474be99cb50
                   </blockquote>
                </div>
             </div>
