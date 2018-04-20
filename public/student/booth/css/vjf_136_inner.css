@@ -82,7 +82,11 @@ body > .wrapper  > .body-wrapper {background: none}
 .icon-nav {background-size: 20px 20px; width: 20px; margin-right: 3px}
 
 marquee, .win-a-prize {display: none}
-.vjf-header .logo {height: 60px;margin-left: -15px;margin-top: 1px;margin-bottom: 0px;}
+.vjf-header .logo {margin-left: -15px;
+  margin-top: -22px;
+  margin-bottom: -19px;
+  width: 220px!important;
+  height: auto;}
 .vjf-header .col-md-4 {display: none}
 .vjf-modal .close {opacity: .7}
 .user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #2a72a7}

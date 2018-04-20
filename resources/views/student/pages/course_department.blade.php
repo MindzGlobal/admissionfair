@@ -157,12 +157,21 @@ a:focus, a:hover {
     color: pink;
     text-decoration: underline;
 }
+.edu-banner{
+   padding: 48px 0;
+    height: 265px;
+}
 </style>
 @endsection
 
 @section('content')
       <!-- Strat Banner Section -->
       <div class="edu-banner padding-bt-150">
+            <div class="col-sm-12">
+                    <div class="page-title-box">
+                       <h2>Course Details</h2>
+                    </div>
+                 </div>
          <div class="container">
             <div class="count-particles">
                <span class="js-count-particles"></span>
@@ -232,7 +241,7 @@ a:focus, a:hover {
                            </div>
                   <div class="post-content col-md-12">
                      <blockquote>
-                        {{ $course->what_we_offer}}
+                            {!! $course->what_we_offer!!}
                 
                      </blockquote>
                         </div>
@@ -241,7 +250,7 @@ a:focus, a:hover {
                   </div>
                         <div class="post-content col-md-12">
                      <blockquote>
-                        {{ $course->why_join_us}}
+                        {!! $course->why_join_us!!}
                            </blockquote>
                         </div>
                   <div class="question">
@@ -249,9 +258,17 @@ a:focus, a:hover {
                   </div>
                   <div class="post-content col-md-12">
                      <blockquote>
-                        {{ $course->course_description}}
+                        {!! $course->course_description!!}
                      </blockquote>
                   </div>
+                  <div class="question" style="padding-top:4%">
+                        <p>Fee Structure</p>
+                        </div>
+                     <div class="post-content col-md-12">
+                        <blockquote>
+                           {!! $course->fee_structure!!}
+                        </blockquote>
+                        </div>
                   <div class="post-content col-md-12">
                        
                 <p class="clgname1">Our Teaching Staffs</p>
@@ -262,125 +279,31 @@ a:focus, a:hover {
                          
 						<div class="row ">            
                         <div class="partenr">
+                               @foreach($faculties as $faculties)
                            <div class="item">
+                              
                               <div class="team-info">
                                  <div class="single-teacher">
                                     <div class="teacher-img">
                                        <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/1.jpg') }}">
+                                       <img alt="Teacher Images" src="{{ asset($faculties->faculty_image) }}" >
                                        </a>
                                        <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
+                                          <h3>{{$faculties->faculty_name}}</h3>
+                                          <p>{{$faculties->designation}}</p>
                                        </div>
                                     </div>
                                     <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <p>Language Teacher</p>
+                                            <h3>{{$faculties->specialization}}</h3>
+                                      
                                        <a class="read-btn" href="student/demo1">Read More</a>
                                     </div>
                                  </div>
                               </div>
+                             
                            </div>
-                           <div class="item">
-                              <div class="team-info">
-                                 <div class="single-teacher">
-                                    <div class="teacher-img">
-                                       <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/3.jpg') }}">
-                                       </a>
-                                       <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
-                                       </div>
-                                    </div>
-                                    <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <p>Language Teacher</p>
-                                       <a class="read-btn" href="student/demo1">Read More</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="team-info">
-                                 <div class="single-teacher">
-                                    <div class="teacher-img">
-                                       <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/1.jpg') }}">
-                                       </a>
-                                       <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
-                                       </div>
-                                    </div>
-                                    <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <p>Language Teacher</p>
-                                       <a class="read-btn" href="student/demo1">Read More</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="team-info">
-                                 <div class="single-teacher">
-                                    <div class="teacher-img">
-                                       <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/1.jpg') }}">
-                                       </a>
-                                       <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
-                                       </div>
-                                    </div>
-                                    <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <p>Language Teacher</p>
-                                       <a class="read-btn" href="student/demo1">Read More</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="team-info">
-                                 <div class="single-teacher">
-                                    <div class="teacher-img">
-                                       <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/3.jpg') }}">
-                                       </a>
-                                       <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
-                                       </div>
-                                    </div>
-                                    <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <p>Language Teacher</p>
-                                       <a class="read-btn" href="student/demo1">Read More</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="team-info">
-                                 <div class="single-teacher">
-                                    <div class="teacher-img">
-                                       <a href="#">
-                                       <img alt="Teacher Images" src="{{ asset('student/images/3.jpg') }}">
-                                       </a>
-                                       <div class="img-title">
-                                          <h3>ADAM SMITH</h3>
-                                          <p>Language Teacher</p>
-                                       </div>
-                                    </div>
-                                    <div class="teacher-details">
-                                       <h3>ADAM SMITH</h3>
-                                       <a class="read-btn" href="student/demo1">Read More</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                           @endforeach
+                     
                                   </div>
                             </div>
                         </div>
@@ -389,93 +312,38 @@ a:focus, a:hover {
 							</div>
                         </br>
                   <div class="row">
+                        @foreach($courseGallery as $courseGallery)
                      <div class=" col-md-3 col-sm-3 col-xs-3">
                         <div class="gallery-item gp-two">
                            <div class="thumb">
-                              <img src="{{ asset('student/images/college-main12.jpg') }}" class="infrastructure" alt="">
+                              <img src="{{ asset($courseGallery->filePath) }}" class="infrastructure" alt="">
                               <div class="gallery-hover">
                                  <div class="gallery-info">
                                     <div class="gallery-btn">
-                                       <a href="{{ asset('student/images/college-main12.jpg') }}" data-fancybox-group="gallery"
-                                          class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i> </a>
+                                       <a href="{{ asset($courseGallery->filePath) }}" data-fancybox-group="gallery"
+                                          class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i> 
+                                          @if( $loop->iteration==4)
+                                         + {{ $loop->iteration }} More
+                                          @endif
+                                        </a>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-3 col-sm-3 col-xs-3">
-                        <div class="gallery-item gp-two">
-                           <div class="thumb">
-                              <img src="{{ asset('student/images/coll.png') }}" class="infrastructure"  alt="">
-                              <div class="gallery-hover">
-                                 <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                       <a href="{{ asset('student/images/coll.png') }}" data-fancybox-group="gallery"
-                                          class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i> </a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class=" col-md-3 col-sm-3 col-xs-3">
-                        <div class="gallery-item gp-two">
-                           <div class="thumb">
-                              <img src="{{ asset('student/images/auditourium.jpg') }}" class="infrastructure" alt="">
-                              <div class="gallery-hover">
-                                 <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                       <a href="{{ asset('student/images/auditourium.jpg') }}" data-fancybox-group="gallery"
-                                          class="lightbox-image" title="lightbox view"> <i class="pe-7s-graph2"></i> </a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class=" col-md-3 col-sm-3 col-xs-3">
-                        <div class="gallery-item gp-two">
-                           <div class="thumb">
-                              <img src="{{ asset('student/images/00000.jpg') }}" class="infrastructure"  alt="">
-                              <div class="gallery-hover">
-                                 <div class="gallery-info">
-                                    <div class="gallery-btn">
-                                       <a href="/" data-fancybox-group="gallery"
-                                          class="lightbox-image" title="lightbox view"> +21 more</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                  </div>
-               </div>
+                     @endforeach
+                   
+                    
+                   
                     </div>
 				
-                  <div class="question" style="padding-top:4%">
-                     <p>Fee Structure</p>
-                     </div>
-                  <div class="post-content col-md-12">
+               <br>
+                  <div class="post-content blog-comment col-md-12">
+                     <h4 class="text-left" style="padding-top: 4%;">Payment Options</h4>
                      <blockquote>
-                        {{ $course->fee_structure}}
-                     </blockquote>
-                     </div>
-                  <div class="post-content blog-comment">
-                     <h4 class="text-left">Payment Options</h4>
-                     <blockquote>
-                        <ul>
-                           <li class="col-sm-6">
-                              <i class="ion-arrow-right-c"></i>Six Months.
-                           </li>
-                           <li class="col-sm-6">
-                              <i class="ion-arrow-right-c"></i>One Year.
-                           </li>
-                           <li class="col-sm-6">
-                              <i class="ion-arrow-right-c"></i>EMI Option.
-                           </li>
-                           <li class="col-sm-6">
-                              <i class="ion-arrow-right-c"></i>fjhfhff.
-                           </li>
-                        </ul>
+                            
+                        {!! $course->Payment_mode!!}
                      </blockquote>
                      </div>
                   <div class="blog-comment">
@@ -533,52 +401,7 @@ a:focus, a:hover {
                         </li>
                      </ul>
                </div>
-                  <!-- <div class="comment-box">
-                     <div class="title">
-                        <h4>Apply For The Course</h4>
-                     </div>
-                     <form role="form" action="{{ route('studentPay') }}" method="post">
-                        @csrf
-                        <input  type="hidden" name="college_id" value="{{$course->reg_id}}"/>
-                        <input type="hidden" name="dept_id" value="{{$course->id}}"/>
-                        <div class="form-group col-sm-6 padding-left-0">
-                           <div class="input-group">
-                              <span class="input-group-addon">
-                              <i class="fa fa-user"></i>
-                              </span>
-                              <input class="form-control" type="text" value="{{$course->course_offer}}" placeholder="Course Name">
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <div class="input-group col-sm-6">
-                              <span class="input-group-addon">
-                              <i class="fa fa-envelope-o"></i>
-                              </span>
-                              <input class="form-control" type="text"  value="{{$course->course_department}}" placeholder="Department Name">
-                           </div>
-                        </div>
-                        <div class="form-group col-sm-6 padding-left-0">
-                                <div class="input-group">
-                                   <span class="input-group-addon">
-                                   <i class="fa fa-user"></i>
-                                   </span>
-                                   <input class="form-control" type="text" value="{{$course->course_duration}}" placeholder="Course Duration">
-                                </div>
-                             </div>
-                             <div class="form-group">
-                                <div class="input-group col-sm-6">
-                                   <span class="input-group-addon">
-                                   <i class="fa fa-envelope-o"></i>
-                                   </span>
-                                   <input class="form-control" type="text"  value="{{$course->course_total_fee}}" placeholder="Course Fees">
-                                </div>
-                             </div>
-                          <div class="form-group">
-                           <textarea class="form-control message" name="student_query" rows="7" placeholder="Query..."></textarea>
-                        </div>  
-                        <button  type="submit"  class="btn more-link pull-right" id="send">Apply Here</button>
-                     </form>
-                  </div> -->
+
                    <button  type="submit" data-target="#apply" data-toggle="modal" class="btn more-link pull-right" id="send">Apply For The Course</button>
 
                </article>
@@ -711,6 +534,7 @@ a:focus, a:hover {
             </div>
          </div>
       </div>
+
 
  @endsection
 @section('js')

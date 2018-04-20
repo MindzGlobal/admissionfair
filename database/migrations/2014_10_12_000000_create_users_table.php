@@ -39,6 +39,7 @@ class CreateUsersTable extends Migration
             $table->string('college_address')->nullable();
             $table->string('college_type')->nullable();
             $table->string('college_category')->nullable();
+            $table->text('college_about')->nullable();
             $table->string('college_booth')->nullable();
             $table->string('college_img')->nullable();
             $table->string('college_video')->nullable();

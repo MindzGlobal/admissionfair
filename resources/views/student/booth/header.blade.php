@@ -61,10 +61,124 @@
         }
 
         #clg-logo{
-            height: 66px;
-            width: 121px;
+    height: 40px;
+    width: 64px;
+    margin-top: 44%;
+    margin-left: -14%;
         }
-                
+         .colg-name
+         {
+    color: #fff;
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 18%;
+    font-weight: 600;
+    max-width: 78%;
+    overflow: hidden;
+    height: 20px;
+         }   
+         .city-name
+         {
+            position: absolute;
+            margin-top: 73%;
+    margin-left: 38%;
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    height: 20px;
+         }   
+         .popover__title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+  color: rgb(228, 68, 68);
+  text-align: center;
+  padding: 15px 0;
+}
+
+.popover__wrapper {
+    position: relative;
+    margin-top: 1.5rem;
+    display: inline-block;
+    margin-left: 38%;
+}
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -150px;
+    transform: translate(0,10px);
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: auto;
+    top:24%;
+    border: 2px solid #585050d4;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(377px,-13px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+.popover__message {
+  text-align: center;
+} 
+.leicester-booth-top-logo {
+    margin: 25px 55px;
+    padding: 0px 0px 0px 0px;
+    width: 90px;
+    height: 1px;
+    position: absolute;
+}
+.list_clg
+{
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 35px;
+    font-family: tahoma;
+    border: 2px solid #eee;
+}
     </style>
 
     <link href="{{asset('student/booth/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
@@ -229,17 +343,42 @@
                                                                         <tr id="BeforeBooths-1">
                                                         @endif              
                                                                             <td align="center" class="leicester-booth" id="SmallBooth-TD-3718">
-                                                                                <div onclick="showBooth('{{ url('student/singlebooth/'.$data->reg_id)}}');" id="Small-Booth-Main-Div-Area-LargeViewWrapper-3718" class="SmallBoothContainer booth-sm-even">
+                                                                                {{-- <div onclick="showBooth('{{ url('student/singlebooth/'.$data->reg_id)}}');" id="Small-Booth-Main-Div-Area-LargeViewWrapper-3718" class="SmallBoothContainer booth-sm-even">
+                                                                                   
+                                                                                    <div class="colg-name">{{ $data->college_name }}</div>
                                                                                     <div class="leicester-booth-top-logo">
                                                                                         <a class="demo-tip-darkgray" title="{{ $data->college_name }}" href="javascript:;" onclick="showBooth('{{ url('student/singlebooth/'.$data->reg_id)}}');">
                                                                                             <img src="{{ asset($data->college_img)}}" alt="{{ $data->college_name }}" id="clg-logo">
                                                                                         </a>
                                                                                     </div>
+                                                                                    <div class="city-name">{{ $data->college_city }}</div>
                                                                                     <div id="Small-Booth-Banners-Parent-Div-LargeViewWrapper-3718" style="display:none;"></div>
                                                                                     <a id="Small-Booth-Image-LargeViewWrapper-3718" class="demo-tip-darkgray" title="{{ $data->college_name }}" href="javascript:;">
-                                                                                        <img id="SmallBooth-LargeViewWrapper-3718" src="{{ asset($data->college_booth)}}" alt="{{ $data->college_name }}" style="width:300px; height:300px;">
+                                                                                        <img id="SmallBooth-LargeViewWrapper-3718" src="{{ asset($data->college_booth)}}" alt="{{ $data->college_name }}" style="width:280px; height:280px;">
                                                                                     </a>
-                                                                                </div>
+                                                                                </div> --}}
+                                                                           
+                                                                                <div class="popover__wrapper">
+                                                                                        <div class="colg-name">{{ $data->college_name }}</div>
+                                                                                        <div class="city-name">{{ $data->college_city }}</div>
+                                                                                        <div class="leicester-booth-top-logo">
+                                                                                                <a class="demo-tip-darkgray" title="{{ $data->college_name }}" href="javascript:;" onclick="showBooth('{{ url('student/singlebooth/'.$data->reg_id)}}');">
+                                                                                                    <img src="{{ asset($data->college_img)}}" alt="{{ $data->college_name }}" id="clg-logo">
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        <a href="#">
+                                                                                          <h2 class="popover__title"> <img id="SmallBooth-LargeViewWrapper-3718" src="{{ asset($data->college_booth)}}" alt="{{ $data->college_name }}" style="width:245px; height:200px;">
+                                                                                          </h2>
+                                                                                        </a>
+                                                                                        <div class="push popover__content">
+                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                      
                                                                             </td>
                                                         @if($countj %2 ==0  ||  $count==$totalCount-1)
                                                                         </tr>

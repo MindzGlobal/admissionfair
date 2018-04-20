@@ -307,14 +307,19 @@
    font-style: italic;
    color: #d6c3c3;
    }
+   p {
+    margin: 0 0 0px!important;
+}
 </style>
 @endsection
 @section('content')
 <!-- Strat Banner Section -->
-<div class="singlebooth" style="background: url(http://localhost/admissionfair/public/student/booth/images/booth.jpg);
-   height: 780px;">
-   <div class="overlay" style="background: #3384803b;
-      height: 780px;">
+<div class="singlebooth" style="background:url('{{ asset('student/images/admition.jpg') }}');
+   height:780px;background-size: cover;
+   background-repeat: no-repeat;">
+   <div class="overlay" style="background: #130c06a1;
+      height:100vh;    background-size: cover;
+      background-repeat: no-repeat;">
       <div class="container">
          <!-- Strat Banner Section -->
          <div class=" padding-bt-150">
@@ -322,8 +327,13 @@
             <div class="row container">
                <div class="col-md-12">
                   <div class="page-title-box">
-                     <div id="qr" style="display:inline-block;width: 182px;/* height: 143px; */align: center;/* vertical-align: middle; */margin-left:-11%;">
-                        <img src="{{ asset('student/images/blog/logo.png') }}" alt="" style="/* height:3.8cm; */">
+                     <div id="qr" style="display: inline-block;
+                     max-width:165px;
+                     max-height: 100px;
+                     align: center;
+                     /* vertical-align: middle; */
+                     margin-left: -11%;">
+                        <img src="{{ asset('student/images/blog/logo.png') }}" alt="">
                      </div>
                      <div style="display:inline-block;vertical-align: middle;margin-top: 0%;position:  relative;">
                         <p style="font-size:16px">{{$college->college_name}}</p>
@@ -368,8 +378,13 @@
             <div class="col-md-6">
                <div class="post-content">
                   <blockquote>
+<<<<<<< HEAD
                      <h3 class="text-center"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
                      {{!!$college->About_college!!}}
+=======
+                     <h3 class="text-center" style="color:#ff9600"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
+                     {!!$college->About_college!!}
+>>>>>>> b113bfbc8f8cb5943a3e0ad69769f474be99cb50
                   </blockquote>
                </div>
             </div>

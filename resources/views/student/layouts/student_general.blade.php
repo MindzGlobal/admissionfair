@@ -91,7 +91,8 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 clearfix">
                     <div class="footer-service fo-title">
                         <div class="footer-logo">
-                            <img src="{{ asset('student/images/logo.png')}}" alt="Gallery Image" width=200px;>
+                            <img src="{{ asset('student/images/logo.png')}}" alt="Gallery Image" style="width: 85%;
+                            margin-top: -6%;">
 
                             <p class="cl-white">ZR Mindz Global believes in the power of each Human, 
                             the power to do smart, to make smart, to be Smart.</p>

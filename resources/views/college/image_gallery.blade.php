@@ -73,7 +73,7 @@
                                     <div class="col-md-12">
                                        <div class="white-box">
                                           <p class="text-muted m-b-30"> Multiple files  can be uploaded </p>
-                                          <form action='{{url("college/image_gallery")}}' method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+                                          <form action='{{url("college/image_gallery")}}' method="post" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
                                              @csrf
                                           </form>
                                        </div>
@@ -130,14 +130,13 @@
 </script>
 <script>
    Dropzone.options.myDropzone = {
+       autoProcessQueue: false,
        paramName: 'file',
        maxFilesize: 1, // MB
        maxFiles: 10,
        acceptedFiles: ".jpeg,.jpg,.png,.gif",
        init: function() {
-           this.on("success", function(file, response) {
-               
-           });
+       
        }
    };
 </script>
