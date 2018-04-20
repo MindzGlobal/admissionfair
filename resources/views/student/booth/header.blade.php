@@ -101,7 +101,7 @@
     position: relative;
     margin-top: 1.5rem;
     display: inline-block;
-    margin-left: 38%;
+    /* margin-left: 38%; */
 }
 .popover__content {
     opacity: 0;
@@ -358,7 +358,7 @@
                                                                                     </a>
                                                                                 </div> --}}
                                                                            
-                                                                                <div class="popover__wrapper">
+                                                                                <div class="popover__wrapper" onclick="showBooth('{{ url('student/singlebooth/'.$data->reg_id)}}');">
                                                                                         <div class="colg-name">{{ $data->college_name }}</div>
                                                                                         <div class="city-name">{{ $data->college_city }}</div>
                                                                                         <div class="leicester-booth-top-logo">
