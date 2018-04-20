@@ -473,12 +473,13 @@ img {
 .header-navbar .navbar-nav {
     padding-top: 10px;
     padding-right: 2%;
+    margin-top: 11px;
 }
 
 .header-navbar .navbar-default {
     background: transparent;
     border: none;
-    padding: 0px 0 12px;
+    padding: 0px 0 2px;
 }
 
 .header-navbar .navbar-default .navbar-nav > .active > a,

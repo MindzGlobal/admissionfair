@@ -40,10 +40,6 @@
     opacity: 1;
 }
 
-.navbar {
-    position: relative;
-    min-height: 67px;
-}
 #particles-js {
     margin-top: 20%;
 }
@@ -52,7 +48,7 @@
 }
 .header-navbar .navbar-default {
   
-    padding: 0px 0 25px;
+    padding: 0px 0 15px;
 }
     </style>
 @endsection

@@ -48,7 +48,9 @@ a, a:hover, a.active, a:active, a:visited, a:focus{
 	float: left;
 	list-style: none;
 	position:relative;
-	background:#111111de!important;
+    background:#111111de!important;
+    border-bottom: 1px solid #cccccc;
+    padding: 5px 0 5px 19px;
 }
 .exo-menu > li {	display: inline-block;float:right;}
 .exo-menu > li > a{

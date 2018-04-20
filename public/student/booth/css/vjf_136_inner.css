@@ -34,7 +34,7 @@ body > .wrapper  > .body-wrapper {background: none}
 .footer-wrapper {background-color: #151515; background-image: none; height: 38px}
 .footer-wrapper .footer-container {display: none}
 .home-wrapper {background: none; position: relative; padding-top:0px}
-.vjf-header {background: #fff}
+.vjf-header {background: #fff;border-bottom: 1px solid #cccccc;padding: 3px 0 3px 0px;}
 
 .main-nav {font-family: 'Lato', sans-serif; font-weight: 700; text-align: center}
 .main-nav ul {display: inline-block}
