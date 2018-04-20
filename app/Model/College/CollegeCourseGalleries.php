@@ -16,6 +16,6 @@ class CollegeCourseGalleries extends Model
 
     public function course()
     {
-        return $this->belongsTo('App\Model\College\CollegeCourseGalleries','id');
+        return $this->belongsTo('App\Model\College\courseOffers','id');
     }
 }

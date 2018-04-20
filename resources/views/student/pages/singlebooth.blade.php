@@ -315,9 +315,9 @@
 @section('content')
 <!-- Strat Banner Section -->
 <div class="singlebooth" style="background:url('{{ asset('student/images/admition.jpg') }}');
-   height:780px;background-size: cover;
+   height:100vh;background-size: cover;
    background-repeat: no-repeat;">
-   <div class="overlay" style="background: #3384803b;
+   <div class="overlay" style="background: #130c06a1;
       height:100vh;    background-size: cover;
       background-repeat: no-repeat;">
       <div class="container">
@@ -378,8 +378,13 @@
             <div class="col-md-6">
                <div class="post-content">
                   <blockquote>
+<<<<<<< HEAD
+                     <h3 class="text-center"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
+                     {{!!$college->About_college!!}}
+=======
                      <h3 class="text-center" style="color:#ff9600"> <i class="fa fa-quote-left"></i> welcome message <i class="fa fa-quote-right"></i></h3>
                      {!!$college->About_college!!}
+>>>>>>> b113bfbc8f8cb5943a3e0ad69769f474be99cb50
                   </blockquote>
                </div>
             </div>
