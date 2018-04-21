@@ -85,7 +85,7 @@ class CollegeController extends Controller
         $clgDetais->college_video = Input::get('college_video');
         $clgDetais->college_category = $str_clgDetais;
         $clgDetais->college_address = Input::get('college_address');
-        $user->college_about = $request->Input('college_about');
+        
         $img = Input::file('college_img');
         $video = Input::file('college_video');
         $brochure = Input::file('college_brochure');
@@ -132,7 +132,7 @@ class CollegeController extends Controller
         
 
       }
-  
+      
     // Update profile details  
     
   public function updateformprofile(Request $request){ //To show view
