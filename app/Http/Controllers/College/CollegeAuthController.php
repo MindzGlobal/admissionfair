@@ -31,4 +31,15 @@ class CollegeAuthController extends Controller
   {
     return view('college.select_booth');
   }
+
+   public function paystatus()
+    {
+      return view('college.paystatus');
+    }
+
+    // public function update_course()
+    // {
+    //   return view('college.update_course');
+    // }
+   
 }

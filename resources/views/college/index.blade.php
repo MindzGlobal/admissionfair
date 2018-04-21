@@ -215,11 +215,12 @@
                                     </a>
                             </div>
                             <div class="col-sm-6">
-                                    <a href="{{ asset($user->college_video) }}" class="popup-youtube m-b-30" title="">
+                                    <iframe width="350" class="m-t-40" height="185" src="http://www.youtube.com/embed/{{$youtube}}" frameborder="0" allowfullscreen></iframe>
+                                    {{-- <a href="{{ asset($user->college_video) }}" class="popup-youtube m-b-30" title="">
                                             <video controls="" width="100%">
                                                 <source src="{{ asset($user->college_video) }}" type="video/mp4">
                                           </video>
-                                    </a>
+                                    </a> --}}
                             </div>
                         </div>
                     </div>

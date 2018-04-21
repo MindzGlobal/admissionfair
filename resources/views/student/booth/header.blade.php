@@ -173,7 +173,7 @@
 }
 .list_clg
 {
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     font-size: 12px;
     line-height: 35px;
     font-family: tahoma;
@@ -371,11 +371,11 @@
                                                                                           </h2>
                                                                                         </a>
                                                                                         <div class="push popover__content">
-                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
-                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
-                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
-                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
-                                                                                            <p class="list_clg">sdfdfksledhywiykhkwher</p>
+                                                                                            <p class="list_clg">SJCITechnology</p>
+                                                                                            <p class="list_clg">BGSITechnology</p>
+                                                                                            <p class="list_clg">MVITechnology</p>
+                                                                                            <p class="list_clg">RMVITechnology</p>
+                                                                                            <p class="list_clg">VIATechnology</p>
                                                                                         </div>
                                                                                       </div>
                                                                                       

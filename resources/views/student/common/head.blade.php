@@ -5,8 +5,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favi.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('student/images/favi.png') }}">
+
     
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">

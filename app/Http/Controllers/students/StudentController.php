@@ -53,7 +53,7 @@ class StudentController extends Controller
                 //dd($arrayData->college_id);
                 
                 $college= User::where('reg_id',$arrayData->college_id)
-                            ->get(['reg_id AS collegeId','college_name AS collegeName','college_img AS college_img']);
+                            ->get(['reg_id AS collegeId','college_name AS collegeName','college_img AS college_img','college_city AS college_city','college_state AS college_state']);
                 $arrayData->{'college'} = $college; 
                // dd($arrayData);
             }

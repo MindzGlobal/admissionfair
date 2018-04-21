@@ -34,7 +34,7 @@ body > .wrapper  > .body-wrapper {background: none}
 .footer-wrapper {background-color: #151515; background-image: none; height: 38px}
 .footer-wrapper .footer-container {display: none}
 .home-wrapper {background: none; position: relative; padding-top:0px}
-.vjf-header {background: #fff}
+.vjf-header {background: #fff;border-bottom: 1px solid #cccccc;padding: 3px 0 3px 0px;}
 
 .main-nav {font-family: 'Lato', sans-serif; font-weight: 700; text-align: center}
 .main-nav ul {display: inline-block}
@@ -89,7 +89,7 @@ marquee, .win-a-prize {display: none}
   height: auto;}
 .vjf-header .col-md-4 {display: none}
 .vjf-modal .close {opacity: .7}
-.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #2a72a7}
+.user-online-top, .company-index-top, #tabs1 .ui-widget-header {background: #256d59e3}
 #tabs1 .ui-state-active, #tabs1 .ui-widget-content .ui-state-active, #tabs1 .ui-widget-header .ui-state-active {background: #002194; border-color: #daad0d}
 #tabs1 > ul  > li{border-color: #daad0d}
 .user-online-top, .company-index-top h1 {color: #fff}

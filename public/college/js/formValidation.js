@@ -23,10 +23,14 @@
                                 min: 3,
                                 max: 100,
                                 message: 'The username must be more than 3 and less than 100 characters long'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z]+$/,
+                                message: 'The College name can only consist of alphabetical A-Z a-z'
                             }
                         }
                     },
-                    email: {
+                   email: {
                         validators: {
                             notEmpty: {
                                 message: 'The email address is required'
@@ -55,13 +59,13 @@
                             },
                         }
                     },
-                    city: {
-                        validators: {
-                            notEmpty: {
-                                message: 'College Mobile City is required'
-                            },
-                        }
-                    },
+                    // city: {
+                    //     validators: {
+                    //         notEmpty: {
+                    //             message: 'College Mobile City is required'
+                    //         },
+                    //     }
+                    // },
                     college_address: {
                         validators: {
                             notEmpty: {
@@ -69,36 +73,11 @@
                             },
                         }
                     },
-                    college_type: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Please Select Location'
-                            }
-
-                        }
-                    },
                     college_category: {
                         validators: {
                             notEmpty: {
-                                message: 'catagory Of College'
-                            }
-
-                        }
-                    },
-                    course_offer: {
-                        validators: {
-                            notEmpty: {
-                                message: 'catagory Of College'
-                            }
-
-                        }
-                    },
-                    course_department: {
-                        validators: {
-                            notEmpty: {
-                                message: 'catagory Of College'
-                            }
-
+                                message: 'College Mobile City is required'
+                            },
                         }
                     }
                 }
@@ -153,7 +132,7 @@
             buttons: function() {
                 var options = this.options;
                 return '<div class="panel-footer"><ul class="pager">' +
-                    '<li class="previous">' +
+                    '<li class="previous btn btn">' +
                     '<a href="#' + this.id + '" data-wizard="back" role="button">' + options.buttonLabels.back + '</a>' +
                     '</li>' +
                     '<li class="next">' +
