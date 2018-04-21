@@ -12,6 +12,8 @@ use App\Model\students\Student;
 use App\Model\students\StudentEducationDetails;
 use App\Model\students\StudentGraduationDetails;
 use App\Model\UserVerification;
+use App\Model\StudentAppliedHistory;
+use App\User;
 use Auth;
 use Session;
 
@@ -44,8 +46,31 @@ class StudentController extends Controller
         
          if(!is_null($education_details)){
             $graduation_details=StudentGraduationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
+           $appliedTo=StudentAppliedHistory::where('student_id',Auth::user()->student_id)->paginate(5);
            
-            return view('student.pages.student_dashboard',['students'=>Auth::user(),'education'=>$education_details,'graduation'=>$graduation_details]);
+           if(count($appliedTo)>0){
+            foreach ($appliedTo as $arrayData){
+                //dd($arrayData->college_id);
+                
+                $college= User::where('reg_id',$arrayData->college_id)
+                            ->get(['reg_id AS collegeId','college_name AS collegeName','college_img AS college_img','college_city AS college_city','college_state AS college_state']);
+                $arrayData->{'college'} = $college; 
+               // dd($arrayData);
+            }
+            // $courseDetail = courseOffers::where('reg_id',$request->reg_id)
+            //                 ->orderBy('course_department', 'ASC')
+            //                 ->groupBy('course_offer')
+            //                 ->get(['course_offer AS course',"course_department AS departments"]);
+            
+
+                //dd($appliedTo[0]->college[0]->college_img);
+              
+             return view('student.pages.student_dashboard',['students'=>Auth::user(),
+                    'education'=>$education_details,'graduation'=>$graduation_details,'appliedTo'=>$appliedTo]);
+
+            }//if he has not apllied any college
+            return view('student.pages.student_dashboard',['students'=>Auth::user(),
+                  'education'=>$education_details,'graduation'=>$graduation_details,'appliedTo'=>null]);
          }
          return redirect('student/addprofile')
                 ->with('success','Login Successfull ,Complete the form to proceed further');
@@ -64,6 +89,7 @@ class StudentController extends Controller
 
     public function addOrupdateStudentDetails(Request $request){
 
+      //  dd($request->all());
     
         $student = Student::find(Auth::user()->id);
         if(!is_null($student)){
@@ -83,7 +109,7 @@ class StudentController extends Controller
             $student->address = Input::get("address");    
             $student->about_you = Input::get("about_you");    
 
-            if($student->update()) {
+            if($student->save()) {
             
                 $education=StudentEducationDetails::firstOrNew(['student_id'=>Auth::user()->student_id]);
 

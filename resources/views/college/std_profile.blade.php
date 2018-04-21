@@ -11,6 +11,13 @@
     .just{
         text-align:justify;
     }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
+    {
+        padding:4px;
+    }
+    .panel .panel-heading{
+        padding: 10px 15px;
+    }
    </style>
 @endsection
 
@@ -48,11 +55,11 @@
                                    <ul class="list-icons m-l-30 just">   
                                         <li><i class="fa fa fa-check text-info"></i><span><i class="fa fa-graduation-cap"></i><b> Course Applied:</b> {{ $student_applied->course }}</span></li>
                                         <li><i class="fa fa fa-check text-info"></i><span><i class="ti-user"></i><b> Department :</b> {{ $student_applied->department }}</span></li>
-                                        <li><i class="fa fa fa-check text-info"></i><span><i class="fa fa-money"></i><b> Payment status:</b>
+                                        {{-- <li><i class="fa fa fa-check text-info"></i><span><i class="fa fa-money"></i><b> Payment status:</b>
                                         @if ($student_applied->pay_status == "Not Paid")
                                         <span class="label label-rouded label-danger">Not Paid</span>
                                         @else<span class="label label-rouded label-success">Paid</span>
-                                        @endif</span></li>
+                                        @endif</span></li> --}}
                                     </ul>
                                 </div>
                                 </div>
@@ -66,7 +73,7 @@
                                 <table class="table ">
 
                                     <tbody>
-                                        <div class="panel panel-info">
+                                        <div class="panel panel-success">
                                         <div class="panel-heading"> Basic Details
                                             <div class="pull-right"></div>
                                         </div></div>
@@ -126,7 +133,7 @@
                                      <table class="table ">
 
                                         <tbody>
-                                        <div class="panel panel-info m-t-30">
+                                        <div class="panel panel-success m-t-30">
                                         <div class="panel-heading"> SSLC Details
                                             <div class="pull-right"></div>
                                         </div></div>
@@ -158,7 +165,7 @@
                                      <table class="table">
 
                                         <tbody>
-                                        <div class="panel panel-info m-t-30">
+                                        <div class="panel panel-success m-t-30">
                                         <div class="panel-heading"> PUC Details
                                             <div class="pull-right"></div>
                                         </div></div>
@@ -186,10 +193,10 @@
 
                                 </table>
                                 
-                                @if ($student_graduations->university_name!= "")
+                                @if (!is_null($student_graduations))
                                  <table class="table">
                                         <tbody>
-                                        <div class="panel panel-info m-t-30">
+                                        <div class="panel panel-success m-t-30">
                                         <div class="panel-heading"> Graduation Details
                                             <div class="pull-right"></div>
                                         </div></div>

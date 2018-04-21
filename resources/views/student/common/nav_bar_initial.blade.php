@@ -12,13 +12,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="{{ asset('student/images/virtual-logo.png')}}" alt="">
+                        <a class="navbar-brand" href="#"><img src="{{ asset('student/images/logo.png')}}" alt="">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
                          data-animations="fadeInUp">
                         <ul class="nav navbar-nav navbar-right">
-                           <li><a href="#">Home</a>
+                            @guest
+                            <li>  <button type="submit" class="btn btn-primary btn-rounded " onClick="parent.open('{{ route('college.register') }}')" style="background: #cf860c; margin-top: 8px;">College Registration</button></li>
+                           @endguest
+                            <li><a href="#">Home</a>
                             <li><a href="#" onClick="parent.open('https://www.mindzglobal.com/contact-us/')">Contact</a>
                             </li>
                         @guest
@@ -38,6 +41,9 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ url('student/profile') }}"><i class="fa fa-user"></i> My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('student.password.reset') }}"><i class="fa fa-unlock-alt"></i> Change Password</a>
                                     </li>
                                     <li>    
                                         <a class="dropdown-item" href="{{ route('student.logout') }}"

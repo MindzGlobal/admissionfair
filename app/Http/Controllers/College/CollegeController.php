@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\College;
 use App\Model\College\CollegeDetail;
 use App\Model\College\courseOffers;
-// use App\Model\students\Student;
-// use App\Model\students\Student_Graduation__Details;
-// use App\Model\students\Student_Education_Details;
-// use App\Model\StudentAppliedHistory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -31,17 +27,25 @@ class CollegeController extends Controller
             if($mobileVerificationStatus == 'No'){
                 return redirect()->route('otpverification');
             } 
-            // else if(Auth::user()->compilation_status!='Done') {
-            //   if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile'))){
-            //     return redirect()->route('createprofile');
-            //   }
-            // }
+            else if(Auth::user()->compilation_status!='Done') {
+              if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile','select_booth','insertBooth','package','pay'))){
+                return redirect()->route('createprofile');
+              }
+            }
             return $next($request);
         });
     }
 
+    public function chackCompilation(){
+      if(Auth::user()->compilation_status=='Done')
+      {
+        return redirect()->route('dashboard');
+      }
+    }
+
     protected function createprofile()
     {
+        $this->chackCompilation();
         return view('college.create_profile');
     }
 
@@ -80,6 +84,7 @@ class CollegeController extends Controller
         $clgDetais->About_college = Input::get('About_college');
         $clgDetais->college_category = $str_clgDetais;
         $clgDetais->college_address = Input::get('college_address');
+        
         $img = Input::file('college_img');
         $video = Input::file('college_video');
         $brochure = Input::file('college_brochure');
@@ -91,11 +96,6 @@ class CollegeController extends Controller
           $img->move(public_path().$destination_path, $name);
           $file_url = 'college/images/clg_images/'.$name;
           $clgDetais->college_img = $file_url;
-  
-          // $file = Input::file('college_img');
-          // $file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
-          // $clgDetais->college_img = $file->getClientOriginalName();
-  
         }
   
         // if($video=$request->file('college_video')){
@@ -120,10 +120,6 @@ class CollegeController extends Controller
             $file_url = 'college/images/clg_brochure/'.$name;
             $clgDetais->college_brochure = $file_url;
   
-          // $file = Input::file('college_brochure');
-          // $file->move(public_path().'/college/images/clg_brochure', $file->getClientOriginalName());
-          // $clgDetais->college_brochure = $file->getClientOriginalName();
-  
           }
         
         if(!$clgDetais->update())
@@ -139,7 +135,7 @@ class CollegeController extends Controller
   
     // Update profile details  
     
-    public function updateformprofile(Request $request){ //To show view
+  public function updateformprofile(Request $request){ //To show view
       $id = Auth::user()->id;
       $reg_id = Auth::user()->reg_id;
       $user = CollegeDetail::find($id);
@@ -150,6 +146,12 @@ class CollegeController extends Controller
   public function updatecollegedetails(Request $request){
       $id = Auth::user()->id;
       $user = CollegeDetail::find($id);
+
+      $str_clgDetais = implode (",", $request->Input('college_category'));
+      $user->university_name = $request->Input('university_name');
+      $user->college_type = $request->Input('college_type');
+      $user->college_category = $str_clgDetais;
+
       $user->college_name = $request->Input('name');
       $user->college_email = $request->Input('email');
       $user->college_number_1 = $request->Input('mobile');
@@ -165,6 +167,7 @@ class CollegeController extends Controller
 
       $user->website = $request->Input('website');
       $user->college_address = $request->Input('college_address');
+      $user->college_about = $request->Input('college_about');
       $user->save();
       return redirect("college/update_profile");       
   }
@@ -172,12 +175,6 @@ class CollegeController extends Controller
   public function updatecollegecourse(Request $request){
     $id = Auth::user()->id;
     $reg_id = Auth::user()->reg_id;
-
-    $user = CollegeDetail::find($id);
-    $user->university_name = $request->Input('university_name');
-    $user->college_type = $request->Input('college_type');
-    // $user->$str_clgDetais = explode(",", $model->college_category);
-   
 
     courseOffers::where('reg_id',$reg_id)->delete();
     $course_offer = Input::get('course_offer');
@@ -213,8 +210,7 @@ class CollegeController extends Controller
         'course_department'  => $course_department[$i],
         ];
     }
-    // dd($insertData);
-    $user->save();
+
     $news = new courseOffers();
     $news->insert($insertData);
 
@@ -262,8 +258,8 @@ class CollegeController extends Controller
     public function insertBooth(Request $request)
       {
         
-        $res = 'success';
-        $msg = "Done";
+        $res = 'Success';
+        $msg = "Booth Selected Successfuly.";
         $id = Auth::user()->id;
         $clgname= Auth::user()->college_name;
         $clgDetais = CollegeDetail::find($id);
@@ -274,7 +270,7 @@ class CollegeController extends Controller
         if(!$clgDetais->update())
         {
           $res = 'Error';
-          $msg = "Some Error Occurred!";
+          $msg = "Booth Selection Failed.!";
         }
 
        // $news = new courseOffers();
@@ -316,8 +312,6 @@ class CollegeController extends Controller
     //To display student profile details
 
     public function std_profile(Request $request){ //To show view
-      // $student = Student::where('student_id','STDvn3t7KIvxL')->get();
-      // return view('college.std_profile',['student' => $student]);
       $student_id = $request->student_id;
       $student = DB::table('students')->where('student_id',$student_id)->first();
       $student_education = DB::table('student_education_details')->where('student_id',$student_id)->first();

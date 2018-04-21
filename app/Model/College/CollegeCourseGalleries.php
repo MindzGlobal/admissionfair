@@ -8,10 +8,14 @@ class CollegeCourseGalleries extends Model
 {
     //
     protected $table = 'college_course_galleries';
+
+    protected $fillable = [
+        'fileType', 'fileName', 'filePath', 'course_id',
+    ];
     
 
     public function course()
     {
-        return $this->belongsTo('App\Model\College\CollegeCourseGalleries','id');
+        return $this->belongsTo('App\Model\College\courseOffers','id');
     }
 }

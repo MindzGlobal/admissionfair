@@ -5,11 +5,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\College\College_media;
 use App\Model\College\courseOffers;
+use App\Model\College\CollegeDetail;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use File;
+use Image;
 
 
 class MediaController extends Controller
@@ -26,7 +28,7 @@ class MediaController extends Controller
   public function uploadimage(Request $request) {
     $reg_id = Auth::user()->reg_id;
     $insertData = array();
-    //dd($request->file('file'));
+    dd($request->file('file'));
     if($file=$request->file('file'))
     {
         $name = str_random(6) . '_' . $file->getClientOriginalName();
@@ -75,8 +77,12 @@ class MediaController extends Controller
      if(Input::hasFile('image'))
     {
         $file=Input::file('image');
-        $file->move(public_path().'/college/images/profile_images', $file->getClientOriginalName());
-        $user->profile_image = 'college/images/profile_images/'.$file->getClientOriginalName();
+
+        $thumb_img = Image::make($file->getRealPath())->resize(260, 170);
+        $thumb_img->save(public_path().'/college/images/clg_images/'.$file->getClientOriginalName(),80);
+
+        //$file->move(public_path().'/college/images/clg_images', $file->getClientOriginalName());
+        $user->college_img = 'college/images/clg_images/'.$file->getClientOriginalName();
     }
 
      $user->update();
@@ -87,8 +93,17 @@ class MediaController extends Controller
      $regid = Auth::user()->reg_id;
      $user=User::where('reg_id',$regid)->first();
      // $course = courseOffers::where('reg_id',$regid)->get();
-     $course=courseOffers::where('reg_id',$regid)->get(['course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
+     $course=courseOffers::where('reg_id',$regid)->get(['id','course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
      // dd($course->all());
-     return view("college.index")->with(['user' => $user, 'course' => $course]);
+     $course=DB::table('course_offers')->paginate(5);
+
+    $var=$this->YoutubeID($user->college_video);
+    return view("college.index")->with(['user' => $user, 'course' => $course, 'youtube'=>$var]);
    }
+
+   public function destroy($id){ 
+      $courseoffer = courseOffers::where('id',$id)->delete();
+      return redirect("college/myprofile")->with(['status'=>'Success', 'msg'=>'Your course is deleted successfully!!']);
+    }
+
 }

@@ -67,7 +67,8 @@ class OtpVerificationController extends Controller
             $UserVerification->mobile_token = $OTP;
             if($UserVerification->save()){
                 $this->sendSMS($mobile, $message);
-               
+                
+                Session::keep(['mobile',$mobile]);
                 return redirect()->back()->withErrors(['status'=>'success','message'=>'Success ,New Otp has sent to your Registered Mobile Number']);
             }
             return redirect()->back()->withErrors(['status'=>'danger','message'=>'Oops ,Something Went Wrong ,Please try again later']);

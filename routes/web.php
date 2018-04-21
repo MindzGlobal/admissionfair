@@ -13,8 +13,7 @@
 
 // Auth Section ##############################################################################
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'HomeController@about')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 //Student Section ###############################################################################
 Route::get('college/demo', function () {
     return view('college.subscribe_price');
@@ -26,7 +25,7 @@ Route::post('pay-student','PaymentController@studentPay')->name('studentPay');
 Route::get('paystatus-student','PaymentController@studentStatus')->name('studentpaystatus');
 //College Section  ##############################################################################
 Route::prefix('college')->namespace('college')->group(function(){
-    Route::get('register','CollegeAuthController@register');
+    Route::get('register','CollegeAuthController@register')->name('college.register');
     Route::get('login','CollegeAuthController@login')->name('collegelogin');
 
     Route::get('otpverification','OtpController@OtpVerifivationView')->name('otpverification');
@@ -35,6 +34,7 @@ Route::prefix('college')->namespace('college')->group(function(){
     
     Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
     Route::post('index','MediaController@uploadprofile_image');
+    Route::get('destroy/{id}', 'MediaController@destroy');
     Route::get('myprofile','MediaController@showprofile_image')->name('myprofile');
 
     Route::post('image_gallery','MediaController@uploadimage');
@@ -54,12 +54,18 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('insertcustombooth','CollegeController@insertcustombooth');
     Route::get('select_booth','CollegeController@select_booth');
 
+    Route::get('package','CollegeController@packegeview')->name('package');
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
 
-    Route::get('update_profile','CollegeController@updateformprofile');
-    Route::post('updatecollegedetails','CollegeController@updatecollegedetails');
-    Route::post('updatecollegecourse','CollegeController@updatecollegecourse');
-    Route::post('updatecollegemedia','CollegeController@updatecollegemedia');
+    Route::get('addcourse','CourseController@addcourse');
+    Route::post('addcoursedetail','CourseController@addcoursedetail');
+
+    Route::get('update_course/{id}','CourseController@updatecourse');
+    Route::post('updatecourserecord','CourseController@updatecourserecord');
+    Route::post('updatefaculty','CourseController@updatefaculty');
+    Route::post('updatepayment','CourseController@updatepayment');
+    Route::post('updateimages/{id}','CourseController@updateimages');
+    Route::post('deleteimages','CourseController@deleteimages');
 
     Route::get('searchcourseajax',array('as'=>'searchcourseajax','uses'=>'AutoCompleteController@autoCourseComplete'));
     Route::get('searchdeparmentajax',array('as'=>'searchdeparmentajax','uses'=>'AutoCompleteController@autoDepartmentComplete'));
@@ -74,6 +80,11 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::post('updatepayment','CourseController@updatepayment');
     Route::post('updateimages/{id}','CourseController@updateimages');
     Route::post('deleteimages','CourseController@deleteimages');
+    Route::any('dashboardsearch','DashboardController@dashboardsearch')->name('dashboardsearch');
+    Route::get('destroy/{id}', 'MediaController@destroy');
+
+    Route::get('adduser', 'MediaController@adduser');
+
 
 });
 
@@ -95,7 +106,7 @@ Route::prefix('student')->namespace('students')->group(function(){
 
     Route::post('password/email','Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('password/reset','Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
-    Route::post('password/reset','Auth\ResetPasswordController@reset');
+    Route::post('password/reset','Auth\StudentResetPasswordController@reset')->name('student.password.resetdo');
     Route::get('resetpassword','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
  //   Route::get('password/reset/{token}','Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');
     Route::get('verify/{email}/{email_token}','Auth\StudentResetPasswordController@authenticateJobseekerEmail')->name('authenticateJobseekerEmail');
@@ -116,13 +127,18 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::get('course','CollegeDetailsController@showSelectedDepartment');
     Route::post('apply','CollegeDetailsController@ApplyCollege');
 
-    Route::get('gallery','CollegeDetailsController@collegeGallery');
-    
+    Route::get('image/{clg}/gallery','CollegeDetailsController@collegeImageGallery');
+    Route::get('video/{clg}/gallery','CollegeDetailsController@collegevideoGallery');
 
 });
 
-Route::get('college/std_profile1', function () {
-    return view('college.std_profile1');
+Route::get('student/demo1/', function () {
+    return view('student.pages.faculty');
+});
+
+
+Route::get('collegeindex', function () {
+    return view('collegeindex');
 });
 
 Route::get('college/paystatus', function () {

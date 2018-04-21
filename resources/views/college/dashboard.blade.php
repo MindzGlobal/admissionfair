@@ -3,7 +3,8 @@
     <style type="text/css">
    
         .font15{
-            font-size:15px;
+            /* font-size:15px; */
+            line-height: 0.9;
         }
     .pagination>.active>a {
         background-color: #03a9f3;
@@ -87,10 +88,10 @@
                                         <tr>
                                             <td>
                                                 <center><img alt="img" class="thumb-lg img-circle" src="{{ asset($user->profile_image) }}"></center>
-                                                <br>@if ($user->pay_status == "Not Paid")
+                                                {{-- <br>@if ($user->pay_status == "Not Paid")
                                                 <center><span class="label label-rouded label-danger">Not Paid</span></center>
                                                 @else<center><span class="label label-rouded label-success">Paid</span></center>
-                                                @endif</td>
+                                                @endif</td> --}}
                                             <td>
                                                 <div class="m-l-40">
                                                 <p class="font15">

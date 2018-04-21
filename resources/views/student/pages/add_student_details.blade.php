@@ -275,7 +275,7 @@
                             Part Time
                             </label>&nbsp
                             <label for="chkYes1">
-                            <input name="graduation_type"  type="radio" id="coresspondance" value="  Correspondance" />
+                            <input name="graduation_type"  type="radio" id="coresspondance" value="Correspondance" />
                             Coresspondance
                            </label>
                         </div>
@@ -283,25 +283,25 @@
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="clg_location">Course:</label>
-                           <input type="text" name="course" class="form-control textbox" id="mob" placeholder="Enter Course Name" >
+                           <input type="text" name="course" class="form-control textbox" id="course" placeholder="Enter Course Name" >
                         </div>
                      </div>
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="clg_location">Department:</label>
-                           <input type="text" name="department" class="form-control textbox" id="mob" placeholder="Enter Department Name" >
+                           <input type="text" name="department" class="form-control textbox" id="department" placeholder="Enter Department Name" >
                         </div>
                      </div>
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="Marks">Marks/Grade:</label>
-                           <input type="text" name="marks" class="form-control textbox" id="mob" placeholder="Marks"  >
+                           <input type="text" name="marks" class="form-control textbox" id="marks" placeholder="Marks"  >
                         </div>
                      </div>
                      <div class="col-md-3">
                         <div class="form-group">
                            <label for="Marks">Percentage(%):</label>
-                           <input type="text" name="percentage" class="form-control textbox" id="mob" placeholder="Percentage" >
+                           <input type="text" name="percentage" class="form-control textbox" id="percentage" placeholder="Percentage" >
                         </div>
                      </div>
                   </fieldset>

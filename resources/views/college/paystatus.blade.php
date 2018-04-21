@@ -25,49 +25,52 @@
 
 <div class="row">
 
-<!--Code for Successfully Registered-->    
-
+<!--Code for Successfully Registered--> 
+@if($status != 'Failed')
 <div class="col-md-3"></div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8" > 
                         <div class="panel panel-success block5" style="border:1px solid #00c292; margin-top:100px;">
-                            <div class="panel-heading"> Success Panel
+                            <div class="panel-heading"> Success
                             </div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                     <center><img src="{{ asset('college/images/success.png') }}" class="all landscape img-check img-responsive" alt="gallery" width="150px" height="150px"/>
-                                    <h2 class="text-success">Successfully Registered</h2>
+                                    <h2 class="text-success">Transaction Successful</h2>
                                     <p>Your Payment is Successfully Done</p></center>
                                 </div>
                             </div>
 
-                            <center><p><h4>Your Transection Id is - ABCD1234</h4></p></center>
+                            <center><p><h4>Your Transection Id is - {{ $txnid}}</h4></p></center>
                         </div>
                         
         </div>
+        
  <div class="col-md-3"></div>
 
+@else
 <!--Code for Transection failed-->
 
 <div class="col-md-3"></div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8" > 
                         <div class="panel panel-danger block5" style="border:1px solid #fb9678; margin-top:100px;">
-                            <div class="panel-heading"> Failure Panel
+                            <div class="panel-heading"> Failure
                             </div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                     <center><img src="{{ asset('college/images/cancel.png') }}" class="all landscape img-check img-responsive" alt="gallery" width="150px" height="150px"/>
-                                    <h2 class="text-danger">Transection Failed</h2>
+                                    <h2 class="text-danger">Transaction Failed</h2>
                                     <p>Please contact to the customer to use alternative payment method</p></center>
                                 </div>
                             </div>
 
-                            <center><p><h4>Your Transection Id is - ABCD1234</h4></p></center>
+                            <center><p><h4>Your Transection Id is - {{ $txnid}}</h4></p></center>
                         </div>
                         
         </div>
         <div class="col-md-3"></div>
+@endif        
 </div>
 
 </div>

@@ -26,6 +26,7 @@ class CreateCourseOffersTable extends Migration
             $table->text('what_we_offer')->nullable();
             $table->text('fee_structure')->nullable();
             $table->text('Payment_mode')->nullable();
+            $table->integer('available_seat')->nullable();
             $table->string('fee_structure_file_name')->nullable();
             $table->string('fee_structure_file_url')->nullable();
             $table->timestamps();

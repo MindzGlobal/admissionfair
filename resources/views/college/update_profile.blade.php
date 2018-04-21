@@ -36,7 +36,6 @@
    }
 </style>
 @endsection
-
 @section('content')
 <!-- Page Content -->
 <div class="container-fluid">
@@ -383,21 +382,73 @@
                                                 <button type="submit" class="btn btn-info waves-effect waves-light m-l-5"><span>Update</span> <i class="fa fa-check"></i></button>
                                                 </div>
                                           </div>
-                                        </form>
-                                        </section>
+                                       </div>
                                     </div>
-                                    <!-- /content -->
-                                </div>
-                                <!-- /tabs -->
-                            </section>
-                          </div>
-                          </div>
-                          </div>
-                          </div>
-                          <input type="hidden" id="ajaxCourseUrl" value="{{ route('searchcourseajax') }}">
-                          <input type="hidden" id="ajaxDeparmentUrl" value="{{ route('searchdeparmentajax') }}">                          
+                                    <div class="clearfix"></div>
+                                    @endforeach
+                                 </div>
+                              </div>
+                              <br>
+                           </div>
+                           <div class="col-md-12 m-l-10">
+                              <button  name="submit" class="btn btn-primary add_field_button1 m-t-15" id="add-more" style="float:left; padding: 5px;">Add More Courses</button>
+                           </div>
+                           <br><br>
+                           <div class="col-md-12 m-t-15 m-b-30 m-l-5">
+                              <button type="submit" class="btn btn-info waves-effect waves-light m-l-5"><span>Update</span> <i class="fa fa-check"></i></button>
+                           </div>
+                     </form>
+                  </section>
+                  <!--Tab section 3-->
+                  <section id="section-bar-3">
+                        <form method="post" action="{{ url('college/updatecollegemedia')}}" enctype="multipart/form-data">
+                           @csrf
+                           <div class="wizard-pane active" role="tabpanel">
+                              <div class="form-group">
+                                 <div class="row">
+                                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                                       <div class="white-box">
+                                          <h3 class="box-title">College Images</h3>
+                                          <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M" data-default-file="{{ asset($user->college_img) }}"/>
+                                          <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-6 ol-md-6 col-xs-12">
+                                       <div class="white-box">
+                                          <h3 class="box-title">College Videos</h3>
+                                          <input type="file" id="input-file-max-fs" class="dropify" name="college_video" accept="" data-max-file-size="20M" data-default-file="{{ asset($user->college_video) }}"/>
+                                          <label for="input-file-max-fs"><i>You can add a max file size 20MB</i></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12 ol-md-12 col-xs-12">
+                                       <div class="white-box">
+                                          <h3 class="box-title">College Brochures</h3>
+                                          <input type="file" id="input-file-max-fs" class="dropify" name="college_brochure" data-max-file-size="2M" data-default-file="{{ asset($user->college_brochure) }}"/>
+                                          <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-12 m-l-15 p-b-30">
+                                 <button type="submit" class="btn btn-info waves-effect waves-light m-l-5"><span>Update</span> <i class="fa fa-check"></i></button>
+                              </div>
+                           </div>
+                        </form>
+                     </section>
+                  </div>
+                  <!-- /content -->
+               </div>
+               <!-- /tabs -->
+         </section>
+         </div>
+      </div>
+   </div>
+</div>
+<input type="hidden" id="ajaxCourseUrl" value="{{ route('searchcourseajax') }}">
+<input type="hidden" id="ajaxDeparmentUrl" value="{{ route('searchdeparmentajax') }}">                          
 @endsection
-
 @section('js')
     <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
 
@@ -416,11 +467,18 @@
                    <script type="text/javascript">
                    (function() {
 
-                       [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
-                           new CBPFWTabs(el);
-                       });
+        $('.inline-editor').summernote({
+            airMode: true
+        });
 
-                   })();
+    });
+
+    window.edit = function() {
+            $(".click2edit").summernote()
+        },
+        window.save = function() {
+            $(".click2edit").summernote('destroy');
+        }
     </script>
 
       <script>

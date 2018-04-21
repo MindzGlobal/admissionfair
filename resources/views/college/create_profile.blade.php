@@ -124,12 +124,35 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-xs-3 control-label">College Name</label>
+                                    <label class="col-xs-3 control-label">Type Of College</label><br>
+
                                     <div class="col-xs-5">
                                         <input type="text" value="{{ Auth::user()->name }}" required class="form-control" name="name" placeholder="College Name" />
                                     </div>
                                 </div>
                             </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-xs-3 control-label">Category Of College:</label><br>
+                                      <select class="select2 m-b-10 select2-multiple" name="college_category[]" multiple="multiple" data-placeholder="Choose">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                        <option value="Alaska">Alaska</option>
+                                        <option value="Hawaii">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                        <option value="California">California</option>
+                                        <option value="Nevada">Nevada</option>
+                                        <option value="Oregon">Oregon</option>
+                                        <option value="Washington">Washington</option>
+                                    </optgroup>
+                                
+                            </select>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-xs-3 control-label">College Official Email ID <span class="red">*</span></label>
@@ -231,7 +254,7 @@
                                     <div class="col-sm-6 ol-md-6 col-xs-12">
                                     <div class="white-box">
                                     <h3 class="box-title">College Images</h3>
-                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_img" accept="image/gif, image/jpeg, image/png" data-max-file-size="2M"/>
+                                    <input type="file" id="input-file-max-fs" class="dropify" name="college_img" data-allowed-file-extensions="jpg png" data-max-file-size="2M"/>
                                     <label for="input-file-max-fs"><i>You can add a max file size 2MB</i></label>
                                     </div>
                                     </div>

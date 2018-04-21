@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use App\Model\students\Student;
 use App\Model\students\StudentEducationDetails;
 class StudentLoginController extends Controller
 {
@@ -54,9 +55,35 @@ class StudentLoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         // dd($this->guard('student')->attempt($this->credentials($request), $request->filled('remember')));//'email_verification'=>'verified'
-         $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password,'otp_verified'=>1 ]); 
+         $validStudent = Auth::guard('student')->attempt(['email'=>$request->email , 'password'=>$request->password]); 
      
          return $validStudent;
+    }
+
+     /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
+    {
+        
+        $student=Student::where(['email'=>$request->email])->first();
+        if($student->otp_verified<=0){
+            Session::flush();
+            
+            return redirect('student/otp')->with('mobile',$student->mobile)
+            ->with('warning','Your Account is not Verified yet,Please verify your account through OTP.');
+
+        }
+        $request->session()->regenerate();
+
+            $this->clearLoginAttempts($request);
+
+            return $this->authenticated($request, $this->guard()->user())
+                    ?: redirect()->intended($this->redirectPath());
+        
     }
      
     /**
@@ -72,7 +99,9 @@ class StudentLoginController extends Controller
           return redirect()->intended('/student/profile')
            ->with('success','successfully Login to Virtual AdmissionFair');
          }
-        return redirect()->intended(route('student.otpform'));
+         return redirect('student/otp')->with('mobile',$student->mobile)
+            ->with('warning','Your Account is not Verified yet,Please verify your account through OTP.');
+
     }
 
 

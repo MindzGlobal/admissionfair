@@ -36,9 +36,8 @@
                 <!-- Start Navigation -->
                 <nav class="navbar navbar-default navbar-static-top m-b-0">
                     <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-
-                        <div class="top-left-part"><a class="logo" href="{{ route('dashboard') }}">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}" alt=""/ style="width: 150px;>
-                        margin-left: 30px;"></span></a></div>
+                        <div class="top-left-part"><a class="logo" href="{{ route('dashboard') }}">&nbsp &nbsp<span class="hidden-xs"><img src="{{ asset('college/images/logo.png') }}"  style="width: 150px;margin-top: -11px;">
+                        </span></a></div>
                         <ul class="nav navbar-top-links navbar-left hidden-xs">
                             <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                             {{-- <li>
@@ -51,8 +50,8 @@
                             <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ Auth::user()->name }}</b> </a>
                                 <ul class="dropdown-menu dropdown-user animated flipInY">
-                                    <li><a href="{{ url('college/myprofile') }}"><i class="ti-user"></i>  My Profile</a></li>
-                                    <li><a href="{{ url('college/resetpwd') }}"> <i class="ti-settings"></i>  Profile Setting</a></li>
+                                    <li><a href="{{ url('college/myprofile') }}"><i class="fa fa-graduation-cap"></i>  College Profile</a></li>
+                                    <li><a href="{{ url('college/resetpwd') }}"><i class="ti-user"></i>  My Profile</a></li>
                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"  ></i>  Logout</a></li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
