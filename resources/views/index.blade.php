@@ -50,6 +50,15 @@
   
     padding: 0px 0 15px;
 }
+.heroaction {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #f39008;
+    color: #fff;
+    font-size: 20px;
+    line-height: 25px;
+    cursor: pointer;
+}
     </style>
 @endsection
 
@@ -72,7 +81,9 @@
                         <div class="content mt5 ">
                             <h2 class="animated fadeInLeft">Virtual Admission Fair -<span class="txt_blu">2018</span></h2>
                             <p class="animated fadeInRight"> We are working to bring best admission fair platform.<br>Now getting admission in your dream college is easy.
-                                Stay tuned!</p>                            
+                                Stay tuned!</p>  
+                                <div class="heroaction" data-ix="heroaction" onClick="parent.open('{{ route('student.registerform') }}')"><span>Student | Register | Sign in</div> 
+                                                       
                         </div>
                         
                     </div>
@@ -95,7 +106,7 @@
     </div>
 </div-->
 <!-- Start coll/std Section -->
-<section class="event-area">
+<!--section class="event-area">
     <div class="container pb0">
     <div class="edu-sec-header text-center">
                     <div class="sec-title mar-btm-50">
@@ -145,7 +156,7 @@
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- End coll/std Section -->
 <!-- Start HowItWorks Section  -->
 <section class="services-area" style="background:#eee;">
