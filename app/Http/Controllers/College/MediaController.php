@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\College\College_media;
 use App\Model\College\courseOffers;
+use App\Model\College\CollegeDetail;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -95,11 +96,14 @@ class MediaController extends Controller
      $course=courseOffers::where('reg_id',$regid)->get(['id','course_offer','course_duration','course_total_fee','fee_structure_file_name','fee_structure_file_url','course_department']);
      // dd($course->all());
      $course=DB::table('course_offers')->paginate(5);
-     return view("college.index")->with(['user' => $user, 'course' => $course]);
+
+    $var=$this->YoutubeID($user->college_video);
+    return view("college.index")->with(['user' => $user, 'course' => $course, 'youtube'=>$var]);
    }
 
    public function destroy($id){ 
       $courseoffer = courseOffers::where('id',$id)->delete();
       return redirect("college/myprofile")->with(['status'=>'Success', 'msg'=>'Your course is deleted successfully!!']);
     }
+
 }
