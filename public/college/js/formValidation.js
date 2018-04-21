@@ -13,75 +13,74 @@
         onInit: function() {
             $('#validation').formValidation({
                 framework: 'bootstrap',
-                // fields: {
-                //     clg_name: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'The College name is required'
-                //             },
-                //             stringLength: {
-                //                 min: 3,
-                //                 max: 100,
-                //                 message: 'The username must be more than 3 and less than 100 characters long'
-                //             },
-                //             regexp: {
-                //                 regexp: /^[a-zA-Z]+$/,
-                //                 message: 'The College name can only consist of alphabetical A-Z a-z'
-                //             }
-                //         }
-                //     },
-                //     clg_offemail: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'The email address is required'
-                //             },
-                //             emailAddress: {
-                //                 message: 'The input is not a valid email address'
-                //             }
-                //         }
-                //     },
-                //     clg_official_number1: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'College Mobile Number is required'
-                //             },
+                fields: {
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The College name is required'
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 100,
+                                message: 'The username must be more than 3 and less than 100 characters long'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z]+$/,
+                                message: 'The College name can only consist of alphabetical A-Z a-z'
+                            }
+                        }
+                    },
+                   email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The email address is required'
+                            },
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                    mobile: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile Number is required'
+                            },
 
-                //             regexp: {
-                //                 regexp: /^[6789]{1}\d{5}\d{4}$/,
-                //                 message: 'The Mobile Number should be start from 6789'
-                //             }
-                //         }
-                //     },
-                //     clg_state: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'College Mobile State is required'
-                //             },
-                //         }
-                //     },
-                //     clg_city: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'College Mobile City is required'
-                //             },
-                //         }
-                //     },
-                //     clg_address: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'College Mobile Address is required'
-                //             },
-                //         }
-                //     },
-                //      clg_location: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Please Select Location'
-                //             }
-
-                //         }
-                //     }
-                // }
+                            regexp: {
+                                regexp: /^[6789]{1}\d{5}\d{4}$/,
+                                message: 'The Mobile Number should be start from 6789'
+                            }
+                        }
+                    },
+                    state: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile State is required'
+                            },
+                        }
+                    },
+                    // city: {
+                    //     validators: {
+                    //         notEmpty: {
+                    //             message: 'College Mobile City is required'
+                    //         },
+                    //     }
+                    // },
+                    college_address: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile Address is required'
+                            },
+                        }
+                    },
+                    college_category: {
+                        validators: {
+                            notEmpty: {
+                                message: 'College Mobile City is required'
+                            },
+                        }
+                    }
+                }
             });
         },
         validator: function() {
@@ -133,7 +132,7 @@
             buttons: function() {
                 var options = this.options;
                 return '<div class="panel-footer"><ul class="pager">' +
-                    '<li class="previous">' +
+                    '<li class="previous btn btn">' +
                     '<a href="#' + this.id + '" data-wizard="back" role="button">' + options.buttonLabels.back + '</a>' +
                     '</li>' +
                     '<li class="next">' +

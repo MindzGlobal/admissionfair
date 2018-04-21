@@ -48,12 +48,10 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('createprofile','CollegeController@createprofile')->name('createprofile');
     Route::post('insertprofile','CollegeController@insertprofile')->name('insertprofile');
 
-    Route::get('select_booth','CollegeController@select_booth');
-    Route::post('insertBooth','CollegeController@insertBooth');
-
     Route::get('package','CollegeController@packegeview');
 
     Route::post('insertBooth','CollegeController@insertBooth');
+    Route::post('insertcustombooth','CollegeController@insertcustombooth');
     Route::get('select_booth','CollegeController@select_booth');
 
     Route::get('std_profile/{student_id}','Collegecontroller@std_profile');
@@ -70,6 +68,12 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::get('resetpwd','ResetPasswordController@resetpwd');
     Route::post('changepwd','ResetPasswordController@changepwd');
 
+    Route::get('update_course/{id}','CourseController@updatecourse');
+    Route::post('updatecourserecord','CourseController@updatecourserecord');
+    Route::post('updatefaculty','CourseController@updatefaculty');
+    Route::post('updatepayment','CourseController@updatepayment');
+    Route::post('updateimages/{id}','CourseController@updateimages');
+    Route::post('deleteimages','CourseController@deleteimages');
 
 });
 
@@ -113,6 +117,7 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
     Route::post('apply','CollegeDetailsController@ApplyCollege');
 
     Route::get('gallery','CollegeDetailsController@collegeGallery');
+    
 
 });
 
@@ -120,3 +125,14 @@ Route::get('college/std_profile1', function () {
     return view('college.std_profile1');
 });
 
+Route::get('college/paystatus', function () {
+    return view('college.paystatus');
+});
+
+// Route::get('college/update_course', function () {
+//     return view('college.update_course');
+// });
+
+Route::get('college/addcourse', function () {
+    return view('college.addcourse');
+});
