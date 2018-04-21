@@ -21,19 +21,7 @@ class CollegeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            $mobileVerificationStatus = Auth::user()->mobile_verification;
-            if($mobileVerificationStatus == 'No'){
-                return redirect()->route('otpverification');
-            } 
-            else if(Auth::user()->compilation_status!='Done') {
-              if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile','select_booth','insertBooth','package','pay'))){
-                return redirect()->route('createprofile');
-              }
-            }
-            return $next($request);
-        });
+      $this->CollegeSetting();
     }
 
     public function chackCompilation(){

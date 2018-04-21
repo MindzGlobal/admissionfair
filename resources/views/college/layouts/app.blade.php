@@ -65,7 +65,7 @@
                     </div>
                 </nav>
                 <!--End Navigation-->
-                @if(Auth::user()->compilation_status == 'Done')
+                @if(Auth::user()->compilation_status=='Done' && Auth::user()->role=='Admin')
                 <!-- Left navbar-header -->
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
@@ -87,6 +87,8 @@
                             <li> <a href="{{ url('college/myprofile') }}" class="waves-effect"><i class="fa fa-graduation-cap p-r-10"></i> <span class="hide-menu"> College Profile</span></a></li>
 
                             <li> <a href="{{ url('college/update_profile') }}" class="waves-effect"><i class="fa fa-edit p-r-10"></i> <span class="hide-menu"> Update Profile</span></a></li>
+
+                            <li> <a href="{{ url('college/representative') }}" class="waves-effect"><i class="fa fa-edit p-r-10"></i> <span class="hide-menu"> Representative</span></a></li>
 
                             {{-- <li> <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-user p-r-10"></i> <span class="hide-menu"> Student Profile</span></a></li> --}}
 
@@ -114,7 +116,7 @@
                 <!-- Left navbar-header end -->
                 @endif
 
-                <div id="{{ Auth::user()->compilation_status == 'Done' ? 'page-wrapper' : '' }}">
+                <div id="{{ Auth::user()->compilation_status == 'Done' && Auth::user()->role=='Admin' ? 'page-wrapper' : '' }}">
                     @yield('content')
                     <!-- /.container-fluid -->
                     <footer class="footer text-center"> 2018 &copy; By ZRMindzGlobal </footer>

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -15,6 +16,26 @@ class Controller extends BaseController
     {
         $res = ['res' => $res,'msg' => $msg];
         return json_encode($res);
+    }
+
+    public function CollegeSetting(){
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $mobileVerificationStatus = Auth::user()->mobile_verification;
+            if($mobileVerificationStatus == 'No'){
+                return redirect()->route('otpverification');
+            }
+            else if(Auth::user()->role == 'User')
+            {
+              return redirect('college/chat');
+            } 
+            else if(Auth::user()->compilation_status!='Done') {
+              if(!in_array(Route::currentRouteName(), array('createprofile','insertprofile','select_booth','insertBooth','package','pay'))){
+                return redirect()->route('createprofile');
+              }
+            }
+            return $next($request);
+        });
     }
 
     public function random()

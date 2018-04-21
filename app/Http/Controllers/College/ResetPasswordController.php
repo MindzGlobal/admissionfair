@@ -38,7 +38,7 @@ class ResetPasswordController extends Controller
      
       $validatedData = $request->validate([
           'old_pwd' => 'required',
-          'password' => 'required|string|min:6|confirmed|different:old_pwd',
+          'password' => 'required|string|min:8|confirmed|different:old_pwd',
       ]);
       $id = Auth::user()->reg_id;
       $users = CollegeDetail::where('reg_id', $id)->first();

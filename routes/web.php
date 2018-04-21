@@ -71,7 +71,14 @@ Route::prefix('college')->namespace('college')->group(function(){
     Route::any('dashboardsearch','DashboardController@dashboardsearch')->name('dashboardsearch');
     Route::get('destroy/{id}', 'MediaController@destroy');
 
-    Route::get('adduser', 'MediaController@adduser');
+    Route::get('representative', 'SubUserController@index');
+    Route::post('addrepresentative', 'SubUserController@create');
+    Route::post('representativeajax', 'SubUserController@representativeajax');
+    Route::post('updaterepresentative', 'SubUserController@update');
+    Route::get('deleterepresentative/{id}', 'SubUserController@destroy');
+
+    Route::get('chat', 'ChatController@index');
+
 
 
 });
@@ -117,6 +124,7 @@ Route::prefix('student')->namespace('students')->middleware('revalidateStudent')
 
     Route::get('image/{clg}/gallery','CollegeDetailsController@collegeImageGallery');
     Route::get('video/{clg}/gallery','CollegeDetailsController@collegevideoGallery');
+    
 
 });
 
