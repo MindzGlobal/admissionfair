@@ -56,8 +56,12 @@
                 margin-bottom: -22px;" class="logo" alt="Logo" ></a>
 
      <li class="drop-down"><a id="navbarDropdown"   style="color:#fff!important;" class="nav-link dropdown-toggle img-cls" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre="">
-                                                                            <img src="http://localhost/admissionfair/public/student/images/profile_images/dummy_image.png" alt="user-img" style="width:26px;" class="img-circle" >  mala  gowda <span class="caret"></span>
-                                                                    </a>
+            @if(isset(Auth::user()->profile_image))
+        <img src="{{ asset(Auth::user()->profile_image) }}" alt="user-img" style="width:26px;" class="img-circle" > {{ Auth::user()->first_name.'  '.Auth::user()->last_name}}  <span class="caret"></span>
+       @else
+        <img src="{{ asset('student/images/profile_images/dummy_image.png') }}"  class="user-dp" alt="Avatar">  {{ Auth::user()->first_name.'  '.Auth::user()->last_name}}&nbsp;<span class="caret"></span>
+        @endif                                                        
+    </a>
     
              <!--Drop Down-->
              <ul class="drop-down-ul animated fadeIn">
@@ -67,7 +71,7 @@
             <li>
               <a href="{{ route('student.password.reset') }}" class="" title="Change Password"  style="color:#fff!important;"><span class="glyphicon glyphicon-file"  style="color:#fff!important;"></span>Change Password</a>
             </li>
-            <li>
+        
             <li>
               <a href="/test-drive/index.php?Logout=1" title="log out"  style="color:#fff!important;"><span class="glyphicon glyphicon-log-out"  style="color:#fff!important;"></span> Logout</a>
             </li>
@@ -76,62 +80,62 @@
          </li>
          
          <li class="mega-drop-down"><a style="color:#fff!important;"><i class="fa fa-graduation-cap"></i>Courses</a>
-             <div class="animated fadeIn mega-menu">
-                 <div class="mega-menu-wrap">
-                 <div class="row" style=" padding-top: 16px;">
-                         <div class="col-md-12">
-                             <ul class="stander">
-                             <div class="col-md-3">
-                             <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Mobile</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i> <a href="#">Computer</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">Watch</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">laptop</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i> <a href="#">Camera</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i> <a href="#">I pad</a><span>Description of Women</span>
-                                 </div>
-                                 <div class="col-md-3">
-                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
-                                 </div>
-                                 <div class="col-md-3">
-                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
-                                 </div>
-                                 <div class="col-md-3">
-                             <i class="fa fa-medkit  fa-1x"></i><a href="#">Mobile</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">Computer</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Watch</a>
-                                 <span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">laptop</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit fa-1x"></i><a href="#">Camera</a><span>Description of Women</span>
-                                 <i class="fa fa-medkit  fa-1x"></i><a href="#">I pad</a><span>Description of Women</span>
-                                 </div>
-                             </ul>
-                         </div>
-                     
-                     </div>
-                 </div>	
-             </div>
-         </li>
+            <div class="animated fadeIn mega-menu">
+                <div class="mega-menu-wrap">
+                <div class="row" style=" padding-top: 16px;">
+                        <div class="col-md-12">
+                            <ul class="stander">
+                            <div class="col-md-3">
+                            <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                <span>Electronics Engineering</span>
+                                <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                <span>Electronics Engineering</span>
+                                <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a>
+                                <span>Electronics Engineering</span>
+                                <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                </div>
+                                <div class="col-md-3">
+                                   <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                       <span>Electronics Engineering</span>
+                                       <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                       <span>Electronics Engineering</span>
+                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a>
+                                       <span>Electronics Engineering</span>
+                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                       <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                       </div>
+                                       <div class="col-md-3">
+                                           <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a>
+                                               <span>Electronics Engineering</span>
+                                               <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                               <span>Electronics Engineering</span>
+                                               <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a>
+                                               <span>Electronics Engineering</span>
+                                               <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                               <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                               <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                               </div>
+                                               <div class="col-md-3">
+                                                   <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                                       <span>Electronics Engineering</span>
+                                                       <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a>
+                                                       <span>Electronics Engineering</span>
+                                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a>
+                                                       <span>Electronics Engineering</span>
+                                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                                       <i class="fa fa-medkit fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                                       <i class="fa fa-medkit  fa-1x"></i> <a href="#"> Computer Science</a><span>Electronics Engineering</span>
+                                                       </div>
+                            </ul>
+                        </div>
+                    
+                    </div>
+                </div>	
+            </div>
+        </li>
          
          <!-- <li><a href="#"><i class="fa fa-cogs"></i> Services</a></li>
          <li><a href="#"><i class="fa fa-briefcase"></i> Portfolio</a></li>
